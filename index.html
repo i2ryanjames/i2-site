@@ -408,6 +408,64 @@
   }
   .pillar-link:hover { gap: 14px; }
 
+  /* ─── FEATURED PILLAR (MMWU) ───────────────── */
+  .pillar-featured {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(184,134,45,0.2);
+    border-radius: 12px;
+    padding: 56px 48px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    transition: all 0.4s;
+  }
+  .pillar-featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-warm));
+  }
+  .pillar-featured:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+  }
+  .pillar-featured-badge {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-accent);
+    background: rgba(184,134,45,0.1);
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  .pillar-featured h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .pillar-featured p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 28px;
+    max-width: 640px;
+  }
+  .pillar-featured .pillar-icon {
+    width: 64px; height: 64px;
+    margin-bottom: 0;
+  }
+  .pillar-featured .pillar-icon svg { width: 32px; height: 32px; }
+
   /* ─── ENDORSEMENTS ────────────────────────── */
   .endorsements { padding: var(--section-pad) 0; }
   .endorsements-header { text-align: center; margin-bottom: 64px; }
@@ -631,6 +689,7 @@
       <a href="https://www.i2ministries-emfci.com">The Initiative</a>
       <a href="/get-trained">Get Trained</a>
       <a href="https://resources.i2ministries.org">Resources</a>
+      <a href="https://linktree.com/wiseglobal">WISE Global App</a>
       <a href="/contact">Contact</a>
       <a href="/donate" class="nav-cta">Donate</a>
     </div>
@@ -725,6 +784,17 @@
       <h2 class="section-heading">Join the global community reaching <em>Muslims for Jesus</em></h2>
       <p>World-class training resources for churches, organizations, and individuals ready to answer the call.</p>
     </div>
+    <a href="https://www.gommwu.org/" class="pillar-featured reveal">
+      <div>
+        <span class="pillar-featured-badge">Featured</span>
+        <h3>Mission Muslim World University</h3>
+        <p>The online school equipping Christians to reach the Muslim world. Earn an MA Ministry degree with a concentration in Islamic Studies — fully accredited and 100% video-based. World-class professors, flexible scheduling, and a Christ-centered curriculum designed for the global church.</p>
+        <span class="pillar-link">Enroll Now <span class="btn-arrow">→</span></span>
+      </div>
+      <div class="pillar-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+    </a>
     <div class="pillars-grid">
       <a href="https://www.i2ministries-emfci.com/" class="pillar-card reveal">
         <div class="pillar-icon">
@@ -734,13 +804,13 @@
         <p>Learn how to launch the Every Muslim for Christ Initiative in your region. A comprehensive framework for mobilizing churches to reach Muslims at scale.</p>
         <span class="pillar-link">Launch the Initiative <span class="btn-arrow">→</span></span>
       </a>
-      <a href="https://www.mmwu.org/" class="pillar-card reveal reveal-delay-1">
+      <a href="https://linktree.com/wiseglobal" class="pillar-card reveal reveal-delay-1">
         <div class="pillar-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
         </div>
-        <h3>Mission Muslim World University</h3>
-        <p>The online school equipping Christians to reach the Muslim world. A pathway to earn an MA Ministry degree with a concentration in Islamic Studies.</p>
-        <span class="pillar-link">Enroll Now <span class="btn-arrow">→</span></span>
+        <h3>WISE Global Phone App</h3>
+        <p>The ministry management system for launching a national prayer, training, and evangelism initiative. Everything you need to coordinate outreach from your phone.</p>
+        <span class="pillar-link">Download the App <span class="btn-arrow">→</span></span>
       </a>
       <a href="https://thewadi.org" class="pillar-card reveal reveal-delay-2">
         <div class="pillar-icon">
@@ -860,7 +930,7 @@
         <div class="footer-col">
           <h4>Training</h4>
           <a href="https://www.i2ministries-emfci.com">The Initiative</a>
-          <a href="https://www.mmwu.org/">MMWU</a>
+          <a href="https://www.gommwu.org/">MMWU</a>
           <a href="https://thewadi.org">WADI</a>
           <a href="https://resources.i2ministries.org">Resources</a>
         </div>
