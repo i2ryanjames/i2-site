@@ -103,44 +103,50 @@
   .pathway-card {
     background: var(--color-surface-raised);
     border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 14px;
-    overflow: hidden;
+    border-radius: 12px;
+    padding: 44px 40px;
     transition: all 0.4s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    display: flex; flex-direction: column;
-  }
-  .pathway-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
-    border-color: rgba(184,134,45,0.2);
-  }
-  .pathway-img {
-    aspect-ratio: 16/9; overflow: hidden;
     position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
-  .pathway-img img {
-    width: 100%; height: 100%; object-fit: cover;
+  .pathway-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-warm));
+    transform: scaleX(0);
+    transform-origin: left;
     transition: transform 0.5s;
   }
-  .pathway-card:hover .pathway-img img { transform: scale(1.05); }
-  .pathway-badge {
-    position: absolute; top: 16px; left: 16px;
-    background: var(--color-accent); color: #FFFFFF;
-    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-    font-weight: 700; padding: 6px 12px; border-radius: 4px;
+  .pathway-card:hover::before { transform: scaleX(1); }
+  .pathway-card:hover {
+    border-color: rgba(184,134,45,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.08);
   }
-  .pathway-body {
-    padding: 32px 28px; flex: 1;
-    display: flex; flex-direction: column;
+  .pathway-icon {
+    width: 48px; height: 48px;
+    background: rgba(184,134,45,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
   }
-  .pathway-body h3 {
+  .pathway-icon svg { color: var(--color-accent); }
+  .pathway-card h3 {
     font-family: var(--font-display);
-    font-size: 1.5rem; font-weight: 400;
-    margin-bottom: 12px; line-height: 1.25;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    font-weight: 400;
   }
-  .pathway-body p {
-    font-size: 0.92rem; color: var(--color-text-muted);
-    line-height: 1.7; margin-bottom: 24px; flex: 1;
+  .pathway-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
   }
   .pathway-link {
     font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
@@ -372,51 +378,39 @@
     <div class="pathways-grid">
 
       <a href="https://www.i2ministries-emfci.com/" class="pathway-card reveal">
-        <div class="pathway-img">
-          <img src="/images/pathway-emfci.jpg" alt="Every Muslim for Christ Initiative" />
-          <div class="pathway-badge">Initiative</div>
+        <div class="pathway-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-        <div class="pathway-body">
-          <h3>Every Muslim for Christ Initiative</h3>
-          <p>Learn how to launch the Every Muslim for Christ Initiative in your region. A comprehensive framework for mobilizing entire denominations and church networks to reach Muslims at scale.</p>
-          <span class="pathway-link">Launch in Your Region <span class="btn-arrow">→</span></span>
-        </div>
+        <h3>Every Muslim for Christ Initiative</h3>
+        <p>Learn how to launch the Every Muslim for Christ Initiative in your region. A comprehensive framework for mobilizing entire denominations and church networks to reach Muslims at scale.</p>
+        <span class="pathway-link">Launch in Your Region <span class="btn-arrow">→</span></span>
       </a>
 
       <a href="https://www.mmwu.org/" class="pathway-card reveal reveal-delay-1">
-        <div class="pathway-img">
-          <img src="/images/pathway-mmwu.jpg" alt="Mission Muslim World University" />
-          <div class="pathway-badge">University</div>
+        <div class="pathway-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         </div>
-        <div class="pathway-body">
-          <h3>Mission Muslim World University</h3>
-          <p>The online school equipping Christians to reach the Muslim world. A pathway to earn an MA Ministry degree with a concentration in Islamic Studies — fully accredited and video-based.</p>
-          <span class="pathway-link">Enroll Now <span class="btn-arrow">→</span></span>
-        </div>
+        <h3>Mission Muslim World University</h3>
+        <p>The online school equipping Christians to reach the Muslim world. A pathway to earn an MA Ministry degree with a concentration in Islamic Studies — fully accredited and video-based.</p>
+        <span class="pathway-link">Enroll Now <span class="btn-arrow">→</span></span>
       </a>
 
       <a href="https://linktree.com/wiseglobal" class="pathway-card reveal reveal-delay-2">
-        <div class="pathway-img">
-          <img src="/images/pathway-wise.jpg" alt="WISE Global App" />
-          <div class="pathway-badge">App</div>
+        <div class="pathway-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
         </div>
-        <div class="pathway-body">
-          <h3>WISE Global Phone App</h3>
-          <p>The ministry management system for launching a national prayer, training, and evangelism initiative. Everything you need to coordinate outreach from your phone.</p>
-          <span class="pathway-link">Download the App <span class="btn-arrow">→</span></span>
-        </div>
+        <h3>WISE Global Phone App</h3>
+        <p>The ministry management system for launching a national prayer, training, and evangelism initiative. Everything you need to coordinate outreach from your phone.</p>
+        <span class="pathway-link">Download the App <span class="btn-arrow">→</span></span>
       </a>
 
       <a href="https://thewadi.org" class="pathway-card reveal reveal-delay-3">
-        <div class="pathway-img">
-          <img src="/images/pathway-wadi.jpg" alt="WADI Video Training" />
-          <div class="pathway-badge">Free</div>
+        <div class="pathway-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
         </div>
-        <div class="pathway-body">
-          <h3>WADI — Free Video Training</h3>
-          <p>250+ hours of free on-demand video courses on our Netflix-like platform. Training Christians to reach Muslims for Jesus — available in 14 languages worldwide.</p>
-          <span class="pathway-link">Start Watching Free <span class="btn-arrow">→</span></span>
-        </div>
+        <h3>WADI — Free Video Training</h3>
+        <p>250+ hours of free on-demand video courses on our Netflix-like platform. Training Christians to reach Muslims for Jesus — available in 14 languages worldwide.</p>
+        <span class="pathway-link">Start Watching Free <span class="btn-arrow">→</span></span>
       </a>
 
     </div>
