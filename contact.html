@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — i2 Ministries</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --color-bg: #FAFAF7; --color-surface: #F0EFEB; --color-surface-raised: #FFFFFF;
+    --color-text: #1A1A1A; --color-text-muted: #5C5A55;
+    --color-accent: #B8862D; --color-accent-warm: #C7753A; --color-accent-deep: #8B3A2A;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --max-width: 1280px; --section-pad: 110px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+  .label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--color-accent); font-weight: 500; display: inline-block; margin-bottom: 16px; }
+  .section-heading { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.15; color: var(--color-text); font-weight: 400; }
+  .section-heading em { font-style: italic; color: var(--color-accent); }
+
+  /* ─── NAV ─── */
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: background 0.4s, backdrop-filter 0.4s, padding 0.4s; }
+  .nav.scrolled { background: rgba(250,250,247,0.95); backdrop-filter: blur(20px); padding: 14px 0; border-bottom: 1px solid rgba(184,134,45,0.15); box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+  .nav-logo { font-family: var(--font-display); font-size: 1.6rem; color: var(--color-accent); letter-spacing: -0.02em; }
+  .nav-logo span { color: var(--color-text); font-style: italic; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: var(--color-text-muted); transition: color 0.3s; font-weight: 500; }
+  .nav-links a:hover { color: var(--color-accent); }
+  .nav-cta { background: var(--color-accent) !important; color: #FFFFFF !important; padding: 10px 24px; border-radius: 4px; font-weight: 600 !important; transition: transform 0.3s, box-shadow 0.3s !important; }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(184,134,45,0.3); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); margin: 5px 0; transition: 0.3s; }
+
+  /* ─── PAGE HERO ─── */
+  .page-hero {
+    padding: 160px 0 80px; position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(184,134,45,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .page-hero-inner { text-align: center; position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(2.8rem, 5.5vw, 4.5rem); line-height: 1.1; font-weight: 400; margin-bottom: 24px; }
+  .page-hero h1 em { font-style: italic; color: var(--color-accent); }
+  .page-hero .subtitle { font-size: 1.15rem; color: var(--color-text-muted); max-width: 540px; margin: 0 auto; line-height: 1.75; }
+
+  /* ─── CONTACT LAYOUT ─── */
+  .contact-section { padding: 0 0 var(--section-pad); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 0.8fr;
+    gap: 48px; align-items: start;
+    max-width: 1000px; margin: 0 auto;
+  }
+
+  /* ─── FORM CARD ─── */
+  .form-card {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 20px;
+    padding: 48px 44px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.05);
+  }
+  .form-card h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem; font-weight: 400; margin-bottom: 8px;
+  }
+  .form-card > p {
+    font-size: 0.9rem; color: var(--color-text-muted);
+    margin-bottom: 32px; line-height: 1.6;
+  }
+
+  .form-group { margin-bottom: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .form-group label {
+    display: block; font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    color: var(--color-text); margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%; padding: 14px 18px;
+    background: var(--color-bg);
+    border: 1.5px solid rgba(0,0,0,0.08);
+    border-radius: 10px;
+    font-size: 0.95rem; font-family: var(--font-body);
+    color: var(--color-text);
+    outline: none; transition: border-color 0.3s, box-shadow 0.3s;
+    -webkit-appearance: none;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(92,90,85,0.45);
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(184,134,45,0.08);
+  }
+  .form-group textarea {
+    resize: vertical; min-height: 140px;
+  }
+  .form-group select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%235C5A55' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 44px;
+  }
+
+  .form-submit {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 18px 32px;
+    background: var(--color-accent); color: #FFFFFF;
+    border: none; border-radius: 10px;
+    font-size: 15px; font-weight: 700;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    font-family: var(--font-body);
+    cursor: pointer; transition: all 0.35s;
+    margin-top: 8px;
+  }
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(184,134,45,0.35);
+  }
+  .form-submit:active { transform: translateY(0); }
+  .form-submit svg { flex-shrink: 0; }
+
+  /* Honeypot - invisible to humans, bots auto-fill it */
+  .form-hp { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+
+  /* Verification field */
+  .verify-row { display: flex; gap: 12px; align-items: flex-end; }
+  .verify-row .form-group { flex: 1; }
+  .verify-question {
+    padding: 14px 18px; background: rgba(184,134,45,0.06);
+    border: 1.5px solid rgba(184,134,45,0.15); border-radius: 10px;
+    font-family: var(--font-display); font-size: 1.1rem;
+    color: var(--color-accent); text-align: center;
+    min-width: 120px; white-space: nowrap;
+    display: flex; align-items: center; justify-content: center;
+    height: 50px;
+  }
+
+  /* ─── SIDEBAR INFO ─── */
+  .contact-sidebar { padding-top: 8px; }
+
+  .info-card {
+    background: var(--color-surface);
+    border: 1px solid rgba(0,0,0,0.04);
+    border-radius: 16px;
+    padding: 32px 28px;
+    margin-bottom: 20px;
+  }
+  .info-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem; font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .info-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .info-item:last-child { margin-bottom: 0; }
+  .info-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: rgba(184,134,45,0.08);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .info-icon svg { color: var(--color-accent); width: 18px; height: 18px; }
+  .info-item .info-label {
+    font-size: 0.72rem; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--color-text-muted);
+    margin-bottom: 2px;
+  }
+  .info-item .info-value {
+    font-size: 0.95rem; color: var(--color-text); font-weight: 500;
+  }
+  .info-item a.info-value { transition: color 0.3s; }
+  .info-item a.info-value:hover { color: var(--color-accent); }
+
+  .connect-card {
+    background: linear-gradient(135deg, var(--color-accent-deep), #5C1A12);
+    border-radius: 16px;
+    padding: 32px 28px;
+    overflow: hidden; position: relative;
+  }
+  .connect-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .connect-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem; font-weight: 400;
+    color: #FFFFFF; margin-bottom: 12px;
+    position: relative; z-index: 1;
+  }
+  .connect-card p {
+    font-size: 0.88rem; color: rgba(255,255,255,0.65);
+    line-height: 1.6; margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .social-row {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+  .social-link {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .social-link:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.3);
+  }
+  .social-link svg { color: rgba(255,255,255,0.7); width: 16px; height: 16px; }
+  .social-link:hover svg { color: #FFFFFF; }
+
+  /* ─── FOOTER ─── */
+  .footer { padding: 64px 0 40px; border-top: 1px solid rgba(0,0,0,0.06); }
+  .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
+  .footer-brand .nav-logo { margin-bottom: 16px; }
+  .footer-brand p { font-size: 0.85rem; color: var(--color-text-muted); max-width: 320px; line-height: 1.7; }
+  .footer-links { display: flex; gap: 64px; }
+  .footer-col h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--color-accent); margin-bottom: 20px; }
+  .footer-col a { display: block; font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 12px; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--color-accent); }
+  .footer-socials { display: flex; gap: 16px; margin-top: 20px; }
+  .footer-socials a { width: 40px; height: 40px; border: 1px solid rgba(0,0,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+  .footer-socials a:hover { background: var(--color-accent); border-color: var(--color-accent); }
+  .footer-socials a:hover svg { color: #FFFFFF; }
+  .footer-socials svg { color: var(--color-text-muted); width: 16px; height: 16px; }
+  .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.06); text-align: center; font-size: 0.8rem; color: rgba(92,90,85,0.6); }
+
+  /* ─── ANIMATIONS ─── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .contact-grid { grid-template-columns: 1fr; max-width: 600px; }
+    .footer-links { gap: 40px; }
+    :root { --section-pad: 80px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,250,247,0.97); backdrop-filter: blur(20px); padding: 24px 32px; gap: 20px; border-bottom: 1px solid rgba(0,0,0,0.06); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+    .form-card { padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; }
+    .footer-links { flex-wrap: wrap; gap: 32px; }
+    :root { --section-pad: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">i2 <span>Ministries</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/about">About</a>
+      <a href="/the-mission">The Mission</a>
+      <a href="https://www.i2ministries-emfci.com">The Initiative</a>
+      <a href="/get-trained">Get Trained</a>
+      <a href="https://resources.i2ministries.org">Resources</a>
+      <a href="/contact">Contact</a>
+      <a href="/donate" class="nav-cta">Donate</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <span class="label">Get In Touch</span>
+      <h1>Contact <em>Us</em></h1>
+      <p class="subtitle">Have a question about our training, want to partner with us, or need to connect with our team? We'd love to hear from you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM + SIDEBAR -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="form-card reveal">
+        <h2>Send Us a Message</h2>
+        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+
+        <div id="formContainer">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Smith" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="john@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" required>
+              <option value="" disabled selected>Select a topic...</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Training &amp; Events">Training &amp; Events</option>
+              <option value="Partnership Opportunities">Partnership Opportunities</option>
+              <option value="EMFC Initiative">Every Muslim for Christ Initiative</option>
+              <option value="MMWU Enrollment">MMWU Enrollment</option>
+              <option value="Donations &amp; Giving">Donations &amp; Giving</option>
+              <option value="Media &amp; Press">Media &amp; Press</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" placeholder="How can we help you?" required></textarea>
+          </div>
+
+          <!-- Honeypot: bots fill this, humans never see it -->
+          <div class="form-hp" aria-hidden="true" tabindex="-1">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company" autocomplete="off" tabindex="-1" />
+          </div>
+
+          <!-- Math verification -->
+          <div class="form-group">
+            <label for="verify">Quick Verification</label>
+            <div class="verify-row">
+              <div class="verify-question" id="mathQuestion">...</div>
+              <div class="form-group" style="margin-bottom:0;">
+                <input type="text" id="verify" placeholder="Your answer" inputmode="numeric" autocomplete="off" required />
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="form-submit" id="submitBtn" onclick="sendForm()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </div>
+
+        <!-- Success state -->
+        <div id="formSuccess" style="display:none;text-align:center;padding:40px 0;">
+          <div style="width:64px;height:64px;background:rgba(184,134,45,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8862D" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:400;margin-bottom:8px;">Message Sent!</h3>
+          <p style="font-size:0.95rem;color:var(--color-text-muted);line-height:1.7;">Thank you for reaching out. Our team will get back to you at the email address you provided.</p>
+        </div>
+
+        <!-- Error state -->
+        <div id="formError" style="display:none;text-align:center;padding:20px;margin-top:16px;background:rgba(180,40,40,0.06);border:1px solid rgba(180,40,40,0.12);border-radius:10px;">
+          <p style="font-size:0.9rem;color:#8B3A2A;">Something went wrong. Please try emailing us directly at <a href="mailto:info@i2ministries.org" style="color:#8B3A2A;text-decoration:underline;">info@i2ministries.org</a></p>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar reveal reveal-delay-1">
+
+        <div class="info-card">
+          <h3>Contact Details</h3>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Email</div>
+              <a href="mailto:info@i2ministries.org" class="info-value">info@i2ministries.org</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Mailing Address</div>
+              <div class="info-value">PO Box 3403<br/>La Habra, CA 90632 USA</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Status</div>
+              <div class="info-value">501(c)(3) Non-Profit</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connect-card">
+          <h3>Follow Our Work</h3>
+          <p>Stay connected with i2 Ministries on social media for updates, stories from the field, and training resources.</p>
+          <div class="social-row">
+            <a href="https://www.facebook.com/thewadi.english/" target="_blank" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/thewadi.english/" target="_blank" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" class="social-link" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48" fill="#FFFFFF"/></svg></a>
+            <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" class="social-link" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+            <a href="https://twitter.com/thewadi_english" target="_blank" class="social-link" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">i2 <span>Ministries</span></div>
+        <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/thewadi.english/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/thewadi.english/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48" fill="#FFFFFF"/></svg></a>
+          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Ministry</h4><a href="/about">About</a><a href="/the-mission">The Mission</a><a href="/contact">Contact</a><a href="/donate">Donate</a></div>
+        <div class="footer-col"><h4>Training</h4><a href="https://www.i2ministries-emfci.com">The Initiative</a><a href="https://www.mmwu.org/">MMWU</a><a href="https://thewadi.org">WADI</a><a href="https://resources.i2ministries.org">Resources</a></div>
+        <div class="footer-col"><h4>Tools</h4><a href="https://linktree.com/wiseglobal">WISE Global App</a><a href="http://eepurl.com/Kurdj">Free Ebook</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2003&ndash;2026 i2 Ministries Inc. All Rights Reserved. PO Box 3403, La Habra, CA 90632 USA. Tax-exempt 501(c)(3).</div>
+  </div>
+</footer>
+
+<script>
+  // Nav
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+  document.getElementById('mobileToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); });
+
+  // Reveal
+  const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form submission via FormSubmit.co — with bot protection
+  
+  // Layer 1: Time gate — record when page loaded
+  const pageLoadTime = Date.now();
+
+  // Layer 2: Math challenge — generate on load
+  let mathA, mathB, mathAnswer;
+  function generateMath() {
+    mathA = Math.floor(Math.random() * 10) + 2;
+    mathB = Math.floor(Math.random() * 10) + 1;
+    mathAnswer = mathA + mathB;
+    document.getElementById('mathQuestion').textContent = 'What is ' + mathA + ' + ' + mathB + '?';
+  }
+  generateMath();
+
+  async function sendForm() {
+    const btn = document.getElementById('submitBtn');
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+    const verifyInput = document.getElementById('verify').value.trim();
+
+    // Layer 3: Honeypot check — if filled, silently fake success
+    const hp1 = document.getElementById('website').value;
+    const hp2 = document.getElementById('company').value;
+    if (hp1 || hp2) {
+      // Bot detected — show fake success, don't actually send
+      document.getElementById('formContainer').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      return;
+    }
+
+    // Basic validation
+    if (!firstName || !lastName || !email || !subject || !message || !verifyInput) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    // Layer 2 check: Math verification
+    if (parseInt(verifyInput, 10) !== mathAnswer) {
+      alert('Incorrect verification answer. Please try again.');
+      generateMath();
+      document.getElementById('verify').value = '';
+      document.getElementById('verify').focus();
+      return;
+    }
+
+    // Layer 1 check: Time gate — must be at least 3 seconds since page load
+    const elapsed = (Date.now() - pageLoadTime) / 1000;
+    if (elapsed < 3) {
+      // Too fast, likely a bot — fake success
+      document.getElementById('formContainer').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      return;
+    }
+
+    // Basic email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = '<div style="width:20px;height:20px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;"></div> Sending...';
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/info@i2ministries.org', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: firstName + ' ' + lastName,
+          email: email,
+          _subject: 'i2 Website: ' + subject,
+          message: message,
+          _honey: '',
+          _captcha: 'false',
+          _template: 'box'
+        })
+      });
+
+      if (res.ok) {
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        document.getElementById('formError').style.display = 'none';
+      } else {
+        throw new Error('Failed');
+      }
+    } catch (e) {
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
+      document.getElementById('formError').style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>

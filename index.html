@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>i2 Ministries — Training Leaders to Finish the Great Commission Among Muslims</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --color-bg: #FAFAF7;
+    --color-surface: #F0EFEB;
+    --color-surface-raised: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-text-muted: #5C5A55;
+    --color-accent: #B8862D;
+    --color-accent-warm: #C7753A;
+    --color-accent-deep: #8B3A2A;
+    --color-white: #FFFFFF;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --max-width: 1280px;
+    --section-pad: 120px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ─── UTILITY ────────────────────────────── */
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+  .label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.12;
+    color: var(--color-text);
+    font-weight: 400;
+  }
+  .section-heading em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  /* ─── NAVIGATION ─────────────────────────── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: background 0.4s, backdrop-filter 0.4s, padding 0.4s;
+  }
+  .nav.scrolled {
+    background: rgba(250,250,247,0.95);
+    backdrop-filter: blur(20px);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(184,134,45,0.15);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--color-text); font-style: italic; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    transition: color 0.3s;
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--color-accent); }
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: #FFFFFF !important;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    transition: transform 0.3s, box-shadow 0.3s !important;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(184,134,45,0.3); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); margin: 5px 0; transition: 0.3s; }
+
+  /* ─── HERO ────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 140px 0 var(--section-pad);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 70% 40%, rgba(199,117,58,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 60% at 20% 80%, rgba(139,58,42,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 800px; height: 800px;
+    border: 1px solid rgba(184,134,45,0.08);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: heroOrb 30s linear infinite;
+  }
+  @keyframes heroOrb { to { transform: rotate(360deg); } }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-text h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.06;
+    font-weight: 400;
+    margin-bottom: 28px;
+  }
+  .hero-text h1 em {
+    font-style: italic;
+    color: var(--color-accent);
+    display: inline;
+  }
+  .hero-text p {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 520px;
+    margin-bottom: 40px;
+    line-height: 1.75;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.35s;
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-body);
+  }
+  .btn-primary {
+    background: var(--color-accent);
+    color: #FFFFFF;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(184,134,45,0.35);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid rgba(26,26,26,0.15);
+  }
+  .btn-outline:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  .btn-arrow { transition: transform 0.3s; }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-video-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    width: 100%;
+    background: var(--color-surface);
+    border: 1px solid rgba(184,134,45,0.15);
+    cursor: pointer;
+    transition: transform 0.4s, box-shadow 0.4s;
+  }
+  .hero-video-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  }
+  .hero-video-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: opacity 0.4s;
+  }
+  .hero-video-card:hover img { opacity: 1; }
+  .play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px; height: 72px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(184,134,45,0.4);
+    transition: transform 0.3s;
+  }
+  .hero-video-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); }
+  .play-btn svg { margin-left: 3px; }
+
+  /* ─── STAT TICKER ─────────────────────────── */
+  .stat-bar {
+    padding: 48px 0;
+    border-top: 1px solid rgba(184,134,45,0.12);
+    border-bottom: 1px solid rgba(184,134,45,0.12);
+    background: var(--color-surface);
+  }
+  .stat-bar-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+  .stat-item h3 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .stat-item p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  /* ─── MISSION ─────────────────────────────── */
+  .mission { padding: var(--section-pad) 0; position: relative; }
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .mission-visual { position: relative; }
+  .mission-counter {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-accent-deep), #5C1A12);
+    border-radius: 16px;
+    padding: 60px 48px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .mission-counter::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .mission-counter .counter-number {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5rem);
+    color: var(--color-white);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .mission-counter .counter-label {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .mission-text p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+  .mission-text .btn { margin-top: 20px; }
+
+  /* ─── PILLARS ─────────────────────────────── */
+  .pillars {
+    padding: var(--section-pad) 0;
+    background: var(--color-surface);
+    position: relative;
+  }
+  .pillars::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 1px; height: 80px;
+    background: linear-gradient(to bottom, var(--color-accent), transparent);
+  }
+  .pillars-header { text-align: center; margin-bottom: 72px; }
+  .pillars-header p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 20px auto 0;
+  }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .pillar-card {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 44px 40px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-warm));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s;
+  }
+  .pillar-card:hover::before { transform: scaleX(1); }
+  .pillar-card:hover {
+    border-color: rgba(184,134,45,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+  }
+  .pillar-icon {
+    width: 48px; height: 48px;
+    background: rgba(184,134,45,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .pillar-icon svg { color: var(--color-accent); }
+  .pillar-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+  .pillar-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .pillar-link {
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s;
+  }
+  .pillar-link:hover { gap: 14px; }
+
+  /* ─── ENDORSEMENTS ────────────────────────── */
+  .endorsements { padding: var(--section-pad) 0; }
+  .endorsements-header { text-align: center; margin-bottom: 64px; }
+  .endorsements-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .endorsement-card {
+    background: var(--color-surface);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 40px 32px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .endorsement-card:hover {
+    border-color: rgba(184,134,45,0.25);
+    transform: translateY(-2px);
+  }
+  .endorsement-quote {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .endorsement-card blockquote {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+  .endorsement-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-top: 1px solid rgba(184,134,45,0.12);
+    padding-top: 20px;
+  }
+  .endorsement-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-warm));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    flex-shrink: 0;
+  }
+  .endorsement-author strong { display: block; font-size: 0.9rem; }
+  .endorsement-author span { font-size: 0.8rem; color: var(--color-text-muted); }
+
+  /* ─── NEWSLETTER / CTA ────────────────────── */
+  .cta-section {
+    padding: var(--section-pad) 0;
+    background: var(--color-surface);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 50% 50%, rgba(184,134,45,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .cta-inner p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 36px;
+  }
+  .cta-form {
+    display: flex;
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .cta-form input {
+    flex: 1;
+    padding: 16px 20px;
+    background: var(--color-bg);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .cta-form input::placeholder { color: var(--color-text-muted); }
+  .cta-form input:focus { border-color: var(--color-accent); }
+  .cta-form .btn { white-space: nowrap; }
+
+  /* ─── FOOTER ──────────────────────────────── */
+  .footer {
+    padding: 64px 0 40px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .footer-brand .nav-logo { margin-bottom: 16px; }
+  .footer-brand p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    max-width: 320px;
+    line-height: 1.7;
+  }
+  .footer-links { display: flex; gap: 64px; }
+  .footer-col h4 {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 12px;
+    transition: color 0.3s;
+  }
+  .footer-col a:hover { color: var(--color-accent); }
+  .footer-socials { display: flex; gap: 16px; margin-top: 20px; }
+  .footer-socials a {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+  .footer-socials a:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+  .footer-socials a:hover svg { color: #FFFFFF; }
+  .footer-socials svg { color: var(--color-text-muted); width: 16px; height: 16px; }
+  .footer-bottom {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(92,90,85,0.6);
+  }
+
+  /* ─── ANIMATIONS ──────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; gap: 48px; }
+    .mission-grid { grid-template-columns: 1fr; gap: 48px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .endorsements-grid { grid-template-columns: 1fr; }
+    .footer-links { gap: 40px; }
+    :root { --section-pad: 80px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: rgba(250,250,247,0.97);
+      backdrop-filter: blur(20px);
+      padding: 24px 32px;
+      gap: 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .hero-text h1 { font-size: clamp(2.4rem, 8vw, 3.6rem); }
+    .stat-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions .btn { width: 100%; justify-content: center; }
+    .cta-form { flex-direction: column; }
+    .footer-inner { flex-direction: column; }
+    .footer-links { flex-wrap: wrap; gap: 32px; }
+    :root { --section-pad: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAVIGATION ═══════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">i2 <span>Ministries</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/about">About</a>
+      <a href="/the-mission">The Mission</a>
+      <a href="https://www.i2ministries-emfci.com">The Initiative</a>
+      <a href="/get-trained">Get Trained</a>
+      <a href="https://resources.i2ministries.org">Resources</a>
+      <a href="/contact">Contact</a>
+      <a href="/donate" class="nav-cta">Donate</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="label">Training Leaders Globally</span>
+        <h1>Finishing the <em>Great Commission</em> Among Muslims</h1>
+        <p>Uniting churches to reach every Muslim for Christ in their neighborhood, region, and nation — through world-class training, coaching, and activation.</p>
+        <div class="hero-actions">
+          <a href="https://www.i2ministries-emfci.com" class="btn btn-primary">
+            Launch the Initiative
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="/get-trained" class="btn btn-outline">
+            Get Trained
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <a href="https://vimeo.com/425286820" target="_blank" class="hero-video-card">
+          <img src="/images/hero-video-thumb.jpg" alt="Introduction to i2 Ministries" />
+          <div class="play-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19" /></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ STAT BAR ═══════ -->
+<div class="stat-bar">
+  <div class="container">
+    <div class="stat-bar-inner">
+      <div class="stat-item reveal">
+        <h3>1.9B+</h3>
+        <p>Muslims Worldwide</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <h3>37,000</h3>
+        <p>Die Daily Without the Gospel</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <h3>250+</h3>
+        <p>Hours Free Training</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <h3>14</h3>
+        <p>Languages Available</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ MISSION ═══════ -->
+<section class="mission" id="mission">
+  <div class="container">
+    <div class="mission-grid">
+      <div class="mission-visual reveal">
+        <div class="mission-counter">
+          <div class="counter-number" id="deathCounter">0</div>
+          <div class="counter-label">Muslims have died today without knowing Jesus</div>
+        </div>
+      </div>
+      <div class="mission-text reveal reveal-delay-1">
+        <span class="label">The Urgency</span>
+        <h2 class="section-heading">The largest <em>unreached</em> people on the planet</h2>
+        <p>Islam enslaves almost 2 billion followers, most of whom have never heard the gospel. Over 37,000 die without the gospel every day.</p>
+        <p>Mosques are now becoming common in European and American cities. Islam is the biggest challenge for the global church today — both on the mission field and in your local neighborhood.</p>
+        <a href="/the-mission" class="btn btn-outline">
+          Learn About the Mission <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PILLARS / GET TRAINED ═══════ -->
+<section class="pillars" id="trained">
+  <div class="container">
+    <div class="pillars-header reveal">
+      <span class="label">Get Trained</span>
+      <h2 class="section-heading">Join the global community reaching <em>Muslims for Jesus</em></h2>
+      <p>World-class training resources for churches, organizations, and individuals ready to answer the call.</p>
+    </div>
+    <div class="pillars-grid">
+      <a href="https://www.i2ministries-emfci.com/" class="pillar-card reveal">
+        <div class="pillar-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Every Muslim for Christ Initiative</h3>
+        <p>Learn how to launch the Every Muslim for Christ Initiative in your region. A comprehensive framework for mobilizing churches to reach Muslims at scale.</p>
+        <span class="pillar-link">Launch the Initiative <span class="btn-arrow">→</span></span>
+      </a>
+      <a href="https://www.mmwu.org/" class="pillar-card reveal reveal-delay-1">
+        <div class="pillar-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3>Mission Muslim World University</h3>
+        <p>The online school equipping Christians to reach the Muslim world. A pathway to earn an MA Ministry degree with a concentration in Islamic Studies.</p>
+        <span class="pillar-link">Enroll Now <span class="btn-arrow">→</span></span>
+      </a>
+      <a href="https://thewadi.org" class="pillar-card reveal reveal-delay-2">
+        <div class="pillar-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <h3>WADI — Free Video Training</h3>
+        <p>250+ hours of free on-demand video courses on our Netflix-like platform. Available in 14 languages, training Christians to reach Muslims for Jesus.</p>
+        <span class="pillar-link">Start Watching <span class="btn-arrow">→</span></span>
+      </a>
+      <a href="https://resources.i2ministries.org/" class="pillar-card reveal reveal-delay-3">
+        <div class="pillar-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <h3>Books, Courses & Resources</h3>
+        <p>Purchase training resources for your missions organization, church networks, or small groups. Books, MP3s, and 20+ video courses from top global professors.</p>
+        <span class="pillar-link">Browse Resources <span class="btn-arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ENDORSEMENTS ═══════ -->
+<section class="endorsements" id="endorsements">
+  <div class="container">
+    <div class="endorsements-header reveal">
+      <span class="label">Endorsements</span>
+      <h2 class="section-heading">Trusted by <em>global leaders</em></h2>
+    </div>
+    <div class="endorsements-grid">
+      <div class="endorsement-card reveal">
+        <div class="endorsement-quote">"</div>
+        <blockquote>I don't know another ministry that has the ability to mass mobilize denominations and church networks to reach Muslims like i2 Ministries. I believe the WISE Global Initiative is a vital tool that could change the landscape of global missions.</blockquote>
+        <div class="endorsement-author">
+          <div class="endorsement-avatar">JM</div>
+          <div>
+            <strong>Dr. Josh McDowell</strong>
+            <span>President, Josh McDowell Ministries</span>
+          </div>
+        </div>
+      </div>
+      <div class="endorsement-card reveal reveal-delay-1">
+        <div class="endorsement-quote">"</div>
+        <blockquote>I know of no other training ministry even close to the equal of i2 Ministries. Joshua is a leader of leaders and brings a prophetic exhortation to train each Christian in our churches to reach Muslims.</blockquote>
+        <div class="endorsement-author">
+          <div class="endorsement-avatar">ML</div>
+          <div>
+            <strong>Dr. Michael Licona</strong>
+            <span>Author &amp; New Testament Scholar</span>
+          </div>
+        </div>
+      </div>
+      <div class="endorsement-card reveal reveal-delay-2">
+        <div class="endorsement-quote">"</div>
+        <blockquote>As the Iron Curtain fell in the twentieth century, so the Islamic Curtain shielding the Muslim world from the Gospel is destined to fall in the twenty-first. i2 Ministries' curriculum will help equip churches to reach Muslims effectively.</blockquote>
+        <div class="endorsement-author">
+          <div class="endorsement-avatar">WC</div>
+          <div>
+            <strong>Dr. William Lane Craig</strong>
+            <span>President, Reasonable Faith</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ NEWSLETTER CTA ═══════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="label">Stay Connected</span>
+      <h2 class="section-heading">Join the <em>movement</em></h2>
+      <p>Get updates about global missions in the Muslim world and be the first to know about new training resources.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="http://eepurl.com/Kurdj" class="btn btn-primary" target="_blank">
+          Get the Free Ebook
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="/donate" class="btn btn-outline">
+          Partner With Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">i2 <span>Ministries</span></div>
+        <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/thewadi.english/" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thewadi.english/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg>
+          </a>
+          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Ministry</h4>
+          <a href="/about">About</a>
+          <a href="/the-mission">The Mission</a>
+          <a href="/contact">Contact</a>
+          <a href="/donate">Donate</a>
+        </div>
+        <div class="footer-col">
+          <h4>Training</h4>
+          <a href="https://www.i2ministries-emfci.com">The Initiative</a>
+          <a href="https://www.mmwu.org/">MMWU</a>
+          <a href="https://thewadi.org">WADI</a>
+          <a href="https://resources.i2ministries.org">Resources</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <a href="https://linktree.com/wiseglobal">WISE Global App</a>
+          <a href="http://eepurl.com/Kurdj">Free Ebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2003–2026 i2 Ministries Inc. All Rights Reserved. PO Box 3403, La Habra, CA 90632 USA. Tax-exempt 501(c)(3).
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── Scroll Nav ───
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ─── Mobile Menu ───
+  document.getElementById('mobileToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // ─── Reveal on Scroll ───
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ─── Death Counter ───
+  function updateCounter() {
+    const now = new Date();
+    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const secondsToday = (now - startOfDay) / 1000;
+    const perSecond = 37000 / 86400;
+    const count = Math.floor(secondsToday * perSecond);
+    const el = document.getElementById('deathCounter');
+    if (el) el.textContent = count.toLocaleString();
+  }
+  updateCounter();
+  setInterval(updateCounter, 3000);
+</script>
+</body>
+</html>

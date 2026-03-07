@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/joshua-lingel", "destination": "/about.html" },
+    { "source": "/the-mission", "destination": "/mission.html" },
+    { "source": "/get-trained", "destination": "/get-trained.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/donate", "destination": "/donate.html" },
+    { "source": "/donate-form", "destination": "/donate-form.html" }
+  ],
+  "headers": [
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

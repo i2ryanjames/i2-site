@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Mission — i2 Ministries</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --color-bg: #FAFAF7;
+    --color-surface: #F0EFEB;
+    --color-surface-raised: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-text-muted: #5C5A55;
+    --color-accent: #B8862D;
+    --color-accent-warm: #C7753A;
+    --color-accent-deep: #8B3A2A;
+    --color-white: #FFFFFF;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --max-width: 1280px;
+    --section-pad: 110px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+  .narrow { max-width: 820px; margin: 0 auto; }
+  .label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--color-accent); font-weight: 500;
+    display: inline-block; margin-bottom: 16px;
+  }
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    line-height: 1.15; color: var(--color-text); font-weight: 400;
+  }
+  .section-heading em { font-style: italic; color: var(--color-accent); }
+
+  /* ─── NAV ─────────────────────────────────── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000; padding: 20px 0;
+    transition: background 0.4s, backdrop-filter 0.4s, padding 0.4s;
+  }
+  .nav.scrolled {
+    background: rgba(250,250,247,0.95);
+    backdrop-filter: blur(20px); padding: 14px 0;
+    border-bottom: 1px solid rgba(184,134,45,0.15);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 32px;
+  }
+  .nav-logo {
+    font-family: var(--font-display); font-size: 1.6rem;
+    color: var(--color-accent); letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--color-text); font-style: italic; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--color-text-muted); transition: color 0.3s; font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--color-accent); }
+  .nav-cta {
+    background: var(--color-accent) !important; color: #FFFFFF !important;
+    padding: 10px 24px; border-radius: 4px; font-weight: 600 !important;
+    transition: transform 0.3s, box-shadow 0.3s !important;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(184,134,45,0.3); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); margin: 5px 0; transition: 0.3s; }
+
+  /* ─── HERO / COUNTER ──────────────────────── */
+  .mission-hero {
+    padding: 160px 0 0;
+    position: relative; overflow: hidden;
+  }
+  .mission-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 40%, rgba(139,58,42,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 70%, rgba(184,134,45,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-counter-section {
+    text-align: center; position: relative; z-index: 1;
+    max-width: 720px; margin: 0 auto; padding-bottom: 80px;
+  }
+  .death-counter {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-accent-deep), #5C1A12);
+    border-radius: 20px; padding: 56px 72px;
+    margin-bottom: 32px; position: relative; overflow: hidden;
+  }
+  .death-counter::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .death-counter .count {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    color: #FFFFFF; font-weight: 400; line-height: 1;
+    margin-bottom: 12px;
+  }
+  .death-counter .count-label {
+    font-size: 1.1rem; color: rgba(255,255,255,0.7);
+    max-width: 400px; margin: 0 auto;
+  }
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    color: var(--color-text); font-style: italic;
+    max-width: 620px; margin: 0 auto;
+    line-height: 1.5;
+  }
+  .hero-subtitle strong {
+    color: var(--color-accent); font-weight: 400;
+  }
+
+  /* ─── STAT GRID ───────────────────────────── */
+  .stats {
+    padding: 64px 0;
+    background: var(--color-surface);
+    border-top: 1px solid rgba(184,134,45,0.1);
+    border-bottom: 1px solid rgba(184,134,45,0.1);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .stat-card {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .stat-card .stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .stat-card .stat-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  /* ─── CONTENT SECTIONS ────────────────────── */
+  .content-section { padding: var(--section-pad) 0; }
+  .content-section.alt { background: var(--color-surface); }
+
+  .content-header {
+    margin-bottom: 40px;
+  }
+  .content-body p {
+    font-size: 1.05rem; color: var(--color-text-muted);
+    line-height: 1.85; margin-bottom: 20px;
+  }
+  .content-body p strong {
+    color: var(--color-text);
+  }
+
+  /* ─── FEAR LIST ───────────────────────────── */
+  .fear-list {
+    margin: 32px 0;
+    display: grid; gap: 16px;
+  }
+  .fear-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 10px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .content-section.alt .fear-item {
+    background: var(--color-bg);
+  }
+  .fear-number {
+    font-family: var(--font-display);
+    font-size: 1.6rem; color: var(--color-accent);
+    font-style: italic; flex-shrink: 0;
+    width: 36px; text-align: center;
+  }
+  .fear-item p {
+    font-size: 0.95rem !important; color: var(--color-text-muted);
+    line-height: 1.7; margin: 0 !important;
+  }
+
+  /* ─── PULLQUOTE ───────────────────────────── */
+  .pullquote {
+    margin: 48px 0;
+    position: relative;
+    background: linear-gradient(135deg, var(--color-accent-deep), #5C1A12);
+    border-radius: 16px;
+    padding: 52px 48px;
+    overflow: hidden;
+  }
+  .pullquote::before {
+    content: '"'; position: absolute;
+    top: -10px; left: 24px;
+    font-family: var(--font-display);
+    font-size: 10rem; color: rgba(255,255,255,0.07);
+    line-height: 1; pointer-events: none;
+  }
+  .pullquote blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    color: #FFFFFF;
+    font-style: italic;
+    line-height: 1.6;
+    position: relative; z-index: 1;
+    margin-bottom: 20px;
+  }
+  .pullquote cite {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    font-style: normal;
+    display: block;
+  }
+
+  /* ─── CTA BANNER ──────────────────────────── */
+  .cta-banner {
+    padding: var(--section-pad) 0;
+    background: var(--color-surface);
+    position: relative; overflow: hidden;
+  }
+  .cta-banner::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(184,134,45,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    text-align: center; position: relative; z-index: 1;
+    max-width: 640px; margin: 0 auto;
+  }
+  .cta-inner p {
+    font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 36px;
+  }
+  .cta-actions {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  }
+
+  /* ─── BUTTONS ─────────────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 36px; border-radius: 4px;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.35s; cursor: pointer;
+    border: none; font-family: var(--font-body);
+  }
+  .btn-primary { background: var(--color-accent); color: #FFFFFF; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(184,134,45,0.35); }
+  .btn-outline {
+    background: transparent; color: var(--color-text);
+    border: 1px solid rgba(26,26,26,0.15);
+  }
+  .btn-outline:hover { border-color: var(--color-accent); color: var(--color-accent); }
+  .btn-arrow { transition: transform 0.3s; }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+
+  /* ─── FOOTER ──────────────────────────────── */
+  .footer {
+    padding: 64px 0 40px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; flex-wrap: wrap; gap: 40px;
+  }
+  .footer-brand .nav-logo { margin-bottom: 16px; }
+  .footer-brand p {
+    font-size: 0.85rem; color: var(--color-text-muted);
+    max-width: 320px; line-height: 1.7;
+  }
+  .footer-links { display: flex; gap: 64px; }
+  .footer-col h4 {
+    font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--color-accent); margin-bottom: 20px;
+  }
+  .footer-col a {
+    display: block; font-size: 0.9rem;
+    color: var(--color-text-muted); margin-bottom: 12px; transition: color 0.3s;
+  }
+  .footer-col a:hover { color: var(--color-accent); }
+  .footer-socials { display: flex; gap: 16px; margin-top: 20px; }
+  .footer-socials a {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(0,0,0,0.1); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .footer-socials a:hover { background: var(--color-accent); border-color: var(--color-accent); }
+  .footer-socials a:hover svg { color: #FFFFFF; }
+  .footer-socials svg { color: var(--color-text-muted); width: 16px; height: 16px; }
+  .footer-bottom {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    text-align: center; font-size: 0.8rem;
+    color: rgba(92,90,85,0.6);
+  }
+
+  /* ─── ANIMATIONS ──────────────────────────── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ─── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 1024px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-links { gap: 40px; }
+    :root { --section-pad: 80px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(250,250,247,0.97);
+      backdrop-filter: blur(20px);
+      padding: 24px 32px; gap: 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .stats-grid { grid-template-columns: 1fr; }
+    .death-counter { padding: 40px 32px; }
+    .pullquote { padding: 40px 28px; }
+    .cta-actions { flex-direction: column; }
+    .cta-actions .btn { width: 100%; justify-content: center; }
+    .footer-inner { flex-direction: column; }
+    .footer-links { flex-wrap: wrap; gap: 32px; }
+    :root { --section-pad: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">i2 <span>Ministries</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/about">About</a>
+      <a href="/the-mission">The Mission</a>
+      <a href="https://www.i2ministries-emfci.com">The Initiative</a>
+      <a href="/get-trained">Get Trained</a>
+      <a href="https://resources.i2ministries.org">Resources</a>
+      <a href="/contact">Contact</a>
+      <a href="/donate" class="nav-cta">Donate</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════ HERO + COUNTER ═══════ -->
+<section class="mission-hero">
+  <div class="container">
+    <div class="hero-counter-section">
+      <span class="label">The Urgency</span>
+      <div class="death-counter reveal">
+        <div class="count" id="deathCounter">0</div>
+        <div class="count-label">Muslims have died today without knowing Jesus</div>
+      </div>
+      <p class="hero-subtitle">Every Muslim needs to know the <strong>love of God</strong>, the <strong>power of God</strong>, and the <strong>truth of the Gospel</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ STATS ═══════ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-num">1.9B+</div>
+        <div class="stat-desc">Muslims globally and growing rapidly</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-num">86%</div>
+        <div class="stat-desc">Of Muslims have never heard the Gospel</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-num">27%</div>
+        <div class="stat-desc">Of all non-Christians globally are Muslim</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-num">3,200+</div>
+        <div class="stat-desc">Unreached Muslim people groups</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">1:420K</div>
+        <div class="stat-desc">Only 1 missionary for every 420,000 Muslims</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-num">80%</div>
+        <div class="stat-desc">Of Muslims don't personally know a Christian</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-num">10M+</div>
+        <div class="stat-desc">Muslims have become Christians recently</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-num">2.2B</div>
+        <div class="stat-desc">Muslims projected by 2050, bypassing Christianity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHY MUSLIMS ═══════ -->
+<section class="content-section" id="why-muslims">
+  <div class="container">
+    <div class="narrow">
+      <div class="content-header reveal">
+        <span class="label">The Challenge</span>
+        <h2 class="section-heading">Why <em>Muslims?</em></h2>
+      </div>
+      <div class="content-body reveal">
+        <p>Muslims represent the largest unreached peoples on the planet. <strong>Over 37,000 die without the gospel every day.</strong> Not only does Islam enslave over a billion who have never heard the gospel, more and more traditionally Christian nations are seeing a sharp increase in the number of Muslims living around them. Mosques are now becoming common even in European and American cities.</p>
+
+        <p>Islam is the biggest challenge for the church today — both on the mission field and in your local neighborhood. It is also the fastest growing challenge. Islam is the fastest growing religion in the United States. In 1907, there were 230 million Muslims in the world. By 2010, there were 1.6 billion. Islam doubled in twenty years. According to Pew Research, there are close to 1.8 billion Muslims as of 2015.</p>
+
+        <p>While Islam is the biggest challenge, <strong>only one percent of all Christian missionaries go to do direct ministry among Muslims.</strong> That's one missionary for every 420,000 Muslims — equivalent to having about five churches and 150 pastors for all of North America.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHY PEOPLE DON'T ═══════ -->
+<section class="content-section alt" id="why-not">
+  <div class="container">
+    <div class="narrow">
+      <div class="content-header reveal">
+        <span class="label">The Barrier</span>
+        <h2 class="section-heading">Why people don't <em>reach Muslims</em></h2>
+      </div>
+      <div class="content-body reveal">
+        <p>Most people are concerned or frightened by the growth of Islam and terrorism, but the church is called to have love and compassion for Muslims. Our primary response should not be fearful or political, but based on deep love and compassion to share the love of Jesus with every Muslim.</p>
+
+        <p>Most people do not reach Muslims because of <strong>fear</strong>. That fear takes three primary forms:</p>
+
+        <div class="fear-list">
+          <div class="fear-item">
+            <div class="fear-number">1</div>
+            <p><strong>Fear of suffering.</strong> There is a strong fear of violence and suffering when most people consider engaging Muslims.</p>
+          </div>
+          <div class="fear-item">
+            <div class="fear-number">2</div>
+            <p><strong>Fear of the questions.</strong> Muslims are typically trained and prepared to ask very aggressive questions. Most believers do not feel confident enough to answer them.</p>
+          </div>
+          <div class="fear-item">
+            <div class="fear-number">3</div>
+            <p><strong>Fear of the unknown.</strong> Most believers do not feel like they understand Islam enough to challenge it directly and are afraid to engage.</p>
+          </div>
+        </div>
+
+        <p>Though the issue seems to be Islam, what these fears really expose is that many of us are not truly discipled. True disciples love Jesus wholeheartedly. Because they love Him above all, they do not fear what any person can do to them — they refuse to fear Muslims. Instead, they are a faithful witness of the gospel in all the world.</p>
+
+        <p><strong>Islam itself is not the actual reason why we do not reach Muslims — lack of discipleship is.</strong> The ultimate solution to mobilizing the church to reach Muslims is to disciple people to follow Jesus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHY TRAIN ═══════ -->
+<section class="content-section" id="why-train">
+  <div class="container">
+    <div class="narrow">
+      <div class="content-header reveal">
+        <span class="label">The Imperative</span>
+        <h2 class="section-heading">Why the Church <em>must be trained</em></h2>
+      </div>
+      <div class="content-body reveal">
+        <p>Muslims represent the greatest challenge to the Christian church today, yet few are equipped to engage Muslims with the gospel. While the church has been reluctant, Muslims themselves have been quite active in their own form of evangelism known as "dawah."</p>
+
+        <p>One source says <strong>200,000 students in Pakistan alone, ages 8 to 30, graduate from ultra-conservative Islamic religious schools every year</strong> with 8 years of training, 8 hours a day, and the ability to easily challenge most believers on the authenticity of the Bible. Each month, Saudi Arabia alone spends more on spreading Islam than the International Mission Board (IMB) spends in a year.</p>
+
+        <p>Because Islam both aggressively confronts Christianity and holds doctrines that directly challenge the most essential tenets of the Christian faith, it is imperative that the entire church is trained to be a faithful witness of the gospel to Muslims. Every believer must have a basic understanding of how to confront and evangelize Muslims because of Jesus' deep love for them.</p>
+
+        <p>i2 has the vision, resources, and ability to make a significant impact in equipping more Christians to effectively evangelize Muslims. We are uniquely positioned to become the change agent for the global body of Christ to fulfill her call to the Great Commission among Muslims.</p>
+      </div>
+
+      <div class="pullquote reveal">
+        <blockquote>The greatest problem in the world is not radical Islam — it is nominal Christianity. The answer to global Islam is a discipled and trained Church that loves Jesus!</blockquote>
+        <cite>— Joshua Lingel, President of i2 Ministries</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="label">Take Action</span>
+      <h2 class="section-heading">Join the <em>initiative</em></h2>
+      <p>Be part of the global movement training leaders to reach every Muslim for Christ in their neighborhood, region, and nation.</p>
+      <div class="cta-actions">
+        <a href="https://www.i2ministries-emfci.com/" class="btn btn-primary">
+          Join the Initiative <span class="btn-arrow">→</span>
+        </a>
+        <a href="/get-trained" class="btn btn-outline">
+          Get Trained
+        </a>
+        <a href="http://eepurl.com/Kurdj" class="btn btn-outline" target="_blank">
+          Free Ebook
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">i2 <span>Ministries</span></div>
+        <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/thewadi.english/" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thewadi.english/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg>
+          </a>
+          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Ministry</h4>
+          <a href="/about">About</a>
+          <a href="/the-mission">The Mission</a>
+          <a href="/contact">Contact</a>
+          <a href="/donate">Donate</a>
+        </div>
+        <div class="footer-col">
+          <h4>Training</h4>
+          <a href="https://www.i2ministries-emfci.com">The Initiative</a>
+          <a href="https://www.mmwu.org/">MMWU</a>
+          <a href="https://thewadi.org">WADI</a>
+          <a href="https://resources.i2ministries.org">Resources</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <a href="https://linktree.com/wiseglobal">WISE Global App</a>
+          <a href="http://eepurl.com/Kurdj">Free Ebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2003–2026 i2 Ministries Inc. All Rights Reserved. PO Box 3403, La Habra, CA 90632 USA. Tax-exempt 501(c)(3).
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  document.getElementById('mobileToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Death counter
+  function updateCounter() {
+    const now = new Date();
+    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const secondsToday = (now - startOfDay) / 1000;
+    const perSecond = 37000 / 86400;
+    const count = Math.floor(secondsToday * perSecond);
+    const el = document.getElementById('deathCounter');
+    if (el) el.textContent = count.toLocaleString();
+  }
+  updateCounter();
+  setInterval(updateCounter, 3000);
+</script>
+</body>
+</html>

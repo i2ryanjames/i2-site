@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Dr. Joshua Lingel | i2 Ministries</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --color-bg: #FAFAF7;
+    --color-surface: #F0EFEB;
+    --color-surface-raised: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-text-muted: #5C5A55;
+    --color-accent: #B8862D;
+    --color-accent-warm: #C7753A;
+    --color-accent-deep: #8B3A2A;
+    --color-white: #FFFFFF;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --max-width: 1280px;
+    --section-pad: 110px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+  .label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    line-height: 1.15;
+    color: var(--color-text);
+    font-weight: 400;
+  }
+  .section-heading em { font-style: italic; color: var(--color-accent); }
+
+  /* ─── NAV ─────────────────────────────────── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: background 0.4s, backdrop-filter 0.4s, padding 0.4s;
+  }
+  .nav.scrolled {
+    background: rgba(250,250,247,0.95);
+    backdrop-filter: blur(20px);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(184,134,45,0.15);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 32px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--color-text); font-style: italic; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--color-text-muted); transition: color 0.3s; font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--color-accent); }
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: #FFFFFF !important;
+    padding: 10px 24px; border-radius: 4px;
+    font-weight: 600 !important;
+    transition: transform 0.3s, box-shadow 0.3s !important;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(184,134,45,0.3); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); margin: 5px 0; transition: 0.3s; }
+
+  /* ─── PAGE HERO ───────────────────────────── */
+  .page-hero {
+    padding: 160px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 30% 60%, rgba(184,134,45,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 80% 30%, rgba(199,117,58,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .page-hero-inner { position: relative; z-index: 1; text-align: center; max-width: 800px; margin: 0 auto; }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    line-height: 1.1; font-weight: 400; margin-bottom: 24px;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--color-accent); }
+  .page-hero .subtitle {
+    font-size: 1.2rem; color: var(--color-text-muted);
+    max-width: 640px; margin: 0 auto 16px; line-height: 1.75;
+  }
+  .page-hero .vision {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  .strategy-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--color-accent); font-weight: 600;
+    border: 1px solid rgba(184,134,45,0.3); padding: 12px 28px; border-radius: 4px;
+    transition: all 0.3s;
+  }
+  .strategy-link:hover { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+
+  /* ─── BIO SECTION ─────────────────────────── */
+  .bio { padding: var(--section-pad) 0; }
+  .bio-grid {
+    display: grid; grid-template-columns: 0.45fr 0.55fr;
+    gap: 64px; align-items: start;
+  }
+  .bio-photo-wrap { position: relative; }
+  .bio-photo {
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+  .bio-photo img { width: 100%; height: auto; display: block; }
+  .bio-whatsapp {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 20px; padding: 12px 24px;
+    background: #25D366; color: #fff; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 600; transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .bio-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.3); }
+  .bio-content h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400; margin-bottom: 8px;
+  }
+  .bio-content h2 em { color: var(--color-accent); font-style: italic; }
+  .bio-role {
+    font-size: 1rem; color: var(--color-accent);
+    font-weight: 500; margin-bottom: 28px;
+  }
+  .bio-content p {
+    font-size: 1rem; color: var(--color-text-muted);
+    line-height: 1.85; margin-bottom: 18px;
+  }
+  .bio-content .calling {
+    font-family: var(--font-display);
+    font-size: 1.15rem; color: var(--color-text);
+    font-style: italic;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 20px; margin: 28px 0;
+  }
+  .bio-credentials {
+    margin-top: 28px; padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .bio-credentials h4 {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--color-accent); margin-bottom: 12px;
+  }
+  .bio-credentials p {
+    font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7;
+  }
+
+  /* ─── VIDEOS SECTION ──────────────────────── */
+  .videos { padding: 0 0 var(--section-pad); }
+  .videos-header { margin-bottom: 48px; }
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .video-card {
+    position: relative; border-radius: 10px; overflow: hidden;
+    aspect-ratio: 16/9; background: var(--color-surface);
+    border: 1px solid rgba(0,0,0,0.06);
+    cursor: pointer; transition: transform 0.4s, box-shadow 0.4s;
+  }
+  .video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+  }
+  .video-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .video-card:hover img { transform: scale(1.05); }
+  .video-play {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--color-accent);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(184,134,45,0.4);
+    transition: transform 0.3s;
+  }
+  .video-card:hover .video-play { transform: translate(-50%,-50%) scale(1.1); }
+  .video-play svg { margin-left: 2px; }
+
+  /* ─── GALLERY ─────────────────────────────── */
+  .gallery {
+    padding: var(--section-pad) 0;
+    background: var(--color-surface);
+  }
+  .gallery-header { text-align: center; margin-bottom: 48px; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .gallery-grid a {
+    border-radius: 8px; overflow: hidden;
+    aspect-ratio: 4/3;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .gallery-grid a:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    z-index: 2;
+    position: relative;
+  }
+  .gallery-grid a img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+
+  /* ─── ABOUT i2 ────────────────────────────── */
+  .about-org { padding: var(--section-pad) 0; }
+  .about-org-inner {
+    max-width: 800px; margin: 0 auto;
+  }
+  .about-org-inner p {
+    font-size: 1.05rem; color: var(--color-text-muted);
+    line-height: 1.85; margin-bottom: 18px;
+  }
+  .about-org-inner .btn-row { margin-top: 32px; }
+
+  /* ─── CORE VALUES ─────────────────────────── */
+  .values {
+    padding: var(--section-pad) 0;
+    background: var(--color-surface);
+  }
+  .values-header { text-align: center; margin-bottom: 60px; }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .value-card {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 36px 32px;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .value-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.07);
+    border-color: rgba(184,134,45,0.2);
+  }
+  .value-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .value-card p {
+    font-size: 0.92rem; color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+  .value-number {
+    font-family: var(--font-display);
+    font-size: 2.4rem; color: rgba(184,134,45,0.2);
+    font-style: italic; line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  /* ─── ENDORSEMENTS ────────────────────────── */
+  .endorsements { padding: var(--section-pad) 0; }
+  .endorsements-header { text-align: center; margin-bottom: 60px; }
+  .endorsements-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .endorsement-card {
+    background: var(--color-surface);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 36px 32px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .endorsement-card:hover {
+    border-color: rgba(184,134,45,0.2);
+    transform: translateY(-2px);
+  }
+  .endorsement-card .eq {
+    font-family: var(--font-display);
+    font-size: 2.8rem; color: var(--color-accent);
+    line-height: 1; margin-bottom: 12px;
+  }
+  .endorsement-card blockquote {
+    font-size: 0.92rem; color: var(--color-text-muted);
+    line-height: 1.75; margin-bottom: 24px;
+    font-style: italic;
+  }
+  .endorsement-meta {
+    display: flex; align-items: center; gap: 14px;
+    border-top: 1px solid rgba(184,134,45,0.1);
+    padding-top: 18px;
+  }
+  .endorsement-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    overflow: hidden; flex-shrink: 0;
+    border: 2px solid rgba(184,134,45,0.2);
+  }
+  .endorsement-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .endorsement-meta strong { display: block; font-size: 0.9rem; }
+  .endorsement-meta span { font-size: 0.8rem; color: var(--color-text-muted); }
+
+  /* ─── LAUSANNE ────────────────────────────── */
+  .lausanne {
+    padding: var(--section-pad) 0;
+    background: var(--color-surface);
+  }
+  .lausanne-inner { max-width: 800px; margin: 0 auto; }
+  .lausanne-intro { text-align: center; margin-bottom: 48px; }
+  .lausanne-intro p {
+    font-size: 1rem; color: var(--color-text-muted); line-height: 1.75;
+    max-width: 640px; margin: 16px auto 0;
+  }
+  .lausanne-intro a {
+    color: var(--color-accent); text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .accordion-item {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .accordion-btn {
+    width: 100%; background: none; border: none;
+    padding: 22px 0;
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; font-family: var(--font-display);
+    font-size: 1.2rem; color: var(--color-text);
+    text-align: left; transition: color 0.3s;
+  }
+  .accordion-btn:hover { color: var(--color-accent); }
+  .accordion-chevron {
+    width: 20px; height: 20px; flex-shrink: 0;
+    transition: transform 0.3s;
+    color: var(--color-accent);
+  }
+  .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+  .accordion-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+  .accordion-item.open .accordion-body {
+    max-height: 800px;
+    padding-bottom: 24px;
+  }
+  .accordion-body p {
+    font-size: 0.95rem; color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+  .accordion-body .scripture {
+    font-size: 0.85rem; color: rgba(92,90,85,0.6);
+    font-style: italic; margin-top: 12px;
+  }
+
+  /* ─── CTA / NEWSLETTER ────────────────────── */
+  .cta-section {
+    padding: var(--section-pad) 0;
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(184,134,45,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    text-align: center; position: relative; z-index: 1;
+    max-width: 640px; margin: 0 auto;
+  }
+  .cta-inner p {
+    font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 36px;
+  }
+
+  /* ─── BUTTONS ─────────────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 36px; border-radius: 4px;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.35s; cursor: pointer;
+    border: none; font-family: var(--font-body);
+  }
+  .btn-primary { background: var(--color-accent); color: #FFFFFF; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(184,134,45,0.35); }
+  .btn-outline {
+    background: transparent; color: var(--color-text);
+    border: 1px solid rgba(26,26,26,0.15);
+  }
+  .btn-outline:hover { border-color: var(--color-accent); color: var(--color-accent); }
+  .btn-arrow { transition: transform 0.3s; }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+
+  /* ─── FOOTER ──────────────────────────────── */
+  .footer {
+    padding: 64px 0 40px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; flex-wrap: wrap; gap: 40px;
+  }
+  .footer-brand .nav-logo { margin-bottom: 16px; }
+  .footer-brand p {
+    font-size: 0.85rem; color: var(--color-text-muted);
+    max-width: 320px; line-height: 1.7;
+  }
+  .footer-links { display: flex; gap: 64px; }
+  .footer-col h4 {
+    font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--color-accent); margin-bottom: 20px;
+  }
+  .footer-col a {
+    display: block; font-size: 0.9rem;
+    color: var(--color-text-muted); margin-bottom: 12px; transition: color 0.3s;
+  }
+  .footer-col a:hover { color: var(--color-accent); }
+  .footer-socials { display: flex; gap: 16px; margin-top: 20px; }
+  .footer-socials a {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .footer-socials a:hover { background: var(--color-accent); border-color: var(--color-accent); }
+  .footer-socials a:hover svg { color: #FFFFFF; }
+  .footer-socials svg { color: var(--color-text-muted); width: 16px; height: 16px; }
+  .footer-bottom {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    text-align: center; font-size: 0.8rem;
+    color: rgba(92,90,85,0.6);
+  }
+
+  /* ─── ANIMATIONS ──────────────────────────── */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94),
+                transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ─── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 1024px) {
+    .bio-grid { grid-template-columns: 1fr; gap: 48px; }
+    .videos-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .values-grid { grid-template-columns: 1fr; }
+    .endorsements-list { grid-template-columns: 1fr; }
+    .footer-links { gap: 40px; }
+    :root { --section-pad: 80px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(250,250,247,0.97);
+      backdrop-filter: blur(20px);
+      padding: 24px 32px; gap: 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .videos-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { flex-direction: column; }
+    .footer-links { flex-wrap: wrap; gap: 32px; }
+    :root { --section-pad: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">i2 <span>Ministries</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/about">About</a>
+      <a href="/the-mission">The Mission</a>
+      <a href="https://www.i2ministries-emfci.com">The Initiative</a>
+      <a href="/get-trained">Get Trained</a>
+      <a href="https://resources.i2ministries.org">Resources</a>
+      <a href="/contact">Contact</a>
+      <a href="/donate" class="nav-cta">Donate</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════ PAGE HERO ═══════ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <span class="label">About i2 Ministries</span>
+      <h1>Mobilize. Equip. <em>Energize.</em></h1>
+      <p class="subtitle">Our mission is to mobilize, equip, and energize believers to reach Muslims with the Gospel.</p>
+      <p class="vision">Our vision is to see a global movement of people equipped to love and reach Muslims for Jesus Christ.</p>
+      <a href="/images/i2-mega-strategy.pdf" class="strategy-link" target="_blank">
+        View Our Mega Strategy <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ BIO ═══════ -->
+<section class="bio" id="joshua">
+  <div class="container">
+    <div class="bio-grid">
+      <div class="bio-photo-wrap reveal">
+        <div class="bio-photo">
+          <img src="/images/joshua-lingel.jpg" alt="Dr. Joshua Lingel" />
+        </div>
+        <a href="https://wa.link/wcuy7j" class="bio-whatsapp" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.178 1.607 6.006L.057 23.88l5.997-1.515A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.93 0-3.82-.522-5.468-1.51l-.392-.233-3.555.899.946-3.445-.255-.405A9.784 9.784 0 0 1 2.182 12c0-5.415 4.403-9.818 9.818-9.818S21.818 6.585 21.818 12s-4.403 9.818-9.818 9.818z"/></svg>
+          Invite Joshua to Train Your Group
+        </a>
+      </div>
+      <div class="bio-content reveal reveal-delay-1">
+        <span class="label">President &amp; Founder</span>
+        <h2>Dr. Joshua <em>Lingel</em></h2>
+        <p class="bio-role">Professor, Apologist, and Missional Strategist</p>
+
+        <p>Joshua Lingel taught Christian Apologetics to Islam in the Biblical Studies & MA Apologetics Departments of Biola University & Talbot School of Theology. He received an award from the Billy Graham/Leighton Ford ministry in Evangelism for leading students to evangelize 4–5,000 Muslims in mosques, restaurants, and halal shops in Los Angeles.</p>
+
+        <div class="calling">"Train the global church to evangelize the Muslim world in one generation."</div>
+        <p style="font-size:0.9rem;color:var(--color-text-muted);">— A calling received at age 18 from the Holy Spirit</p>
+
+        <p>Joshua is passionate about finishing the Great Commission among 2 billion Muslims in this generation. He focuses on strategy, mobilization, and training — mainly serving the largest global denominations and ministries. i2 conducts national pastors congresses training 1–20,000 leaders launching the Every Muslim for Christ Initiative across 50+ countries.</p>
+
+        <p>He serves on the Global Council of Missions (GCM) Board, Transform World (2005–2033), and the Strategic Resources Group (SRG) Advisory Board.</p>
+
+        <div class="bio-credentials">
+          <h4>Education</h4>
+          <p>M.A. Islamic Studies/Islamic Societies &amp; Cultures — School of Oriental and African Studies (SOAS), University of London. M.A. Philosophy of Religion &amp; Ethics — Talbot School of Theology. B.A. Political Science — University of Washington.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ VIDEOS ═══════ -->
+<section class="videos">
+  <div class="container">
+    <div class="videos-header reveal">
+      <span class="label">Watch</span>
+      <h2 class="section-heading">See Joshua <em>in action</em></h2>
+    </div>
+    <div class="videos-grid">
+      <a href="https://www.youtube.com/watch?v=sLz46gP5j9s" target="_blank" class="video-card reveal">
+        <img src="/images/vid-launching.jpg" alt="Launching the Initiative" />
+        <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
+      </a>
+      <a href="https://vimeo.com/1068286834?share=copy" target="_blank" class="video-card reveal reveal-delay-1">
+        <img src="/images/vid-brazil.jpg" alt="Brazil Training" />
+        <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
+      </a>
+      <a href="https://youtu.be/p98KtatiepE?si=WLwf-6dTByF04wJx" target="_blank" class="video-card reveal reveal-delay-2">
+        <img src="/images/vid-korean.jpg" alt="Korean Training" />
+        <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
+      </a>
+      <a href="https://youtu.be/sKEidJzQK6U?si=7zDb08QP3T_Kbhy8" target="_blank" class="video-card reveal">
+        <img src="/images/vid-great-commission.jpg" alt="Great Commission" />
+        <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
+      </a>
+      <a href="https://youtu.be/zPRaXCI0WUY?si=ySD1gWypD49h2Mv9" target="_blank" class="video-card reveal reveal-delay-1">
+        <img src="/images/vid-why-care.jpg" alt="Why Care About Muslims" />
+        <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
+      </a>
+      <a href="https://vimeo.com/174442453" target="_blank" class="video-card reveal reveal-delay-2">
+        <img src="/images/vid-gc-muslims.png" alt="The Great Commission and Muslims" />
+        <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ GALLERY ═══════ -->
+<section class="gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <span class="label">Global Impact</span>
+      <h2 class="section-heading">Training initiatives <em>worldwide</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <a href="/images/gallery-01.jpg" target="_blank">
+        <img src="/images/gallery-01.jpg" alt="Training initiative" />
+      </a>
+      <a href="/images/gallery-02.jpg" target="_blank">
+        <img src="/images/gallery-02.jpg" alt="Peru group training" />
+      </a>
+      <a href="/images/gallery-03.jpg" target="_blank">
+        <img src="/images/gallery-03.jpg" alt="Josh with students" />
+      </a>
+      <a href="/images/gallery-04.jpg" target="_blank">
+        <img src="/images/gallery-04.jpg" alt="Conference" />
+      </a>
+      <a href="/images/gallery-05.jpg" target="_blank">
+        <img src="/images/gallery-05.jpg" alt="Costa Rica Pastors Conference" />
+      </a>
+      <a href="/images/gallery-06.jpg" target="_blank">
+        <img src="/images/gallery-06.jpg" alt="Angola" />
+      </a>
+      <a href="/images/gallery-07.jpg" target="_blank">
+        <img src="/images/gallery-07.jpg" alt="Korea Seminary" />
+      </a>
+      <a href="/images/gallery-08.jpg" target="_blank">
+        <img src="/images/gallery-08.jpg" alt="Peru training" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT i2 ═══════ -->
+<section class="about-org">
+  <div class="container">
+    <div class="about-org-inner reveal">
+      <span class="label">Our Story</span>
+      <h2 class="section-heading" style="margin-bottom:28px;">We believe in <em>change</em></h2>
+      <p>Founded in 2003, i2 exists to establish a global missions force to effectively evangelize Muslims. i2 provides training and resources to national denominations, discipleship movements, catalytic networks, ministry schools, and local churches.</p>
+      <p>i2 partners with the best evangelical scholars and experts worldwide to help the global church address the challenge of Islam through training, conferences, and congresses.</p>
+      <p>i2 Ministries conducts national congresses internationally for catalytic Christian movements, training 1–20,000 pastors at a time, to bring a solution addressing the missional and ideological challenges and finishing the great commission among Muslims.</p>
+      <p>Whether training the apologist debating Muslim scholars or the oral learner pastoring a church in the heart of Africa, i2 exists to serve the global church and equip individuals to evangelize Muslims.</p>
+      <p>i2 offers the most comprehensive training program in the world for reaching Muslims through its Mission Muslim World University (MMWU). MMWU's video-based training makes the best scholarship available to believers anywhere on earth in multiple formats, levels, and languages — with over 20 courses.</p>
+      <div class="btn-row">
+        <a href="https://www.mmwu.org" class="btn btn-primary" target="_blank">Explore MMWU Online <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CORE VALUES ═══════ -->
+<section class="values" id="values">
+  <div class="container">
+    <div class="values-header reveal">
+      <span class="label">What We Stand For</span>
+      <h2 class="section-heading">Our core <em>values</em></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-number">01</div>
+        <h3>Radical Discipleship</h3>
+        <p>Because He loves us and we love Him, we obey His commands and sacrifice personal security and comfort for the sake of Jesus and to be faithful witness for His fame in the earth.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-number">02</div>
+        <h3>Biblical Missions</h3>
+        <p>The Bible is the infallible, inerrant, and inspired Word of the one and only God. The Scriptures alone provide the entire basis for the mission, vision, strategy, and our training.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-number">03</div>
+        <h3>The Church</h3>
+        <p>The Church is God's chosen instrument to bring hope and love to a hurting world. He gave His church the role of preserving and protecting His truth through local assemblies.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-number">04</div>
+        <h3>Consecration</h3>
+        <p>A life committed to the leadership of the Holy Spirit, the producing of spiritual fruit, and the practice of spiritual disciplines — especially meditating on God's Word, prayer, and fasting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ENDORSEMENTS ═══════ -->
+<section class="endorsements" id="endorsements">
+  <div class="container">
+    <div class="endorsements-header reveal">
+      <span class="label">Endorsements</span>
+      <h2 class="section-heading">What leaders are saying about <em>i2 Ministries</em></h2>
+    </div>
+    <div class="endorsements-list">
+
+      <div class="endorsement-card reveal">
+        <div class="eq">"</div>
+        <blockquote>Having personally reviewed the proposals and teaching materials I can see that this organization will provide an educational and resourcing framework for the church that currently does not exist. There is no ministry that provides better training in churches for Ministry to Muslims than i2 Ministries.</blockquote>
+        <div class="endorsement-meta">
+          <div class="endorsement-avatar"><img src="/images/endorser-mcdowell.png" alt="Josh McDowell" /></div>
+          <div><strong>Dr. Josh McDowell</strong><span>President, Josh McDowell Ministries</span></div>
+        </div>
+      </div>
+
+      <div class="endorsement-card reveal reveal-delay-1">
+        <div class="eq">"</div>
+        <blockquote>I know of no other training ministry even close to the equal of i2 Ministries. Joshua is a leader of leaders and brings a prophetic exhortation and encouragement to train each Christian in our churches young and old to reach Muslims.</blockquote>
+        <div class="endorsement-meta">
+          <div class="endorsement-avatar"><img src="/images/endorser-licona.png" alt="Michael Licona" /></div>
+          <div><strong>Dr. Michael Licona</strong><span>Ph.D., Northwest University</span></div>
+        </div>
+      </div>
+
+      <div class="endorsement-card reveal">
+        <div class="eq">"</div>
+        <blockquote>As the Iron Curtain fell in the twentieth century, so the Islamic Curtain shielding the Muslim world from the Gospel is destined to fall in the twenty-first. The courses in i2 Ministries' curriculum will help equip churches to reach Muslims effectively.</blockquote>
+        <div class="endorsement-meta">
+          <div class="endorsement-avatar"><img src="/images/endorser-craig.png" alt="William Lane Craig" /></div>
+          <div><strong>Dr. William Lane Craig</strong><span>President, Reasonable Faith</span></div>
+        </div>
+      </div>
+
+      <div class="endorsement-card reveal reveal-delay-1">
+        <div class="eq">"</div>
+        <blockquote>I am thrilled and overjoyed with the ministry of i2 Ministries. I have never had a student with more vision, with more passion and with more excellence than Josh Lingel. Because Josh Lingel is at the helm, I could not be prouder to give it my fullest endorsement.</blockquote>
+        <div class="endorsement-meta">
+          <div class="endorsement-avatar"><img src="/images/endorser-moreland.png" alt="JP Moreland" /></div>
+          <div><strong>Dr. JP Moreland</strong><span>Professor of Philosophy, Biola/Talbot</span></div>
+        </div>
+      </div>
+
+      <div class="endorsement-card reveal">
+        <div class="eq">"</div>
+        <blockquote>The best qualification for Joshua Lingel is that he is a man of God. He has a prophetic message for the worldwide church today. His ministry is making a great difference in the Brazilian Church, helping train more than 1,000 workers.</blockquote>
+        <div class="endorsement-meta">
+          <div class="endorsement-avatar"><img src="/images/endorser-botelho.png" alt="David Botelho" /></div>
+          <div><strong>David Botelho</strong><span>President, Horizontes America Latina, Brazil</span></div>
+        </div>
+      </div>
+
+      <div class="endorsement-card reveal reveal-delay-1">
+        <div class="eq">"</div>
+        <blockquote>As Senior Pastor of the Rock of Roseville, a church of 2,000, we were privileged to host i2 Ministries. They provided world-class training that was extremely relevant and prophetic for our church. We heard RAVE reviews!</blockquote>
+        <div class="endorsement-meta">
+          <div class="endorsement-avatar"><img src="/images/endorser-anfuso.png" alt="Francis Anfuso" /></div>
+          <div><strong>Pastor Francis Anfuso</strong><span>Rock of Roseville Church, CA</span></div>
+        </div>
+      </div>
+
+      <div class="endorsement-card reveal">
+        <div class="eq">"</div>
+        <blockquote>I believe the need to reach 1.9 billion Muslims is so paramount it should demand our utmost concern. i2 is a group dedicated to reaching the Islamic world and utilizing available resources in technology to facilitate that. I heartily endorse this ministry!</blockquote>
+        <div class="endorsement-meta">
+          <div class="endorsement-avatar"><img src="/images/endorser-coleman.png" alt="Robert Coleman" /></div>
+          <div><strong>Dr. Robert Coleman</strong><span>Chair of Evangelism, Trinity Seminary</span></div>
+        </div>
+      </div>
+
+      <div class="endorsement-card reveal reveal-delay-1">
+        <div class="eq">"</div>
+        <blockquote>Josh's passion, scholarship, and vision have been translated into making helpful evangelistic, cultural and apologetic resources available to the wider church in a highly accessible way. I commend Josh and i2 Ministries for their efforts.</blockquote>
+        <div class="endorsement-meta">
+          <div class="endorsement-avatar"><img src="/images/endorser-mcallister.png" alt="Stuart McAllister" /></div>
+          <div><strong>Stuart McAllister</strong><span>VP Training, Ravi Zacharias International</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ LAUSANNE COVENANT ═══════ -->
+<section class="lausanne" id="lausanne">
+  <div class="container">
+    <div class="lausanne-inner">
+      <div class="lausanne-intro reveal">
+        <span class="label">Statement of Faith</span>
+        <h2 class="section-heading">We affirm the <em>Lausanne Covenant</em></h2>
+        <p>Widely regarded as one of the most significant documents in modern church history, the <a href="https://www.lausanne.org/content/covenant/lausanne-covenant#cov" target="_blank">Lausanne Covenant</a> emerged from the First Lausanne Congress in 1974 and defines what it means to be evangelical.</p>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Introduction
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>We, members of the Church of Jesus Christ, deeply stirred by what God is doing in our day, moved to repentance by our failures and challenged by the unfinished task of global evangelization. We believe the gospel is God's good news for the whole world, and we are determined by his grace to obey Christ's commission to proclaim it to all mankind and to make disciples of every nation.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          The Purpose of God
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>We affirm our belief in the one eternal God, Creator and Lord of the world, Father, Son and Holy Spirit, who governs all things according to the purpose of his will. He has been calling out from the world a people for himself, and sending his people back into the world to be his servants and his witnesses, for the extension of his kingdom, the building up of Christ's body, and the glory of his name.</p>
+          <p class="scripture">Isaiah 40:28; Matthew 28:19; Ephesians 1:11; Acts 15:14; John 17:6,18; Ephesians 4:12</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          The Authority and Power of the Bible
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>We affirm the divine inspiration, truthfulness and authority of both Old and New Testament Scriptures in their entirety as the only written word of God, without error in all that it affirms, and the only infallible rule of faith and practice. We also affirm the power of God's word to accomplish his purpose of salvation.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          The Uniqueness and Universality of Christ
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>We affirm that there is only one Saviour and only one gospel, although there is a wide diversity of evangelistic approaches. Jesus Christ, being himself the only God-Man, who gave himself as the only ransom for sinners, is the only mediator between God and people. There is no other name by which we must be saved.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          The Nature of Evangelism
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>To evangelize is to spread the good news that Jesus Christ died for our sins and was raised from the dead according to the Scriptures, and that, as the reigning Lord, he now offers the forgiveness of sins and the liberating gifts of the Spirit to all who repent and believe.</p>
+          <p class="scripture">1 Corinthians 15:3,4; Acts 2:32-39; John 20:21; Luke 14:25-33; Mark 8:34</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Christian Social Responsibility
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>We affirm that God is both the Creator and the Judge of all. Every person, regardless of race, religion, colour, culture, class, sex or age, has an intrinsic dignity because of which he or she should be respected and served, not exploited. We affirm that evangelism and socio-political involvement are both part of our Christian duty.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          The Church and Evangelism
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>We affirm that Christ sends his redeemed people into the world as the Father sent him. In the Church's mission of sacrificial service, evangelism is primary. World evangelization requires the whole Church to take the whole gospel to the whole world.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          The Urgency of the Evangelistic Task
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>More than 3.14 billion people still haven't been reached with the gospel. We are ashamed that so many have been neglected. There is now, however, in many parts of the world, an unprecedented receptivity to the Lord Jesus Christ. We are convinced that this is the time for churches to pray earnestly and launch new efforts to achieve world evangelization.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          The Power of the Holy Spirit
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>We believe in the power of the Holy Spirit. The Father sent his Spirit to bear witness to his Son; without his witness ours is futile. Worldwide evangelization will become a realistic possibility only when the Spirit renews the Church in truth and wisdom, faith, holiness, love and power.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          The Return of Christ
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>We believe that Jesus Christ will return bodily, personally, and visibly, in power and glory, to consummate his salvation and his judgment. This promise of his coming is a further spur to our evangelism, for we remember his words that the gospel must first be preached to all nations.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="label">Stay Connected</span>
+      <h2 class="section-heading">Join the <em>movement</em></h2>
+      <p>Get updates about global missions in the Muslim world and be the first to know about new training resources.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="http://eepurl.com/Kurdj" class="btn btn-primary" target="_blank">Get the Free Ebook <span class="btn-arrow">→</span></a>
+        <a href="/donate" class="btn btn-outline">Partner With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">i2 <span>Ministries</span></div>
+        <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/thewadi.english/" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thewadi.english/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg>
+          </a>
+          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Ministry</h4>
+          <a href="/about">About</a>
+          <a href="/the-mission">The Mission</a>
+          <a href="/contact">Contact</a>
+          <a href="/donate">Donate</a>
+        </div>
+        <div class="footer-col">
+          <h4>Training</h4>
+          <a href="https://www.i2ministries-emfci.com">The Initiative</a>
+          <a href="https://www.mmwu.org/">MMWU</a>
+          <a href="https://thewadi.org">WADI</a>
+          <a href="https://resources.i2ministries.org">Resources</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <a href="https://linktree.com/wiseglobal">WISE Global App</a>
+          <a href="http://eepurl.com/Kurdj">Free Ebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2003–2026 i2 Ministries Inc. All Rights Reserved. PO Box 3403, La Habra, CA 90632 USA. Tax-exempt 501(c)(3).
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  document.getElementById('mobileToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Accordion
+  function toggleAccordion(btn) {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+    // Toggle clicked
+    if (!wasOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
