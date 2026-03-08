@@ -505,17 +505,33 @@
   .endorsement-avatar {
     width: 48px; height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-warm));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: #FFFFFF;
+    overflow: hidden;
     flex-shrink: 0;
+    border: 2px solid rgba(184,134,45,0.2);
   }
+  .endorsement-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .endorsement-author strong { display: block; font-size: 0.9rem; }
   .endorsement-author span { font-size: 0.8rem; color: var(--color-text-muted); }
+  .endorsements-more {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .endorsements-more a {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    border: 1.5px solid var(--color-accent);
+    border-radius: 50px;
+    padding: 10px 28px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+  .endorsements-more a:hover {
+    background: var(--color-accent);
+    color: #FFFFFF;
+  }
 
   /* ─── NEWSLETTER / CTA ────────────────────── */
   .cta-section {
@@ -844,7 +860,7 @@
         <div class="endorsement-quote">"</div>
         <blockquote>I don't know another ministry that has the ability to mass mobilize denominations and church networks to reach Muslims like i2 Ministries. I believe the WISE Global Initiative is a vital tool that could change the landscape of global missions.</blockquote>
         <div class="endorsement-author">
-          <div class="endorsement-avatar">JM</div>
+          <div class="endorsement-avatar"><img src="/images/endorser-mcdowell.png" alt="Josh McDowell" /></div>
           <div>
             <strong>Dr. Josh McDowell</strong>
             <span>President, Josh McDowell Ministries</span>
@@ -855,7 +871,7 @@
         <div class="endorsement-quote">"</div>
         <blockquote>I know of no other training ministry even close to the equal of i2 Ministries. Joshua is a leader of leaders and brings a prophetic exhortation to train each Christian in our churches to reach Muslims.</blockquote>
         <div class="endorsement-author">
-          <div class="endorsement-avatar">ML</div>
+          <div class="endorsement-avatar"><img src="/images/endorser-licona.png" alt="Michael Licona" /></div>
           <div>
             <strong>Dr. Michael Licona</strong>
             <span>Author &amp; New Testament Scholar</span>
@@ -866,13 +882,16 @@
         <div class="endorsement-quote">"</div>
         <blockquote>As the Iron Curtain fell in the twentieth century, so the Islamic Curtain shielding the Muslim world from the Gospel is destined to fall in the twenty-first. i2 Ministries' curriculum will help equip churches to reach Muslims effectively.</blockquote>
         <div class="endorsement-author">
-          <div class="endorsement-avatar">WC</div>
+          <div class="endorsement-avatar"><img src="/images/endorser-craig.png" alt="William Lane Craig" /></div>
           <div>
             <strong>Dr. William Lane Craig</strong>
             <span>President, Reasonable Faith</span>
           </div>
         </div>
       </div>
+    </div>
+    <div class="endorsements-more reveal">
+      <a href="/about#endorsements">View more</a>
     </div>
   </div>
 </section>
