@@ -288,8 +288,10 @@
     position: relative;
     background: linear-gradient(135deg, var(--color-accent-deep), #5C1A12);
     border-radius: 16px;
-    padding: 60px 48px;
-    text-align: center;
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
     overflow: hidden;
   }
   .mission-counter::before {
@@ -299,18 +301,49 @@
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
   }
+  .mission-counter .counter-icon {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    z-index: 1;
+  }
+  .mission-counter .counter-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .mission-counter .counter-content {
+    position: relative;
+    z-index: 1;
+  }
   .mission-counter .counter-number {
     font-family: var(--font-display);
     font-size: clamp(3rem, 7vw, 5rem);
     color: var(--color-white);
     font-weight: 400;
     margin-bottom: 8px;
+    line-height: 1;
   }
   .mission-counter .counter-label {
     font-size: 1.1rem;
     color: rgba(255,255,255,0.7);
     max-width: 320px;
-    margin: 0 auto;
+  }
+  @media (max-width: 600px) {
+    .mission-counter {
+      flex-direction: column;
+      text-align: center;
+      padding: 32px 24px;
+      gap: 20px;
+    }
+    .mission-counter .counter-icon {
+      width: 100px;
+      height: 100px;
+    }
+    .mission-counter .counter-label {
+      margin: 0 auto;
+    }
   }
 
   .mission-text p {
@@ -775,8 +808,13 @@
     <div class="mission-grid">
       <div class="mission-visual reveal">
         <div class="mission-counter">
-          <div class="counter-number" id="deathCounter">0</div>
-          <div class="counter-label">Muslims have died today without knowing Jesus</div>
+          <div class="counter-icon">
+            <img src="/images/Muslim-icon-vector.png" alt="Muslim people illustration" />
+          </div>
+          <div class="counter-content">
+            <div class="counter-number" id="deathCounter">0</div>
+            <div class="counter-label">Muslims have died today without knowing Jesus</div>
+          </div>
         </div>
       </div>
       <div class="mission-text reveal reveal-delay-1">
