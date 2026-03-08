@@ -601,26 +601,26 @@
       <h2 class="section-heading">See Joshua <em>in action</em></h2>
     </div>
     <div class="videos-grid">
-      <a href="https://www.youtube.com/watch?v=sLz46gP5j9s" target="_blank" class="video-card reveal">
-        <img src="/images/vid-launching.jpg" alt="Launching the Initiative" />
+      <div class="video-card reveal" data-yt-id="sLz46gP5j9s" onclick="playVideo(this)">
+        <img src="https://img.youtube.com/vi/sLz46gP5j9s/maxresdefault.jpg" alt="Launching the Initiative" />
         <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
-      </a>
+      </div>
       <a href="https://vimeo.com/1068286834?share=copy" target="_blank" class="video-card reveal reveal-delay-1">
         <img src="/images/vid-brazil.jpg" alt="Brazil Training" />
         <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
       </a>
-      <a href="https://youtu.be/p98KtatiepE?si=WLwf-6dTByF04wJx" target="_blank" class="video-card reveal reveal-delay-2">
-        <img src="/images/vid-korean.jpg" alt="Korean Training" />
+      <div class="video-card reveal reveal-delay-2" data-yt-id="p98KtatiepE" onclick="playVideo(this)">
+        <img src="https://img.youtube.com/vi/p98KtatiepE/maxresdefault.jpg" alt="Korean Training" />
         <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
-      </a>
-      <a href="https://youtu.be/sKEidJzQK6U?si=7zDb08QP3T_Kbhy8" target="_blank" class="video-card reveal">
-        <img src="/images/vid-great-commission.jpg" alt="Great Commission" />
+      </div>
+      <div class="video-card reveal" data-yt-id="sKEidJzQK6U" onclick="playVideo(this)">
+        <img src="https://img.youtube.com/vi/sKEidJzQK6U/maxresdefault.jpg" alt="Great Commission" />
         <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
-      </a>
-      <a href="https://youtu.be/zPRaXCI0WUY?si=ySD1gWypD49h2Mv9" target="_blank" class="video-card reveal reveal-delay-1">
-        <img src="/images/vid-why-care.jpg" alt="Why Care About Muslims" />
+      </div>
+      <div class="video-card reveal reveal-delay-1" data-yt-id="zPRaXCI0WUY" onclick="playVideo(this)">
+        <img src="https://img.youtube.com/vi/zPRaXCI0WUY/maxresdefault.jpg" alt="Why Care About Muslims" />
         <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
-      </a>
+      </div>
       <a href="https://vimeo.com/174442453" target="_blank" class="video-card reveal reveal-delay-2">
         <img src="/images/vid-gc-muslims.png" alt="The Great Commission and Muslims" />
         <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
@@ -982,6 +982,21 @@
 </footer>
 
 <script>
+  // ─── YouTube Embed ───
+  function playVideo(card) {
+    var ytId = card.getAttribute('data-yt-id');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:10px;';
+    card.innerHTML = '';
+    card.style.cursor = 'default';
+    card.onclick = null;
+  	card.appendChild(iframe);
+  }
+
   // Nav scroll
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
