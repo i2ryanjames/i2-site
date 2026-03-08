@@ -214,7 +214,7 @@
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 16/10;
+    aspect-ratio: 16/9;
     width: 100%;
     background: var(--color-surface);
     border: 1px solid rgba(184,134,45,0.15);
@@ -718,12 +718,12 @@
         </div>
       </div>
       <div class="hero-visual">
-        <a href="https://vimeo.com/425286820" target="_blank" class="hero-video-card">
-          <img src="/images/hero-video-thumb.jpg" alt="Introduction to i2 Ministries" />
+        <div class="hero-video-card" id="heroVideoCard" onclick="playHeroVideo()">
+          <img src="https://img.youtube.com/vi/K3nqkssStVE/maxresdefault.jpg" alt="Introduction to i2 Ministries" />
           <div class="play-btn">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19" /></svg>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </div>
@@ -948,6 +948,21 @@
 </footer>
 
 <script>
+  // ─── Hero Video Embed ───
+  function playHeroVideo() {
+    const card = document.getElementById('heroVideoCard');
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/K3nqkssStVE?autoplay=1&rel=0';
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:12px;';
+    card.innerHTML = '';
+    card.style.cursor = 'default';
+    card.onclick = null;
+    card.appendChild(iframe);
+  }
+
   // ─── Scroll Nav ───
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
