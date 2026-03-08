@@ -104,15 +104,28 @@
     max-width: 720px; margin: 0 auto; padding-bottom: 80px;
   }
   .death-counter {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 32px;
     background: linear-gradient(135deg, var(--color-accent-deep), #5C1A12);
-    border-radius: 20px; padding: 56px 72px;
+    border-radius: 20px; padding: 40px 56px;
     margin-bottom: 32px; position: relative; overflow: hidden;
   }
   .death-counter::before {
     content: ''; position: absolute; inset: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
+  }
+  .death-counter .counter-icon {
+    flex-shrink: 0;
+    width: 120px; height: 120px;
+    position: relative; z-index: 1;
+  }
+  .death-counter .counter-icon img {
+    width: 100%; height: 100%; object-fit: contain;
+  }
+  .death-counter .counter-content {
+    position: relative; z-index: 1;
   }
   .death-counter .count {
     font-family: var(--font-display);
@@ -122,7 +135,7 @@
   }
   .death-counter .count-label {
     font-size: 1.1rem; color: rgba(255,255,255,0.7);
-    max-width: 400px; margin: 0 auto;
+    max-width: 400px;
   }
   .hero-subtitle {
     font-family: var(--font-display);
@@ -360,7 +373,9 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
     .stats-grid { grid-template-columns: 1fr; }
-    .death-counter { padding: 40px 32px; }
+    .death-counter { padding: 32px 24px; flex-direction: column; text-align: center; gap: 20px; }
+    .death-counter .counter-icon { width: 100px; height: 100px; }
+    .death-counter .count-label { margin: 0 auto; }
     .pullquote { padding: 40px 28px; }
     .cta-actions { flex-direction: column; }
     .cta-actions .btn { width: 100%; justify-content: center; }
@@ -398,8 +413,13 @@
     <div class="hero-counter-section">
       <span class="label">The Urgency</span>
       <div class="death-counter reveal">
-        <div class="count" id="deathCounter">0</div>
-        <div class="count-label">Muslims have died today without knowing Jesus</div>
+        <div class="counter-icon">
+          <img src="/images/Muslim-icon-vector.png" alt="Muslim people illustration" />
+        </div>
+        <div class="counter-content">
+          <div class="count" id="deathCounter">0</div>
+          <div class="count-label">Muslims have died today without knowing Jesus</div>
+        </div>
       </div>
       <p class="hero-subtitle">Every Muslim needs to know the <strong>love of God</strong>, the <strong>power of God</strong>, and the <strong>truth of the Gospel</strong></p>
     </div>
