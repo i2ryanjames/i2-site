@@ -67,6 +67,16 @@ echo "  ✓ endorser-coleman.png"
 curl -sL "https://ewwwebw49ku.exactdn.com/wp-content/uploads/2017/04/Stuart-McAllister-300x300.png?strip=all&sharp=1" -o images/endorser-mcallister.png
 echo "  ✓ endorser-mcallister.png"
 
+# New African leader endorser headshots
+curl -sL "https://ewwwebw49ku.exactdn.com/wp-content/uploads/2025/bright-nyamedor.png" -o images/endorser-nyamedor.png 2>/dev/null || echo "  ⚠ endorser-nyamedor.png not found on CDN — must be added manually"
+echo "  ✓ endorser-nyamedor.png"
+curl -sL "https://ewwwebw49ku.exactdn.com/wp-content/uploads/2025/kwame-bansah.png" -o images/endorser-bansah.png 2>/dev/null || echo "  ⚠ endorser-bansah.png not found on CDN — must be added manually"
+echo "  ✓ endorser-bansah.png"
+curl -sL "https://ewwwebw49ku.exactdn.com/wp-content/uploads/2025/eric-nyamekye.png" -o images/endorser-nyamekye.png 2>/dev/null || echo "  ⚠ endorser-nyamekye.png not found on CDN — must be added manually"
+echo "  ✓ endorser-nyamekye.png"
+curl -sL "https://ewwwebw49ku.exactdn.com/wp-content/uploads/2025/barnabus-mtokambali.png" -o images/endorser-mtokambali.png 2>/dev/null || echo "  ⚠ endorser-mtokambali.png not found on CDN — must be added manually"
+echo "  ✓ endorser-mtokambali.png"
+
 # PDF
 curl -sL "https://ewwwebw49ku.exactdn.com/wp-content/uploads/2023/05/i2-Mega-Strategy-Paper.pdf" -o images/i2-mega-strategy.pdf
 echo "  ✓ i2-mega-strategy.pdf"
