@@ -103,16 +103,52 @@
     text-align: center; position: relative; z-index: 1;
     max-width: 720px; margin: 0 auto; padding-bottom: 80px;
   }
+  .hero-intro-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 3vw, 1.9rem);
+    color: var(--color-text);
+    font-style: italic;
+    max-width: 660px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+  }
+  .hero-intro-heading strong {
+    color: var(--color-accent);
+    font-weight: 400;
+  }
   .death-counter {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 32px;
     background: linear-gradient(135deg, var(--color-accent-deep), #5C1A12);
-    border-radius: 20px; padding: 56px 72px;
-    margin-bottom: 32px; position: relative; overflow: hidden;
+    border-radius: 20px; padding: 48px 56px;
+    margin-bottom: 32px; position: relative; overflow: visible;
   }
   .death-counter::before {
     content: ''; position: absolute; inset: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
+  }
+  .death-counter .counter-avatar {
+    position: absolute;
+    top: -24px;
+    left: -16px;
+    width: 96px;
+    height: 96px;
+    z-index: 2;
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+  .death-counter .counter-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .death-counter .counter-text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
   }
   .death-counter .count {
     font-family: var(--font-display);
@@ -124,16 +160,7 @@
     font-size: 1.15rem; color: rgba(255,255,255,0.7);
     max-width: 400px; margin: 0 auto;
   }
-  .hero-subtitle {
-    font-family: var(--font-display);
-    font-size: clamp(1.55rem, 3vw, 1.9rem);
-    color: var(--color-text); font-style: italic;
-    max-width: 620px; margin: 0 auto;
-    line-height: 1.5;
-  }
-  .hero-subtitle strong {
-    color: var(--color-accent); font-weight: 400;
-  }
+  /* hero subtitle moved to .hero-intro-heading above */
 
   /* ─── STAT GRID ───────────────────────────── */
   .stats {
@@ -376,6 +403,23 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
   }
+  .comp-stats-grid.comp-grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .comp-quote-box {
+    margin: 32px 0 0;
+    padding: 28px 36px;
+    border-left: 4px solid var(--color-accent);
+    background: rgba(184,134,45,0.04);
+    border-radius: 0 12px 12px 0;
+  }
+  .comp-quote-box blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--color-text);
+    font-style: italic;
+    line-height: 1.6;
+  }
   .comp-stat-card {
     text-align: center;
     padding: 16px 8px;
@@ -406,6 +450,7 @@
   @media (max-width: 1024px) {
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .comp-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .comp-stats-grid.comp-grid-5 { grid-template-columns: repeat(3, 1fr); }
     .footer-links { gap: 40px; }
     :root { --section-pad: 80px; }
   }
@@ -423,10 +468,12 @@
     }
     .stats-grid { grid-template-columns: 1fr; }
     .comp-stats-grid { grid-template-columns: 1fr; }
+    .comp-stats-grid.comp-grid-5 { grid-template-columns: 1fr; }
     .comp-theme-block.comp-theme-alt { margin-left: -32px; margin-right: -32px; padding-left: 32px; padding-right: 32px; }
     .comp-cta-row { flex-direction: column; }
     .comp-cta-row .btn { width: 100%; justify-content: center; }
-    .death-counter { padding: 40px 32px; }
+    .death-counter { padding: 40px 32px; overflow: visible; }
+    .death-counter .counter-avatar { width: 72px; height: 72px; top: -18px; left: -8px; }
     .pullquote { padding: 40px 28px; }
     .cta-actions { flex-direction: column; }
     .cta-actions .btn { width: 100%; justify-content: center; }
@@ -463,54 +510,20 @@
   <div class="container">
     <div class="hero-counter-section">
       <span class="label">The Urgency</span>
+      <p class="hero-intro-heading">Every Muslim needs to know the <strong>love of God</strong>, the <strong>power of God</strong>, and the <strong>truth of the Gospel</strong></p>
       <div class="death-counter reveal">
-        <div class="count" id="deathCounter">0</div>
-        <div class="count-label">Muslims have died today without knowing Jesus</div>
+        <div class="counter-avatar">
+          <img src="/images/Muslim-icon-vector.png" alt="Muslim people illustration" />
+        </div>
+        <div class="counter-text">
+          <div class="count" id="deathCounter">0</div>
+          <div class="count-label">Muslims have died today without knowing Jesus</div>
+        </div>
       </div>
-      <p class="hero-subtitle">Every Muslim needs to know the <strong>love of God</strong>, the <strong>power of God</strong>, and the <strong>truth of the Gospel</strong></p>
     </div>
   </div>
 </section>
 
-<!-- ═══════ STATS ═══════ -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-card reveal">
-        <div class="stat-num">2B+</div>
-        <div class="stat-desc">Muslims globally and growing rapidly</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-1">
-        <div class="stat-num">85%</div>
-        <div class="stat-desc">Have never personally known a Christian</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-2">
-        <div class="stat-num">27%</div>
-        <div class="stat-desc">Of all non-Christians globally are Muslim</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-3">
-        <div class="stat-num">3,200+</div>
-        <div class="stat-desc">Unreached Muslim people groups</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="stat-num">1:450K</div>
-        <div class="stat-desc">Only 1 missionary for every 450,000 Muslims</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-1">
-        <div class="stat-num">97%</div>
-        <div class="stat-desc">Of missionaries serve the already-reached</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-2">
-        <div class="stat-num">10M+</div>
-        <div class="stat-desc">Muslims have become Christians recently</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-3">
-        <div class="stat-num">2.2B</div>
-        <div class="stat-desc">Muslims projected by 2050, bypassing Christianity</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ═══════ WHY MUSLIMS ═══════ -->
 <section class="content-section" id="why-muslims">
@@ -521,9 +534,9 @@
         <h2 class="section-heading">Why <em>Muslims?</em></h2>
       </div>
       <div class="content-body reveal">
-        <p>Muslims represent the largest unreached peoples on the planet. <strong>Over 38,000 die without the gospel every day.</strong> Not only does Islam enslave over a billion who have never heard the gospel, more and more traditionally Christian nations are seeing a sharp increase in the number of Muslims living around them. Mosques are now becoming common even in European and American cities.</p>
+        <p>Muslims represent the largest unreached peoples on the planet. There are now over 2 billion Muslims worldwide and growing rapidly. <strong>Over 38,000 die without the gospel every day.</strong> Not only does Islam enslave over a billion who have never heard the gospel, more and more traditionally Christian nations are seeing a sharp increase in the number of Muslims living around them. Mosques are now becoming common even in European and American cities.</p>
 
-        <p>Islam is the biggest challenge for the church today — both on the mission field and in your local neighborhood. It is also the fastest growing challenge. Islam is the fastest growing religion in the United States. In 1907, there were 230 million Muslims in the world. By 2010, there were 1.6 billion. Islam doubled in twenty years. According to Pew Research, there are close to 1.8 billion Muslims as of 2015.</p>
+        <p>Islam is the biggest challenge for the church today — both on the mission field and in your local neighborhood. It is also the fastest growing challenge. Islam is the fastest growing religion in the United States. In 1907, there were 230 million Muslims in the world. Today there are over 2 billion. Islam has grown at more than double the global population rate.</p>
 
         <p>While Islam is the biggest challenge, <strong>only one percent of all Christian missionaries go to do direct ministry among Muslims.</strong> That's one missionary for every 450,000 Muslims — equivalent to having about five churches and 150 pastors for all of North America.</p>
       </div>
@@ -547,11 +560,11 @@
       <div class="comp-stats-grid">
         <div class="comp-stat-card reveal-delay-1">
           <div class="comp-stat-num">2B+</div>
-          <div class="comp-stat-desc">Muslims alive today — 1 in every 4 people</div>
+          <div class="comp-stat-desc">Muslims alive today — 1 in every 4 people on earth</div>
         </div>
         <div class="comp-stat-card reveal-delay-2">
           <div class="comp-stat-num">347M</div>
-          <div class="comp-stat-desc">Muslims added from 2010–2020 (vs. 122M for Christianity)</div>
+          <div class="comp-stat-desc">Muslims added 2010–2020 (vs. 122M for Christianity)</div>
         </div>
         <div class="comp-stat-card reveal-delay-3">
           <div class="comp-stat-num">24</div>
@@ -564,31 +577,91 @@
       </div>
     </div>
 
-    <!-- Theme 2: The Unreached -->
+    <!-- Theme 2: Regional Distribution -->
     <div class="comp-theme-block comp-theme-alt reveal">
-      <div class="comp-theme-label">The Unreached</div>
-      <p class="comp-theme-desc">The largest bloc of people on earth without gospel access.</p>
-      <div class="comp-stats-grid">
+      <div class="comp-theme-label">Regional Distribution</div>
+      <p class="comp-theme-desc">Islam spans every continent and is surging in the Global South.</p>
+      <div class="comp-stats-grid comp-grid-5">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">1.3B</div>
+          <div class="comp-stat-desc">Muslims in Asia (62% of all Muslims)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">650–680M</div>
+          <div class="comp-stat-desc">Muslims in Africa — the fastest-growing Muslim continent</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">45–50M</div>
+          <div class="comp-stat-desc">Muslims in Europe (including Russia's ~16M)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">7M</div>
+          <div class="comp-stat-desc">Muslims in the United States</div>
+        </div>
+        <div class="comp-stat-card">
+          <div class="comp-stat-num">4.5M</div>
+          <div class="comp-stat-desc">Muslims in Latin America and the Caribbean</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 3: People Groups -->
+    <div class="comp-theme-block reveal">
+      <div class="comp-theme-label">People Groups</div>
+      <p class="comp-theme-desc">Thousands of entire communities have no witness among them.</p>
+      <div class="comp-stats-grid comp-grid-5">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">3,284</div>
+          <div class="comp-stat-desc">Unreached Muslim people groups worldwide</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">86.6%</div>
+          <div class="comp-stat-desc">Of all Muslim people groups are classified as unreached</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">2,362</div>
+          <div class="comp-stat-desc">"Frontier" groups — 0.1% or fewer are Christian of any kind</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">26–27</div>
+          <div class="comp-stat-desc">Of the 50 largest unreached people groups are Muslim</div>
+        </div>
+        <div class="comp-stat-card">
+          <div class="comp-stat-num">38,825</div>
+          <div class="comp-stat-desc">Additional pioneer workers needed to engage unreached Muslim populations</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 4: Gospel Access -->
+    <div class="comp-theme-block comp-theme-alt reveal">
+      <div class="comp-theme-label">Gospel Access</div>
+      <p class="comp-theme-desc">The largest bloc of people on earth without access to the gospel.</p>
+      <div class="comp-stats-grid comp-grid-5">
         <div class="comp-stat-card reveal-delay-1">
           <div class="comp-stat-num">85%</div>
           <div class="comp-stat-desc">Of Muslims have never personally known a Christian</div>
         </div>
         <div class="comp-stat-card reveal-delay-2">
-          <div class="comp-stat-num">3,284</div>
-          <div class="comp-stat-desc">Unreached Muslim people groups worldwide</div>
-        </div>
-        <div class="comp-stat-card reveal-delay-3">
           <div class="comp-stat-num">~50%</div>
           <div class="comp-stat-desc">Of all unreached people on earth are Muslim</div>
         </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">10%</div>
+          <div class="comp-stat-desc">Of Muslims in Asia personally know a Christian (Asia holds 62% of all Muslims)</div>
+        </div>
         <div class="comp-stat-card reveal-delay-4">
-          <div class="comp-stat-num">2,362</div>
-          <div class="comp-stat-desc">"Frontier" groups where less than 0.1% are Christian</div>
+          <div class="comp-stat-num">35–37%</div>
+          <div class="comp-stat-desc">Of all non-Christians globally are Muslim</div>
+        </div>
+        <div class="comp-stat-card">
+          <div class="comp-stat-num">~46%</div>
+          <div class="comp-stat-desc">Of all unreached people groups worldwide are Muslim</div>
         </div>
       </div>
     </div>
 
-    <!-- Theme 3: The Missionary Gap -->
+    <!-- Theme 5: The Missionary Gap -->
     <div class="comp-theme-block reveal">
       <div class="comp-theme-label">The Missionary Gap</div>
       <p class="comp-theme-desc">The church's greatest blind spot in resource allocation.</p>
@@ -612,13 +685,37 @@
       </div>
     </div>
 
-    <!-- Theme 4: The Urgency -->
+    <!-- Theme 6: Funding -->
     <div class="comp-theme-block comp-theme-alt reveal">
-      <div class="comp-theme-label">The Urgency</div>
+      <div class="comp-theme-label">Funding</div>
+      <p class="comp-theme-desc">The financial disparity between Islamic propagation and Christian missions.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">$2–4B</div>
+          <div class="comp-stat-desc">Saudi Arabia spends annually on da'wah (spreading Islam)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">$314M</div>
+          <div class="comp-stat-desc">The IMB's entire annual budget — Saudi spends this in ~1 month</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">$70–100B</div>
+          <div class="comp-stat-desc">Saudi Arabia's total estimated da'wah spending since the 1970s</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">$1.32B</div>
+          <div class="comp-stat-desc">Total annual Christian spending on unreached peoples (Saudi outspends this 2–3×)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 7: The Urgency — Daily Reality -->
+    <div class="comp-theme-block reveal">
+      <div class="comp-theme-label">The Urgency — Daily Reality</div>
       <p class="comp-theme-desc">Every day the window narrows.</p>
       <div class="comp-stats-grid">
         <div class="comp-stat-card reveal-delay-1">
-          <div class="comp-stat-num">~33,000</div>
+          <div class="comp-stat-num">~38,000</div>
           <div class="comp-stat-desc">Muslims die every day without hearing the gospel</div>
         </div>
         <div class="comp-stat-card reveal-delay-2">
@@ -626,60 +723,207 @@
           <div class="comp-stat-desc">Net Muslim population growth every single day</div>
         </div>
         <div class="comp-stat-card reveal-delay-3">
-          <div class="comp-stat-num">$2–4B</div>
-          <div class="comp-stat-desc">Saudi Arabia spends annually on spreading Islam</div>
+          <div class="comp-stat-num">For every 1</div>
+          <div class="comp-stat-desc">Muslim who hears the gospel, hundreds are born who may never hear it</div>
         </div>
         <div class="comp-stat-card reveal-delay-4">
-          <div class="comp-stat-num">$314M</div>
-          <div class="comp-stat-desc">The IMB's entire annual budget (Saudi Arabia spends this in ~1 month)</div>
+          <div class="comp-stat-num">&lt;1%</div>
+          <div class="comp-stat-desc">Of Muslims leave Islam — the lowest disaffiliation rate of any major religion</div>
         </div>
       </div>
     </div>
 
-    <!-- Theme 5: The Hope -->
-    <div class="comp-theme-block reveal">
-      <div class="comp-theme-label">The Hope</div>
-      <p class="comp-theme-desc">God is moving among Muslims like never before in history.</p>
+    <!-- Theme 8: The Proximity Paradox -->
+    <div class="comp-theme-block comp-theme-alt reveal">
+      <div class="comp-theme-label">The Proximity Paradox</div>
+      <p class="comp-theme-desc">Muslims are closer than ever — yet still unreached.</p>
       <div class="comp-stats-grid">
         <div class="comp-stat-card reveal-delay-1">
-          <div class="comp-stat-num">10M+</div>
-          <div class="comp-stat-desc">Muslim-background believers (up from 200K in 1960)</div>
+          <div class="comp-stat-num">58%</div>
+          <div class="comp-stat-desc">Of Muslims now live in cities</div>
         </div>
         <div class="comp-stat-card reveal-delay-2">
-          <div class="comp-stat-num">69+</div>
-          <div class="comp-stat-desc">Documented movements to Christ since 2000</div>
+          <div class="comp-stat-num">5.5M</div>
+          <div class="comp-stat-desc">Local churches exist around the world</div>
         </div>
         <div class="comp-stat-card reveal-delay-3">
-          <div class="comp-stat-num">1M+</div>
-          <div class="comp-stat-desc">Believers in Iran today (from ~500 in 1979)</div>
+          <div class="comp-stat-num">80,000+</div>
+          <div class="comp-stat-desc">Net new Muslims every day, many in cities with existing churches</div>
         </div>
         <div class="comp-stat-card reveal-delay-4">
-          <div class="comp-stat-num">27%</div>
-          <div class="comp-stat-desc">Of converts cite dreams and visions of Jesus</div>
+          <div class="comp-stat-num">10%</div>
+          <div class="comp-stat-desc">Of Asian Muslims know a Christian (where 62% of all Muslims live)</div>
+        </div>
+      </div>
+      <div class="comp-quote-box">
+        <blockquote>"If every church reached the Muslims within their region, the majority would have a chance to respond to the Gospel."</blockquote>
+      </div>
+    </div>
+
+    <!-- Theme 9: Africa: The Frontline -->
+    <div class="comp-theme-block reveal">
+      <div class="comp-theme-label">Africa: The Frontline</div>
+      <p class="comp-theme-desc">The primary geographic battleground for the future of both faiths.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">780M</div>
+          <div class="comp-stat-desc">Christians in Africa</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">650–680M</div>
+          <div class="comp-stat-desc">Muslims in Africa</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">2.59%</div>
+          <div class="comp-stat-desc">Annual Christian growth rate in Africa — the fastest of any continent</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">1.2B</div>
+          <div class="comp-stat-desc">Christians projected in Africa by 2050</div>
         </div>
       </div>
     </div>
 
-    <!-- Theme 6: The Church's Moment -->
+    <!-- Theme 10: The Shift to the Global South -->
     <div class="comp-theme-block comp-theme-alt reveal">
-      <div class="comp-theme-label">The Church's Moment</div>
-      <p class="comp-theme-desc">We have the numbers. Do we have the will?</p>
+      <div class="comp-theme-label">The Shift to the Global South</div>
+      <p class="comp-theme-desc">The center of gravity of Christianity has moved.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">69%</div>
+          <div class="comp-stat-desc">Of all Christians now live in the Global South</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">78%</div>
+          <div class="comp-stat-desc">Of all Christians will live in the Global South by 2050</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">82% → 33%</div>
+          <div class="comp-stat-desc">Share of Christians in Europe/North America: 1910 vs. 2020</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">2018</div>
+          <div class="comp-stat-desc">The year Africa surpassed Latin America as the continent with the most Christians</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 11: Scale of Christianity -->
+    <div class="comp-theme-block reveal">
+      <div class="comp-theme-label">Scale of Christianity</div>
+      <p class="comp-theme-desc">The global church has the numbers to finish the task.</p>
       <div class="comp-stats-grid">
         <div class="comp-stat-card reveal-delay-1">
           <div class="comp-stat-num">2.63B</div>
-          <div class="comp-stat-desc">Christians worldwide</div>
+          <div class="comp-stat-desc">Christians worldwide (31.8% of global population)</div>
         </div>
         <div class="comp-stat-card reveal-delay-2">
-          <div class="comp-stat-num">425M</div>
-          <div class="comp-stat-desc">Evangelical Christians globally</div>
+          <div class="comp-stat-num">1.1B</div>
+          <div class="comp-stat-desc">Evangelical and Pentecostal Christians globally</div>
         </div>
         <div class="comp-stat-card reveal-delay-3">
-          <div class="comp-stat-num">69%</div>
-          <div class="comp-stat-desc">Of Christians now live in the Global South</div>
+          <div class="comp-stat-num">663M</div>
+          <div class="comp-stat-desc">Pentecostal/Charismatic Christians (up from fewer than 1M in 1900)</div>
         </div>
         <div class="comp-stat-card reveal-delay-4">
-          <div class="comp-stat-num">780M</div>
-          <div class="comp-stat-desc">Christians in Africa — the frontline alongside 650M+ Muslims</div>
+          <div class="comp-stat-num">#1</div>
+          <div class="comp-stat-desc">Christianity is the fastest-growing religion by conversion rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 12: Historical Acceleration -->
+    <div class="comp-theme-block comp-theme-alt reveal">
+      <div class="comp-theme-label">Historical Acceleration</div>
+      <p class="comp-theme-desc">More Muslims are coming to Christ now than at any point in history.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">1–3</div>
+          <div class="comp-stat-desc">Voluntary movements to Christ in the first 1,300 years of Islam</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">8–10</div>
+          <div class="comp-stat-desc">Major movements from 1980–2000</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">69+</div>
+          <div class="comp-stat-desc">Documented movements since 2000</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">84%</div>
+          <div class="comp-stat-desc">Of all historically documented Muslim movements to Christ occurred after 2000</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 13: Muslims Coming to Christ -->
+    <div class="comp-theme-block reveal">
+      <div class="comp-theme-label">Muslims Coming to Christ</div>
+      <p class="comp-theme-desc">God is on the move.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">10M+</div>
+          <div class="comp-stat-desc">Muslim-background believers by 2010 (up from 200K in 1960)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">25M+</div>
+          <div class="comp-stat-desc">Estimated MBBs alive today (some researchers)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">6.5M</div>
+          <div class="comp-stat-desc">MBBs in Indonesia alone (65% of global total)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">1M+</div>
+          <div class="comp-stat-desc">Believers in Iran today (from ~500 in 1979)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 14: What Converts Report -->
+    <div class="comp-theme-block comp-theme-alt reveal">
+      <div class="comp-theme-label">What Converts Report</div>
+      <p class="comp-theme-desc">What draws Muslims to Jesus.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">#1</div>
+          <div class="comp-stat-desc">A personal Christian shared the gospel (most common factor)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">27%</div>
+          <div class="comp-stat-desc">Cite dreams and visions of Jesus</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">40%</div>
+          <div class="comp-stat-desc">Report supernatural visions at conversion</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">John 3:16</div>
+          <div class="comp-stat-desc">The most commonly cited verse leading to conversion</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 15: Islamist Trends -->
+    <div class="comp-theme-block reveal">
+      <div class="comp-theme-label">Islamist Trends</div>
+      <p class="comp-theme-desc">The ideological landscape is shifting — and the church must respond.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">200,000</div>
+          <div class="comp-stat-desc">Students graduate annually from ultra-conservative Islamic schools in Pakistan alone (ages 8–30, 8 years of training)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">Islam</div>
+          <div class="comp-stat-desc">Is the fastest-growing religion in the United States</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">230M → 2B</div>
+          <div class="comp-stat-desc">Muslims worldwide: 1907 vs. today (nearly 10× in one century)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">&lt;1%</div>
+          <div class="comp-stat-desc">Of Muslims leave Islam — indicating deep ideological entrenchment</div>
         </div>
       </div>
     </div>
