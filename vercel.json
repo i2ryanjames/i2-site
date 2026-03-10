@@ -8,7 +8,8 @@
     { "source": "/donate", "destination": "/donate.html" },
     { "source": "/donate-form", "destination": "/donate-form.html" },
     { "source": "/wise-global", "destination": "/wise-global.html" },
-    { "source": "/mmwu", "destination": "/mmwu.html" }
+    { "source": "/mmwu", "destination": "/mmwu.html" },
+    { "source": "/the-initiative", "destination": "/the-initiative.html" }
   ],
   "headers": [
     {
