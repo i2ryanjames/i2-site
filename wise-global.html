@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WISE Global App — Ministry Management for the Global Church | i2 Ministries</title>
+<meta name="description" content="WISE Global is a free ministry management app helping denominations, churches, and missions organizations launch and track prayer, training, and evangelism initiatives worldwide." />
+<meta name="keywords" content="WISE Global, ministry management, church app, evangelism tracker, missions technology, i2 Ministries, discipleship, Muslim outreach, training app" />
+<meta property="og:title" content="WISE Global App — Ministry Management for the Global Church" />
+<meta property="og:description" content="A free ministry management system helping the global church coordinate prayer, training, and evangelism to reach the largest unreached peoples with the Gospel." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://i2ministries.org/wise-global" />
+<meta property="og:image" content="https://i2ministries.org/images/preview-image-og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="i2 Ministries" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="WISE Global App — Ministry Management for the Global Church" />
+<meta name="twitter:description" content="A free ministry management system helping the global church coordinate prayer, training, and evangelism to reach the largest unreached peoples." />
+<meta name="twitter:image" content="https://i2ministries.org/images/preview-image-og.jpg" />
+<link rel="canonical" href="https://i2ministries.org/wise-global" />
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/images/favicon.png" type="image/png" />
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/images/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --color-bg: #FAFAF7;
+    --color-surface: #F0EFEB;
+    --color-surface-raised: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-text-muted: #5C5A55;
+    --color-accent: #B8862D;
+    --color-accent-warm: #C7753A;
+    --color-accent-deep: #8B3A2A;
+    --color-white: #FFFFFF;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --max-width: 1280px;
+    --section-pad: 110px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+  .label {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 4.5vw, 3.7rem);
+    line-height: 1.15;
+    color: var(--color-text);
+    font-weight: 400;
+  }
+  .section-heading em { font-style: italic; color: var(--color-accent); }
+
+  /* ─── NAV ─────────────────────────────────── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: background 0.4s, backdrop-filter 0.4s, padding 0.4s;
+  }
+  .nav.scrolled {
+    background: rgba(250,250,247,0.95);
+    backdrop-filter: blur(20px);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(184,134,45,0.15);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 32px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--color-text); font-style: italic; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--color-text-muted); transition: color 0.3s; font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--color-accent); }
+  .nav-links a.active { color: var(--color-accent); }
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: #FFFFFF !important;
+    padding: 10px 24px; border-radius: 4px;
+    font-weight: 600 !important;
+    transition: transform 0.3s, box-shadow 0.3s !important;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(184,134,45,0.3); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); margin: 5px 0; transition: 0.3s; }
+
+  /* ─── BUTTONS ─────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.35s;
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-body);
+  }
+  .btn-primary {
+    background: var(--color-accent);
+    color: #FFFFFF;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(184,134,45,0.35);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid rgba(26,26,26,0.15);
+  }
+  .btn-outline:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  .btn-arrow { transition: transform 0.3s; }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  /* ─── PAGE HERO ───────────────────────────── */
+  .page-hero {
+    padding: 180px 0 var(--section-pad);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 30% 60%, rgba(184,134,45,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 80% 30%, rgba(199,117,58,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .page-hero-inner { position: relative; z-index: 1; text-align: center; max-width: 800px; margin: 0 auto; }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.9rem, 5.5vw, 4.6rem);
+    line-height: 1.1; font-weight: 400; margin-bottom: 24px;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--color-accent); }
+  .page-hero .subtitle {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--color-accent);
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+
+  /* ─── VIDEO ───────────────────────────────── */
+  .video-wrapper {
+    max-width: 860px;
+    margin: 0 auto 48px;
+  }
+  .video-card {
+    position: relative; border-radius: 12px; overflow: hidden;
+    aspect-ratio: 16/9; background: var(--color-surface);
+    border: 1px solid rgba(0,0,0,0.06);
+    cursor: pointer; transition: transform 0.4s, box-shadow 0.4s;
+  }
+  .video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+  }
+  .video-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .video-card:hover img { transform: scale(1.05); }
+  .video-play {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--color-accent);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(184,134,45,0.4);
+    transition: transform 0.3s;
+  }
+  .video-card:hover .video-play { transform: translate(-50%,-50%) scale(1.1); }
+  .video-play svg { margin-left: 2px; }
+
+  /* ─── OVERVIEW ────────────────────────────── */
+  .overview {
+    padding: var(--section-pad) 0;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .overview-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .overview-inner p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.85;
+    margin-bottom: 24px;
+  }
+
+  /* ─── STAT BAR ────────────────────────────── */
+  .stat-bar {
+    padding: 48px 0;
+    border-top: 1px solid rgba(184,134,45,0.12);
+    border-bottom: 1px solid rgba(184,134,45,0.12);
+    background: var(--color-surface);
+  }
+  .stat-bar-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+  .stat-item h3 {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 4vw, 3.1rem);
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .stat-item p {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  /* ─── ACCORDION (FEATURES) ────────────────── */
+  .features-section {
+    padding: var(--section-pad) 0;
+  }
+  .features-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .accordion-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .accordion-item {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .accordion-btn {
+    width: 100%; background: none; border: none;
+    padding: 22px 0;
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; font-family: var(--font-display);
+    font-size: 1.25rem; color: var(--color-text);
+    text-align: left; transition: color 0.3s;
+  }
+  .accordion-btn:hover { color: var(--color-accent); }
+  .accordion-chevron {
+    width: 20px; height: 20px; flex-shrink: 0;
+    transition: transform 0.3s;
+    color: var(--color-accent);
+  }
+  .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+  .accordion-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+  .accordion-item.open .accordion-body {
+    max-height: 800px;
+    padding-bottom: 24px;
+  }
+  .accordion-body p {
+    font-size: 1rem; color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  /* ─── ENDORSEMENTS ────────────────────────── */
+  .endorsements { padding: var(--section-pad) 0; background: var(--color-surface); }
+  .endorsements-header { text-align: center; margin-bottom: 64px; }
+  .endorsements-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .endorsement-card {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 40px 32px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .endorsement-card:hover {
+    border-color: rgba(184,134,45,0.25);
+    transform: translateY(-2px);
+  }
+  .endorsement-quote {
+    font-family: var(--font-display);
+    font-size: 3.05rem;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .endorsement-card blockquote {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+  .endorsement-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-top: 1px solid rgba(184,134,45,0.12);
+    padding-top: 20px;
+  }
+  .endorsement-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid rgba(184,134,45,0.2);
+  }
+  .endorsement-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .endorsement-author strong { display: block; font-size: 0.95rem; }
+  .endorsement-author span { font-size: 0.85rem; color: var(--color-text-muted); }
+
+  /* ─── FIELD STORIES ───────────────────────── */
+  .field-stories { padding: var(--section-pad) 0; }
+  .field-stories-header { text-align: center; margin-bottom: 64px; }
+  .stories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .story-card {
+    background: var(--color-surface);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 40px 32px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .story-card:hover {
+    border-color: rgba(184,134,45,0.25);
+    transform: translateY(-2px);
+  }
+  .story-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: var(--color-text);
+  }
+  .story-card p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+
+  /* ─── ROADMAP ─────────────────────────────── */
+  .roadmap { padding: var(--section-pad) 0; background: var(--color-surface); }
+  .roadmap-header { text-align: center; margin-bottom: 24px; }
+  .roadmap-intro {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 56px;
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto 48px;
+  }
+  .roadmap-card {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 10px;
+    padding: 28px 24px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .roadmap-card:hover {
+    border-color: rgba(184,134,45,0.25);
+    transform: translateY(-2px);
+  }
+  .roadmap-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--color-text);
+  }
+  .roadmap-card .roadmap-cost {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+  .roadmap-progress {
+    height: 6px;
+    background: rgba(0,0,0,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .roadmap-progress-bar {
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 3px;
+    width: 0%;
+  }
+  .roadmap-status {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .roadmap-summary {
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(184,134,45,0.2);
+    border-radius: 12px;
+    padding: 36px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+    text-align: center;
+  }
+  .roadmap-summary-item h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .roadmap-summary-item p {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .roadmap-note {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ─── CTA SECTION ─────────────────────────── */
+  .cta-section {
+    padding: var(--section-pad) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 50% 50%, rgba(184,134,45,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .cta-inner p {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+
+  /* ─── FOOTER ──────────────────────────────── */
+  .footer {
+    padding: 64px 0 40px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; flex-wrap: wrap; gap: 40px;
+  }
+  .footer-brand .nav-logo { margin-bottom: 16px; }
+  .footer-brand p {
+    font-size: 0.9rem; color: var(--color-text-muted);
+    max-width: 320px; line-height: 1.7;
+  }
+  .footer-links { display: flex; gap: 64px; }
+  .footer-col h4 {
+    font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--color-accent); margin-bottom: 20px;
+  }
+  .footer-col a {
+    display: block; font-size: 0.95rem;
+    color: var(--color-text-muted); margin-bottom: 12px; transition: color 0.3s;
+  }
+  .footer-col a:hover { color: var(--color-accent); }
+  .footer-socials { display: flex; gap: 16px; margin-top: 20px; }
+  .footer-socials a {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .footer-socials a:hover { background: var(--color-accent); border-color: var(--color-accent); }
+  .footer-socials a:hover svg { color: #FFFFFF; }
+  .footer-socials svg { color: var(--color-text-muted); width: 16px; height: 16px; }
+  .footer-bottom {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    text-align: center; font-size: 0.85rem;
+    color: rgba(92,90,85,0.6);
+  }
+
+  /* ─── REVEAL ANIMATIONS ───────────────────── */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94),
+                transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ─── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 1024px) {
+    .endorsements-grid { grid-template-columns: repeat(2, 1fr); }
+    .stories-grid { grid-template-columns: repeat(2, 1fr); }
+    .roadmap-grid { grid-template-columns: 1fr; }
+    .roadmap-summary { gap: 40px; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(250,250,247,0.97);
+      backdrop-filter: blur(20px);
+      padding: 24px 32px; gap: 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .page-hero { padding: 140px 0 72px; }
+    .stat-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .endorsements-grid { grid-template-columns: 1fr; }
+    .stories-grid { grid-template-columns: 1fr; }
+    .roadmap-summary { flex-direction: column; gap: 24px; }
+    .hero-actions { justify-content: center; }
+    .footer-inner { flex-direction: column; }
+    .footer-links { flex-wrap: wrap; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ──────────────────────────────────── -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">i2 <span>Ministries</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/about">About</a>
+      <a href="/the-mission">The Mission</a>
+      <a href="https://www.i2ministries-emfci.com">The Initiative</a>
+      <a href="/get-trained">Get Trained</a>
+      <a href="https://resources.i2ministries.org">Resources</a>
+      <a href="/wise-global" class="active">WISE Global App</a>
+      <a href="/contact">Contact</a>
+      <a href="/donate" class="nav-cta">Donate</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner reveal">
+      <span class="label">Ministry Technology</span>
+      <h1>The <em>WISE Global</em> App</h1>
+      <p class="subtitle">"He who wins souls is wise" — Proverbs 11:30</p>
+
+      <div class="video-wrapper">
+        <div class="video-card" data-yt-id="SGpDMAzOwCA" onclick="playVideo(this)">
+          <img src="https://img.youtube.com/vi/SGpDMAzOwCA/maxresdefault.jpg" alt="WISE Global App Overview" />
+          <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
+        </div>
+      </div>
+
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="/donate" class="btn btn-primary">Fund the Vision <span class="btn-arrow">→</span></a>
+        <a href="https://linktree.com/wiseglobal" class="btn btn-outline" target="_blank">Download the App <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT IS WISE ─────────────────────────── -->
+<section class="overview">
+  <div class="container">
+    <div class="overview-inner">
+      <div class="reveal" style="text-align:center; margin-bottom:40px;">
+        <span class="label">What is WISE Global?</span>
+        <h2 class="section-heading">A ministry management system for the <em>global church</em></h2>
+      </div>
+      <div class="reveal">
+        <p>The WISE Global is a ministry management system focused on reaching the largest unreached peoples with the Gospel. It helps denominations, churches, and missions organizations launch and track the progress of prayer, training, and evangelism initiatives.</p>
+        <p>WISE has a simple, user-friendly interface available in multiple languages, allowing users to make commitments in prayer, training, and evangelism, form groups, access video training, and pin the location of their ministry activity. These features integrate with a progress dashboard tracking personal, small group, church, denominational, regional, and national ministry progress.</p>
+        <p>As a free resource for the global church, WISE contains over 250 hours of video training from 20+ courses in 15 languages by globally recognized professors on Christian Missions to Muslims and Islamic Studies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STAT BAR ─────────────────────────────── -->
+<div class="stat-bar">
+  <div class="container">
+    <div class="stat-bar-inner">
+      <div class="stat-item reveal">
+        <h3>250+</h3>
+        <p>Hours of Training</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <h3>15</h3>
+        <p>Languages</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <h3>20+</h3>
+        <p>Video Courses</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <h3>7</h3>
+        <p>UI Languages</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FEATURES ACCORDION ───────────────────── -->
+<section class="features-section">
+  <div class="container">
+    <div class="features-header reveal">
+      <span class="label">App Features</span>
+      <h2 class="section-heading">Everything you need to <em>coordinate outreach</em></h2>
+    </div>
+    <div class="accordion-wrap">
+
+      <div class="accordion-item reveal">
+        <button class="accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+          Pray, Train, Share — Commitments &amp; Progress
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>Join the initiative by making a personal commitment across three pillars: prayer, training other believers, and sharing the gospel. Report your progress in each area and track it through an intuitive dashboard showing personal, small group, church, denominational, regional, and national ministry progress — all in real time.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item reveal reveal-delay-1">
+        <button class="accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+          Groups &amp; Encrypted Messaging
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>Create and join secure groups within your church, denomination, or ministry network. WISE includes group and direct messaging with encrypted communication so teams can coordinate safely — even in sensitive regions. View member commitment progress and follow up with group members directly inside the app.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item reveal reveal-delay-2">
+        <button class="accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+          Video Training — 250+ Hours in 15 Languages
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>Access over 250 hours of professionally produced video training from world-renowned professors. The easy-to-navigate training environment tracks session progress and course completion. Professionally dubbed in 15 languages including English, Arabic, Spanish, French, German, Italian, Portuguese, Twi (Ghanaian), Korean, Mandarin, Telugu, Bahasa Indonesian, Urdu, Swahili, and Amharic. Pick up where you left off and stream even in low-bandwidth areas.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item reveal">
+        <button class="accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+          Offline Mode — Train Anywhere
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>Download video sessions and entire courses for training in areas with little or no internet connectivity. The WISE ministry management system is fully functional even without a network connection — report commitments, track discipleship, and manage groups offline. All changes sync automatically when you're back online. This feature was specifically built to serve partners like the Church of Pentecost in Ghana who operate in remote villages and unreached areas.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item reveal reveal-delay-1">
+        <button class="accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+          Discipleship Tracking
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>Track those who come to Christ by creating individual profiles for new disciples. Record their religious background, monitor their growth journey, and disciple converts to maturity. Keep a comprehensive record of all your disciples in one place.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item reveal reveal-delay-2">
+        <button class="accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+          Ministry Map — Strategic Outreach Mapping
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>Collaborate to reach every household in your area. Pin the locations of outreach activities on an interactive map, view outreach details, identify and map strategic places, and add notes about strategic locations for your team. See where outreaches are happening in real time.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item reveal">
+        <button class="accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+          Admin Panel for Leaders
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>WISE creates a personalized dashboard for each denomination to measure and track the progress of their initiative with intuitive graphs and statistics. Leaders can view where outreaches occurred in real-time, monitor outreach statistics, track how many came to Christ, track discipleship progress, view strategic places, and access easy-to-read graphs and reports.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item reveal reveal-delay-1">
+        <button class="accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+          Multi-Language Interface
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>The full user interface is available in 7 languages: English, Español, Français, Português, አማርኛ (Amharic), Swahili, and Arabic (عربي). This ensures that leaders and church members around the world can navigate the entire app in their heart language.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── ENDORSEMENTS ─────────────────────────── -->
+<section class="endorsements">
+  <div class="container">
+    <div class="endorsements-header reveal">
+      <span class="label">Trusted Worldwide</span>
+      <h2 class="section-heading">Leaders are using WISE to <em>change the landscape</em> of global missions</h2>
+    </div>
+    <div class="endorsements-grid">
+
+      <div class="endorsement-card reveal">
+        <div class="endorsement-quote">"</div>
+        <blockquote>I don't know another ministry that has the ability to mass mobilize denominations and church networks to reach Muslims like i2 Ministries. I believe the WISE Global Initiative is a vital tool that could change the landscape of global missions.</blockquote>
+        <div class="endorsement-author">
+          <div class="endorsement-avatar"><img src="/images/endorser-mcdowell.png" alt="Dr. Josh McDowell" /></div>
+          <div>
+            <strong>Dr. Josh McDowell</strong>
+            <span>Author &amp; Apologist</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="endorsement-card reveal reveal-delay-1">
+        <div class="endorsement-quote">"</div>
+        <blockquote>We are seriously pursuing this Initiative as part of our denominational agenda taking advantage of the resourceful WISE Global app they have developed for this purpose.</blockquote>
+        <div class="endorsement-author">
+          <div class="endorsement-avatar"><img src="/images/endorser-nyamekye.png" alt="Apostle Eric Nyamekye" /></div>
+          <div>
+            <strong>Apostle Eric Nyamekye</strong>
+            <span>Chairman, Church of Pentecost</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="endorsement-card reveal reveal-delay-2">
+        <div class="endorsement-quote">"</div>
+        <blockquote>i2 ministry is undoubtedly the most vibrant ministry currently, in terms of mobilizing, training and equipping leaders to reach the unreached people groups especially the Muslims. The WISE Global App is the most effective and easy-to-use tool in our quest of fulfilling the Great Commission.</blockquote>
+        <div class="endorsement-author">
+          <div class="endorsement-avatar"><img src="/images/endorser-nyamedor.png" alt="Ps. Bright Nyamedor" /></div>
+          <div>
+            <strong>Ps. Bright Nyamedor</strong>
+            <span>National Director, Ghana Evangelism Committee</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FIELD STORIES ────────────────────────── -->
+<section class="field-stories">
+  <div class="container">
+    <div class="field-stories-header reveal">
+      <span class="label">In the Field</span>
+      <h2 class="section-heading">WISE in <em>action</em> around the world</h2>
+    </div>
+    <div class="stories-grid">
+
+      <div class="story-card reveal">
+        <h3>Ghana: Church of Pentecost</h3>
+        <p>After presenting the WISE Global app to 5,000 pastors (with 40,000 more watching online), the Church of Pentecost officially adopted WISE as part of their 5-year agenda. They appointed 77 area coordinators, 3,000 district coordinators, and 28,000 local coordinators — all using WISE. In just over a year and a half, more than 10,500 Muslims came to Christ.</p>
+      </div>
+
+      <div class="story-card reveal reveal-delay-1">
+        <h3>Tanzania: Assemblies of God</h3>
+        <p>All 71 bishops of the Tanzania Assemblies of God agreed to run "Every Muslim for Christ" conferences in their regions using the WISE Global app, translated into Swahili. Their goal: reach all 24 million Muslims in their country.</p>
+      </div>
+
+      <div class="story-card reveal reveal-delay-2">
+        <h3>Latin America: 6,851 Churches Mobilizing</h3>
+        <p>An immigrant bricklayer in Florida funded two courses overdubbed into Spanish. A decade later, 6,851 churches across the Latin world are now using those courses through WISE to train laborers to reach the Muslim world.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FUNDING ROADMAP ──────────────────────── -->
+<section class="roadmap">
+  <div class="container">
+    <div class="roadmap-header reveal">
+      <span class="label">Development Roadmap</span>
+      <h2 class="section-heading">Help us build the <em>future</em> of WISE</h2>
+    </div>
+    <p class="roadmap-intro reveal">WISE Global is a 30-year legacy plan to build and maintain technology for the global church. The features below represent the next phase of development based on user feedback, best practices, and engagement trends. Each feature is waiting for donor funding to begin development.</p>
+
+    <div class="roadmap-grid">
+
+      <div class="roadmap-card reveal">
+        <h4>Robust Security &amp; Privacy Features</h4>
+        <div class="roadmap-cost">$45,000</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal reveal-delay-1">
+        <h4>Full-Feature Instant Messaging</h4>
+        <div class="roadmap-cost">$135,200</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal">
+        <h4>Upgraded Ministry Management Tracking &amp; Reporting</h4>
+        <div class="roadmap-cost">$44,550</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal reveal-delay-1">
+        <h4>Full-Feature Video Course Environment</h4>
+        <div class="roadmap-cost">$81,050</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal">
+        <h4>Strategic Ministry Map Functions</h4>
+        <div class="roadmap-cost">$16,050</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal reveal-delay-1">
+        <h4>Flexible User Settings</h4>
+        <div class="roadmap-cost">$44,550</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal">
+        <h4>Leaderboards, Points &amp; Badges (Gamification)</h4>
+        <div class="roadmap-cost">$28,500</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal reveal-delay-1">
+        <h4>Social Engagement Activity Feed</h4>
+        <div class="roadmap-cost">$90,250</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal">
+        <h4>Verified Users — Crypto Wallet API Integration</h4>
+        <div class="roadmap-cost">$19,650</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal reveal-delay-1">
+        <h4>Leaders Admin Panel (Expanded)</h4>
+        <div class="roadmap-cost">$64,600</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal">
+        <h4>Desktop App</h4>
+        <div class="roadmap-cost">$18,050</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal reveal-delay-1">
+        <h4>Full Offline Capabilities for Mobile</h4>
+        <div class="roadmap-cost">$54,150</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+      <div class="roadmap-card reveal">
+        <h4>Event Planning Calendar System</h4>
+        <div class="roadmap-cost">$16,050</div>
+        <div class="roadmap-progress"><div class="roadmap-progress-bar"></div></div>
+        <div class="roadmap-status">Awaiting Funding</div>
+      </div>
+
+    </div>
+
+    <div class="roadmap-summary reveal">
+      <div class="roadmap-summary-item">
+        <h3>$657,650</h3>
+        <p>Total Build Cost</p>
+      </div>
+      <div class="roadmap-summary-item">
+        <h3>$69,000</h3>
+        <p>Annual Maintenance</p>
+      </div>
+    </div>
+
+    <p class="roadmap-note reveal">Annual maintenance includes Server Costs ($39,000), Library Maintenance &amp; Updates ($20,000), and Software Subscriptions ($10,000). 100% of your gift goes directly to development. No staff salaries are paid from ministry gifts.</p>
+
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ────────────────────────────── -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="label">Partner With Us</span>
+      <h2 class="section-heading">Fund the technology that's <em>reaching the nations</em></h2>
+      <p>Your tax-deductible gift directly funds the development of WISE Global — putting world-class training and ministry tools into the hands of the global church. Every feature you fund helps missionaries, pastors, and church members coordinate outreach more effectively.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a href="/donate" class="btn btn-primary">Donate Now <span class="btn-arrow">→</span></a>
+        <a href="https://linktree.com/wiseglobal" class="btn btn-outline" target="_blank">Download the App <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">i2 <span>Ministries</span></div>
+        <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/thewadi.english/" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thewadi.english/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg>
+          </a>
+          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Ministry</h4>
+          <a href="/about">About</a>
+          <a href="/the-mission">The Mission</a>
+          <a href="/contact">Contact</a>
+          <a href="/donate">Donate</a>
+        </div>
+        <div class="footer-col">
+          <h4>Training</h4>
+          <a href="https://www.i2ministries-emfci.com">The Initiative</a>
+          <a href="https://www.mmwu.org/">MMWU</a>
+          <a href="https://thewadi.org">WADI</a>
+          <a href="https://resources.i2ministries.org">Resources</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <a href="/wise-global">WISE Global App</a>
+          <a href="http://eepurl.com/Kurdj">Free Ebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2003–2026 i2 Ministries Inc. All Rights Reserved. PO Box 3403, La Habra, CA 90632 USA. Tax-exempt 501(c)(3).
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav scroll effect */
+var nav = document.getElementById('mainNav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* Mobile menu toggle */
+document.getElementById('mobileToggle').addEventListener('click', function() {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+/* Scroll reveal */
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+/* Accordion */
+function toggleAccordion(btn) {
+  var item = btn.parentElement;
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.accordion-item').forEach(function(i) { i.classList.remove('open'); });
+  if (!wasOpen) item.classList.add('open');
+  btn.setAttribute('aria-expanded', !wasOpen);
+}
+
+/* YouTube click-to-play */
+function playVideo(card) {
+  var ytId = card.getAttribute('data-yt-id');
+  var iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+  iframe.setAttribute('frameborder', '0');
+  iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:12px;';
+  card.innerHTML = '';
+  card.style.cursor = 'default';
+  card.onclick = null;
+  card.appendChild(iframe);
+}
+</script>
+</body>
+</html>

@@ -6,7 +6,8 @@
     { "source": "/get-trained", "destination": "/get-trained.html" },
     { "source": "/contact", "destination": "/contact.html" },
     { "source": "/donate", "destination": "/donate.html" },
-    { "source": "/donate-form", "destination": "/donate-form.html" }
+    { "source": "/donate-form", "destination": "/donate-form.html" },
+    { "source": "/wise-global", "destination": "/wise-global.html" }
   ],
   "headers": [
     {
