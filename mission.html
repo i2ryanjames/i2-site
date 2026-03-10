@@ -136,52 +136,86 @@
     font-weight: 400;
   }
   .death-counter {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 32px;
     background: linear-gradient(135deg, var(--color-accent-deep), #5C1A12);
-    border-radius: 20px; padding: 48px 56px;
-    margin-bottom: 32px; position: relative; overflow: visible;
+    border-radius: 16px; padding: 40px 48px;
+    margin-bottom: 32px; position: relative; overflow: hidden;
   }
   .death-counter::before {
     content: ''; position: absolute; inset: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
   }
-  .death-counter .counter-avatar {
-    position: absolute;
-    top: -24px;
-    left: -16px;
-    width: 96px;
-    height: 96px;
-    z-index: 2;
+  .death-counter .counter-icon {
     flex-shrink: 0;
-    pointer-events: none;
+    width: 120px;
+    height: auto;
+    position: relative;
+    z-index: 1;
   }
-  .death-counter .counter-avatar img {
+  .death-counter .counter-icon img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: contain;
   }
   .death-counter .counter-text {
     position: relative;
     z-index: 1;
-    text-align: center;
-    width: 100%;
   }
   .death-counter .count {
     font-family: var(--font-display);
-    font-size: clamp(3.6rem, 8vw, 6.1rem);
+    font-size: clamp(3.1rem, 7vw, 5.1rem);
     color: #FFFFFF; font-weight: 400; line-height: 1;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   .death-counter .count-label {
     font-size: 1.15rem; color: rgba(255,255,255,0.7);
-    max-width: 400px; margin: 0 auto;
+    max-width: 320px;
   }
   /* hero subtitle moved to .hero-intro-heading above */
 
   /* ─── STAT GRID ───────────────────────────── */
+  /* ─── URGENCY STATS ────────────────────── */
+  .urgency-stats {
+    padding: 48px 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid rgba(184,134,45,0.1);
+  }
+  .urgency-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .urgency-card {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(184,134,45,0.15);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .urgency-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    border-color: var(--color-accent);
+  }
+  .urgency-num {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 3.5vw, 2.9rem);
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .urgency-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
   .stats {
     padding: 64px 0;
     background: var(--color-surface);
@@ -467,6 +501,7 @@
 
   /* ─── RESPONSIVE ──────────────────────────── */
   @media (max-width: 1024px) {
+    .urgency-grid { grid-template-columns: repeat(2, 1fr); }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .comp-stats-grid { grid-template-columns: repeat(2, 1fr); }
     .comp-stats-grid.comp-grid-5 { grid-template-columns: repeat(3, 1fr); }
@@ -485,14 +520,16 @@
       border-bottom: 1px solid rgba(0,0,0,0.06);
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
+    .urgency-grid { grid-template-columns: 1fr 1fr; }
     .stats-grid { grid-template-columns: 1fr; }
     .comp-stats-grid { grid-template-columns: 1fr; }
     .comp-stats-grid.comp-grid-5 { grid-template-columns: 1fr; }
     .comp-theme-block.comp-theme-alt { margin-left: -32px; margin-right: -32px; padding-left: 32px; padding-right: 32px; }
     .comp-cta-row { flex-direction: column; }
     .comp-cta-row .btn { width: 100%; justify-content: center; }
-    .death-counter { padding: 40px 32px; overflow: visible; }
-    .death-counter .counter-avatar { width: 72px; height: 72px; top: -18px; left: -8px; }
+    .death-counter { padding: 32px 24px; flex-direction: column; text-align: center; gap: 20px; }
+    .death-counter .counter-icon { width: 100px; }
+    .death-counter .count-label { margin: 0 auto; }
     .pullquote { padding: 40px 28px; }
     .cta-actions { flex-direction: column; }
     .cta-actions .btn { width: 100%; justify-content: center; }
@@ -531,7 +568,7 @@
       <span class="label">The Urgency</span>
       <p class="hero-intro-heading">Every Muslim needs to know the <strong>love of God</strong>, the <strong>power of God</strong>, and the <strong>truth of the Gospel</strong></p>
       <div class="death-counter reveal">
-        <div class="counter-avatar">
+        <div class="counter-icon">
           <img src="/images/Muslim-icon-vector.png" alt="Muslim people illustration" />
         </div>
         <div class="counter-text">
@@ -543,6 +580,92 @@
   </div>
 </section>
 
+
+<!-- ═══════ URGENCY STATS ═══════ -->
+<section class="urgency-stats">
+  <div class="container">
+    <div class="urgency-grid">
+      <div class="urgency-card reveal">
+        <div class="urgency-num">2B+</div>
+        <div class="urgency-desc">Muslims globally and growing rapidly</div>
+      </div>
+      <div class="urgency-card reveal reveal-delay-1">
+        <div class="urgency-num">38,000</div>
+        <div class="urgency-desc">Die every day without the Gospel</div>
+      </div>
+      <div class="urgency-card reveal reveal-delay-2">
+        <div class="urgency-num">1:450K</div>
+        <div class="urgency-desc">Only 1 missionary for every 450,000 Muslims</div>
+      </div>
+      <div class="urgency-card reveal reveal-delay-3">
+        <div class="urgency-num">86%</div>
+        <div class="urgency-desc">Of Muslims don't personally know a Christian</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHY PEOPLE DON'T ═══════ -->
+<section class="content-section alt" id="why-not">
+  <div class="container">
+    <div class="narrow">
+      <div class="content-header reveal">
+        <span class="label">The Barrier</span>
+        <h2 class="section-heading">Why people don't <em>reach Muslims</em></h2>
+      </div>
+      <div class="content-body reveal">
+        <p>Most people are concerned or frightened by the growth of Islam and terrorism, but the church is called to have love and compassion for Muslims. Our primary response should not be fearful or political, but based on deep love and compassion to share the love of Jesus with every Muslim.</p>
+
+        <p>Most people do not reach Muslims because of <strong>fear</strong>. That fear takes three primary forms:</p>
+
+        <div class="fear-list">
+          <div class="fear-item">
+            <div class="fear-number">1</div>
+            <p><strong>Fear of suffering.</strong> There is a strong fear of violence and suffering when most people consider engaging Muslims.</p>
+          </div>
+          <div class="fear-item">
+            <div class="fear-number">2</div>
+            <p><strong>Fear of the questions.</strong> Muslims are typically trained and prepared to ask very aggressive questions. Most believers do not feel confident enough to answer them.</p>
+          </div>
+          <div class="fear-item">
+            <div class="fear-number">3</div>
+            <p><strong>Fear of the unknown.</strong> Most believers do not feel like they understand Islam enough to challenge it directly and are afraid to engage.</p>
+          </div>
+        </div>
+
+        <p>Though the issue seems to be Islam, what these fears really expose is that many of us are not truly discipled. True disciples love Jesus wholeheartedly. Because they love Him above all, they do not fear what any person can do to them — they refuse to fear Muslims. Instead, they are a faithful witness of the gospel in all the world.</p>
+
+        <p><strong>Islam itself is not the actual reason why we do not reach Muslims — lack of discipleship is.</strong> The ultimate solution to mobilizing the church to reach Muslims is to disciple people to follow Jesus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHY TRAIN ═══════ -->
+<section class="content-section" id="why-train">
+  <div class="container">
+    <div class="narrow">
+      <div class="content-header reveal">
+        <span class="label">The Imperative</span>
+        <h2 class="section-heading">Why the Church <em>must be trained</em></h2>
+      </div>
+      <div class="content-body reveal">
+        <p>Muslims represent the greatest challenge to the Christian church today, yet few are equipped to engage Muslims with the gospel. While the church has been reluctant, Muslims themselves have been quite active in their own form of evangelism known as "dawah."</p>
+
+        <p>One source says <strong>200,000 students in Pakistan alone, ages 8 to 30, graduate from ultra-conservative Islamic religious schools every year</strong> with 8 years of training, 8 hours a day, and the ability to easily challenge most believers on the authenticity of the Bible. Each month, Saudi Arabia alone spends more on spreading Islam than the International Mission Board (IMB) spends in a year.</p>
+
+        <p>Because Islam both aggressively confronts Christianity and holds doctrines that directly challenge the most essential tenets of the Christian faith, it is imperative that the entire church is trained to be a faithful witness of the gospel to Muslims. Every believer must have a basic understanding of how to confront and evangelize Muslims because of Jesus' deep love for them.</p>
+
+        <p>i2 has the vision, resources, and ability to make a significant impact in equipping more Christians to effectively evangelize Muslims. We are uniquely positioned to become the change agent for the global body of Christ to fulfill her call to the Great Commission among Muslims.</p>
+      </div>
+
+      <div class="pullquote reveal">
+        <blockquote>The greatest problem in the world is not radical Islam — it is nominal Christianity. The answer to global Islam is a discipled and trained Church that loves Jesus!</blockquote>
+        <cite>— Joshua Lingel, President of i2 Ministries</cite>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ═══════ WHY MUSLIMS ═══════ -->
 <section class="content-section" id="why-muslims">
@@ -938,68 +1061,6 @@
       <a href="/donate" class="btn btn-outline">
         Partner With Us
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ WHY PEOPLE DON'T ═══════ -->
-<section class="content-section alt" id="why-not">
-  <div class="container">
-    <div class="narrow">
-      <div class="content-header reveal">
-        <span class="label">The Barrier</span>
-        <h2 class="section-heading">Why people don't <em>reach Muslims</em></h2>
-      </div>
-      <div class="content-body reveal">
-        <p>Most people are concerned or frightened by the growth of Islam and terrorism, but the church is called to have love and compassion for Muslims. Our primary response should not be fearful or political, but based on deep love and compassion to share the love of Jesus with every Muslim.</p>
-
-        <p>Most people do not reach Muslims because of <strong>fear</strong>. That fear takes three primary forms:</p>
-
-        <div class="fear-list">
-          <div class="fear-item">
-            <div class="fear-number">1</div>
-            <p><strong>Fear of suffering.</strong> There is a strong fear of violence and suffering when most people consider engaging Muslims.</p>
-          </div>
-          <div class="fear-item">
-            <div class="fear-number">2</div>
-            <p><strong>Fear of the questions.</strong> Muslims are typically trained and prepared to ask very aggressive questions. Most believers do not feel confident enough to answer them.</p>
-          </div>
-          <div class="fear-item">
-            <div class="fear-number">3</div>
-            <p><strong>Fear of the unknown.</strong> Most believers do not feel like they understand Islam enough to challenge it directly and are afraid to engage.</p>
-          </div>
-        </div>
-
-        <p>Though the issue seems to be Islam, what these fears really expose is that many of us are not truly discipled. True disciples love Jesus wholeheartedly. Because they love Him above all, they do not fear what any person can do to them — they refuse to fear Muslims. Instead, they are a faithful witness of the gospel in all the world.</p>
-
-        <p><strong>Islam itself is not the actual reason why we do not reach Muslims — lack of discipleship is.</strong> The ultimate solution to mobilizing the church to reach Muslims is to disciple people to follow Jesus.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ WHY TRAIN ═══════ -->
-<section class="content-section" id="why-train">
-  <div class="container">
-    <div class="narrow">
-      <div class="content-header reveal">
-        <span class="label">The Imperative</span>
-        <h2 class="section-heading">Why the Church <em>must be trained</em></h2>
-      </div>
-      <div class="content-body reveal">
-        <p>Muslims represent the greatest challenge to the Christian church today, yet few are equipped to engage Muslims with the gospel. While the church has been reluctant, Muslims themselves have been quite active in their own form of evangelism known as "dawah."</p>
-
-        <p>One source says <strong>200,000 students in Pakistan alone, ages 8 to 30, graduate from ultra-conservative Islamic religious schools every year</strong> with 8 years of training, 8 hours a day, and the ability to easily challenge most believers on the authenticity of the Bible. Each month, Saudi Arabia alone spends more on spreading Islam than the International Mission Board (IMB) spends in a year.</p>
-
-        <p>Because Islam both aggressively confronts Christianity and holds doctrines that directly challenge the most essential tenets of the Christian faith, it is imperative that the entire church is trained to be a faithful witness of the gospel to Muslims. Every believer must have a basic understanding of how to confront and evangelize Muslims because of Jesus' deep love for them.</p>
-
-        <p>i2 has the vision, resources, and ability to make a significant impact in equipping more Christians to effectively evangelize Muslims. We are uniquely positioned to become the change agent for the global body of Christ to fulfill her call to the Great Commission among Muslims.</p>
-      </div>
-
-      <div class="pullquote reveal">
-        <blockquote>The greatest problem in the world is not radical Islam — it is nominal Christianity. The answer to global Islam is a discipled and trained Church that loves Jesus!</blockquote>
-        <cite>— Joshua Lingel, President of i2 Ministries</cite>
-      </div>
     </div>
   </div>
 </section>
