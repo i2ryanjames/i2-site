@@ -88,7 +88,7 @@
 
   /* ─── HERO ─── */
   .page-hero {
-    padding: 160px 0 80px; position: relative; overflow: hidden;
+    padding: 160px 0 48px; position: relative; overflow: hidden;
   }
   .page-hero::before {
     content: ''; position: absolute; inset: 0;
@@ -111,7 +111,7 @@
 
   /* ─── FEATURED VIDEO ─── */
   .featured-video {
-    padding: 0 0 var(--section-pad);
+    padding: 0 0 48px;
     position: relative;
   }
   .featured-video-inner {
@@ -227,7 +227,7 @@
     line-height: 1.8; margin-bottom: 36px;
   }
   .catalog-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
+    display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 20px; margin-bottom: 40px;
   }
   .catalog-stat {
@@ -352,6 +352,74 @@
   .footer-socials svg { color: var(--color-text-muted); width: 16px; height: 16px; }
   .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.06); text-align: center; font-size: 0.85rem; color: rgba(92,90,85,0.6); }
 
+  /* ─── EMFCI IMPACT STATS ────────────────── */
+  .emfci-stats {
+    padding: 72px 0;
+    background: var(--color-surface);
+    border-top: 1px solid rgba(184,134,45,0.1);
+    border-bottom: 1px solid rgba(184,134,45,0.1);
+  }
+  .emfci-stats-inner {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .emfci-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .emfci-stat-card {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 32px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .emfci-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .emfci-num {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .emfci-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  /* ─── TRUSTED BY ────────────────────────── */
+  .trusted-by {
+    padding: 32px 0 48px;
+    text-align: center;
+    border-bottom: 1px solid rgba(184,134,45,0.12);
+  }
+  .trusted-by .section-heading {
+    margin-bottom: 40px;
+  }
+  .trusted-by img {
+    max-width: 720px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.85;
+    filter: grayscale(20%);
+    transition: opacity 0.4s, filter 0.4s;
+  }
+  .trusted-by img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
   /* ─── ANIMATIONS ─── */
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -384,6 +452,10 @@
     .footer-inner { flex-direction: column; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
     :root { --section-pad: 64px; }
+    .pillar-featured { grid-template-columns: 1fr; }
+    .pillar-featured > .pillar-icon { display: none; }
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+    .emfci-stats-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -433,6 +505,45 @@
   </div>
 </section>
 
+<!-- ═══════ TRUSTED BY ═══════ -->
+<section class="trusted-by">
+  <div class="container">
+    <span class="label reveal">Who We Work With</span>
+    <h2 class="section-heading reveal">Trusted by some of the largest <em>Christian Organizations</em></h2>
+    <div class="reveal reveal-delay-1">
+      <img src="/images/trusted-by.png" alt="Trusted by leading Christian organizations" />
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ EMFCI IMPACT STATS ═══════ -->
+<section class="emfci-stats">
+  <div class="container">
+    <div class="emfci-stats-inner reveal">
+      <span class="label">Our Global Impact</span>
+      <h2 class="section-heading">Launching the Every Muslim for Christ <em>Initiative</em></h2>
+      <div class="emfci-stats-grid">
+        <div class="emfci-stat-card">
+          <div class="emfci-num">1M+</div>
+          <div class="emfci-desc">Christian Leaders Trained</div>
+        </div>
+        <div class="emfci-stat-card">
+          <div class="emfci-num">2,000+</div>
+          <div class="emfci-desc">Certified Trainers Globally</div>
+        </div>
+        <div class="emfci-stat-card">
+          <div class="emfci-num">10K+</div>
+          <div class="emfci-desc">Outreaches Mobilized in 70+ Countries</div>
+        </div>
+        <div class="emfci-stat-card">
+          <div class="emfci-num">1,500+</div>
+          <div class="emfci-desc">MA Level Students</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════ TRAINING PATHWAYS ═══════ -->
 <section class="pathways" id="pathways">
   <div class="container">
@@ -452,13 +563,13 @@
         <span class="pathway-link">Launch in Your Region <span class="btn-arrow">→</span></span>
       </a>
 
-      <a href="https://www.gommwu.org/" class="pathway-card reveal reveal-delay-1">
+      <a href="https://www.mmwu.org/" class="pathway-card reveal reveal-delay-1">
         <div class="pathway-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         </div>
         <h3>Mission Muslim World University</h3>
         <p>The online school equipping Christians to reach the Muslim world. A pathway to earn an MA Ministry degree with a concentration in Islamic Studies — fully accredited and video-based.</p>
-        <span class="pathway-link">Enroll Now <span class="btn-arrow">→</span></span>
+        <span class="pathway-link">Enroll in MMWU <span class="btn-arrow">→</span></span>
       </a>
 
       <a href="https://linktree.com/wiseglobal" class="pathway-card reveal reveal-delay-2">
@@ -504,10 +615,14 @@
           <div class="num">250+</div>
           <div class="desc">Hours of Training</div>
         </div>
+        <div class="catalog-stat">
+          <div class="num">1,500+</div>
+          <div class="desc">MA Students</div>
+        </div>
       </div>
 
-      <a href="https://resources.i2ministries.org" class="btn btn-primary">
-        Browse All Courses <span class="btn-arrow">→</span>
+      <a href="https://www.mmwu.org/" class="btn btn-primary" target="_blank">
+        Enroll in MMWU <span class="btn-arrow">→</span>
       </a>
     </div>
   </div>
@@ -573,7 +688,7 @@
         <a href="https://www.i2ministries-emfci.com/" class="btn btn-primary">
           Join the Initiative <span class="btn-arrow">→</span>
         </a>
-        <a href="https://www.gommwu.org/" class="btn btn-outline">
+        <a href="https://www.mmwu.org/" class="btn btn-outline">
           Enroll at MMWU
         </a>
         <a href="https://thewadi.org" class="btn btn-outline">
@@ -600,7 +715,7 @@
       </div>
       <div class="footer-links">
         <div class="footer-col"><h4>Ministry</h4><a href="/about">About</a><a href="/the-mission">The Mission</a><a href="/contact">Contact</a><a href="/donate">Donate</a></div>
-        <div class="footer-col"><h4>Training</h4><a href="https://www.i2ministries-emfci.com">The Initiative</a><a href="https://www.gommwu.org/">MMWU</a><a href="https://thewadi.org">WADI</a><a href="https://resources.i2ministries.org">Resources</a></div>
+        <div class="footer-col"><h4>Training</h4><a href="https://www.i2ministries-emfci.com">The Initiative</a><a href="https://www.mmwu.org/">MMWU</a><a href="https://thewadi.org">WADI</a><a href="https://resources.i2ministries.org">Resources</a></div>
         <div class="footer-col"><h4>Tools</h4><a href="https://linktree.com/wiseglobal">WISE Global App</a><a href="http://eepurl.com/Kurdj">Free Ebook</a></div>
       </div>
     </div>
