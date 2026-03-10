@@ -284,7 +284,7 @@
   .video-card:hover .video-play { transform: translate(-50%,-50%) scale(1.1); }
   .video-play svg { margin-left: 2px; }
 
-  /* ─── GALLERY (auto-scroll strip) ────────── */
+  /* ─── GALLERY (scrollable strip) ────────── */
   .gallery {
     padding: var(--section-pad) 0;
     background: var(--color-surface);
@@ -293,8 +293,16 @@
   .gallery-header { text-align: center; margin-bottom: 40px; }
   .gallery-scroll {
     display: flex; gap: 12px;
-    animation: scrollGallery 30s linear infinite;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 32px 16px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(184,134,45,0.3) transparent;
   }
+  .gallery-scroll::-webkit-scrollbar { height: 6px; }
+  .gallery-scroll::-webkit-scrollbar-track { background: transparent; }
+  .gallery-scroll::-webkit-scrollbar-thumb { background: rgba(184,134,45,0.3); border-radius: 3px; }
   .gallery-scroll img {
     height: 220px; width: auto;
     border-radius: 10px;
@@ -302,15 +310,9 @@
     flex-shrink: 0;
     cursor: pointer;
     transition: transform 0.3s;
+    scroll-snap-align: start;
   }
   .gallery-scroll img:hover { transform: scale(1.03); }
-  @keyframes scrollGallery {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .gallery:hover .gallery-scroll {
-    animation-play-state: paused;
-  }
 
   /* ─── LIGHTBOX ──────────────────────────── */
   .lightbox-overlay {
@@ -750,7 +752,7 @@
   @media (max-width: 1024px) {
     .bio-grid { grid-template-columns: 1fr; gap: 48px; }
     .videos-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-scroll img { height: 180px; }
+    .gallery-scroll img { height: 200px; }
     .values-grid { grid-template-columns: 1fr; }
     .endorsements-list { grid-template-columns: 1fr; }
     .footer-links { gap: 40px; }
@@ -815,7 +817,7 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
     .videos-grid { grid-template-columns: 1fr; }
-    .gallery-scroll img { height: 160px; }
+    .gallery-scroll img { height: 180px; }
     .footer-inner { flex-direction: column; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
     :root { --section-pad: 48px; }
@@ -1020,23 +1022,6 @@
     <h2 class="section-heading">Training initiatives <em>worldwide</em></h2>
   </div>
   <div class="gallery-scroll">
-    <img src="/images/gallery-01.jpg" alt="Training initiative" />
-    <img src="/images/gallery-02.jpg" alt="Peru group training" />
-    <img src="/images/gallery-03.jpg" alt="Josh with students" />
-    <img src="/images/gallery-04.jpg" alt="Conference" />
-    <img src="/images/gallery-05.jpg" alt="Costa Rica Pastors Conference" />
-    <img src="/images/gallery-06.jpg" alt="Angola" />
-    <img src="/images/gallery-07.jpg" alt="Korea Seminary" />
-    <img src="/images/gallery-08.jpg" alt="Peru training" />
-    <img src="/images/new-training-1.jpg" alt="Training session" />
-    <img src="/images/new-training-2.jpg" alt="Training workshop" />
-    <img src="/images/new-training-3.jpg" alt="Training conference" />
-    <img src="/images/new-training-4.jpg" alt="Training seminar" />
-    <img src="/images/new-training-5.jpg" alt="Training outreach" />
-    <img src="/images/new-training-6.jpg" alt="Training leaders" />
-    <img src="/images/new-training-7.jpg" alt="Training ministry" />
-    <img src="/images/new-training-8.jpg" alt="Training program" />
-    <!-- Duplicate for seamless loop -->
     <img src="/images/gallery-01.jpg" alt="Training initiative" />
     <img src="/images/gallery-02.jpg" alt="Peru group training" />
     <img src="/images/gallery-03.jpg" alt="Josh with students" />
@@ -1512,9 +1497,7 @@
     const lbImg = document.getElementById('lightboxImg');
     const counter = document.getElementById('lightboxCounter');
     const scrollContainer = document.querySelector('.gallery-scroll');
-    // Collect only the first half (originals, not duplicates)
-    const allImgs = Array.from(scrollContainer.querySelectorAll('img'));
-    const images = allImgs.slice(0, allImgs.length / 2);
+    const images = Array.from(scrollContainer.querySelectorAll('img'));
     let current = 0;
 
     function show(i) {
@@ -1530,11 +1513,6 @@
     images.forEach(function(img, i) {
       img.addEventListener('click', function() { open(i); });
     });
-    // Also bind duplicate images to same indices
-    allImgs.slice(allImgs.length / 2).forEach(function(img, i) {
-      img.addEventListener('click', function() { open(i); });
-    });
-
     overlay.querySelector('.lightbox-close').addEventListener('click', close);
     overlay.querySelector('.lightbox-prev').addEventListener('click', function() { show(current - 1); });
     overlay.querySelector('.lightbox-next').addEventListener('click', function() { show(current + 1); });
