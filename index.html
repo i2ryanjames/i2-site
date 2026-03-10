@@ -294,6 +294,29 @@
     color: var(--color-text-muted);
   }
 
+  /* ─── TRUSTED BY ───────────────────────────── */
+  .trusted-by {
+    padding: 64px 0 48px;
+    text-align: center;
+    border-bottom: 1px solid rgba(184,134,45,0.12);
+  }
+  .trusted-by .section-heading {
+    margin-bottom: 40px;
+  }
+  .trusted-by img {
+    max-width: 900px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.85;
+    filter: grayscale(20%);
+    transition: opacity 0.4s, filter 0.4s;
+  }
+  .trusted-by img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
   /* ─── MISSION ─────────────────────────────── */
   .mission { padding: var(--section-pad) 0; position: relative; }
   .mission-grid {
@@ -818,6 +841,17 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TRUSTED BY ═══════ -->
+<section class="trusted-by">
+  <div class="container">
+    <span class="label reveal">Who We Work With</span>
+    <h2 class="section-heading reveal">Trusted by some of the largest <em>Christian Organizations</em></h2>
+    <div class="reveal reveal-delay-1">
+      <img src="/images/trusted-by.png" alt="Trusted by leading Christian organizations" />
     </div>
   </div>
 </section>
