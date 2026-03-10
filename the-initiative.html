@@ -40,7 +40,7 @@
     --font-display: 'Instrument Serif', Georgia, serif;
     --font-body: 'DM Sans', sans-serif;
     --max-width: 1280px;
-    --section-pad: 110px;
+    --section-pad: 80px;
   }
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -237,37 +237,41 @@
     text-align: center; font-size: 1.15rem; color: var(--color-text-muted);
     max-width: 680px; margin: 0 auto 48px; line-height: 1.75;
   }
-  .graph-bar-group { max-width: 800px; margin: 0 auto 24px; }
-  .graph-bar-row { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
-  .graph-bar {
-    height: 56px; border-radius: 8px; display: flex; align-items: center;
-    padding: 0 20px; position: relative; transition: width 1.2s ease;
+  .bar-stats {
+    display: flex; align-items: baseline; gap: 24px;
+    margin-bottom: 20px; justify-content: center;
   }
-  .graph-bar.filled {
+  .bar-stats .funded {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-accent); font-weight: 400;
+  }
+  .bar-stats .waiting {
+    font-size: 1.2rem; color: var(--color-text-muted);
+  }
+  .bar-graph-wrap { max-width: 800px; margin: 0 auto 16px; }
+  .bar-graph {
+    width: 100%; height: 56px; border-radius: 8px; overflow: hidden;
+    display: flex; background: rgba(184,134,45,0.15); position: relative;
+  }
+  .bar-funded {
+    width: 0%; height: 100%;
     background: linear-gradient(135deg, var(--color-accent), var(--color-accent-warm));
-    width: 38%;
+    border-radius: 8px 0 0 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #FFFFFF; font-weight: 600; font-size: 14px; letter-spacing: 0.5px;
+    transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative; z-index: 1;
   }
-  .graph-bar.waiting {
-    width: 62%;
-    background: repeating-linear-gradient(
-      45deg,
-      rgba(184,134,45,0.12),
-      rgba(184,134,45,0.12) 8px,
-      rgba(184,134,45,0.04) 8px,
-      rgba(184,134,45,0.04) 16px
-    );
-    border: 2px dashed var(--color-accent);
+  .bar-funded.animated { width: 38%; }
+  .bar-waiting {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    color: var(--color-accent); font-weight: 600; font-size: 14px; letter-spacing: 0.5px;
   }
-  .graph-label {
-    font-size: 0.95rem; font-weight: 600; white-space: nowrap;
-  }
-  .graph-bar.filled .graph-label { color: #FFFFFF; }
-  .graph-bar.waiting .graph-label { color: var(--color-accent); }
-  .graph-progress {
+  .bar-caption {
     text-align: center; font-size: 1rem; color: var(--color-text-muted);
-    margin-bottom: 48px;
+    max-width: 680px; margin: 16px auto 0; line-height: 1.7;
   }
-  .graph-progress strong { color: var(--color-text); }
 
   /* ─── FUNDING BREAKDOWN ─── */
   .funding-card {
@@ -400,7 +404,7 @@
     .gift-grid { grid-template-columns: 1fr 1fr; }
     .stat-bar-inner { grid-template-columns: repeat(2, 1fr); }
     .footer-links { gap: 40px; }
-    :root { --section-pad: 80px; }
+    :root { --section-pad: 64px; }
   }
   @media (max-width: 768px) {
     .nav-dropdown-menu {
@@ -439,11 +443,12 @@
     .funding-grid { grid-template-columns: 1fr; }
     .gift-grid { grid-template-columns: 1fr; }
     .pullquote { padding: 40px 28px; }
+    .bar-stats { flex-direction: column; align-items: center; gap: 4px; }
     .cta-actions { flex-direction: column; }
     .cta-actions .btn { width: 100%; justify-content: center; }
     .footer-inner { flex-direction: column; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
-    :root { --section-pad: 64px; }
+    :root { --section-pad: 48px; }
   }
 </style>
 </head>
@@ -687,19 +692,19 @@
     </div>
     <p class="opportunity-subtitle reveal">Each EMFCI Launch Conference costs approximately $100,000 per country. 50 countries have been launched since 2003. 80 more are waiting for funding.</p>
 
-    <div class="graph-bar-group reveal">
-      <div class="graph-bar-row">
-        <div class="graph-bar filled" style="width: 38%;">
-          <span class="graph-label">50 Launched</span>
-        </div>
-        <div class="graph-bar waiting" style="width: 62%;">
-          <span class="graph-label">80 Waiting</span>
+    <div class="reveal" id="barGraphSection">
+      <div class="bar-stats">
+        <span class="funded">38% Launched</span>
+        <span class="waiting">62% Still Waiting</span>
+      </div>
+      <div class="bar-graph-wrap">
+        <div class="bar-graph">
+          <div class="bar-funded" id="barFunded">50 Launched</div>
+          <div class="bar-waiting">80 Waiting</div>
         </div>
       </div>
+      <p class="bar-caption"><strong>50 of 130 countries funded.</strong> Each country launch costs $100,000 and mobilizes entire denominations to reach every Muslim for Christ.</p>
     </div>
-    <p class="graph-progress reveal">
-      <strong>50 of 130 countries funded (38%)</strong>
-    </p>
 
     <div class="funding-card reveal">
       <h3>Your Gift Can Launch Nations</h3>
@@ -883,6 +888,18 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ─── Bar Graph Animation ───
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.getElementById('barFunded').classList.add('animated');
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const barSection = document.getElementById('barGraphSection');
+  if (barSection) barObserver.observe(barSection);
 </script>
 </body>
 </html>

@@ -40,7 +40,7 @@
     --font-display: 'Instrument Serif', Georgia, serif;
     --font-body: 'DM Sans', sans-serif;
     --max-width: 1280px;
-    --section-pad: 110px;
+    --section-pad: 80px;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -745,6 +745,7 @@
   }
 
   @media (max-width: 1024px) {
+    :root { --section-pad: 64px; }
     .endorsements-grid { grid-template-columns: repeat(2, 1fr); }
     .stories-grid { grid-template-columns: repeat(2, 1fr); }
     .roadmap-grid { grid-template-columns: 1fr; }
@@ -819,6 +820,7 @@
     .funding-ctas { flex-direction: column; align-items: center; }
     .funding-ctas .btn { width: 100%; justify-content: center; }
     .footer-inner { flex-direction: column; }
+    :root { --section-pad: 48px; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
   }
 </style>

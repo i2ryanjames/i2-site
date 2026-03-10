@@ -33,7 +33,7 @@
     --color-accent: #B8862D; --color-accent-warm: #C7753A; --color-accent-deep: #8B3A2A;
     --font-display: 'Instrument Serif', Georgia, serif;
     --font-body: 'DM Sans', sans-serif;
-    --max-width: 1280px; --section-pad: 110px;
+    --max-width: 1280px; --section-pad: 80px;
   }
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -61,7 +61,7 @@
 
   /* ─── PAGE HERO ─── */
   .page-hero {
-    padding: 160px 0 80px; position: relative; overflow: hidden;
+    padding: 160px 0 48px; position: relative; overflow: hidden;
   }
   .page-hero::before {
     content: ''; position: absolute; inset: 0;
@@ -377,7 +377,7 @@
   @media (max-width: 1024px) {
     .contact-grid { grid-template-columns: 1fr; max-width: 600px; }
     .footer-links { gap: 40px; }
-    :root { --section-pad: 80px; }
+    :root { --section-pad: 64px; }
   }
   @media (max-width: 768px) {
     .nav-dropdown-menu {
@@ -433,7 +433,7 @@
     .form-row { grid-template-columns: 1fr; }
     .footer-inner { flex-direction: column; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
-    :root { --section-pad: 64px; }
+    :root { --section-pad: 48px; }
   }
 </style>
 </head>
