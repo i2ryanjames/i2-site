@@ -441,6 +441,31 @@
   }
   .pillar-link:hover { gap: 14px; }
 
+  /* ─── TRAINING MINI STATS ────────────────────── */
+  .training-stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+  .training-stat-item h4 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+  .training-stat-item p {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  @media (max-width: 768px) {
+    .training-stats-row { gap: 24px; flex-wrap: wrap; }
+  }
+
   /* ─── FEATURED PILLAR (MMWU) ───────────────── */
   .pillar-featured {
     background: var(--color-surface-raised);
@@ -783,20 +808,20 @@
   <div class="container">
     <div class="stat-bar-inner">
       <div class="stat-item reveal">
-        <h3>1.9B+</h3>
-        <p>Muslims Worldwide</p>
+        <h3>2B+</h3>
+        <p>Muslims Globally</p>
       </div>
       <div class="stat-item reveal reveal-delay-1">
-        <h3>37,000</h3>
-        <p>Die Daily Without the Gospel</p>
+        <h3>85%</h3>
+        <p>Have Never Known a Christian</p>
       </div>
       <div class="stat-item reveal reveal-delay-2">
-        <h3>250+</h3>
-        <p>Hours Free Training</p>
+        <h3>1:450K</h3>
+        <p>Only 1 Missionary per 450,000 Muslims</p>
       </div>
       <div class="stat-item reveal reveal-delay-3">
-        <h3>14</h3>
-        <p>Languages Available</p>
+        <h3>97%</h3>
+        <p>Of Missionaries Serve the Already-Reached</p>
       </div>
     </div>
   </div>
@@ -820,7 +845,7 @@
       <div class="mission-text reveal reveal-delay-1">
         <span class="label">The Urgency</span>
         <h2 class="section-heading">The largest <em>unreached</em> people on the planet</h2>
-        <p>Islam enslaves almost 2 billion followers, most of whom have never heard the gospel. Over 37,000 die without the gospel every day.</p>
+        <p>Islam enslaves almost 2 billion followers, most of whom have never heard the gospel. Over 38,000 die without the gospel every day.</p>
         <p>Mosques are now becoming common in European and American cities. Islam is the biggest challenge for the global church today — both on the mission field and in your local neighborhood.</p>
         <a href="/the-mission" class="btn btn-outline">
           Learn About the Mission <span class="btn-arrow">→</span>
@@ -837,6 +862,20 @@
       <span class="label">Get Trained</span>
       <h2 class="section-heading">Join the global community reaching <em>Muslims for Jesus</em></h2>
       <p>World-class training resources for churches, organizations, and individuals ready to answer the call.</p>
+    </div>
+    <div class="training-stats-row reveal">
+      <div class="training-stat-item">
+        <h4>250+</h4>
+        <p>Hours Free Training</p>
+      </div>
+      <div class="training-stat-item">
+        <h4>14</h4>
+        <p>Languages Available</p>
+      </div>
+      <div class="training-stat-item">
+        <h4>20+</h4>
+        <p>Video Courses</p>
+      </div>
     </div>
     <a href="https://www.gommwu.org/" class="pillar-featured reveal">
       <div>
@@ -1047,7 +1086,7 @@
     const now = new Date();
     const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const secondsToday = (now - startOfDay) / 1000;
-    const perSecond = 37000 / 86400;
+    const perSecond = 38000 / 86400;
     const count = Math.floor(secondsToday * perSecond);
     const el = document.getElementById('deathCounter');
     if (el) el.textContent = count.toLocaleString();
