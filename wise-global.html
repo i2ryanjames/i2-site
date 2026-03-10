@@ -543,6 +543,94 @@
     color: rgba(92,90,85,0.6);
   }
 
+  /* ─── FUNDING BAR ────────────────────────── */
+  .funding-section {
+    padding: var(--section-pad) 0;
+  }
+  .funding-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .funding-header p {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 680px;
+    margin: 16px auto 0;
+    line-height: 1.7;
+  }
+  .funding-bar-stats {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  .funding-bar-stats .funded {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-accent);
+    font-weight: 400;
+  }
+  .funding-bar-stats .waiting {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+  }
+  .funding-bar-wrap {
+    max-width: 800px;
+    margin: 0 auto 16px;
+  }
+  .funding-bar {
+    width: 100%;
+    height: 56px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    background: rgba(184,134,45,0.15);
+    position: relative;
+  }
+  .funding-bar-funded {
+    width: 0%;
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 8px 0 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    z-index: 1;
+  }
+  .funding-bar-funded.animated { width: 20%; }
+  .funding-bar-waiting {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  .funding-bar-caption {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 680px;
+    margin: 16px auto 0;
+    line-height: 1.7;
+  }
+  .funding-ctas {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+
   /* ─── REVEAL ANIMATIONS ───────────────────── */
   .reveal {
     opacity: 0; transform: translateY(40px);
@@ -708,6 +796,9 @@
     .stories-grid { grid-template-columns: 1fr; }
     .roadmap-summary { flex-direction: column; gap: 24px; }
     .hero-actions { justify-content: center; }
+    .funding-bar-stats { flex-direction: column; align-items: center; gap: 4px; }
+    .funding-ctas { flex-direction: column; align-items: center; }
+    .funding-ctas .btn { width: 100%; justify-content: center; }
     .footer-inner { flex-direction: column; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
   }
@@ -722,11 +813,27 @@
     <div class="nav-links" id="navLinks">
       <a href="/about">About</a>
       <a href="/the-mission">The Mission</a>
-      <a href="https://www.i2ministries-emfci.com">The Initiative</a>
-      <a href="/get-trained">Get Trained</a>
-      <a href="/mmwu">MMWU</a>
-      <a href="https://resources.i2ministries.org">Resources</a>
-      <a href="/wise-global" class="active">WISE Global App</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <a href="/get-trained" class="nav-dropdown-trigger">Get Trained <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <a href="https://www.i2ministries-emfci.com" class="nav-dropdown-item">
+            <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            <div class="nav-dropdown-label">The Initiative</div>
+          </a>
+          <a href="/mmwu" class="nav-dropdown-item">
+            <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="nav-dropdown-label">MMWU</div>
+          </a>
+          <a href="/wise-global" class="nav-dropdown-item">
+            <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <div class="nav-dropdown-label">WISE Global App</div>
+          </a>
+          <a href="https://resources.i2ministries.org" class="nav-dropdown-item">
+            <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+            <div class="nav-dropdown-label">Resources</div>
+          </a>
+        </div>
+      </div>
       <a href="/contact">Contact</a>
       <a href="/donate" class="nav-cta">Donate</a>
     </div>
@@ -970,6 +1077,36 @@
   </div>
 </section>
 
+<!-- ─── FUNDING VISUALIZATION ─────────────────── -->
+<section class="funding-section">
+  <div class="container">
+    <div class="funding-header">
+      <span class="label reveal">The Funding Gap</span>
+      <h2 class="section-heading reveal">Help us fund the <em>future</em> of WISE Global</h2>
+      <p class="reveal">WISE Global is a 30-year legacy plan to build and maintain technology for the global church. Of the total development budget, only 20% has been funded so far — leaving $657,650 still needed to complete the next phase of features.</p>
+    </div>
+
+    <div class="reveal" id="fundingBarSection">
+      <div class="funding-bar-stats">
+        <span class="funded">20% Funded</span>
+        <span class="waiting">80% Still Needed</span>
+      </div>
+      <div class="funding-bar-wrap">
+        <div class="funding-bar">
+          <div class="funding-bar-funded" id="fundingBarFunded">Funded</div>
+          <div class="funding-bar-waiting">$657,650 Remaining</div>
+        </div>
+      </div>
+      <p class="funding-bar-caption">Every dollar goes directly to development. No staff salaries are paid from ministry gifts. Your tax-deductible gift funds the technology that's reaching the nations.</p>
+    </div>
+
+    <div class="funding-ctas reveal">
+      <a href="/donate" class="btn btn-primary">Fund WISE Development <span class="btn-arrow">&rarr;</span></a>
+      <a href="/donate" class="btn btn-outline">Give Any Amount</a>
+    </div>
+  </div>
+</section>
+
 <!-- ─── FUNDING ROADMAP ──────────────────────── -->
 <section class="roadmap">
   <div class="container">
@@ -1167,6 +1304,18 @@ document.getElementById('mobileToggle').addEventListener('click', function() {
   document.getElementById('navLinks').classList.toggle('open');
 });
 
+/* Mobile dropdown toggle */
+var dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
+var navDropdown = document.getElementById('navDropdown');
+if (dropdownTrigger && navDropdown) {
+  dropdownTrigger.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      navDropdown.classList.toggle('open');
+    }
+  });
+}
+
 /* Scroll reveal */
 var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
@@ -1186,6 +1335,18 @@ function toggleAccordion(btn) {
   if (!wasOpen) item.classList.add('open');
   btn.setAttribute('aria-expanded', !wasOpen);
 }
+
+/* Funding bar animation */
+var fundingBarObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      document.getElementById('fundingBarFunded').classList.add('animated');
+      fundingBarObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+var fundingBarSection = document.getElementById('fundingBarSection');
+if (fundingBarSection) fundingBarObserver.observe(fundingBarSection);
 
 /* YouTube click-to-play */
 function playVideo(card) {
