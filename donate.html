@@ -39,7 +39,7 @@
     --font-display: 'Instrument Serif', Georgia, serif;
     --font-body: 'DM Sans', sans-serif;
     --max-width: 1280px;
-    --section-pad: 110px;
+    --section-pad: 80px;
   }
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -67,7 +67,7 @@
 
   /* ─── HERO ─── */
   .donate-hero {
-    padding: 160px 0 80px; position: relative; overflow: hidden;
+    padding: 160px 0 48px; position: relative; overflow: hidden;
   }
   .donate-hero::before {
     content: ''; position: absolute; inset: 0;
@@ -427,7 +427,7 @@
   @media (max-width: 1024px) {
     .stewardship-inner { grid-template-columns: 1fr; gap: 48px; }
     .footer-links { gap: 40px; }
-    :root { --section-pad: 80px; }
+    :root { --section-pad: 64px; }
   }
   @media (max-width: 768px) {
     .nav-dropdown-menu {
@@ -486,7 +486,7 @@
     .footer-inner { flex-direction: column; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
     .impact-scroll img { height: 160px; }
-    :root { --section-pad: 64px; }
+    :root { --section-pad: 48px; }
   }
 </style>
 </head>
