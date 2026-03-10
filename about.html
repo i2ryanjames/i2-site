@@ -667,7 +667,7 @@
     border-radius: 8px;
     text-align: center;
     transition: background 0.2s, transform 0.2s;
-    min-width: 120px;
+    min-width: 150px;
   }
   .nav-dropdown-item:hover {
     background: rgba(184,134,45,0.06);
@@ -704,7 +704,7 @@
     font-size: 11px;
     color: var(--color-text-muted);
     line-height: 1.4;
-    max-width: 160px;
+    max-width: 200px;
     white-space: normal;
     font-weight: 400;
   }
@@ -743,12 +743,15 @@
       padding: 10px 12px;
       min-width: 0;
       text-align: left;
+      align-items: flex-start;
     }
     .nav-dropdown-icon {
       width: 32px;
       height: 32px;
+      flex-shrink: 0;
     }
     .nav-dropdown-icon svg { width: 16px; height: 16px; }
+    .nav-dropdown-desc { max-width: none; }
     .nav-dropdown-trigger .chevron {
       width: 10px;
       height: 6px;
@@ -940,8 +943,8 @@
         <img src="https://img.youtube.com/vi/zPRaXCI0WUY/maxresdefault.jpg" alt="Why Care About Muslims" />
         <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
       </div>
-      <div class="video-card reveal reveal-delay-2" data-yt-id="q-YlWt8Ha7I" onclick="playVideo(this)">
-        <img src="https://img.youtube.com/vi/q-YlWt8Ha7I/maxresdefault.jpg" alt="Reaching Muslims" />
+      <div class="video-card reveal reveal-delay-2" data-yt-id="OCogZ7va_BU" onclick="playVideo(this)">
+        <img src="https://img.youtube.com/vi/OCogZ7va_BU/maxresdefault.jpg" alt="Reaching Muslims" />
         <div class="video-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19"/></svg></div>
       </div>
     </div>
