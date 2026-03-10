@@ -87,10 +87,10 @@
     max-width: var(--max-width); margin: 0 auto; padding: 0 32px;
   }
   .nav-logo {
-    font-family: var(--font-display); font-size: 1.65rem;
-    color: var(--color-accent); letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
   }
-  .nav-logo span { color: var(--color-text); font-style: italic; }
+  .nav-logo img { height: 40px; width: auto; }
   .nav-links { display: flex; gap: 32px; align-items: center; }
   .nav-links a {
     font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
@@ -544,7 +544,7 @@
 <!-- ═══════ NAV ═══════ -->
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">i2 <span>Ministries</span></a>
+    <a href="/" class="nav-logo"><img src="/images/i2-ministries-logo-2026.png" alt="i2 Ministries"></a>
     <div class="nav-links" id="navLinks">
       <a href="/about">About</a>
       <a href="/the-mission">The Mission</a>
@@ -1092,7 +1092,7 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="nav-logo">i2 <span>Ministries</span></div>
+        <div class="nav-logo"><img src="/images/i2-ministries-logo-2026.png" alt="i2 Ministries"></div>
         <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
         <div class="footer-socials">
           <a href="https://www.facebook.com/thewadi.english/" target="_blank" aria-label="Facebook">
