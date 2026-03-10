@@ -138,7 +138,7 @@
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 140px 0 var(--section-pad);
+    padding: 140px 0 90px;
   }
   .hero::before {
     content: '';
@@ -296,7 +296,7 @@
 
   /* ─── TRUSTED BY ───────────────────────────── */
   .trusted-by {
-    padding: 64px 0 48px;
+    padding: 32px 0 48px;
     text-align: center;
     border-bottom: 1px solid rgba(184,134,45,0.12);
   }
@@ -304,7 +304,7 @@
     margin-bottom: 40px;
   }
   .trusted-by img {
-    max-width: 900px;
+    max-width: 720px;
     width: 100%;
     display: block;
     margin: 0 auto;
@@ -742,6 +742,51 @@
     color: rgba(92,90,85,0.6);
   }
 
+  /* ─── EMFCI IMPACT STATS ────────────────── */
+  .emfci-stats {
+    padding: 72px 0;
+    background: var(--color-surface);
+    border-top: 1px solid rgba(184,134,45,0.1);
+    border-bottom: 1px solid rgba(184,134,45,0.1);
+  }
+  .emfci-stats-inner {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .emfci-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .emfci-stat-card {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 32px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .emfci-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .emfci-num {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .emfci-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
   /* ─── ANIMATIONS ──────────────────────────── */
   .reveal {
     opacity: 0;
@@ -790,6 +835,10 @@
     .footer-inner { flex-direction: column; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
     :root { --section-pad: 64px; }
+    .pillar-featured { grid-template-columns: 1fr; }
+    .pillar-featured > .pillar-icon { display: none; }
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+    .emfci-stats-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -856,29 +905,33 @@
   </div>
 </section>
 
-<!-- ═══════ STAT BAR ═══════ -->
-<div class="stat-bar">
+<!-- ═══════ EMFCI IMPACT STATS ═══════ -->
+<section class="emfci-stats">
   <div class="container">
-    <div class="stat-bar-inner">
-      <div class="stat-item reveal">
-        <h3>2B+</h3>
-        <p>Muslims Globally</p>
-      </div>
-      <div class="stat-item reveal reveal-delay-1">
-        <h3>85%</h3>
-        <p>Have Never Known a Christian</p>
-      </div>
-      <div class="stat-item reveal reveal-delay-2">
-        <h3>1:450K</h3>
-        <p>Only 1 Missionary per 450,000 Muslims</p>
-      </div>
-      <div class="stat-item reveal reveal-delay-3">
-        <h3>97%</h3>
-        <p>Of Missionaries Serve the Already-Reached</p>
+    <div class="emfci-stats-inner reveal">
+      <span class="label">Our Global Impact</span>
+      <h2 class="section-heading">Launching the Every Muslim for Christ <em>Initiative</em></h2>
+      <div class="emfci-stats-grid">
+        <div class="emfci-stat-card">
+          <div class="emfci-num">1M+</div>
+          <div class="emfci-desc">Christian Leaders Trained</div>
+        </div>
+        <div class="emfci-stat-card">
+          <div class="emfci-num">2,000+</div>
+          <div class="emfci-desc">Certified Trainers Globally</div>
+        </div>
+        <div class="emfci-stat-card">
+          <div class="emfci-num">10K+</div>
+          <div class="emfci-desc">Outreaches Mobilized in 70+ Countries</div>
+        </div>
+        <div class="emfci-stat-card">
+          <div class="emfci-num">1,500+</div>
+          <div class="emfci-desc">MA Level Students</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ═══════ MISSION ═══════ -->
 <section class="mission" id="mission">
@@ -908,6 +961,30 @@
   </div>
 </section>
 
+<!-- ═══════ STAT BAR ═══════ -->
+<div class="stat-bar">
+  <div class="container">
+    <div class="stat-bar-inner">
+      <div class="stat-item reveal">
+        <h3>2B+</h3>
+        <p>Muslims Globally</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <h3>85%</h3>
+        <p>Have Never Known a Christian</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <h3>1:450K</h3>
+        <p>Only 1 Missionary per 450,000 Muslims</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <h3>97%</h3>
+        <p>Of Missionaries Serve the Already-Reached</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══════ PILLARS / GET TRAINED ═══════ -->
 <section class="pillars" id="trained">
   <div class="container">
@@ -930,12 +1007,12 @@
         <p>Video Courses</p>
       </div>
     </div>
-    <a href="https://www.gommwu.org/" class="pillar-featured reveal">
+    <a href="https://www.mmwu.org/" class="pillar-featured reveal">
       <div>
         <span class="pillar-featured-badge">Featured</span>
         <h3>Mission Muslim World University</h3>
         <p>The online school equipping Christians to reach the Muslim world. Earn an MA Ministry degree with a concentration in Islamic Studies — fully accredited and 100% video-based. World-class professors, flexible scheduling, and a Christ-centered curriculum designed for the global church.</p>
-        <span class="pillar-link">Enroll Now <span class="btn-arrow">→</span></span>
+        <span class="pillar-link">Enroll in MMWU <span class="btn-arrow">→</span></span>
       </div>
       <div class="pillar-icon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
@@ -1079,7 +1156,7 @@
         <div class="footer-col">
           <h4>Training</h4>
           <a href="https://www.i2ministries-emfci.com">The Initiative</a>
-          <a href="https://www.gommwu.org/">MMWU</a>
+          <a href="https://www.mmwu.org/">MMWU</a>
           <a href="https://thewadi.org">WADI</a>
           <a href="https://resources.i2ministries.org">Resources</a>
         </div>
