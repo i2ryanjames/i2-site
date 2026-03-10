@@ -341,9 +341,71 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
+  /* ─── COMPREHENSIVE STATS ────────────────── */
+  .comprehensive-stats {
+    padding: var(--section-pad) 0;
+  }
+  .comp-theme-block {
+    padding: 48px 0;
+  }
+  .comp-theme-block.comp-theme-alt {
+    background: var(--color-surface);
+    border-top: 1px solid rgba(184,134,45,0.08);
+    border-bottom: 1px solid rgba(184,134,45,0.08);
+    margin-left: -32px;
+    margin-right: -32px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .comp-theme-label {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .comp-theme-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .comp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .comp-stat-card {
+    text-align: center;
+    padding: 16px 8px;
+  }
+  .comp-stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--color-accent);
+    font-weight: 400;
+    margin-bottom: 8px;
+    line-height: 1.1;
+  }
+  .comp-stat-desc {
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+  .comp-cta-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
   /* ─── RESPONSIVE ──────────────────────────── */
   @media (max-width: 1024px) {
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .comp-stats-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-links { gap: 40px; }
     :root { --section-pad: 80px; }
   }
@@ -360,6 +422,10 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
     .stats-grid { grid-template-columns: 1fr; }
+    .comp-stats-grid { grid-template-columns: 1fr; }
+    .comp-theme-block.comp-theme-alt { margin-left: -32px; margin-right: -32px; padding-left: 32px; padding-right: 32px; }
+    .comp-cta-row { flex-direction: column; }
+    .comp-cta-row .btn { width: 100%; justify-content: center; }
     .death-counter { padding: 40px 32px; }
     .pullquote { padding: 40px 28px; }
     .cta-actions { flex-direction: column; }
@@ -411,12 +477,12 @@
   <div class="container">
     <div class="stats-grid">
       <div class="stat-card reveal">
-        <div class="stat-num">1.9B+</div>
+        <div class="stat-num">2B+</div>
         <div class="stat-desc">Muslims globally and growing rapidly</div>
       </div>
       <div class="stat-card reveal reveal-delay-1">
-        <div class="stat-num">86%</div>
-        <div class="stat-desc">Of Muslims have never heard the Gospel</div>
+        <div class="stat-num">85%</div>
+        <div class="stat-desc">Have never personally known a Christian</div>
       </div>
       <div class="stat-card reveal reveal-delay-2">
         <div class="stat-num">27%</div>
@@ -427,12 +493,12 @@
         <div class="stat-desc">Unreached Muslim people groups</div>
       </div>
       <div class="stat-card reveal">
-        <div class="stat-num">1:420K</div>
-        <div class="stat-desc">Only 1 missionary for every 420,000 Muslims</div>
+        <div class="stat-num">1:450K</div>
+        <div class="stat-desc">Only 1 missionary for every 450,000 Muslims</div>
       </div>
       <div class="stat-card reveal reveal-delay-1">
-        <div class="stat-num">80%</div>
-        <div class="stat-desc">Of Muslims don't personally know a Christian</div>
+        <div class="stat-num">97%</div>
+        <div class="stat-desc">Of missionaries serve the already-reached</div>
       </div>
       <div class="stat-card reveal reveal-delay-2">
         <div class="stat-num">10M+</div>
@@ -455,12 +521,183 @@
         <h2 class="section-heading">Why <em>Muslims?</em></h2>
       </div>
       <div class="content-body reveal">
-        <p>Muslims represent the largest unreached peoples on the planet. <strong>Over 37,000 die without the gospel every day.</strong> Not only does Islam enslave over a billion who have never heard the gospel, more and more traditionally Christian nations are seeing a sharp increase in the number of Muslims living around them. Mosques are now becoming common even in European and American cities.</p>
+        <p>Muslims represent the largest unreached peoples on the planet. <strong>Over 38,000 die without the gospel every day.</strong> Not only does Islam enslave over a billion who have never heard the gospel, more and more traditionally Christian nations are seeing a sharp increase in the number of Muslims living around them. Mosques are now becoming common even in European and American cities.</p>
 
         <p>Islam is the biggest challenge for the church today — both on the mission field and in your local neighborhood. It is also the fastest growing challenge. Islam is the fastest growing religion in the United States. In 1907, there were 230 million Muslims in the world. By 2010, there were 1.6 billion. Islam doubled in twenty years. According to Pew Research, there are close to 1.8 billion Muslims as of 2015.</p>
 
-        <p>While Islam is the biggest challenge, <strong>only one percent of all Christian missionaries go to do direct ministry among Muslims.</strong> That's one missionary for every 420,000 Muslims — equivalent to having about five churches and 150 pastors for all of North America.</p>
+        <p>While Islam is the biggest challenge, <strong>only one percent of all Christian missionaries go to do direct ministry among Muslims.</strong> That's one missionary for every 450,000 Muslims — equivalent to having about five churches and 150 pastors for all of North America.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ COMPREHENSIVE STATISTICS ═══════ -->
+<section class="comprehensive-stats" id="stats-comprehensive">
+  <div class="container">
+    <div class="comp-stats-header reveal" style="text-align:center;margin-bottom:64px;">
+      <span class="label">By The Numbers</span>
+      <h2 class="section-heading">The comprehensive <em>picture</em></h2>
+      <p style="font-size:1.1rem;color:var(--color-text-muted);max-width:680px;margin:20px auto 0;line-height:1.75;">The most important statistics every Christian should know about the Muslim world — sourced from Pew Research, Joshua Project, Gordon-Conwell, and leading missions databases.</p>
+    </div>
+
+    <!-- Theme 1: The Scale -->
+    <div class="comp-theme-block reveal">
+      <div class="comp-theme-label">The Scale</div>
+      <p class="comp-theme-desc">Islam is the fastest-growing major religion on earth.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">2B+</div>
+          <div class="comp-stat-desc">Muslims alive today — 1 in every 4 people</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">347M</div>
+          <div class="comp-stat-desc">Muslims added from 2010–2020 (vs. 122M for Christianity)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">24</div>
+          <div class="comp-stat-desc">Median age of Muslims globally (vs. 33 worldwide)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">2.8B</div>
+          <div class="comp-stat-desc">Muslims projected by 2050 — 30% of humanity</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 2: The Unreached -->
+    <div class="comp-theme-block comp-theme-alt reveal">
+      <div class="comp-theme-label">The Unreached</div>
+      <p class="comp-theme-desc">The largest bloc of people on earth without gospel access.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">85%</div>
+          <div class="comp-stat-desc">Of Muslims have never personally known a Christian</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">3,284</div>
+          <div class="comp-stat-desc">Unreached Muslim people groups worldwide</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">~50%</div>
+          <div class="comp-stat-desc">Of all unreached people on earth are Muslim</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">2,362</div>
+          <div class="comp-stat-desc">"Frontier" groups where less than 0.1% are Christian</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 3: The Missionary Gap -->
+    <div class="comp-theme-block reveal">
+      <div class="comp-theme-label">The Missionary Gap</div>
+      <p class="comp-theme-desc">The church's greatest blind spot in resource allocation.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">1:450K</div>
+          <div class="comp-stat-desc">Only 1 missionary for every 450,000 Muslims</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">97%</div>
+          <div class="comp-stat-desc">Of all missionaries work among already-reached peoples</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">~1%</div>
+          <div class="comp-stat-desc">Of global mission funding goes to Muslim outreach</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">6%</div>
+          <div class="comp-stat-desc">Of Protestant missionaries work specifically among Muslims</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 4: The Urgency -->
+    <div class="comp-theme-block comp-theme-alt reveal">
+      <div class="comp-theme-label">The Urgency</div>
+      <p class="comp-theme-desc">Every day the window narrows.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">~33,000</div>
+          <div class="comp-stat-desc">Muslims die every day without hearing the gospel</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">80,000+</div>
+          <div class="comp-stat-desc">Net Muslim population growth every single day</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">$2–4B</div>
+          <div class="comp-stat-desc">Saudi Arabia spends annually on spreading Islam</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">$314M</div>
+          <div class="comp-stat-desc">The IMB's entire annual budget (Saudi Arabia spends this in ~1 month)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 5: The Hope -->
+    <div class="comp-theme-block reveal">
+      <div class="comp-theme-label">The Hope</div>
+      <p class="comp-theme-desc">God is moving among Muslims like never before in history.</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">10M+</div>
+          <div class="comp-stat-desc">Muslim-background believers (up from 200K in 1960)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">69+</div>
+          <div class="comp-stat-desc">Documented movements to Christ since 2000</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">1M+</div>
+          <div class="comp-stat-desc">Believers in Iran today (from ~500 in 1979)</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">27%</div>
+          <div class="comp-stat-desc">Of converts cite dreams and visions of Jesus</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 6: The Church's Moment -->
+    <div class="comp-theme-block comp-theme-alt reveal">
+      <div class="comp-theme-label">The Church's Moment</div>
+      <p class="comp-theme-desc">We have the numbers. Do we have the will?</p>
+      <div class="comp-stats-grid">
+        <div class="comp-stat-card reveal-delay-1">
+          <div class="comp-stat-num">2.63B</div>
+          <div class="comp-stat-desc">Christians worldwide</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-2">
+          <div class="comp-stat-num">425M</div>
+          <div class="comp-stat-desc">Evangelical Christians globally</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-3">
+          <div class="comp-stat-num">69%</div>
+          <div class="comp-stat-desc">Of Christians now live in the Global South</div>
+        </div>
+        <div class="comp-stat-card reveal-delay-4">
+          <div class="comp-stat-num">780M</div>
+          <div class="comp-stat-desc">Christians in Africa — the frontline alongside 650M+ Muslims</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing Pullquote -->
+    <div class="pullquote reveal" style="margin-top:64px;">
+      <blockquote>The biggest problem in the world is not radical Islam — it is nominal Christianity. The answer to global Islam is a discipled and trained Church that loves Jesus.</blockquote>
+      <cite>— Joshua Lingel, President of i2 Ministries</cite>
+    </div>
+
+    <!-- CTA Row -->
+    <div class="comp-cta-row reveal" style="text-align:center;margin-top:48px;">
+      <a href="/get-trained" class="btn btn-primary">
+        Get Trained <span class="btn-arrow">→</span>
+      </a>
+      <a href="/donate" class="btn btn-outline">
+        Partner With Us
+      </a>
     </div>
   </div>
 </section>
@@ -627,7 +864,7 @@
     const now = new Date();
     const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const secondsToday = (now - startOfDay) / 1000;
-    const perSecond = 37000 / 86400;
+    const perSecond = 38000 / 86400;
     const count = Math.floor(secondsToday * perSecond);
     const el = document.getElementById('deathCounter');
     if (el) el.textContent = count.toLocaleString();
