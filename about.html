@@ -211,6 +211,44 @@
     font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.7;
   }
 
+  /* ─── FEATURED VIDEO ─────────────────────── */
+  .featured-video {
+    padding: 0 0 var(--section-pad);
+    position: relative;
+  }
+  .featured-video-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .featured-video-inner .label { margin-bottom: 8px; }
+  .featured-video-inner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    margin-bottom: 28px;
+    color: var(--color-text);
+  }
+  .featured-video-inner h2 em { font-style: italic; color: var(--color-accent); }
+  .featured-video-card {
+    position: relative; border-radius: 12px; overflow: hidden;
+    aspect-ratio: 16/9; width: 100%;
+    background: var(--color-surface);
+    border: 1px solid rgba(184,134,45,0.15);
+    cursor: pointer; transition: transform 0.4s, box-shadow 0.4s;
+  }
+  .featured-video-card:hover { transform: scale(1.02); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+  .featured-video-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: opacity 0.4s; }
+  .featured-video-card:hover img { opacity: 1; }
+  .featured-play-btn {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 72px; height: 72px; background: var(--color-accent); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 30px rgba(184,134,45,0.4); transition: transform 0.3s;
+  }
+  .featured-video-card:hover .featured-play-btn { transform: translate(-50%, -50%) scale(1.1); }
+  .featured-play-btn svg { margin-left: 3px; }
+
   /* ─── VIDEOS SECTION ──────────────────────── */
   .videos { padding: 0 0 var(--section-pad); }
   .videos-header { margin-bottom: 48px; }
@@ -923,6 +961,22 @@
   </div>
 </section>
 
+<!-- ═══════ FEATURED VIDEO ═══════ -->
+<section class="featured-video">
+  <div class="container">
+    <div class="featured-video-inner reveal">
+      <span class="label">Watch</span>
+      <h2>The <em>Vision</em></h2>
+      <div class="featured-video-card" data-yt-id="aaeW_Spyk9o" onclick="playFeaturedVideo(this)">
+        <img src="/images/the-vision.jpg" alt="The Vision" />
+        <div class="featured-play-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19" /></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════ VIDEOS ═══════ -->
 <section class="videos">
   <div class="container">
@@ -1364,6 +1418,21 @@
 </footer>
 
 <script>
+  // ─── Featured Video Embed ───
+  function playFeaturedVideo(card) {
+    var ytId = card.getAttribute('data-yt-id');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:12px;';
+    card.innerHTML = '';
+    card.style.cursor = 'default';
+    card.onclick = null;
+    card.appendChild(iframe);
+  }
+
   // ─── YouTube Embed ───
   function playVideo(card) {
     var ytId = card.getAttribute('data-yt-id');
