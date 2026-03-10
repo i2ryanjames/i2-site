@@ -248,30 +248,62 @@
   .video-card:hover .video-play { transform: translate(-50%,-50%) scale(1.1); }
   .video-play svg { margin-left: 2px; }
 
-  /* ─── GALLERY ─────────────────────────────── */
+  /* ─── GALLERY (auto-scroll strip) ────────── */
   .gallery {
     padding: var(--section-pad) 0;
     background: var(--color-surface);
+    overflow: hidden;
   }
-  .gallery-header { text-align: center; margin-bottom: 48px; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+  .gallery-header { text-align: center; margin-bottom: 40px; }
+  .gallery-scroll {
+    display: flex; gap: 12px;
+    animation: scrollGallery 30s linear infinite;
   }
-  .gallery-grid a {
-    border-radius: 8px; overflow: hidden;
-    aspect-ratio: 4/3;
-    transition: transform 0.3s, box-shadow 0.3s;
+  .gallery-scroll img {
+    height: 220px; width: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
   }
-  .gallery-grid a:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    z-index: 2;
-    position: relative;
+  .gallery-scroll img:hover { transform: scale(1.03); }
+  @keyframes scrollGallery {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
-  .gallery-grid a img {
-    width: 100%; height: 100%; object-fit: cover;
+  .gallery:hover .gallery-scroll {
+    animation-play-state: paused;
+  }
+
+  /* ─── LIGHTBOX ──────────────────────────── */
+  .lightbox-overlay {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+  }
+  .lightbox-overlay.active { display: flex; }
+  .lightbox-img {
+    max-width: 90vw; max-height: 85vh; border-radius: 10px;
+    object-fit: contain; user-select: none; -webkit-user-drag: none;
+  }
+  .lightbox-close {
+    position: absolute; top: 20px; right: 24px;
+    background: none; border: none; color: #fff; font-size: 2.4rem;
+    cursor: pointer; z-index: 10001; line-height: 1; padding: 8px;
+  }
+  .lightbox-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.15); border: none; color: #fff;
+    font-size: 2rem; width: 48px; height: 48px; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s; z-index: 10001;
+  }
+  .lightbox-arrow:hover { background: rgba(255,255,255,0.3); }
+  .lightbox-prev { left: 16px; }
+  .lightbox-next { right: 16px; }
+  .lightbox-counter {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.7); font-size: 0.9rem; font-family: var(--font-body);
   }
 
   /* ─── ABOUT i2 ────────────────────────────── */
@@ -513,7 +545,7 @@
   @media (max-width: 1024px) {
     .bio-grid { grid-template-columns: 1fr; gap: 48px; }
     .videos-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .gallery-scroll img { height: 180px; }
     .values-grid { grid-template-columns: 1fr; }
     .endorsements-list { grid-template-columns: 1fr; }
     .footer-links { gap: 40px; }
@@ -532,7 +564,7 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
     .videos-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-scroll img { height: 160px; }
     .footer-inner { flex-direction: column; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
     :root { --section-pad: 64px; }
@@ -650,39 +682,55 @@
 
 <!-- ═══════ GALLERY ═══════ -->
 <section class="gallery">
-  <div class="container">
-    <div class="gallery-header reveal">
-      <span class="label">Global Impact</span>
-      <h2 class="section-heading">Training initiatives <em>worldwide</em></h2>
-    </div>
-    <div class="gallery-grid">
-      <a href="/images/gallery-01.jpg" target="_blank">
-        <img src="/images/gallery-01.jpg" alt="Training initiative" />
-      </a>
-      <a href="/images/gallery-02.jpg" target="_blank">
-        <img src="/images/gallery-02.jpg" alt="Peru group training" />
-      </a>
-      <a href="/images/gallery-03.jpg" target="_blank">
-        <img src="/images/gallery-03.jpg" alt="Josh with students" />
-      </a>
-      <a href="/images/gallery-04.jpg" target="_blank">
-        <img src="/images/gallery-04.jpg" alt="Conference" />
-      </a>
-      <a href="/images/gallery-05.jpg" target="_blank">
-        <img src="/images/gallery-05.jpg" alt="Costa Rica Pastors Conference" />
-      </a>
-      <a href="/images/gallery-06.jpg" target="_blank">
-        <img src="/images/gallery-06.jpg" alt="Angola" />
-      </a>
-      <a href="/images/gallery-07.jpg" target="_blank">
-        <img src="/images/gallery-07.jpg" alt="Korea Seminary" />
-      </a>
-      <a href="/images/gallery-08.jpg" target="_blank">
-        <img src="/images/gallery-08.jpg" alt="Peru training" />
-      </a>
-    </div>
+  <div class="gallery-header reveal">
+    <span class="label">Global Impact</span>
+    <h2 class="section-heading">Training initiatives <em>worldwide</em></h2>
+  </div>
+  <div class="gallery-scroll">
+    <img src="/images/gallery-01.jpg" alt="Training initiative" />
+    <img src="/images/gallery-02.jpg" alt="Peru group training" />
+    <img src="/images/gallery-03.jpg" alt="Josh with students" />
+    <img src="/images/gallery-04.jpg" alt="Conference" />
+    <img src="/images/gallery-05.jpg" alt="Costa Rica Pastors Conference" />
+    <img src="/images/gallery-06.jpg" alt="Angola" />
+    <img src="/images/gallery-07.jpg" alt="Korea Seminary" />
+    <img src="/images/gallery-08.jpg" alt="Peru training" />
+    <img src="/images/new-training-1.jpg" alt="Training session" />
+    <img src="/images/new-training-2.jpg" alt="Training workshop" />
+    <img src="/images/new-training-3.jpg" alt="Training conference" />
+    <img src="/images/new-training-4.jpg" alt="Training seminar" />
+    <img src="/images/new-training-5.jpg" alt="Training outreach" />
+    <img src="/images/new-training-6.jpg" alt="Training leaders" />
+    <img src="/images/new-training-7.jpg" alt="Training ministry" />
+    <img src="/images/new-training-8.jpg" alt="Training program" />
+    <!-- Duplicate for seamless loop -->
+    <img src="/images/gallery-01.jpg" alt="Training initiative" />
+    <img src="/images/gallery-02.jpg" alt="Peru group training" />
+    <img src="/images/gallery-03.jpg" alt="Josh with students" />
+    <img src="/images/gallery-04.jpg" alt="Conference" />
+    <img src="/images/gallery-05.jpg" alt="Costa Rica Pastors Conference" />
+    <img src="/images/gallery-06.jpg" alt="Angola" />
+    <img src="/images/gallery-07.jpg" alt="Korea Seminary" />
+    <img src="/images/gallery-08.jpg" alt="Peru training" />
+    <img src="/images/new-training-1.jpg" alt="Training session" />
+    <img src="/images/new-training-2.jpg" alt="Training workshop" />
+    <img src="/images/new-training-3.jpg" alt="Training conference" />
+    <img src="/images/new-training-4.jpg" alt="Training seminar" />
+    <img src="/images/new-training-5.jpg" alt="Training outreach" />
+    <img src="/images/new-training-6.jpg" alt="Training leaders" />
+    <img src="/images/new-training-7.jpg" alt="Training ministry" />
+    <img src="/images/new-training-8.jpg" alt="Training program" />
   </div>
 </section>
+
+<!-- ═══════ LIGHTBOX ═══════ -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-arrow lightbox-prev" aria-label="Previous">&#8249;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+  <button class="lightbox-arrow lightbox-next" aria-label="Next">&#8250;</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
 
 <!-- ═══════ ABOUT i2 ═══════ -->
 <section class="about-org">
@@ -1094,11 +1142,62 @@
   function toggleAccordion(btn) {
     const item = btn.parentElement;
     const wasOpen = item.classList.contains('open');
-    // Close all
     document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
-    // Toggle clicked
     if (!wasOpen) item.classList.add('open');
   }
+
+  // ─── Lightbox ───
+  (function() {
+    const overlay = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const counter = document.getElementById('lightboxCounter');
+    const scrollContainer = document.querySelector('.gallery-scroll');
+    // Collect only the first half (originals, not duplicates)
+    const allImgs = Array.from(scrollContainer.querySelectorAll('img'));
+    const images = allImgs.slice(0, allImgs.length / 2);
+    let current = 0;
+
+    function show(i) {
+      current = (i + images.length) % images.length;
+      lbImg.src = images[current].src;
+      lbImg.alt = images[current].alt;
+      counter.textContent = (current + 1) + ' / ' + images.length;
+    }
+
+    function open(i) { show(i); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function close() { overlay.classList.remove('active'); document.body.style.overflow = ''; }
+
+    images.forEach(function(img, i) {
+      img.addEventListener('click', function() { open(i); });
+    });
+    // Also bind duplicate images to same indices
+    allImgs.slice(allImgs.length / 2).forEach(function(img, i) {
+      img.addEventListener('click', function() { open(i); });
+    });
+
+    overlay.querySelector('.lightbox-close').addEventListener('click', close);
+    overlay.querySelector('.lightbox-prev').addEventListener('click', function() { show(current - 1); });
+    overlay.querySelector('.lightbox-next').addEventListener('click', function() { show(current + 1); });
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+
+    document.addEventListener('keydown', function(e) {
+      if (!overlay.classList.contains('active')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+
+    // Touch swipe support
+    var touchStartX = 0, touchEndX = 0;
+    overlay.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    overlay.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      var diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) show(current + 1); else show(current - 1);
+      }
+    });
+  })();
 </script>
 </body>
 </html>
