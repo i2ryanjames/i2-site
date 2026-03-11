@@ -448,7 +448,7 @@
     .nav-links { display: none; }
     .mobile-toggle { display: block; }
     .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,250,247,0.97); backdrop-filter: blur(20px); padding: 24px 32px; gap: 20px; border-bottom: 1px solid rgba(0,0,0,0.06); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
-    .nav-ebook {
+    .nav-ebook, .nav-cta {
       text-align: center;
       width: 100%;
       display: block;
@@ -735,6 +735,8 @@
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
   document.getElementById('mobileToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); });
+  // Close mobile menu on scroll
+  window.addEventListener('scroll', () => { document.getElementById('navLinks').classList.remove('open'); }, { passive: true });
   // ─── Mobile Dropdown Toggle ───
   const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
   const navDropdown = document.getElementById('navDropdown');
