@@ -83,6 +83,25 @@
   .nav-links a:hover { color: var(--color-accent); }
   .nav-cta { background: var(--color-accent) !important; color: #FFFFFF !important; padding: 10px 24px; border-radius: 4px; font-weight: 600 !important; transition: transform 0.3s, box-shadow 0.3s !important; }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(184,134,45,0.3); }
+  /* ─── NAV EBOOK BUTTON ─── */
+  .nav-ebook {
+    padding: 9px 22px !important;
+    border: 1.5px solid var(--color-accent) !important;
+    border-radius: 4px;
+    color: var(--color-accent) !important;
+    font-weight: 600 !important;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s !important;
+    white-space: nowrap;
+  }
+  .nav-ebook:hover {
+    background: var(--color-accent) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(184,134,45,0.3);
+  }
   .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
   .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); margin: 5px 0; transition: 0.3s; }
 
@@ -654,6 +673,12 @@
       padding: 24px 32px; gap: 20px;
       border-bottom: 1px solid rgba(0,0,0,0.06); box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
+    .nav-ebook {
+      text-align: center;
+      width: 100%;
+      display: block;
+      padding: 12px 22px !important;
+    }
     .stat-bar-inner { grid-template-columns: 1fr 1fr; }
     .cta-actions { flex-direction: column; }
     .cta-actions .btn { width: 100%; justify-content: center; }
@@ -666,6 +691,42 @@
     .gallery-scroll img { height: 180px; }
     .emfci-stats-grid { grid-template-columns: repeat(2, 1fr); }
   }
+
+  /* ─── EBOOK LIGHTBOX ─── */
+  .ebook-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 10000;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    justify-content: center; align-items: center;
+    opacity: 0; transition: opacity 0.4s ease;
+  }
+  .ebook-overlay.active {
+    display: flex; opacity: 1;
+  }
+  .ebook-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 48px 44px;
+    max-width: 520px; width: 90%;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+    transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .ebook-overlay.active .ebook-modal {
+    transform: scale(1);
+  }
+  .ebook-close {
+    position: absolute; top: 16px; right: 16px;
+    width: 32px; height: 32px;
+    background: none; border: none; cursor: pointer;
+    font-size: 24px; color: var(--color-text-muted);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; transition: all 0.3s;
+  }
+  .ebook-close:hover { background: var(--color-surface); color: var(--color-text); }
+  body.modal-open { overflow: hidden; }
 </style>
 </head>
 <body>
@@ -708,6 +769,7 @@
         </div>
       </div>
       <a href="/contact">Contact</a>
+      <a href="https://www.gommwu.org/ebook" class="nav-ebook" target="_blank" rel="noopener">Free Ebook</a>
       <a href="/donate" class="nav-cta">Donate</a>
     </div>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
@@ -947,6 +1009,18 @@
   <div class="lightbox-counter" id="lightboxCounter"></div>
 </div>
 
+<!-- ═══════ FREE EBOOK CTA ═══════ -->
+<section class="ebook-cta" style="padding:var(--section-pad) 0;background:linear-gradient(135deg,var(--color-surface) 0%,rgba(184,134,45,0.06) 100%);border-top:3px solid var(--color-accent);">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:800px;margin:0 auto;">
+      <span class="label">Free Resource</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(1.4rem,3vw,1.65rem);font-weight:400;line-height:1.3;margin-bottom:16px;color:var(--color-text);">Equip yourself with the <em style="font-style:italic;color:var(--color-accent);">full picture</em></h2>
+      <p style="font-size:1.05rem;color:var(--color-text-muted);line-height:1.7;margin-bottom:32px;max-width:600px;margin-left:auto;margin-right:auto;">Download our free ebook exploring the scope of the Muslim world — the statistics, the stories, and how the Church is responding to the greatest missional challenge of our time.</p>
+      <a href="https://www.gommwu.org/ebook" target="_blank" rel="noopener" class="btn btn-primary">Get the Free Ebook <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════ CTA ═══════ -->
 <section class="cta-banner">
   <div class="container">
@@ -1059,5 +1133,50 @@
     });
   })();
 </script>
+
+<!-- ═══════ EBOOK LIGHTBOX ═══════ -->
+<div class="ebook-overlay" id="ebookOverlay">
+  <div class="ebook-modal" id="ebookModal">
+    <button class="ebook-close" id="ebookClose" aria-label="Close">&times;</button>
+    <span class="label" style="margin-bottom:12px;">Free Resource</span>
+    <h2 style="font-family:var(--font-display);font-size:1.8rem;font-weight:400;line-height:1.25;margin-bottom:16px;color:var(--color-text);">Understanding the <em style="font-style:italic;color:var(--color-accent);">Muslim World</em></h2>
+    <p style="font-size:1.05rem;color:var(--color-text-muted);line-height:1.7;margin-bottom:28px;">Nearly 2 billion Muslims have never met a Christian. Download this free ebook to discover the scope of the missional challenge — and how the Church is responding.</p>
+    <a href="https://www.gommwu.org/ebook" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeEbookModal()" style="width:100%;justify-content:center;">Get the Free Ebook <span class="btn-arrow">→</span></a>
+    <p style="font-size:0.85rem;color:var(--color-text-muted);font-style:italic;margin-top:14px;text-align:center;">Free. No signup required.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  function closeEbookModal(){
+    var o = document.getElementById('ebookOverlay');
+    o.style.opacity = '0';
+    o.querySelector('.ebook-modal').style.transform = 'scale(0.95)';
+    setTimeout(function(){ o.classList.remove('active'); o.style.display = 'none'; },400);
+    document.body.classList.remove('modal-open');
+    sessionStorage.setItem('i2_ebook_dismissed','true');
+  }
+  window.closeEbookModal = closeEbookModal;
+
+  if(sessionStorage.getItem('i2_ebook_dismissed') !== 'true'){
+    setTimeout(function(){
+      if(sessionStorage.getItem('i2_ebook_dismissed') === 'true') return;
+      var o = document.getElementById('ebookOverlay');
+      o.style.display = 'flex';
+      document.body.classList.add('modal-open');
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ o.classList.add('active'); }); });
+    }, 20000);
+  }
+
+  document.getElementById('ebookClose').addEventListener('click', closeEbookModal);
+  document.getElementById('ebookOverlay').addEventListener('click', function(e){
+    if(e.target === this) closeEbookModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && document.getElementById('ebookOverlay').classList.contains('active')) closeEbookModal();
+  });
+})();
+</script>
+
 </body>
 </html>
