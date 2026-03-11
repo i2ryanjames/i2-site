@@ -496,6 +496,12 @@
       padding: 24px 32px; gap: 20px;
       border-bottom: 1px solid rgba(0,0,0,0.06); box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
+    .nav-cta {
+      text-align: center;
+      width: 100%;
+      display: block;
+      padding: 12px 22px !important;
+    }
     .stat-bar-inner { grid-template-columns: 1fr 1fr; }
     .hero-actions { flex-direction: column; }
     .hero-actions .btn { width: 100%; justify-content: center; }
@@ -962,6 +968,8 @@
 
   // ─── Mobile Menu ───
   document.getElementById('mobileToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); });
+  // Close mobile menu on scroll
+  window.addEventListener('scroll', () => { document.getElementById('navLinks').classList.remove('open'); }, { passive: true });
 
   // ─── Mobile Dropdown Toggle ───
   const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');

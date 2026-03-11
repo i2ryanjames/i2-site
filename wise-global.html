@@ -810,6 +810,12 @@
       border-bottom: 1px solid rgba(0,0,0,0.06);
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
+    .nav-cta {
+      text-align: center;
+      width: 100%;
+      display: block;
+      padding: 12px 22px !important;
+    }
     .page-hero { padding: 140px 0 72px; }
     .stat-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .endorsements-grid { grid-template-columns: 1fr; }
@@ -1333,6 +1339,10 @@ window.addEventListener('scroll', function() {
 document.getElementById('mobileToggle').addEventListener('click', function() {
   document.getElementById('navLinks').classList.toggle('open');
 });
+/* Close mobile menu on scroll */
+window.addEventListener('scroll', function() {
+  document.getElementById('navLinks').classList.remove('open');
+}, { passive: true });
 
 /* Mobile dropdown toggle */
 var dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
