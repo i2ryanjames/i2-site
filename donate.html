@@ -201,6 +201,129 @@
     font-size: 0.93rem; color: var(--color-text-muted); line-height: 1.6;
   }
 
+  /* ─── FUNDING DASHBOARD ─── */
+  .funding-dashboard {
+    padding: var(--section-pad) 0;
+    background: var(--color-surface);
+  }
+  .funding-dashboard-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .funding-dashboard-header p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 640px;
+    margin: 16px auto 0;
+    line-height: 1.75;
+  }
+  .funding-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .funding-dashboard-card {
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px;
+    padding: 36px 28px 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .funding-dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+  .funding-card-label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .funding-card-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: var(--color-text);
+  }
+  .funding-card-stats {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .funding-card-pct {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.6rem);
+    color: var(--color-accent);
+    font-weight: 400;
+    line-height: 1;
+  }
+  .funding-card-remaining {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+  .funding-card-bar-wrap {
+    margin-bottom: 12px;
+  }
+  .funding-card-bar {
+    width: 100%;
+    height: 36px;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    background: rgba(184,134,45,0.12);
+  }
+  .funding-card-bar-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-warm));
+    border-radius: 6px 0 0 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    transition: width 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  /* Animation targets set via JS IntersectionObserver */
+  .funding-card-bar-empty {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .funding-card-caption {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .funding-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 600;
+    transition: gap 0.3s;
+  }
+  .funding-card-cta:hover { gap: 14px; }
+
   /* ─── IMPACT GALLERY ─── */
   .impact-strip {
     padding: 80px 0;
@@ -209,8 +332,16 @@
   .impact-header { text-align: center; margin-bottom: 40px; }
   .impact-scroll {
     display: flex; gap: 12px;
-    animation: scrollGallery 30s linear infinite;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 32px 16px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(184,134,45,0.3) transparent;
   }
+  .impact-scroll::-webkit-scrollbar { height: 6px; }
+  .impact-scroll::-webkit-scrollbar-track { background: transparent; }
+  .impact-scroll::-webkit-scrollbar-thumb { background: rgba(184,134,45,0.3); border-radius: 3px; }
   .impact-scroll img {
     height: 220px; width: auto;
     border-radius: 10px;
@@ -218,15 +349,9 @@
     flex-shrink: 0;
     cursor: pointer;
     transition: transform 0.3s;
+    scroll-snap-align: start;
   }
   .impact-scroll img:hover { transform: scale(1.03); }
-  @keyframes scrollGallery {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .impact-strip:hover .impact-scroll {
-    animation-play-state: paused;
-  }
 
   /* ─── LIGHTBOX ─── */
   .lightbox-overlay {
@@ -447,6 +572,7 @@
     .stewardship-inner { grid-template-columns: 1fr; gap: 48px; }
     .footer-links { gap: 40px; }
     :root { --section-pad: 64px; }
+    .funding-dashboard-grid { grid-template-columns: 1fr; max-width: 560px; }
   }
   @media (max-width: 768px) {
     .nav-dropdown-menu {
@@ -504,6 +630,12 @@
       display: block;
       padding: 12px 22px !important;
     }
+    .nav-cta {
+      text-align: center;
+      width: 100%;
+      display: block;
+      padding: 12px 24px;
+    }
     .donate-methods { grid-template-columns: 1fr; }
     .contact-bar-inner { flex-direction: column; gap: 28px; align-items: flex-start; }
     .cta-actions { flex-direction: column; }
@@ -511,6 +643,7 @@
     .footer-inner { flex-direction: column; }
     .footer-links { flex-wrap: wrap; gap: 32px; }
     .impact-scroll img { height: 160px; }
+    .funding-card-stats { flex-direction: column; gap: 4px; }
     :root { --section-pad: 48px; }
   }
 
@@ -631,6 +764,74 @@
   </div>
 </section>
 
+<!-- ═══════ FUNDING DASHBOARD ═══════ -->
+<section class="funding-dashboard">
+  <div class="container">
+    <div class="funding-dashboard-header reveal">
+      <span class="label">Where Your Gifts Go</span>
+      <h2 class="section-heading">Current <em>funding progress</em></h2>
+      <p>Your partnership makes these initiatives possible. Here's how close we are to fully funding each one — and how far we still need to go.</p>
+    </div>
+    <div class="funding-dashboard-grid" id="fundingDashboard">
+
+      <!-- EMFCI Card -->
+      <div class="funding-dashboard-card reveal">
+        <div class="funding-card-label">EMFCI</div>
+        <div class="funding-card-title">Every Muslim for Christ Initiative</div>
+        <div class="funding-card-stats">
+          <span class="funding-card-pct">38%</span>
+          <span class="funding-card-remaining">62% still waiting</span>
+        </div>
+        <div class="funding-card-bar-wrap">
+          <div class="funding-card-bar">
+            <div class="funding-card-bar-fill animated-38" id="emfciBar">50</div>
+            <div class="funding-card-bar-empty">80 waiting</div>
+          </div>
+        </div>
+        <p class="funding-card-caption">50 of 130 countries launched. Each country launch costs $100,000 and mobilizes entire denominations to reach every Muslim for Christ.</p>
+        <a href="/the-initiative" class="funding-card-cta">Learn More <span class="btn-arrow">→</span></a>
+      </div>
+
+      <!-- WISE Global Card -->
+      <div class="funding-dashboard-card reveal reveal-delay-1">
+        <div class="funding-card-label">WISE Global</div>
+        <div class="funding-card-title">Ministry Management App</div>
+        <div class="funding-card-stats">
+          <span class="funding-card-pct">20%</span>
+          <span class="funding-card-remaining">80% still needed</span>
+        </div>
+        <div class="funding-card-bar-wrap">
+          <div class="funding-card-bar">
+            <div class="funding-card-bar-fill animated-20" id="wiseBar">Funded</div>
+            <div class="funding-card-bar-empty">$657,650</div>
+          </div>
+        </div>
+        <p class="funding-card-caption">$657,650 remaining to complete the app that allows denominations and churches to launch and track prayer, training, evangelism, and discipleship initiatives.</p>
+        <a href="/wise-global" class="funding-card-cta">Learn More <span class="btn-arrow">→</span></a>
+      </div>
+
+      <!-- MMWU Card -->
+      <div class="funding-dashboard-card reveal reveal-delay-1">
+        <div class="funding-card-label">MMWU</div>
+        <div class="funding-card-title">Scholarships for Leaders</div>
+        <div class="funding-card-stats">
+          <span class="funding-card-pct">30%</span>
+          <span class="funding-card-remaining">70% still waiting</span>
+        </div>
+        <div class="funding-card-bar-wrap">
+          <div class="funding-card-bar">
+            <div class="funding-card-bar-fill animated-30" id="mmwuBar">450</div>
+            <div class="funding-card-bar-empty">1,050 waiting</div>
+          </div>
+        </div>
+        <p class="funding-card-caption">450 of 1,500 students have received a full scholarship at $7,920 each. 1,050 leaders across 70+ countries are still waiting.</p>
+        <a href="/mmwu" class="funding-card-cta">Learn More <span class="btn-arrow">→</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ═══════ STEWARDSHIP ═══════ -->
 <section class="stewardship" id="stewardship">
   <div class="container">
@@ -691,23 +892,6 @@
     <h2 class="section-heading">Where your <em>gifts go</em></h2>
   </div>
   <div class="impact-scroll">
-    <img src="/images/gallery-01.jpg" alt="Training initiative" />
-    <img src="/images/gallery-02.jpg" alt="Peru training" />
-    <img src="/images/gallery-03.jpg" alt="Students" />
-    <img src="/images/gallery-04.jpg" alt="Conference" />
-    <img src="/images/gallery-05.jpg" alt="Costa Rica" />
-    <img src="/images/gallery-06.jpg" alt="Angola" />
-    <img src="/images/gallery-07.jpg" alt="Korea" />
-    <img src="/images/gallery-08.jpg" alt="Peru" />
-    <img src="/images/new-training-1.jpg" alt="Training session" />
-    <img src="/images/new-training-2.jpg" alt="Training workshop" />
-    <img src="/images/new-training-3.jpg" alt="Training conference" />
-    <img src="/images/new-training-4.jpg" alt="Training seminar" />
-    <img src="/images/new-training-5.jpg" alt="Training outreach" />
-    <img src="/images/new-training-6.jpg" alt="Training leaders" />
-    <img src="/images/new-training-7.jpg" alt="Training ministry" />
-    <img src="/images/new-training-8.jpg" alt="Training program" />
-    <!-- Duplicate for seamless loop -->
     <img src="/images/gallery-01.jpg" alt="Training initiative" />
     <img src="/images/gallery-02.jpg" alt="Peru training" />
     <img src="/images/gallery-03.jpg" alt="Students" />
@@ -842,8 +1026,7 @@
     const lbImg = document.getElementById('lightboxImg');
     const counter = document.getElementById('lightboxCounter');
     const scrollContainer = document.querySelector('.impact-scroll');
-    const allImgs = Array.from(scrollContainer.querySelectorAll('img'));
-    const images = allImgs.slice(0, allImgs.length / 2);
+    const images = Array.from(scrollContainer.querySelectorAll('img'));
     let current = 0;
 
     function show(i) {
@@ -857,9 +1040,6 @@
     function close() { overlay.classList.remove('active'); document.body.style.overflow = ''; }
 
     images.forEach(function(img, i) {
-      img.addEventListener('click', function() { open(i); });
-    });
-    allImgs.slice(allImgs.length / 2).forEach(function(img, i) {
       img.addEventListener('click', function() { open(i); });
     });
 
@@ -886,6 +1066,25 @@
       }
     });
   })();
+
+  // ─── Funding Dashboard Bar Animation ───
+  (function() {
+    var dashboardObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var bars = entry.target.querySelectorAll('.funding-card-bar-fill');
+          bars.forEach(function(bar) {
+            bar.classList.forEach(function(cls) {
+              if (cls.indexOf('animated-') === 0) bar.style.width = cls.replace('animated-', '') + '%';
+            });
+          });
+          dashboardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    var dashboard = document.getElementById('fundingDashboard');
+    if (dashboard) dashboardObserver.observe(dashboard);
+  })();
 </script>
 
 <!-- ═══════ EBOOK LIGHTBOX ═══════ -->
@@ -893,7 +1092,7 @@
   <div class="ebook-modal" id="ebookModal">
     <button class="ebook-close" id="ebookClose" aria-label="Close">&times;</button>
     <span class="label" style="margin-bottom:12px;">Free Resource</span>
-    <h2 style="font-family:var(--font-display);font-size:1.8rem;font-weight:400;line-height:1.25;margin-bottom:16px;color:var(--color-text);">Understanding the <em style="font-style:italic;color:var(--color-accent);">Muslim World</em></h2>
+    <h2 style="font-family:var(--font-display);font-size:1.8rem;font-weight:400;line-height:1.25;margin-bottom:16px;color:var(--color-text);">When Muslims <em style="font-style:italic;color:var(--color-accent);">Confront the Faith</em></h2>
     <p style="font-size:1.05rem;color:var(--color-text-muted);line-height:1.7;margin-bottom:28px;">Nearly 2 billion Muslims have never met a Christian. Download this free ebook to discover the scope of the missional challenge — and how the Church is responding.</p>
     <a href="https://www.gommwu.org/ebook" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeEbookModal()" style="width:100%;justify-content:center;">Get the Free Ebook <span class="btn-arrow">→</span></a>
     <p style="font-size:0.85rem;color:var(--color-text-muted);font-style:italic;margin-top:14px;text-align:center;">Free. No signup required.</p>
