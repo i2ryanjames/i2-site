@@ -1,0 +1,466 @@
+/* =========================================================================
+   i2 Ministries — Component Patterns
+   Reusable class patterns referenced from HTML. Loads after base.css.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   EYEBROW — small uppercase tracked label
+   Use above headlines: <p class="eyebrow">The Urgency</p><h2>...</h2>
+   ------------------------------------------------------------------------- */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tr-eyebrow);
+  color: var(--brand-700);
+  line-height: 1;
+  margin-bottom: var(--space-4);
+}
+.section-dark .eyebrow,
+.section-urgency .eyebrow {
+  color: var(--brand-300);
+}
+
+/* -------------------------------------------------------------------------
+   DISPLAY NUM — huge statistic numerals
+   <div class="display-num" data-animate="counter" data-counter-to="38000">0</div>
+   <div class="display-num-label">die every day without the gospel</div>
+   ------------------------------------------------------------------------- */
+.display-num {
+  font-family: var(--font-display);
+  font-size: var(--fs-num);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tight);
+  font-weight: var(--fw-bold);
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg);
+}
+.display-num-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-normal);
+  color: var(--fg-muted);
+  max-width: 28ch;
+  margin-top: var(--space-3);
+}
+
+.display-num--accent { color: var(--brand-600); }
+.section-dark .display-num { color: var(--on-dark-fg); }
+.section-dark .display-num-label { color: var(--on-dark-fg-muted); }
+.section-urgency .display-num { color: var(--urgency-text); }
+
+/* -------------------------------------------------------------------------
+   QUOTE BLOCK — editorial blockquote, for endorsements
+   Large opening quote glyph, serif italic body, clear attribution.
+   ------------------------------------------------------------------------- */
+.quote-block {
+  position: relative;
+  padding-left: var(--space-7);
+}
+.quote-block::before {
+  content: "\201C";  /* left double quotation mark */
+  position: absolute;
+  left: -0.1em;
+  top: -0.15em;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 2rem + 8vw, 8rem);
+  line-height: 1;
+  color: var(--brand-300);
+  font-style: italic;
+  pointer-events: none;
+}
+.quote-block__body {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1rem + 1.1vw, 1.625rem);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--fg);
+  font-variation-settings: "opsz" 36, "SOFT" 40;
+}
+.quote-block__attrib {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  margin-top: var(--space-5);
+}
+.quote-block__portrait {
+  width: 56px; height: 56px;
+  border-radius: var(--r-full);
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  flex-shrink: 0;
+}
+.quote-block__name {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  color: var(--fg);
+  line-height: 1.3;
+}
+.quote-block__title {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--fg-muted);
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------------------------------
+   STAT CARD — number + label in a card
+   ------------------------------------------------------------------------- */
+.stat-card {
+  padding: var(--space-6) var(--space-5);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.stat-card__num {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.25rem + 3vw, 3.25rem);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tight);
+  font-weight: var(--fw-bold);
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+  font-variation-settings: "opsz" 96;
+}
+.stat-card__num--accent { color: var(--brand-600); }
+.stat-card__label {
+  font-size: var(--fs-small);
+  color: var(--fg-muted);
+  line-height: var(--lh-normal);
+}
+
+/* -------------------------------------------------------------------------
+   ENDORSEMENT CARD — card-variant of quote block, grid-friendly
+   ------------------------------------------------------------------------- */
+.endorsement-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-7);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
+}
+.endorsement-card__quote {
+  font-family: var(--font-display);
+  font-size: var(--fs-body-lg);
+  font-style: italic;
+  line-height: var(--lh-normal);
+  color: var(--fg);
+}
+.endorsement-card__attrib {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--rule);
+}
+.endorsement-card__portrait {
+  width: 44px; height: 44px;
+  border-radius: var(--r-full);
+  object-fit: cover;
+}
+.endorsement-card__name {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-small);
+  color: var(--fg);
+}
+.endorsement-card__title {
+  font-size: var(--fs-caption);
+  color: var(--fg-muted);
+}
+
+/* -------------------------------------------------------------------------
+   SECTION VARIANTS — dark, urgency, light, warm
+   ------------------------------------------------------------------------- */
+.section-light {
+  background: var(--paper);
+  color: var(--fg);
+}
+.section-warm {
+  background: var(--paper-dim);
+  color: var(--fg);
+}
+.section-dark {
+  background: var(--ink-900);
+  color: var(--on-dark-fg);
+}
+.section-dark h1, .section-dark h2, .section-dark h3, .section-dark h4 { color: var(--on-dark-fg); }
+.section-dark p { color: var(--on-dark-fg-muted); }
+.section-dark h1 em, .section-dark h2 em, .section-dark h3 em { color: var(--on-dark-accent); }
+.section-dark a { color: var(--on-dark-accent); }
+
+.section-urgency {
+  background: var(--urgency-800);
+  color: var(--urgency-text);
+}
+.section-urgency h1, .section-urgency h2, .section-urgency h3, .section-urgency h4 { color: var(--on-dark-fg); }
+.section-urgency p { color: var(--urgency-text); }
+
+/* -------------------------------------------------------------------------
+   BUTTONS — primary, secondary, ghost
+   Target: ≥44px tap target, clear hover, passes WCAG AA
+   ------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.9rem 1.5rem;
+  min-height: 48px;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--dur-fast) var(--ease-out-expo),
+              color      var(--dur-fast) var(--ease-out-expo),
+              border     var(--dur-fast) var(--ease-out-expo),
+              transform  var(--dur-fast) var(--ease-out-expo);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background: var(--brand-600);
+  color: #FFFFFF;
+  border-color: var(--brand-600);
+}
+.btn-primary:hover {
+  background: var(--brand-700);
+  border-color: var(--brand-700);
+  color: #FFFFFF;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-700);
+  border-color: var(--brand-600);
+}
+.btn-secondary:hover {
+  background: var(--brand-600);
+  color: #FFFFFF;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--fg);
+  border-color: transparent;
+}
+.btn-ghost:hover {
+  color: var(--brand-700);
+}
+
+.section-dark .btn-secondary,
+.section-urgency .btn-secondary {
+  color: var(--on-dark-fg);
+  border-color: var(--on-dark-fg);
+}
+.section-dark .btn-secondary:hover,
+.section-urgency .btn-secondary:hover {
+  background: var(--on-dark-fg);
+  color: var(--ink-900);
+}
+
+/* Arrow glyph */
+.btn .btn-arrow {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease-out-expo);
+}
+.btn:hover .btn-arrow { transform: translateX(3px); }
+
+/* -------------------------------------------------------------------------
+   BADGE — small colored label (for "501(c)(3)", "Tax-Deductible", etc.)
+   ------------------------------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.35rem 0.75rem;
+  background: var(--brand-100);
+  color: var(--brand-700);
+  border-radius: var(--r-full);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* -------------------------------------------------------------------------
+   FORM CONTROLS — minimal refined inputs
+   ------------------------------------------------------------------------- */
+.form-field { display: flex; flex-direction: column; gap: var(--space-2); }
+.form-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--ink-700);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--paper);
+  color: var(--fg);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  transition: border var(--dur-fast) var(--ease-out-expo),
+              box-shadow var(--dur-fast) var(--ease-out-expo);
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--brand-600);
+  box-shadow: 0 0 0 3px var(--brand-100);
+  outline: none;
+}
+.form-textarea { min-height: 140px; resize: vertical; }
+.form-input::placeholder,
+.form-textarea::placeholder { color: var(--fg-dim); }
+
+/* -------------------------------------------------------------------------
+   PROGRESS BAR — for funding progress on /donate
+   ------------------------------------------------------------------------- */
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.progress__track {
+  width: 100%;
+  height: 10px;
+  background: var(--ink-100);
+  border-radius: var(--r-full);
+  overflow: hidden;
+  position: relative;
+}
+.progress__fill {
+  height: 100%;
+  width: 0;  /* set by JS animation */
+  background: linear-gradient(90deg, var(--brand-600), var(--brand-400));
+  border-radius: var(--r-full);
+  transform-origin: left center;
+  transition: width var(--dur-slow) var(--ease-doc);
+}
+.progress__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+.progress__percent {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.progress__label {
+  font-size: var(--fs-small);
+  color: var(--fg-muted);
+  text-align: right;
+}
+
+/* -------------------------------------------------------------------------
+   PULL QUOTE — large standalone quote, centered, full width section
+   ------------------------------------------------------------------------- */
+.pull-quote {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-snug);
+  text-align: center;
+  text-wrap: balance;
+  max-width: 22ch;
+  margin-inline: auto;
+  color: var(--fg);
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+}
+.pull-quote__attrib {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-style: normal;
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-top: var(--space-5);
+}
+
+/* -------------------------------------------------------------------------
+   DIVIDER WITH LABEL — editorial section break
+   ------------------------------------------------------------------------- */
+.labeled-rule {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-block: var(--space-7);
+}
+.labeled-rule::before,
+.labeled-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.labeled-rule span {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tr-eyebrow);
+  color: var(--fg-muted);
+}
+
+/* -------------------------------------------------------------------------
+   SCROLL REVEAL — default hidden state for [data-animate="reveal"]
+   JS flips opacity/transform when in view. Baseline works without JS:
+   no-animate class on <html> if JS fails to load keeps content visible.
+   ------------------------------------------------------------------------- */
+html.js [data-animate="reveal"],
+html.js [data-animate="hero-lines"] > *,
+html.js [data-animate="stat-reveal"] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+}
+
+html.js [data-animate].is-visible,
+html.js [data-animate].is-visible > * {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--dur-slow) var(--ease-out-expo),
+              transform var(--dur-slow) var(--ease-out-expo);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-animate],
+  html.js [data-animate] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

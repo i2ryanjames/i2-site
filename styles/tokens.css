@@ -1,0 +1,202 @@
+/* =========================================================================
+   i2 Ministries — Design Tokens
+   Single source of truth for typography, color, spacing, motion.
+   Change a value here, it changes everywhere it's referenced.
+   ========================================================================= */
+
+:root {
+  /* -----------------------------------------------------------------------
+     TYPOGRAPHY — font families
+     Current pairing: Fraunces (display serif) + Inter Tight (sans body).
+     Both free via Google Fonts. Loaded in base.css <link> / @import.
+     ----------------------------------------------------------------------- */
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-body:    "Inter Tight", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* -----------------------------------------------------------------------
+     TYPOGRAPHY — fluid type scale (clamp(min, preferred, max))
+     Min = 390px mobile, Max = 1440px desktop.
+     Formula: clamp(minRem, calc(baseRem + Nvw), maxRem)
+     ----------------------------------------------------------------------- */
+  --fs-caption:   0.75rem;                             /* 12px */
+  --fs-small:     0.875rem;                            /* 14px */
+  --fs-body:      1rem;                                /* 16px */
+  --fs-body-lg:   clamp(1.0625rem, 0.95rem + 0.45vw, 1.1875rem);   /* 17 → 19 */
+  --fs-h4:        clamp(1.125rem, 0.95rem + 0.9vw, 1.375rem);      /* 18 → 22 */
+  --fs-h3:        clamp(1.375rem, 1.15rem + 1.1vw, 1.75rem);       /* 22 → 28 */
+  --fs-h2:        clamp(1.75rem, 1.3rem + 2.1vw, 2.75rem);         /* 28 → 44 */
+  --fs-h1:        clamp(2.5rem, 1.75rem + 3.6vw, 4.5rem);          /* 40 → 72 */
+  --fs-display:   clamp(3rem, 2rem + 4.8vw, 5.5rem);               /* 48 → 88 */
+  --fs-hero:      clamp(3.25rem, 2.25rem + 6vw, 6.5rem);           /* 52 → 104 */
+  --fs-num:       clamp(3.5rem, 2rem + 8vw, 7.5rem);               /* display stats 56 → 120 */
+
+  /* -----------------------------------------------------------------------
+     TYPOGRAPHY — leading, tracking, weights
+     ----------------------------------------------------------------------- */
+  --lh-tight:     1.02;    /* display/numerals */
+  --lh-snug:      1.15;    /* H1/H2 headlines */
+  --lh-normal:    1.35;    /* H3/H4 */
+  --lh-body:      1.6;     /* paragraph */
+  --lh-loose:     1.75;    /* long-form reading */
+
+  --tr-tight:     -0.02em; /* display */
+  --tr-snug:      -0.015em;/* H1/H2 */
+  --tr-normal:    -0.005em;/* body */
+  --tr-eyebrow:   0.14em;  /* uppercase eyebrows */
+
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+
+  /* -----------------------------------------------------------------------
+     COLOR — Palette A "Field Warmth" (see PALETTE-PROPOSALS.md for B/C)
+     WCAG-AA compliant primary accent. Current gold retained for decorative
+     uses only (fills, non-text strokes).
+     ----------------------------------------------------------------------- */
+
+  /* Neutrals — warm-undertoned, not pure grey */
+  --ink-900:      #13110E;  /* near-black, primary text */
+  --ink-800:      #24201B;
+  --ink-700:      #3A3630;  /* secondary text */
+  --ink-500:      #6B6560;  /* meta text — 4.65:1 on paper ✓ */
+  --ink-400:      #8F897F;
+  --ink-300:      #B8B3AC;
+  --ink-200:      #DAD5CC;  /* dividers */
+  --ink-100:      #EBE7DF;  /* subtle backgrounds */
+
+  --paper:        #FAF7F2;  /* warm off-white, default bg */
+  --paper-dim:    #F1EDE5;  /* alternate section bg */
+  --paper-warm:   #EDE6D8;  /* third section bg (rare) */
+
+  /* Brand accent — documentary burnt gold */
+  --brand-900:    #4A3012;  /* darkest; for borders on paper */
+  --brand-700:    #6E481E;
+  --brand-600:    #8A5A24;  /* DEFAULT text/link accent — 6.1:1 on paper ✓ */
+  --brand-500:    #B8862D;  /* LEGACY gold — decorative fills, stroke ornaments, NOT body text */
+  --brand-400:    #D4A758;
+  --brand-300:    #E5C589;
+  --brand-200:    #F0D9AE;
+  --brand-100:    #F7EAD0;  /* soft highlight backgrounds */
+
+  /* Semantic — urgency (dark sections) + hope (testimony moments) */
+  --urgency-900:  #2A0F0F;  /* darkest urgency section bg */
+  --urgency-800:  #4A1818;  /* urgency bg */
+  --urgency-600:  #7A1F1F;  /* urgency block bg — current brick red retained */
+  --urgency-400:  #B04444;
+  --urgency-text: #F8D9D9;  /* on-urgency text — 7.2:1 on urgency-800 ✓ */
+
+  --hope-600:     #B47A2C;  /* endorsement/testimony accent */
+  --hope-500:     #C79A3E;
+  --hope-200:     #F0E3C6;
+
+  /* Functional aliases — reference these in components.css, not the palette */
+  --bg:           var(--paper);
+  --bg-alt:       var(--paper-dim);
+  --fg:           var(--ink-900);
+  --fg-muted:     var(--ink-500);
+  --fg-dim:       var(--ink-400);
+  --rule:         var(--ink-200);
+  --link:         var(--brand-600);
+  --link-hover:   var(--brand-700);
+  --accent:       var(--brand-600);
+  --accent-soft:  var(--brand-100);
+
+  /* Dark-section aliases (used inside .section-dark / .section-urgency) */
+  --on-dark-fg:       #FAF7F2;
+  --on-dark-fg-muted: #C8BEB0;
+  --on-dark-accent:   var(--brand-400);
+
+  /* -----------------------------------------------------------------------
+     SPACING — 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128 / 160 / 192
+     ----------------------------------------------------------------------- */
+  --space-1:   0.25rem;   /*  4 */
+  --space-2:   0.5rem;    /*  8 */
+  --space-3:   0.75rem;   /* 12 */
+  --space-4:   1rem;      /* 16 */
+  --space-5:   1.5rem;    /* 24 */
+  --space-6:   2rem;      /* 32 */
+  --space-7:   3rem;      /* 48 */
+  --space-8:   4rem;      /* 64 */
+  --space-9:   6rem;      /* 96 */
+  --space-10:  8rem;      /* 128 */
+  --space-11:  10rem;     /* 160 */
+  --space-12:  12rem;     /* 192 */
+
+  /* Section rhythm — fluid vertical padding for <section> blocks */
+  --section-y:        clamp(4rem, 2rem + 6vw, 8rem);     /* 64 → 128 */
+  --section-y-lg:     clamp(6rem, 3rem + 8vw, 10rem);    /* 96 → 160 */
+  --section-y-sm:     clamp(3rem, 2rem + 3vw, 5rem);     /* 48 → 80 */
+
+  /* -----------------------------------------------------------------------
+     LAYOUT
+     ----------------------------------------------------------------------- */
+  --container-max:   1280px;
+  --container-wide:  1440px;
+  --container-tight: 720px;   /* long-form reading width */
+  --container-pad:   clamp(1.25rem, 0.5rem + 3vw, 2.5rem);
+
+  /* -----------------------------------------------------------------------
+     RADII — 0 / 4 / 8 / 16 / 24 / 9999
+     ----------------------------------------------------------------------- */
+  --r-0:    0;
+  --r-sm:   4px;
+  --r-md:   8px;
+  --r-lg:   16px;
+  --r-xl:   24px;
+  --r-full: 9999px;
+
+  /* -----------------------------------------------------------------------
+     SHADOWS — warm-tinted, not pure grey
+     ----------------------------------------------------------------------- */
+  --elev-1: 0 1px 2px rgba(36, 28, 18, 0.04), 0 1px 1px rgba(36, 28, 18, 0.03);
+  --elev-2: 0 2px 4px rgba(36, 28, 18, 0.06), 0 4px 8px rgba(36, 28, 18, 0.04);
+  --elev-3: 0 4px 8px rgba(36, 28, 18, 0.08), 0 12px 24px rgba(36, 28, 18, 0.06);
+  --elev-4: 0 8px 16px rgba(36, 28, 18, 0.10), 0 24px 48px rgba(36, 28, 18, 0.08);
+
+  /* -----------------------------------------------------------------------
+     MOTION
+     ----------------------------------------------------------------------- */
+  --dur-fast:       240ms;
+  --dur-base:       480ms;
+  --dur-slow:       800ms;
+  --dur-cinematic:  1400ms;
+
+  /* Cubic-bezier curves */
+  --ease-out-expo:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart:  cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out-quart:     cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-doc:           cubic-bezier(0.22, 0.61, 0.36, 1); /* documentary scroll */
+
+  /* -----------------------------------------------------------------------
+     Z-INDEX
+     ----------------------------------------------------------------------- */
+  --z-nav:       100;
+  --z-overlay:   200;
+  --z-modal:     300;
+  --z-toast:     400;
+}
+
+/* Reduced motion: shorten transitions, hint to animation JS to bail out. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast:      1ms;
+    --dur-base:      1ms;
+    --dur-slow:      1ms;
+    --dur-cinematic: 1ms;
+  }
+}
+
+/* Screen-reader-only utility — hide visually, keep in a11y tree */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

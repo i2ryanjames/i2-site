@@ -1,0 +1,370 @@
+/* =========================================================================
+   i2 Ministries — Mission Page Phase 4.3 Enhancements
+   Loads AFTER the inline <style> in mission.html. Also linked alongside
+   home.css for shared sections (trusted-by, cta-section, etc.)
+   The goal: convert the comprehensive-stats WALL into 7 rhythmic,
+   editorially-paced data blocks with clear hierarchy.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   MISSION HERO — eyebrow + emphatic paragraph + death counter
+   ------------------------------------------------------------------------- */
+.mission-hero {
+  padding: clamp(7rem, 5rem + 6vw, 10rem) 0 clamp(3rem, 2rem + 2vw, 5rem);
+}
+.hero-counter-section {
+  max-width: 960px;
+  margin-inline: auto;
+  text-align: center;
+}
+.hero-intro-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  font-style: italic;
+  text-wrap: balance;
+  max-width: 28ch;
+  margin-inline: auto;
+  margin-bottom: clamp(3rem, 2rem + 2vw, 4rem);
+  color: var(--color-text);
+}
+.hero-intro-heading strong {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--color-accent);
+}
+
+/* Death counter — centered dark band */
+.death-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+  background: var(--urgency-800, #4A1818);
+  color: #FAF7F2;
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem) clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  border-radius: 16px;
+  box-shadow: 0 20px 48px rgba(74, 24, 24, 0.25);
+  text-align: left;
+}
+.death-counter .counter-icon img {
+  width: clamp(56px, 5vw, 84px);
+  height: auto;
+  opacity: 0.9;
+}
+.death-counter .count {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 2rem + 5vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #FAF7F2;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 8px;
+}
+.death-counter .count-label {
+  font-size: clamp(0.9375rem, 0.85rem + 0.3vw, 1.0625rem);
+  line-height: 1.4;
+  color: rgba(250, 247, 242, 0.82);
+  max-width: 22ch;
+}
+
+/* -------------------------------------------------------------------------
+   URGENCY STATS — 4 big numerals on soft bg, right below the hero
+   ------------------------------------------------------------------------- */
+.urgency-stats {
+  padding: clamp(3rem, 2rem + 2vw, 4.5rem) 0;
+  background: var(--color-surface);
+  border-top: 1px solid rgba(138, 90, 36, 0.12);
+  border-bottom: 1px solid rgba(138, 90, 36, 0.12);
+}
+.urgency-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+  text-align: center;
+  max-width: 1160px;
+  margin-inline: auto;
+}
+.urgency-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 1.75rem + 4vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 10px;
+}
+.urgency-item p,
+.urgency-grid > div > p {
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------------
+   CONTENT SECTIONS — "Why people don't reach Muslims", "Why the Church
+   must be trained", "Why Muslims?" — paragraph-forward, not stat-heavy
+   ------------------------------------------------------------------------- */
+.content-section {
+  padding: clamp(4rem, 3rem + 3vw, 6.5rem) 0;
+}
+.content-section.alt {
+  background: var(--color-surface);
+}
+.content-section .section-heading {
+  font-size: clamp(1.875rem, 1.35rem + 2.5vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(1.5rem, 1rem + 1vw, 2rem);
+  text-wrap: balance;
+  max-width: 18ch;
+}
+.content-section .section-heading em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+.content-section p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  max-width: 62ch;
+  margin-bottom: 18px;
+}
+
+/* -------------------------------------------------------------------------
+   THREE FEARS — "1 / 2 / 3" big numerals, editorial pause
+   ------------------------------------------------------------------------- */
+.fear-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+  margin-top: clamp(2rem, 1.5rem + 1.5vw, 3.5rem);
+}
+.fear-item {
+  padding: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem) clamp(1.5rem, 1rem + 1vw, 2rem);
+  background: var(--color-surface-raised, #FAF7F2);
+  border: 1px solid rgba(138, 90, 36, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(36, 28, 18, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.content-section.alt .fear-item {
+  background: #FFFFFF;
+}
+.fear-number {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(3.5rem, 2rem + 5vw, 6rem);
+  line-height: 0.85;
+  color: var(--color-accent);
+  opacity: 0.35;
+  font-weight: 400;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.fear-item p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin: 0;
+  max-width: 38ch;
+}
+.fear-item p strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* -------------------------------------------------------------------------
+   COMPREHENSIVE STATS — The main restructure.
+   Before: small header + tight 4-col grid of stat cards with matching size
+   After: big eyebrow + display headline-as-label + lead paragraph + larger
+   numerals with proper visual hierarchy. Alternating bg between blocks
+   creates section rhythm. Extra vertical breathing room.
+   ------------------------------------------------------------------------- */
+
+.comprehensive-stats {
+  padding: clamp(4.5rem, 3rem + 4vw, 7rem) 0 clamp(3rem, 2rem + 2vw, 5rem);
+}
+.comp-stats-header {
+  max-width: 720px;
+  margin-inline: auto;
+}
+.comp-stats-header .section-heading {
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+/* Each theme block becomes a cinematic sub-section */
+.comp-theme-block {
+  padding: clamp(3.5rem, 2.5rem + 2.5vw, 5.5rem) 0;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-top: 1px solid rgba(138, 90, 36, 0.15);
+}
+.comp-theme-block.comp-theme-alt {
+  background: var(--color-surface);
+}
+/* Undo the original gutter-expansion so bg fills full width */
+.comp-theme-block.comp-theme-alt {
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding-left: calc(50vw - 50%) !important;
+  padding-right: calc(50vw - 50%) !important;
+}
+
+/* Theme label as proper eyebrow */
+.comp-theme-label {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 18px;
+  line-height: 1;
+}
+
+/* Theme description as HEADLINE (was small muted paragraph) */
+.comp-theme-desc {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.15rem + 1.4vw, 2.25rem);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  font-weight: 400;
+  margin-bottom: clamp(2.5rem, 1.75rem + 2vw, 4rem);
+  max-width: 38ch;
+  text-wrap: balance;
+  font-style: italic;
+}
+
+/* Stat grid — more generous gap, alignment left (not centered everywhere) */
+.comp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(2rem, 1rem + 2.5vw, 3rem) clamp(1.25rem, 0.75rem + 1.5vw, 2.25rem);
+  position: relative;
+}
+.comp-stats-grid.comp-grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Stat card — no longer boxed, editorial left-aligned */
+.comp-stat-card {
+  text-align: left;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  position: relative;
+}
+
+/* The numeral — real display type */
+.comp-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 1.5rem + 3.5vw, 4.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 10px;
+}
+.comp-theme-block.comp-theme-alt .comp-stat-num {
+  color: var(--color-accent);
+}
+/* First card in each block — highlight as hero stat */
+.comp-stats-grid > .comp-stat-card:first-child .comp-stat-num {
+  color: var(--color-accent);
+  font-size: clamp(2.75rem, 1.75rem + 4.25vw, 5.25rem);
+}
+
+.comp-stat-desc {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 32ch;
+}
+
+/* Contextual quote box within a theme block */
+.comp-quote-box {
+  margin-top: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+  padding: clamp(1.5rem, 1.25rem + 1vw, 2.25rem) clamp(1.75rem, 1.5rem + 1vw, 2.75rem);
+  border-left: 3px solid var(--color-accent);
+  background: rgba(138, 90, 36, 0.05);
+  border-radius: 0 12px 12px 0;
+}
+.comp-quote-box blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--color-text);
+  font-weight: 400;
+  max-width: 60ch;
+}
+
+.comp-cta-row {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+}
+
+/* -------------------------------------------------------------------------
+   MOBILE — collapse 4/5-col grids, stack fears, reduce type fluidly
+   ------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .comp-stats-grid,
+  .comp-stats-grid.comp-grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .urgency-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fear-list {
+    grid-template-columns: 1fr;
+  }
+  .death-counter {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .death-counter .count-label {
+    max-width: none;
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .comp-stats-grid,
+  .comp-stats-grid.comp-grid-5 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .comp-stat-num {
+    font-size: clamp(2.5rem, 12vw, 3.5rem) !important;
+  }
+  .comp-stats-grid > .comp-stat-card:first-child .comp-stat-num {
+    font-size: clamp(3rem, 14vw, 4rem) !important;
+  }
+  .hero-intro-heading {
+    font-size: clamp(1.5rem, 7vw, 2.25rem);
+  }
+}

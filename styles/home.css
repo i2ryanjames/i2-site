@@ -1,0 +1,432 @@
+/* =========================================================================
+   i2 Ministries — Homepage Phase 4.1 Enhancements
+   Loads AFTER the inline <style> in index.html. Overrides where needed.
+   Uses the existing Instrument Serif + DM Sans font stack already loaded
+   on the page. Only rewrites the CSS; the HTML structure is unchanged
+   except for class hooks where necessary.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   TYPOGRAPHY — tighten + scale the hero for cinematic opener
+   Current: clamp(3.1rem, 6vw, 5.6rem).   New: 52 → 112px fluid.
+   ------------------------------------------------------------------------- */
+.hero-text h1 {
+  font-size: clamp(2.75rem, 1.75rem + 3.5vw, 5rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  text-wrap: balance;
+  max-width: 14ch;
+}
+
+/* Italic "Great Commission" receives weight + accent. Instrument Serif
+   shines at large italic sizes. */
+.hero-text h1 em {
+  font-style: italic;
+  color: var(--color-accent);
+  font-weight: 400;
+  /* Slight optical-size cue via letter-spacing adjustment */
+  letter-spacing: -0.015em;
+}
+
+.hero-text p {
+  font-size: clamp(1.125rem, 0.95rem + 0.55vw, 1.3125rem);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 54ch;
+  margin-bottom: 44px;
+}
+
+/* -------------------------------------------------------------------------
+   HERO VIDEO CARD — more presence, cinematic aspect, bigger play button
+   ------------------------------------------------------------------------- */
+.hero-video-card {
+  border-radius: 18px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  box-shadow:
+    0 2px 8px rgba(36, 28, 18, 0.08),
+    0 24px 48px rgba(36, 28, 18, 0.14);
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.hero-video-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 4px 12px rgba(36, 28, 18, 0.10),
+    0 32px 64px rgba(36, 28, 18, 0.18);
+}
+.hero-video-card .play-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  box-shadow: 0 8px 24px rgba(138, 90, 36, 0.4);
+}
+
+/* -------------------------------------------------------------------------
+   EYEBROW LABEL — consistent uppercase tracked label everywhere
+   ------------------------------------------------------------------------- */
+.label {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-accent);
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+/* -------------------------------------------------------------------------
+   EMFCI STATS — big documentary numerals
+   Current: 32-45px. New: 44-88px. Subtle gold divider between.
+   Expand inner container so 4-wide grid gets full room to breathe.
+   ------------------------------------------------------------------------- */
+.emfci-stats {
+  padding: clamp(5rem, 3rem + 4vw, 7rem) 0;
+}
+.emfci-stats-inner {
+  max-width: 1160px;
+  text-align: center;
+  margin-inline: auto;
+}
+.emfci-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.25rem, 0.5rem + 2vw, 2.5rem);
+  margin-top: clamp(2.5rem, 1.5rem + 2vw, 4rem);
+  position: relative;
+  align-items: start;
+  justify-items: center;
+}
+.emfci-stat-card {
+  background: transparent;
+  border: 0;
+  padding: 1.25rem 0.5rem;
+  position: relative;
+  box-shadow: none;
+  text-align: center;
+  width: 100%;
+  max-width: 260px;
+}
+/* Gold vertical divider between cards on desktop */
+.emfci-stat-card + .emfci-stat-card::before {
+  content: "";
+  position: absolute;
+  left: calc(clamp(1.25rem, 0.5rem + 2vw, 2.5rem) * -0.5);
+  top: 18%;
+  height: 64%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(138, 90, 36, 0.22) 50%,
+    transparent 100%
+  );
+}
+.emfci-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 1.75rem + 3.5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 12px;
+}
+.emfci-stat-card:hover { transform: none; background: transparent; box-shadow: none; }
+.emfci-desc {
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------------
+   DEATH COUNTER — louder, more cinematic, more somber
+   Bigger numeral, tighter typography, tabular figures so it doesn't jitter.
+   ------------------------------------------------------------------------- */
+.mission-counter {
+  border-radius: 18px;
+  box-shadow: 0 20px 48px rgba(74, 24, 24, 0.28);
+}
+.mission-counter .counter-number {
+  font-size: clamp(4rem, 2rem + 9vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 16px;
+}
+.mission-counter .counter-label {
+  font-size: clamp(1rem, 0.9rem + 0.3vw, 1.1875rem);
+  line-height: 1.45;
+  max-width: 22ch;
+  color: rgba(255,255,255,0.82);
+}
+
+/* -------------------------------------------------------------------------
+   DARK STAT BAR (2B+, 85%, 1:450K, 97%) — promote to true dark documentary
+   Current: cream bg, 34-50px numerals. New: dark bg, 64-104px white numerals.
+   ------------------------------------------------------------------------- */
+.stat-bar {
+  background: var(--color-text, #13110E);
+  border: 0;
+  padding: clamp(4rem, 2.5rem + 4vw, 6.5rem) 0;
+  position: relative;
+}
+.stat-bar::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--color-accent);
+}
+.stat-bar-inner {
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+.stat-item h3 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 1.75rem + 6vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: #FAF7F2;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 12px;
+}
+.stat-item p {
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  color: rgba(250, 247, 242, 0.65);
+  line-height: 1.45;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------------
+   TRUSTED BY — subtle refinement, eyebrow already present
+   ------------------------------------------------------------------------- */
+.trusted-by {
+  padding: clamp(3rem, 2rem + 2vw, 4.5rem) 0;
+}
+.trusted-by img {
+  max-width: 820px;
+  opacity: 0.75;
+  filter: grayscale(90%);
+  transition: opacity 0.6s ease, filter 0.6s ease;
+}
+.trusted-by img:hover {
+  opacity: 0.95;
+  filter: grayscale(20%);
+}
+
+/* -------------------------------------------------------------------------
+   PILLAR / TRAINING CARDS — editorial hierarchy, subtler hover
+   ------------------------------------------------------------------------- */
+.pillar-card {
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 2rem 1.75rem 1.75rem;
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+              border-color 0.3s ease,
+              box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(138, 90, 36, 0.35);
+  box-shadow: 0 12px 32px rgba(36, 28, 18, 0.08);
+}
+.pillar-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+.pillar-card p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+.pillar-card .pillar-link {
+  color: var(--color-accent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pillar-featured {
+  background: linear-gradient(
+    135deg,
+    var(--color-surface) 0%,
+    rgba(138, 90, 36, 0.06) 100%
+  );
+  border: 1px solid rgba(138, 90, 36, 0.18);
+  padding: clamp(2rem, 1.5rem + 2vw, 3rem);
+  border-radius: 16px;
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.pillar-featured:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(36, 28, 18, 0.10);
+}
+.pillar-featured h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.15rem + 1.4vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+}
+
+/* -------------------------------------------------------------------------
+   TRAINING STAT ROW (250+, 15, 30+, 1,500+) — now using <h3>
+   ------------------------------------------------------------------------- */
+.training-stat-item h3 {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-accent);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 10px;
+}
+
+/* -------------------------------------------------------------------------
+   ENDORSEMENTS — editorial blockquote treatment
+   Large opening quote glyph, serif italic body, refined attribution.
+   ------------------------------------------------------------------------- */
+.endorsements-header {
+  margin-bottom: clamp(3rem, 2rem + 3vw, 5rem);
+}
+.endorsements-grid {
+  gap: clamp(1.75rem, 1rem + 2vw, 2.5rem);
+}
+.endorsement-card {
+  padding: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+  border-radius: 14px;
+  background: var(--color-surface);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+              border-color 0.3s ease;
+}
+.endorsement-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(138, 90, 36, 0.28);
+}
+.endorsement-quote {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 3rem + 5vw, 7rem);
+  line-height: 0.65;
+  color: var(--color-accent);
+  opacity: 0.5;
+  margin-bottom: 0;
+  margin-top: -0.2em;
+  font-weight: 400;
+}
+.endorsement-card blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 0.95rem + 0.45vw, 1.25rem);
+  line-height: 1.5;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-top: -0.5em;
+  margin-bottom: auto;
+  padding-bottom: 2rem;
+}
+.endorsement-author {
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(138, 90, 36, 0.15);
+  align-items: center;
+}
+.endorsement-avatar {
+  width: 52px;
+  height: 52px;
+  border: 2px solid rgba(138, 90, 36, 0.28);
+}
+.endorsement-author strong {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+}
+.endorsement-author span {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+  display: block;
+  margin-top: 2px;
+}
+
+/* -------------------------------------------------------------------------
+   PRE-FOOTER CTA — more breathing room, refined heading
+   ------------------------------------------------------------------------- */
+.cta-section {
+  padding: clamp(5rem, 3rem + 5vw, 8rem) 0;
+}
+.cta-inner h2 {
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+/* -------------------------------------------------------------------------
+   SECTION HEADINGS — uniform treatment across the home
+   Instrument Serif italic fragment is the house style
+   ------------------------------------------------------------------------- */
+.section-heading {
+  font-size: clamp(1.875rem, 1.35rem + 2.5vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+.section-heading em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+/* -------------------------------------------------------------------------
+   MOBILE refinements
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .emfci-stat-card + .emfci-stat-card::before { display: none; }
+  .emfci-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+  }
+  .stat-bar-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+  .stat-item h3 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-text h1 {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    line-height: 1.02;
+  }
+  .emfci-num {
+    font-size: clamp(2.75rem, 14vw, 4rem);
+  }
+  .mission-counter .counter-number {
+    font-size: clamp(3rem, 13vw, 4.5rem);
+  }
+}

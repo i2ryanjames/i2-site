@@ -1,3 +1,20 @@
 .vercel
 node_modules
 .DS_Store
+
+# Claude Code infrastructure — local tooling only
+.agents/
+.claude/
+skills/
+skills-lock.json
+package.json
+package-lock.json
+AUGMENTATION-NOTES.md
+
+# Phase-6 audit assets (markdown + scripts tracked, PNGs excluded)
+audit/before/
+audit/after-phase3/
+audit/.playwright-mcp/
+audit/sample-desktop.png
+audit/sample-mobile.png
+audit/sample.html

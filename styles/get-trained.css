@@ -1,0 +1,397 @@
+/* =========================================================================
+   i2 Ministries — Get Trained Page Phase 4.4 Enhancements
+   Loads AFTER inline <style>. home.css is also linked for shared patterns
+   (.trusted-by, .emfci-stats, .pillar-card base, .cta-section, etc.).
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   PAGE HERO — "Get Trained"
+   Current: 46-74px. New: 48-88px, tighter, editorial.
+   ------------------------------------------------------------------------- */
+.page-hero {
+  padding: clamp(7rem, 5rem + 6vw, 10rem) 0 clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.page-hero-inner {
+  max-width: 880px;
+}
+.page-hero h1 {
+  font-size: clamp(3rem, 2rem + 4.5vw, 5.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+  text-wrap: balance;
+}
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+.page-hero .subtitle {
+  font-size: clamp(1.125rem, 1rem + 0.4vw, 1.3125rem);
+  line-height: 1.65;
+  max-width: 58ch;
+  margin-inline: auto;
+  color: var(--color-text-muted);
+}
+
+/* -------------------------------------------------------------------------
+   FEATURED VIDEO — cinematic frame
+   ------------------------------------------------------------------------- */
+.featured-video {
+  padding: 0 0 clamp(3rem, 2rem + 3vw, 5rem);
+}
+.featured-video-inner h2 {
+  font-size: clamp(1.625rem, 1.25rem + 1.5vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-bottom: clamp(2rem, 1.5rem + 1vw, 2.5rem);
+  font-weight: 400;
+}
+.video-embed-wrapper {
+  border-radius: 18px;
+  box-shadow:
+    0 4px 12px rgba(36, 28, 18, 0.08),
+    0 32px 64px rgba(36, 28, 18, 0.14);
+}
+
+/* -------------------------------------------------------------------------
+   PATHWAYS — 4 training options (Initiative, MMWU, WISE, WADI)
+   Editorial card treatment — same DNA as home pillars but with typography
+   scaled for a dedicated page.
+   ------------------------------------------------------------------------- */
+.pathways {
+  padding: clamp(4.5rem, 3rem + 4vw, 7rem) 0;
+}
+.pathways-header {
+  margin-bottom: clamp(3rem, 2rem + 2vw, 4.5rem);
+}
+.pathways-header h2 {
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.pathways-header p {
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.7;
+  max-width: 58ch;
+  color: var(--color-text-muted);
+}
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+}
+.pathway-card {
+  padding: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+  border-radius: 16px;
+  background: var(--color-surface);
+  border: 1px solid rgba(138, 90, 36, 0.10);
+  box-shadow: 0 2px 8px rgba(36, 28, 18, 0.03);
+  transition:
+    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.pathway-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(138, 90, 36, 0.3);
+  box-shadow: 0 16px 40px rgba(36, 28, 18, 0.09);
+}
+.pathway-icon {
+  margin-bottom: 24px;
+  color: var(--color-accent);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(138, 90, 36, 0.08);
+  border-radius: 12px;
+}
+.pathway-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 1.15rem + 0.9vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 14px;
+}
+.pathway-card p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+  max-width: 52ch;
+}
+.pathway-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* -------------------------------------------------------------------------
+   COURSE CATALOG — 4 stats: "20, 15, 250, 1,500"
+   Bigger numerals, editorial treatment, centered on warm band
+   ------------------------------------------------------------------------- */
+.catalog {
+  padding: clamp(4.5rem, 3rem + 4vw, 7rem) 0;
+  background: var(--color-surface);
+}
+.catalog-inner {
+  max-width: 960px;
+}
+.catalog-inner h2 {
+  font-size: clamp(2rem, 1.5rem + 2.25vw, 3rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+.catalog-inner p {
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.1875rem);
+  line-height: 1.7;
+  max-width: 58ch;
+  margin-inline: auto;
+  color: var(--color-text-muted);
+  margin-bottom: clamp(2.5rem, 1.75rem + 2vw, 4rem);
+}
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.25rem, 0.75rem + 1.5vw, 2rem);
+  margin-bottom: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+  max-width: 1040px;
+  margin-inline: auto;
+}
+.catalog-stat {
+  background: transparent;
+  border: 0;
+  padding: 1.5rem 0.5rem;
+  text-align: center;
+  box-shadow: none;
+  position: relative;
+}
+/* Subtle vertical gold divider between stats on desktop */
+.catalog-stat + .catalog-stat::before {
+  content: "";
+  position: absolute;
+  left: calc(clamp(1.25rem, 0.75rem + 1.5vw, 2rem) * -0.5);
+  top: 18%;
+  height: 64%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(138, 90, 36, 0.22) 50%,
+    transparent 100%
+  );
+}
+.catalog-stat .num {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 1.75rem + 3.5vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 12px;
+}
+.catalog-stat:first-child .num {
+  color: var(--color-accent);
+}
+.catalog-stat .desc {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------------
+   WHY SECTION — "Why Muslims?"
+   Dark urgency treatment — full-bleed dark band with strong hero headline
+   ------------------------------------------------------------------------- */
+.why-section {
+  padding: clamp(4.5rem, 3rem + 4vw, 7rem) 0;
+  background: var(--color-text, #13110E);
+  color: #FAF7F2;
+  position: relative;
+}
+.why-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--color-accent);
+}
+.why-section .label {
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 2rem + 4vw, 5rem);
+  align-items: center;
+}
+.why-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  color: #FAF7F2;
+  margin-bottom: clamp(1.25rem, 1rem + 1vw, 2rem);
+  text-wrap: balance;
+}
+.why-text h2 em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+.why-text p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: rgba(250, 247, 242, 0.82);
+  margin-bottom: 20px;
+  max-width: 58ch;
+}
+.why-text p strong {
+  color: #FAF7F2;
+  font-weight: 600;
+}
+.why-video-card {
+  border-radius: 16px;
+  aspect-ratio: 16 / 10;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    0 32px 64px rgba(0, 0, 0, 0.4);
+}
+.why-video-card .video-play {
+  width: 72px;
+  height: 72px;
+  background: var(--color-accent);
+}
+
+/* -------------------------------------------------------------------------
+   STAT BAR — promote to cream-on-ink editorial band (matches home pattern)
+   Currently cream bg with gold numerals — bump numerals, keep cream bg
+   for visual variety with the dark why-section above
+   ------------------------------------------------------------------------- */
+.stat-bar {
+  padding: clamp(3rem, 2rem + 2vw, 4.5rem) 0;
+  background: var(--color-surface);
+  border-top: 1px solid rgba(138, 90, 36, 0.12);
+  border-bottom: 1px solid rgba(138, 90, 36, 0.12);
+}
+.stat-bar-inner {
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+  max-width: 1160px;
+  margin-inline: auto;
+}
+.stat-bar-item .stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.75rem + 3.5vw, 4.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 10px;
+}
+.stat-bar-item .stat-desc {
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------------
+   GALLERY — horizontal photo scroller, refined
+   ------------------------------------------------------------------------- */
+.gallery {
+  padding: clamp(4rem, 3rem + 3vw, 6.5rem) 0;
+}
+.gallery-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 1.5rem + 2vw, 4rem);
+}
+.gallery-header h2 {
+  font-size: clamp(1.875rem, 1.35rem + 2.25vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.gallery-scroll img {
+  border-radius: 12px;
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.gallery-scroll img:hover {
+  transform: scale(1.02);
+}
+
+/* -------------------------------------------------------------------------
+   CTA BANNER — final CTA before footer
+   ------------------------------------------------------------------------- */
+.cta-banner {
+  padding: clamp(5rem, 3rem + 5vw, 8rem) 0;
+}
+.cta-banner h2 {
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+/* -------------------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .pathways-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin-inline: auto;
+  }
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 1rem + 3vw, 3rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-stat + .catalog-stat::before { display: none; }
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+  }
+  .stat-bar-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+  .catalog-stat .num {
+    font-size: clamp(2.5rem, 13vw, 3.75rem);
+  }
+  .stat-bar-item .stat-num {
+    font-size: clamp(2.25rem, 12vw, 3.25rem);
+  }
+}

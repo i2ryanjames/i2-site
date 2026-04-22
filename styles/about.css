@@ -1,0 +1,497 @@
+/* =========================================================================
+   i2 Ministries — About Page Phase 4.2 Enhancements
+   Loads AFTER the inline <style> in about.html.
+   Works in tandem with home.css which is also linked on this page
+   for shared sections (emfci-stats, trusted-by, cta-section, etc.)
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   PAGE HERO — "Mobilize. Equip. Energize."
+   Current: 46-74px. New: 56-104px. Refined subtitle + vision pairing.
+   ------------------------------------------------------------------------- */
+.page-hero {
+  padding: clamp(7rem, 5rem + 6vw, 10rem) 0 clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.page-hero-inner {
+  max-width: 880px;
+}
+.page-hero h1 {
+  font-size: clamp(3rem, 2rem + 4.5vw, 5.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--color-accent);
+  letter-spacing: -0.015em;
+}
+.page-hero .subtitle {
+  font-size: clamp(1.125rem, 1rem + 0.4vw, 1.3125rem);
+  line-height: 1.65;
+  max-width: 58ch;
+  margin-inline: auto;
+  margin-bottom: 20px;
+  color: var(--color-text-muted);
+}
+.page-hero .vision {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.1875rem, 1rem + 0.9vw, 1.5rem);
+  line-height: 1.45;
+  color: var(--color-accent);
+  max-width: 42ch;
+  margin-inline: auto;
+  margin-bottom: 40px;
+}
+
+/* -------------------------------------------------------------------------
+   BIO — Dr. Joshua Lingel
+   Editorial treatment: larger name, refined role label, cleaner typography.
+   Portrait gets a warm frame + subtle gold accent line on hover.
+   ------------------------------------------------------------------------- */
+.bio {
+  padding: clamp(4rem, 3rem + 3vw, 7rem) 0;
+}
+.bio-grid {
+  grid-template-columns: 0.44fr 0.56fr;
+  gap: clamp(3rem, 2rem + 4vw, 6rem);
+}
+
+.bio-photo {
+  border-radius: 18px;
+  border: 1px solid rgba(138, 90, 36, 0.12);
+  box-shadow:
+    0 4px 12px rgba(36, 28, 18, 0.06),
+    0 24px 48px rgba(36, 28, 18, 0.10);
+  position: relative;
+}
+.bio-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  /* Subtle warm duotone overlay — lifts without altering faces */
+  background: linear-gradient(
+    150deg,
+    rgba(138, 90, 36, 0.04) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(74, 48, 18, 0.08) 100%
+  );
+  mix-blend-mode: multiply;
+}
+
+.bio-content .label {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.bio-content h2 {
+  font-size: clamp(2.5rem, 1.75rem + 3vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+.bio-content h2 em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.bio-role {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(138, 90, 36, 0.15);
+  display: block;
+  width: fit-content;
+}
+
+.bio-content p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 20px;
+  max-width: 62ch;
+}
+
+/* The callling quote — pull-quote treatment */
+.bio-content .calling {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 1.125rem + 1vw, 1.75rem);
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--color-text);
+  border-left: 3px solid var(--color-accent);
+  padding: 4px 0 4px 28px;
+  margin: 32px 0 8px;
+  max-width: 42ch;
+  font-weight: 400;
+}
+
+.bio-credentials {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(138, 90, 36, 0.15);
+}
+.bio-credentials h3 {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 14px;
+  line-height: 1;
+}
+.bio-credentials p {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  max-width: 62ch;
+}
+
+.bio-whatsapp {
+  margin-top: 24px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.22);
+}
+.bio-whatsapp:hover {
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.34);
+}
+
+/* -------------------------------------------------------------------------
+   VALUES (01-04) — big editorial numerals, newspaper-style
+   Current: 2.45rem numeral (39px). New: clamp(4rem, 6vw, 6.5rem) (64-104px).
+   Each card has the numeral as a huge decorative backdrop-ish element,
+   refined typography hierarchy below.
+   ------------------------------------------------------------------------- */
+.values {
+  padding: clamp(4rem, 3rem + 3vw, 6.5rem) 0;
+  background: var(--color-surface);
+}
+.values-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 2rem + 2vw, 4.5rem);
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+}
+.value-card {
+  background: var(--color-surface-raised, #FAF7F2);
+  border: 1px solid rgba(138, 90, 36, 0.10);
+  border-radius: 14px;
+  padding: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+  box-shadow: 0 2px 8px rgba(36, 28, 18, 0.04);
+  transition:
+    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  position: relative;
+}
+.value-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(138, 90, 36, 0.3);
+  box-shadow: 0 16px 40px rgba(36, 28, 18, 0.08);
+}
+.value-number {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 2rem + 4.5vw, 6rem);
+  font-style: italic;
+  line-height: 0.9;
+  color: var(--color-accent);
+  opacity: 0.32;
+  font-weight: 400;
+  margin-bottom: 20px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.value-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 1.15rem + 0.8vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 14px;
+}
+.value-card p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 48ch;
+}
+
+/* -------------------------------------------------------------------------
+   ENDORSEMENTS LIST — editorial blockquote (two-column grid on desktop)
+   About's endorsement list uses `.eq` glyph (not .endorsement-quote).
+   Elevate quote typography to match home, but in a list context.
+   ------------------------------------------------------------------------- */
+.endorsements-header {
+  margin-bottom: clamp(3rem, 2rem + 2vw, 4.5rem);
+}
+.endorsements-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+}
+.endorsement-card {
+  padding: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+  border-radius: 14px;
+  background: var(--color-surface);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.endorsement-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(138, 90, 36, 0.25);
+}
+.endorsement-card .eq {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 3rem + 4vw, 6rem);
+  line-height: 0.65;
+  color: var(--color-accent);
+  opacity: 0.5;
+  margin-bottom: 0;
+  margin-top: -0.2em;
+  font-weight: 400;
+}
+.endorsement-card blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.1875rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-text);
+  margin-top: -0.3em;
+  margin-bottom: auto;
+  padding-bottom: 1.75rem;
+}
+.endorsement-meta {
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(138, 90, 36, 0.15);
+}
+.endorsement-avatar {
+  width: 52px;
+  height: 52px;
+  border: 2px solid rgba(138, 90, 36, 0.25);
+}
+.endorsement-meta strong {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.005em;
+}
+.endorsement-meta span {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+  display: block;
+  margin-top: 2px;
+}
+
+/* -------------------------------------------------------------------------
+   LAUSANNE COVENANT — historic document treatment
+   Warm paper background, dropcap on first paragraph of each body,
+   accordion buttons in Instrument Serif, scripture in small caps tracked.
+   ------------------------------------------------------------------------- */
+.lausanne {
+  background: #F4EFE3;  /* warm paper tone */
+  position: relative;
+  padding: clamp(4.5rem, 3rem + 4vw, 7rem) 0;
+}
+.lausanne::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 40% at 20% 10%, rgba(138, 90, 36, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 30% at 90% 90%, rgba(74, 48, 18, 0.03) 0%, transparent 60%);
+}
+.lausanne-inner {
+  max-width: 760px;
+  position: relative;
+}
+.lausanne-intro {
+  margin-bottom: clamp(3rem, 2rem + 2vw, 4.5rem);
+}
+.lausanne-intro h2 {
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.lausanne-intro p {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--color-text);
+  opacity: 0.85;
+  max-width: 62ch;
+  margin-inline: auto;
+}
+.lausanne-intro a {
+  font-style: normal;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid rgba(74, 48, 18, 0.15);
+}
+.accordion-item:first-child {
+  border-top: 1px solid rgba(74, 48, 18, 0.15);
+}
+.accordion-btn {
+  padding: clamp(1.25rem, 1rem + 0.6vw, 1.75rem) 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.1875rem, 1rem + 0.7vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  color: var(--color-text);
+  gap: 16px;
+}
+.accordion-btn:hover {
+  color: var(--color-accent);
+}
+.accordion-chevron {
+  width: 18px;
+  height: 18px;
+  opacity: 0.7;
+}
+
+.accordion-body {
+  padding-right: clamp(0.5rem, 1vw, 1.25rem);
+}
+.accordion-item.open .accordion-body {
+  max-height: 1200px;
+  padding-bottom: clamp(1.5rem, 1rem + 1vw, 2rem);
+}
+.accordion-body p {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  max-width: 62ch;
+  margin-bottom: 18px;
+}
+.accordion-body p:last-child { margin-bottom: 0; }
+
+/* Dropcap on first paragraph of each accordion body — classic
+   historic-document styling */
+.accordion-item.open .accordion-body > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.25em;
+  line-height: 0.9;
+  float: left;
+  margin-right: 0.08em;
+  margin-top: 0.05em;
+  margin-bottom: -0.1em;
+  color: var(--color-accent);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.accordion-body .scripture {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-top: 1px solid rgba(74, 48, 18, 0.12);
+  padding-top: 14px;
+  margin-top: 20px;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* -------------------------------------------------------------------------
+   ABOUT-ORG section — small polish
+   ------------------------------------------------------------------------- */
+.about-org {
+  padding: clamp(4rem, 3rem + 3vw, 6rem) 0;
+}
+.about-org-inner p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  max-width: 62ch;
+}
+
+/* -------------------------------------------------------------------------
+   GALLERY / VIDEOS header polish
+   ------------------------------------------------------------------------- */
+.videos-header,
+.gallery-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 1.5rem + 2vw, 4rem);
+}
+.videos-header h2,
+.gallery-header h2 {
+  font-size: clamp(1.875rem, 1.35rem + 2.25vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+/* -------------------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .values-grid,
+  .endorsements-list {
+    grid-template-columns: 1fr;
+  }
+  .bio-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 1rem + 4vw, 3rem);
+  }
+  .bio-content .calling {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-hero h1 {
+    font-size: clamp(2.25rem, 10vw, 3rem);
+  }
+  .bio-content h2 {
+    font-size: clamp(2rem, 9vw, 2.5rem);
+  }
+  .value-number {
+    font-size: clamp(3rem, 13vw, 4.5rem);
+  }
+  .accordion-body p {
+    font-size: 1rem;
+  }
+}
