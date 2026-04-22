@@ -30,7 +30,7 @@
   :root {
     --color-bg: #FAFAF7; --color-surface: #F0EFEB; --color-surface-raised: #FFFFFF;
     --color-text: #1A1A1A; --color-text-muted: #5C5A55;
-    --color-accent: #B8862D; --color-accent-warm: #C7753A; --color-accent-deep: #8B3A2A;
+    --color-accent: #8A5A24; --color-accent-warm: #C7753A; --color-accent-deep: #8B3A2A;
     --font-display: 'Instrument Serif', Georgia, serif;
     --font-body: 'DM Sans', sans-serif;
     --max-width: 1280px;
@@ -143,7 +143,7 @@
   .back-link a { font-size: 14px; letter-spacing: 1px; text-transform: uppercase; color: var(--color-text-muted); font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s; }
   .back-link a:hover { color: var(--color-accent); }
 
-  .footer-mini { padding: 40px 0; text-align: center; font-size: 0.83rem; color: rgba(92,90,85,0.5); border-top: 1px solid rgba(0,0,0,0.04); margin-top: 80px; line-height: 1.7; }
+  .footer-mini { padding: 40px 0; text-align: center; font-size: 0.83rem; color: rgba(60,58,54,0.82); border-top: 1px solid rgba(0,0,0,0.04); margin-top: 80px; line-height: 1.7; }
   /* ─── NAV DROPDOWN ─── */
   .nav-dropdown {
     position: relative;
@@ -344,8 +344,15 @@
   .ebook-close:hover { background: var(--color-surface); color: var(--color-text); }
   body.modal-open { overflow: hidden; }
 </style>
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <style>
+.skip-to-main{position:absolute;left:-9999px;top:0;z-index:9999;padding:12px 20px;background:#13110E;color:#FAF7F2;font-weight:600;border-radius:6px;text-decoration:none;font-family:inherit;font-size:14px;}
+.skip-to-main:focus-visible{left:16px;top:16px;}
+</style>
+  <link rel="stylesheet" href="/styles/donate.css">
 </head>
 <body>
+<a href="#main" class="skip-to-main">Skip to main content</a>
 
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
@@ -390,6 +397,9 @@
     <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+<main id="main">
+
 
 <section class="form-page">
   <div class="container">
@@ -473,6 +483,8 @@
   </div>
 </section>
 
+</main>
+
 <div class="footer-mini">
   <div class="container">
     i2 Ministries is a charitable missions organization as described in &sect;501(c)(3) of the Internal Revenue Code, EIN: 76-0800576, registered in California.<br/>
@@ -544,6 +556,12 @@
   });
 })();
 </script>
+
+
+<!-- phase5-motion -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="/js/animations.js" defer></script>
 
 </body>
 </html>

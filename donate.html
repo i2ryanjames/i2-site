@@ -33,7 +33,7 @@
     --color-surface-raised: #FFFFFF;
     --color-text: #1A1A1A;
     --color-text-muted: #5C5A55;
-    --color-accent: #B8862D;
+    --color-accent: #8A5A24;
     --color-accent-warm: #C7753A;
     --color-accent-deep: #8B3A2A;
     --font-display: 'Instrument Serif', Georgia, serif;
@@ -193,7 +193,7 @@
     display: flex; align-items: center; justify-content: center;
   }
   .commitment-icon svg { color: var(--color-accent); width: 20px; height: 20px; }
-  .commitment h4 {
+  .commitment h3 {
     font-family: var(--font-display);
     font-size: 1.15rem; font-weight: 400; margin-bottom: 4px;
   }
@@ -451,7 +451,7 @@
   .footer-brand .nav-logo { margin-bottom: 16px; }
   .footer-brand p { font-size: 0.9rem; color: var(--color-text-muted); max-width: 320px; line-height: 1.7; }
   .footer-links { display: flex; gap: 64px; }
-  .footer-col h4 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--color-accent); margin-bottom: 20px; }
+  .footer-col h3 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--color-accent); margin-bottom: 20px; }
   .footer-col a { display: block; font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 12px; transition: color 0.3s; }
   .footer-col a:hover { color: var(--color-accent); }
   .footer-socials { display: flex; gap: 16px; margin-top: 20px; }
@@ -459,7 +459,7 @@
   .footer-socials a:hover { background: var(--color-accent); border-color: var(--color-accent); }
   .footer-socials a:hover svg { color: #FFFFFF; }
   .footer-socials svg { color: var(--color-text-muted); width: 16px; height: 16px; }
-  .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.06); text-align: center; font-size: 0.85rem; color: rgba(92,90,85,0.6); }
+  .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.06); text-align: center; font-size: 0.85rem; color: rgba(60,58,54,0.85); }
 
   /* ─── ANIMATIONS ─── */
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -683,8 +683,16 @@
   .ebook-close:hover { background: var(--color-surface); color: var(--color-text); }
   body.modal-open { overflow: hidden; }
 </style>
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <style>
+.skip-to-main{position:absolute;left:-9999px;top:0;z-index:9999;padding:12px 20px;background:#13110E;color:#FAF7F2;font-weight:600;border-radius:6px;text-decoration:none;font-family:inherit;font-size:14px;}
+.skip-to-main:focus-visible{left:16px;top:16px;}
+</style>
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/donate.css">
 </head>
 <body>
+<a href="#main" class="skip-to-main">Skip to main content</a>
 
 <!-- ═══════ NAV ═══════ -->
 <nav class="nav" id="mainNav">
@@ -731,6 +739,9 @@
   </div>
 </nav>
 
+<main id="main">
+
+
 <!-- ═══════ HERO + DONATE CARDS ═══════ -->
 <section class="donate-hero">
   <div class="container">
@@ -739,6 +750,7 @@
       <h1>Because with God, <em>all things are possible</em></h1>
       <p class="subtitle">Your generous gift directly funds training missionaries around the world and producing video curriculum that equips the global church to reach Muslims for Jesus.</p>
 
+      <h2 class="sr-only">Donation methods</h2>
       <div class="donate-methods reveal">
         <a href="/donate-form" class="donate-card">
           <div class="donate-card-icon">
@@ -749,7 +761,7 @@
           <span class="card-cta">Donate Now <span class="btn-arrow">→</span></span>
         </a>
 
-        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K5VSUMTKAMXP2&source=url" class="donate-card" target="_blank">
+        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K5VSUMTKAMXP2&source=url" class="donate-card" target="_blank" rel="noopener noreferrer">
           <div class="donate-card-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
           </div>
@@ -849,7 +861,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <div>
-            <h4>100% to Ministry</h4>
+            <h3>100% to Ministry</h3>
             <p>Every dollar goes directly to training, curriculum production, and field operations.</p>
           </div>
         </div>
@@ -858,7 +870,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <div>
-            <h4>Staff-Supported</h4>
+            <h3>Staff-Supported</h3>
             <p>No staff salaries come from ministry gifts. Each team member raises personal support.</p>
           </div>
         </div>
@@ -867,7 +879,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <div>
-            <h4>Tax Deductible</h4>
+            <h3>Tax Deductible</h3>
             <p>Registered 501(c)(3) non-profit with both state and federal authorities.</p>
           </div>
         </div>
@@ -876,7 +888,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
           <div>
-            <h4>Global Reach</h4>
+            <h3>Global Reach</h3>
             <p>Training pastors congresses of 1–20,000 leaders in 50+ countries worldwide.</p>
           </div>
         </div>
@@ -969,7 +981,7 @@
         <a href="/donate-form" class="btn btn-primary">
           Donate Now <span class="btn-arrow">→</span>
         </a>
-        <a href="https://www.gommwu.org/ebook" class="btn btn-outline" target="_blank">
+        <a href="https://www.gommwu.org/ebook" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
           Get the Free Ebook
         </a>
       </div>
@@ -978,6 +990,9 @@
 </section>
 
 <!-- ═══════ FOOTER ═══════ -->
+
+</main>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
@@ -985,16 +1000,16 @@
         <div class="nav-logo"><img src="/images/i2-ministries-logo-2026.png" alt="i2 Ministries"></div>
         <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
         <div class="footer-socials">
-          <a href="https://www.facebook.com/thewadi.english/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://www.instagram.com/thewadi.english/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg></a>
-          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+          <a href="https://www.facebook.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg></a>
+          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
         </div>
       </div>
       <div class="footer-links">
-        <div class="footer-col"><h4>Ministry</h4><a href="/about">About</a><a href="/the-mission">The Mission</a><a href="/contact">Contact</a><a href="/donate">Donate</a></div>
-        <div class="footer-col"><h4>Training</h4><a href="/the-initiative">The Initiative</a><a href="/mmwu">MMWU</a><a href="https://thewadi.org">WADI</a><a href="https://resources.i2ministries.org">Resources</a></div>
-        <div class="footer-col"><h4>Tools</h4><a href="/wise-global">WISE Global App</a><a href="https://www.gommwu.org/ebook">Free Ebook</a></div>
+        <div class="footer-col"><h3>Ministry</h3><a href="/about">About</a><a href="/the-mission">The Mission</a><a href="/contact">Contact</a><a href="/donate">Donate</a></div>
+        <div class="footer-col"><h3>Training</h3><a href="/the-initiative">The Initiative</a><a href="/mmwu">MMWU</a><a href="https://thewadi.org">WADI</a><a href="https://resources.i2ministries.org">Resources</a></div>
+        <div class="footer-col"><h3>Tools</h3><a href="/wise-global">WISE Global App</a><a href="https://www.gommwu.org/ebook">Free Ebook</a></div>
       </div>
     </div>
     <div class="footer-bottom">&copy; 2003–2026 i2 Ministries Inc. All Rights Reserved. PO Box 3403, La Habra, CA 90632 USA. Tax-exempt 501(c)(3).</div>
@@ -1132,6 +1147,12 @@
   });
 })();
 </script>
+
+
+<!-- phase5-motion -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="/js/animations.js" defer></script>
 
 </body>
 </html>

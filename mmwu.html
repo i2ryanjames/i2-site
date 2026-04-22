@@ -27,7 +27,7 @@
     --color-surface-raised: #FFFFFF;
     --color-text: #1A1A1A;
     --color-text-muted: #5C5A55;
-    --color-accent: #B8862D;
+    --color-accent: #8A5A24;
     --color-accent-warm: #C7753A;
     --color-accent-deep: #8B3A2A;
     --font-display: 'Instrument Serif', Georgia, serif;
@@ -634,7 +634,7 @@
     line-height: 1.7;
   }
   .footer-links { display: flex; gap: 64px; }
-  .footer-col h4 {
+  .footer-col h3 {
     font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -668,7 +668,7 @@
     border-top: 1px solid rgba(0,0,0,0.06);
     text-align: center;
     font-size: 0.85rem;
-    color: rgba(92,90,85,0.6);
+    color: rgba(60,58,54,0.85);
   }
 
   /* ─── Responsive ─── */
@@ -864,8 +864,16 @@
     .bar-stats { flex-direction: column; align-items: center; gap: 4px; }
   }
 </style>
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <style>
+.skip-to-main{position:absolute;left:-9999px;top:0;z-index:9999;padding:12px 20px;background:#13110E;color:#FAF7F2;font-weight:600;border-radius:6px;text-decoration:none;font-family:inherit;font-size:14px;}
+.skip-to-main:focus-visible{left:16px;top:16px;}
+</style>
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/pages.css">
 </head>
 <body>
+<a href="#main" class="skip-to-main">Skip to main content</a>
 
 <!-- ═══════ NAVIGATION ═══════ -->
 <nav class="nav" id="mainNav">
@@ -913,6 +921,9 @@
   </div>
 </nav>
 
+<main id="main">
+
+
 <!-- ═══════ HERO ═══════ -->
 <section class="hero">
   <div class="container">
@@ -929,7 +940,7 @@
         <p>Mission Muslim World University equips the global church with graduate-level, video-based training from 40+ world-class professors — offering a pathway to a fully accredited Master's degree in Ministry with an Islamic Studies concentration.</p>
         <div class="hero-actions">
           <a href="/donate" class="btn btn-primary">Give a Scholarship <span class="btn-arrow">→</span></a>
-          <a href="https://www.gommwu.org" target="_blank" class="btn btn-outline">Enroll at MMWU</a>
+          <a href="https://www.gommwu.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Enroll at MMWU</a>
         </div>
       </div>
     </div>
@@ -939,6 +950,7 @@
 <!-- ═══════ STAT BAR ═══════ -->
 <div class="stat-bar">
   <div class="container">
+    <h2 class="sr-only">Training program stats</h2>
     <div class="stat-bar-inner">
       <div class="stat-item reveal">
         <h3>1,500+</h3>
@@ -1241,7 +1253,7 @@
       <p>Every scholarship you fund trains a national leader who will multiply the gospel across their country. Join the donors who are making MMWU's vision of 1,000 scholarships per country a reality.</p>
       <div class="cta-actions">
         <a href="/donate" class="btn btn-primary">Fund a Scholarship <span class="btn-arrow">→</span></a>
-        <a href="https://www.gommwu.org" target="_blank" class="btn btn-outline">Enroll at MMWU</a>
+        <a href="https://www.gommwu.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Enroll at MMWU</a>
         <a href="/contact" class="btn btn-outline">Contact Us</a>
       </div>
     </div>
@@ -1249,6 +1261,9 @@
 </section>
 
 <!-- ═══════ FOOTER ═══════ -->
+
+</main>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
@@ -1256,39 +1271,39 @@
         <div class="nav-logo"><img src="/images/i2-ministries-logo-2026.png" alt="i2 Ministries"></div>
         <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
         <div class="footer-socials">
-          <a href="https://www.facebook.com/thewadi.english/" target="_blank" aria-label="Facebook">
+          <a href="https://www.facebook.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
-          <a href="https://www.instagram.com/thewadi.english/" target="_blank" aria-label="Instagram">
+          <a href="https://www.instagram.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" aria-label="YouTube">
+          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg>
           </a>
-          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" aria-label="Spotify">
+          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
           </a>
         </div>
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h4>Ministry</h4>
+          <h3>Ministry</h3>
           <a href="/about">About</a>
           <a href="/the-mission">The Mission</a>
           <a href="/contact">Contact</a>
           <a href="/donate">Donate</a>
         </div>
         <div class="footer-col">
-          <h4>Training</h4>
+          <h3>Training</h3>
           <a href="/the-initiative">The Initiative</a>
           <a href="/mmwu">MMWU</a>
-          <a href="https://thewadi.org" target="_blank">WADI</a>
-          <a href="https://resources.i2ministries.org" target="_blank">Resources</a>
+          <a href="https://thewadi.org" target="_blank" rel="noopener noreferrer">WADI</a>
+          <a href="https://resources.i2ministries.org" target="_blank" rel="noopener noreferrer">Resources</a>
         </div>
         <div class="footer-col">
-          <h4>Tools</h4>
+          <h3>Tools</h3>
           <a href="/wise-global">WISE Global App</a>
-          <a href="https://www.gommwu.org/ebook" target="_blank">Free Ebook</a>
+          <a href="https://www.gommwu.org/ebook" target="_blank" rel="noopener noreferrer">Free Ebook</a>
         </div>
       </div>
     </div>
@@ -1372,5 +1387,11 @@ function playHeroVideo() {
   card.appendChild(iframe);
 }
 </script>
+
+<!-- phase5-motion -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="/js/animations.js" defer></script>
+
 </body>
 </html>
