@@ -2,6 +2,9 @@
 node_modules
 .DS_Store
 
+# Local screenshot scratchpad (Chrome DevTools MCP captures during dev)
+.preview/
+
 # Claude Code infrastructure — local tooling only
 .agents/
 .claude/

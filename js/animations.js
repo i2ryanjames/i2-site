@@ -230,6 +230,58 @@
     });
   }
 
+  // ─── Story scroll (pin + rotate panels) ──────────────────────────────────
+  // <div data-story-scroll>
+  //   <section data-flow-section>...</section>
+  //   <section data-flow-section>...</section>
+  // </div>
+  // Each panel after the first rotates from 30° → 0° as it enters the viewport
+  // (transform-origin: bottom-left). Every panel except the last is pinned
+  // (pinSpacing:false) so the next panel slides up over it.
+  function animateStoryScroll() {
+    if (!ScrollTrigger) return;
+    // Mobile bail: pinned scroll-rotation breaks with iOS dynamic viewport
+    // (URL bar collapse). Let panels flow naturally below this breakpoint.
+    if (window.innerWidth < 768) return;
+    const roots = document.querySelectorAll('[data-story-scroll]');
+    roots.forEach(function (root) {
+      const sections = root.querySelectorAll('[data-flow-section]');
+      if (!sections.length) return;
+
+      sections.forEach(function (section, i) {
+        section.style.zIndex = String(i + 1);
+        const inner = section.querySelector('[data-flow-inner]');
+        if (!inner) return;
+
+        if (i > 0) {
+          gsap.set(inner, { rotation: 30, transformOrigin: 'bottom left' });
+          gsap.to(inner, {
+            rotation: 0,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top bottom',
+              end: 'top 25%',
+              scrub: true,
+            },
+          });
+        }
+
+        if (i < sections.length - 1) {
+          ScrollTrigger.create({
+            trigger: section,
+            start: 'bottom bottom',
+            end: 'bottom top',
+            pin: true,
+            pinSpacing: false,
+          });
+        }
+      });
+
+      ScrollTrigger.refresh();
+    });
+  }
+
   // ─── Boot ────────────────────────────────────────────────────────────────
   function boot() {
     animateHeroLines();
@@ -237,6 +289,7 @@
     animateProgress();
     animateStatStagger();
     animateScrollReveal();
+    animateStoryScroll();
   }
 
   if (document.readyState === 'loading') {

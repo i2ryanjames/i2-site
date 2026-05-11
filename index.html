@@ -345,7 +345,7 @@
   .mission-visual { position: relative; }
   .mission-counter {
     position: relative;
-    background: linear-gradient(135deg, var(--color-accent-deep), #5C1A12);
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-deep));
     border-radius: 16px;
     padding: 40px 48px;
     display: flex;
@@ -1046,6 +1046,65 @@
   }
   .ebook-close:hover { background: var(--color-surface); color: var(--color-text); }
   body.modal-open { overflow: hidden; }
+
+  /* ─── HERO — infinite grid + mouse reveal + glow blobs ─────────────── */
+  /* Override warm pseudo-elements so they don't fight the blue theme */
+  .hero::before, .hero::after { display: none; }
+
+  .hero-fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-grid-bg,
+  .hero-grid-reveal {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--muted-foreground, #6b7280);
+  }
+
+  .hero-grid-bg { opacity: 0.08; }
+
+  .hero-grid-reveal {
+    opacity: 0.55;
+    -webkit-mask-image: radial-gradient(300px circle at var(--hero-mx, 50%) var(--hero-my, 50%), black 0%, transparent 70%);
+            mask-image: radial-gradient(300px circle at var(--hero-mx, 50%) var(--hero-my, 50%), black 0%, transparent 70%);
+    transition: opacity 0.4s;
+  }
+
+  .hero-glows { position: absolute; inset: 0; pointer-events: none; }
+  .hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+  }
+  .hero-glow.glow-orange {
+    right: -20%; top: -20%;
+    width: 40%; height: 40%;
+    background: rgba(249, 115, 22, 0.28); /* orange-500/40-ish */
+  }
+  .hero-glow.glow-primary {
+    right: 10%; top: -10%;
+    width: 20%; height: 20%;
+    background: color-mix(in srgb, var(--primary, #3b82f6) 30%, transparent);
+    filter: blur(90px);
+  }
+  .hero-glow.glow-blue {
+    left: -10%; bottom: -20%;
+    width: 40%; height: 40%;
+    background: rgba(59, 130, 246, 0.32); /* blue-500/40-ish */
+  }
+
+  /* Lift hero content above the fx layer */
+  .hero > .container { position: relative; z-index: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-grid-reveal { display: none; }
+  }
 </style>
   <link rel="stylesheet" href="/styles/tokens.css">
   <style>
@@ -1053,6 +1112,7 @@
 .skip-to-main:focus-visible{left:16px;top:16px;}
 </style>
   <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/theme-shadcn-blue.css">
 </head>
 <body>
 <a href="#main" class="skip-to-main">Skip to main content</a>
@@ -1108,7 +1168,31 @@
 
 
 <!-- ═══════ HERO ═══════ -->
-<section class="hero">
+<section class="hero" id="hero">
+  <!-- Animated grid + glow blobs (purely decorative, behind content) -->
+  <div class="hero-fx" aria-hidden="true">
+    <svg class="hero-grid-bg" preserveAspectRatio="none">
+      <defs>
+        <pattern id="hero-grid-bg-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hero-grid-bg-pattern)" />
+    </svg>
+    <svg class="hero-grid-reveal" preserveAspectRatio="none">
+      <defs>
+        <pattern id="hero-grid-reveal-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hero-grid-reveal-pattern)" />
+    </svg>
+    <div class="hero-glows">
+      <div class="hero-glow glow-orange"></div>
+      <div class="hero-glow glow-primary"></div>
+      <div class="hero-glow glow-blue"></div>
+    </div>
+  </div>
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
@@ -1136,6 +1220,126 @@
     </div>
   </div>
 </section>
+
+<!-- ═══════ STORY SCROLL (pinned + rotating panels) ═══════ -->
+<div class="i2-story-scroll" data-story-scroll aria-label="The i2 Ministries story">
+
+  <section class="flow-section theme-primary" data-flow-section aria-label="The need">
+    <div class="flow-inner" data-flow-inner>
+      <p class="flow-eyebrow">01 — The need</p>
+      <hr class="flow-rule" />
+      <h2 class="flow-title">
+        Two<br />Billion<br />Souls
+      </h2>
+      <hr class="flow-rule" />
+      <p class="flow-lede mt-auto">
+        Over 2 billion Muslims worldwide. 86% have never personally known a Christian. 38,000 die every day without ever hearing the Gospel.
+      </p>
+    </div>
+  </section>
+
+  <section class="flow-section theme-dark" data-flow-section aria-label="The mission">
+    <div class="flow-inner" data-flow-inner>
+      <p class="flow-eyebrow">02 — The mission</p>
+      <hr class="flow-rule" />
+      <h2 class="flow-title">
+        Every<br />Muslim<br />For Christ
+      </h2>
+      <hr class="flow-rule" />
+      <p class="flow-lede">
+        i2 Ministries exists to finish the Great Commission among Muslims — by mobilizing, training, and sending believers to share the Gospel with every Muslim on earth.
+      </p>
+      <hr class="flow-rule" />
+      <div class="flow-grid">
+        <div>
+          <p class="flow-stat-label">Mobilize</p>
+          <p class="flow-stat-body">Awakening the church to the missional challenge of Islam and the urgency of the hour.</p>
+        </div>
+        <div>
+          <p class="flow-stat-label">Train</p>
+          <p class="flow-stat-body">Equipping believers with biblical, cultural, and theological tools to reach Muslims wherever they live.</p>
+        </div>
+        <div>
+          <p class="flow-stat-label">Send</p>
+          <p class="flow-stat-body">Deploying trained workers into Muslim communities at home and abroad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow-section theme-muted" data-flow-section aria-label="Get trained">
+    <div class="flow-inner" data-flow-inner>
+      <p class="flow-eyebrow">03 — Get trained</p>
+      <hr class="flow-rule" />
+      <h2 class="flow-title">
+        Equipped<br />To<br />Engage
+      </h2>
+      <hr class="flow-rule" />
+      <p class="flow-lede">
+        You don't need a seminary degree to share the Gospel with a Muslim friend. You need the right tools and the courage to begin.
+      </p>
+      <hr class="flow-rule" />
+      <div class="flow-grid">
+        <div>
+          <p class="flow-stat-label">01 — Learn</p>
+          <p class="flow-stat-body">Free and paid courses covering Islam, the Qur'an, Muslim worldview, and biblical response.</p>
+        </div>
+        <div>
+          <p class="flow-stat-label">02 — Practice</p>
+          <p class="flow-stat-body">Live training, role-play, and mentorship from missionaries who've spent decades in the field.</p>
+        </div>
+        <div>
+          <p class="flow-stat-label">03 — Engage</p>
+          <p class="flow-stat-body">Step into your neighborhood, workplace, and city ready to love and witness to Muslims.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow-section theme-deep" data-flow-section aria-label="The vision">
+    <div class="flow-inner" data-flow-inner>
+      <p class="flow-eyebrow">04 — The vision</p>
+      <hr class="flow-rule" />
+      <h2 class="flow-title">
+        A Global<br />Mission<br />Force
+      </h2>
+      <hr class="flow-rule" />
+      <p class="flow-lede">
+        Mission Muslim World University and WISE Global are training a new generation of workers — for free, in every language, anywhere on earth.
+      </p>
+      <hr class="flow-rule" />
+      <div class="flow-grid">
+        <div>
+          <p class="flow-stat-label">MMWU</p>
+          <p class="flow-stat-body">Mission Muslim World University — free online training, accredited content, taught by veteran missionaries.</p>
+        </div>
+        <div>
+          <p class="flow-stat-label">WISE Global</p>
+          <p class="flow-stat-body">The mobile app putting Muslim-ministry training in the hands of every believer, anywhere, offline-capable.</p>
+        </div>
+        <div>
+          <p class="flow-stat-label">EMFCI</p>
+          <p class="flow-stat-body">The Every Muslim for Christ Initiative — uniting churches and workers around one mission.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="flow-section theme-dark" data-flow-section aria-label="Respond">
+    <div class="flow-inner" data-flow-inner>
+      <p class="flow-eyebrow">05 — Respond</p>
+      <hr class="flow-rule" />
+      <h2 class="flow-title">
+        Will<br />You<br />Go?
+      </h2>
+      <hr class="flow-rule" />
+      <p class="flow-lede mt-auto">
+        The harvest is plentiful, the workers are few. Train, give, pray, go — every believer has a role to play in finishing the Great Commission among Muslims.
+      </p>
+    </div>
+  </section>
+
+</div>
 
 <!-- ═══════ TRUSTED BY ═══════ -->
 <section class="trusted-by">
@@ -1552,6 +1756,55 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="/js/animations.js" defer></script>
+
+<!-- Hero infinite grid + mouse reveal driver -->
+<script>
+(function () {
+  'use strict';
+  var prefersReduce = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var hero = document.getElementById('hero');
+  if (!hero) return;
+
+  var bgPattern = document.getElementById('hero-grid-bg-pattern');
+  var revealPattern = document.getElementById('hero-grid-reveal-pattern');
+  var revealLayer = hero.querySelector('.hero-grid-reveal');
+
+  // Mouse-driven reveal mask center (skipped when reduced motion)
+  if (!prefersReduce && revealLayer) {
+    hero.addEventListener('mousemove', function (e) {
+      var rect = hero.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      revealLayer.style.setProperty('--hero-mx', x + 'px');
+      revealLayer.style.setProperty('--hero-my', y + 'px');
+    });
+    hero.addEventListener('mouseleave', function () {
+      revealLayer.style.removeProperty('--hero-mx');
+      revealLayer.style.removeProperty('--hero-my');
+    });
+  }
+
+  // Infinite scrolling grid pattern (paused when reduced motion)
+  if (!prefersReduce && bgPattern && revealPattern) {
+    var offsetX = 0;
+    var offsetY = 0;
+    var speedX = 0.5;
+    var speedY = 0.5;
+    function tick() {
+      offsetX = (offsetX + speedX) % 40;
+      offsetY = (offsetY + speedY) % 40;
+      bgPattern.setAttribute('x', offsetX);
+      bgPattern.setAttribute('y', offsetY);
+      revealPattern.setAttribute('x', offsetX);
+      revealPattern.setAttribute('y', offsetY);
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+})();
+</script>
 
 </body>
 </html>

@@ -430,3 +430,145 @@
     font-size: clamp(3rem, 13vw, 4.5rem);
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Story scroll — pinned + rotating narrative panels (homepage)
+   Markup: [data-story-scroll] root with [data-flow-section] children.
+   Behavior wired in /js/animations.js. Theme: shadcn blue palette.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.i2-story-scroll {
+  width: 100%;
+  overflow-x: hidden;
+  --ss-primary: #3b82f6;
+  --ss-primary-fg: #ffffff;
+  --ss-deep: #1e3a8a;
+  --ss-deep-fg: #ffffff;
+  --ss-dark: #171717;
+  --ss-dark-fg: #e5e5e5;
+  --ss-muted: #f9fafb;
+  --ss-fg: #333333;
+  --ss-light: #ffffff;
+  --ss-rule: rgba(255,255,255,0.6);
+  --ss-rule-dark: rgba(0,0,0,0.6);
+}
+
+.flow-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.flow-inner {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(2rem, 8vw, 4vw) 4vw 4vw;
+  transform-origin: bottom left;
+  will-change: transform;
+}
+
+.flow-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.flow-rule {
+  border: none;
+  border-top: 1px solid currentColor;
+  opacity: 0.6;
+  margin: 2vw 0;
+}
+
+.flow-title {
+  font-family: var(--font-display, 'Instrument Serif', Georgia, serif);
+  font-size: clamp(3.5rem, 12vw, 14rem);
+  line-height: 0.9;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.flow-lede {
+  max-width: 50ch;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.flow-lede.mt-auto { margin-top: auto; }
+.flow-lede.align-right { margin-left: auto; text-align: right; }
+
+.flow-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3vw;
+}
+
+.flow-grid > div {
+  min-width: 180px;
+  flex: 1;
+}
+
+.flow-stat-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+}
+
+.flow-stat-body {
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  line-height: 1.55;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.flow-section.theme-primary { background: var(--ss-primary); color: var(--ss-primary-fg); }
+.flow-section.theme-dark    { background: var(--ss-dark);    color: var(--ss-dark-fg); }
+.flow-section.theme-muted   { background: var(--ss-muted);   color: var(--ss-fg); }
+.flow-section.theme-deep    { background: var(--ss-deep);    color: var(--ss-deep-fg); }
+.flow-section.theme-light   { background: var(--ss-light);   color: var(--ss-fg); }
+
+.flow-section.theme-primary .flow-rule,
+.flow-section.theme-dark    .flow-rule,
+.flow-section.theme-deep    .flow-rule { border-top-color: var(--ss-rule); }
+
+.flow-section.theme-muted .flow-rule,
+.flow-section.theme-light .flow-rule { border-top-color: var(--ss-rule-dark); }
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-inner { transform: none !important; }
+  .flow-section { min-height: auto; }
+  .flow-inner { min-height: auto; padding: 4rem 4vw; }
+}
+
+/* Mobile: GSAP pin/rotation is disabled below 768px (see animations.js).
+   Make the panels flow naturally with a content-sized layout — no full-vh,
+   no flex-space-between gaps, no transform-origin shenanigans. */
+@media (max-width: 767px) {
+  .i2-story-scroll .flow-section { min-height: auto; }
+  .i2-story-scroll .flow-inner {
+    min-height: auto;
+    padding: 3rem 5vw 3.5rem;
+    gap: 1rem;
+    justify-content: flex-start;
+    transform: none !important;
+  }
+  .i2-story-scroll .flow-lede.mt-auto { margin-top: 1rem; }
+  .i2-story-scroll .flow-title { font-size: clamp(2.5rem, 14vw, 5rem); }
+  .i2-story-scroll .flow-grid { gap: 1.5rem; }
+  .i2-story-scroll .flow-grid > div { min-width: 0; flex: 1 1 100%; }
+  .i2-story-scroll .flow-rule { margin: 1.25rem 0; }
+}

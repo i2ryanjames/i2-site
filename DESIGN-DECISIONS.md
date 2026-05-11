@@ -186,3 +186,96 @@ Edit `--color-accent` in every page's inline `:root`. Or swap to Palette B/C per
 2. Add rewrite to `vercel.json`
 3. Link `tokens.css` + `home.css` (for shared sections) in `<head>`
 4. Optionally create `styles/newpage.css` for page-specific styling
+5. **Add the theme link last**: `<link rel="stylesheet" href="/styles/theme-shadcn-blue.css">` before `</head>` — required for blue theme consistency (see v3 notes below)
+
+---
+
+# Design Decisions — v3 (Shadcn Blue + Cinematic Story-Scroll)
+
+Captured 2026-05-11. Cumulative work on top of v2: site-wide blue palette swap, new homepage story-scroll, hero infinite-grid effect, mobile fixes.
+
+## Color palette — shadcn blue (override layer)
+
+The site's warm-earth palette (gold `#8A5A24`, brick `#4A1818`) has been **overridden** with a blue-centric shadcn token set. Implemented as a **non-destructive override stylesheet** rather than rewriting the existing CSS.
+
+**Files:**
+- `styles/theme-shadcn-blue.css` — defines the shadcn token set (`--background`, `--foreground`, `--primary`, `--accent`, `--ring`, `--chart-1..5`, etc., including a `.dark` block) AND remaps the existing `--color-*` and `--urgency-*` variables that the rest of the CSS already references.
+
+**How it works:** the original CSS references `var(--color-accent)`, `var(--color-bg)`, `var(--urgency-800)`, etc. The theme file overrides those values site-wide:
+- `--color-accent`: `#8A5A24` → `#3b82f6` (shadcn primary blue)
+- `--color-accent-deep`: `#8B3A2A` → `#1e3a8a` (shadcn chart-5 deep blue)
+- `--color-bg`: `#FAFAF7` → `#ffffff`
+- `--urgency-800`: `#4A1818` → `#1e3a8a` (so any `.section-urgency` block stays on-theme)
+
+Linked **last** in every page's `<head>` so it wins the cascade. To revert site-wide, delete the file (every reference becomes a harmless 404) or remove the 10 `<link>` lines.
+
+**Pages with the theme link:** index, about, mission, get-trained, the-initiative, mmwu, wise-global, donate, donate-form, contact (all 10).
+
+### Gradient fix
+Multiple cards (death-counter, pullquote, connect-card, endorsement-card) previously used `linear-gradient(135deg, var(--color-accent-deep), #5C1A12)` — the second stop was a hardcoded dark red-brown that produced a purple appearance under the new blue theme. All instances now use `linear-gradient(135deg, var(--color-accent), var(--color-accent-deep))` (the same blue-to-blue pattern as the donate-page CTA gradient). Search for `5C1A12` to confirm zero remaining instances.
+
+### Known caveats
+- **i2 logo** is a PNG with a brown chip baked into the image — won't recolor via CSS. Re-export the logo to make it blue.
+- A handful of page-specific section backgrounds in `home.css`/`pages.css` may still reference `--color-accent-warm` (which is now remapped to a richer blue `#2563eb` — harmless).
+
+---
+
+## Homepage story-scroll (cinematic narrative panels)
+
+**File locations:**
+- Markup: `index.html`, immediately after `<section class="hero">` and before `<section class="trusted-by">`. Wrapped in `<div class="i2-story-scroll" data-story-scroll>` with 5 `<section data-flow-section>` children.
+- Styles: `styles/home.css` (appended block — search "Story scroll"). Includes a mobile media query at `(max-width: 767px)`.
+- Behavior: `js/animations.js` — `animateStoryScroll()` function, hooked into `boot()`.
+
+### Behavior (desktop ≥ 768px)
+Each panel pins via GSAP ScrollTrigger (`pin: true, pinSpacing: false`). The next panel rotates from 30° → 0° as it enters the viewport, scrubbed to scroll position with `transform-origin: bottom left`. Total: 5 panels = 4 rotations + 4 pins = 8 ScrollTriggers.
+
+The panel themes (`theme-primary`, `theme-dark`, `theme-muted`, `theme-deep`, `theme-dark`) read from local `--ss-*` CSS variables defined on the `.i2-story-scroll` root, so the block's palette is self-contained.
+
+### Mobile (< 768px)
+Pin/rotation is **disabled entirely** — iOS Safari's dynamic URL bar collapse breaks `min-height: 100vh` pinned elements mid-scroll. JS bails out with `if (window.innerWidth < 768) return;`. CSS strips `min-height: 100vh` and `transform`, and rewrites `.flow-inner` to `justify-content: flex-start` so panels are content-sized instead of full-vh with huge empty middles.
+
+### Content
+The 5 panels are: 01 The Need / Two Billion Souls (blue) → 02 The Mission / Every Muslim For Christ (dark) → 03 Get Trained / Equipped To Engage (light) → 04 The Vision / A Global Mission Force (deep blue) → 05 Respond / Will You Go? (dark). Copy lives in `index.html` markup; edit there.
+
+### Why not React/Tailwind
+The component was originally provided as React + Tailwind + Framer Motion. Ported to vanilla HTML/CSS/JS to satisfy the project's hard constraint of no framework + no build step. GSAP was already loaded via CDN on every page, so the pin/rotation cost zero new dependencies.
+
+---
+
+## Homepage hero — infinite grid + mouse reveal + glow blobs
+
+Added behind the existing two-column hero (text + YouTube video card). Original hero content is untouched and sits on top (`z-index: 1`).
+
+**Layers (inside `<section class="hero">`, before `.container`):**
+- `.hero-grid-bg` — SVG `<pattern>` with a 40×40 grid at ~8% opacity. Scrolls infinitely via `requestAnimationFrame` (driver script at the bottom of `index.html`).
+- `.hero-grid-reveal` — same grid at ~55% opacity, masked with `radial-gradient(300px circle at var(--hero-mx) var(--hero-my), black, transparent)`. JS updates `--hero-mx`/`--hero-my` on mousemove so the bright grid follows the cursor.
+- `.hero-glows` — 3 blurred color blobs: orange top-right, primary-blue top-right inner, blue bottom-left. Decorative, `pointer-events: none`.
+
+Original `.hero::before` and `.hero::after` (warm radial gradient + orbiting border) are disabled in the inline `<style>` (`display: none`) so they don't fight the new layers.
+
+Respects `prefers-reduced-motion` — animation frame and reveal layer both skip.
+
+### To tune
+- Grid intensity: change `.hero-grid-bg { opacity: 0.08 }` and `.hero-grid-reveal { opacity: 0.55 }`
+- Reveal radius: change `300px` in the mask radial-gradient
+- Glow color/intensity: edit `.hero-glow.glow-{orange,primary,blue}` blocks
+
+---
+
+## Mobile fixes summary
+
+| Concern | Fix |
+|---|---|
+| Story-scroll pin breaks on iOS Safari dynamic viewport | JS bails below 768px; CSS reflows panels to content-sized |
+| Story-scroll panels had huge empty middles on phone | `.flow-inner` mobile rule: `justify-content: flex-start`, `mt-auto` reset, smaller padding |
+| Hero grid mouse-reveal on touch devices | Stays interactive (touch fires mousemove on most browsers); reduced-motion users get a static hero |
+
+---
+
+## Open follow-ups
+
+- [ ] Re-export the i2 logo PNG with a blue chip background (currently brown — only image asset that doesn't pick up the theme)
+- [ ] Consider whether the `theme-shadcn-blue.css` colors should become the primary palette (collapse the override into `tokens.css`) once the new look is committed long-term
+- [ ] The shadcn `.dark` class is wired in `theme-shadcn-blue.css` but there's no toggle UI yet — add a dark-mode switch in the nav if desired
+- [ ] Story-scroll content is currently in `index.html` markup; consider pulling it into a JSON file if the marketing team wants to edit it without touching HTML

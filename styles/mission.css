@@ -41,11 +41,11 @@
   display: inline-flex;
   align-items: center;
   gap: clamp(1rem, 0.5rem + 1.5vw, 2rem);
-  background: var(--urgency-800, #4A1818);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-deep));
   color: #FAF7F2;
   padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem) clamp(2rem, 1.5rem + 2vw, 3.5rem);
   border-radius: 16px;
-  box-shadow: 0 20px 48px rgba(74, 24, 24, 0.25);
+  box-shadow: 0 20px 48px rgba(30, 58, 138, 0.28);
   text-align: left;
 }
 .death-counter .counter-icon img {
@@ -368,3 +368,4 @@
     font-size: clamp(1.5rem, 7vw, 2.25rem);
   }
 }
+
