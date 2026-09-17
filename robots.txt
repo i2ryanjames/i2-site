@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://i2ministries.org/sitemap.xml
