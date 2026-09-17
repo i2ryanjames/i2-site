@@ -165,3 +165,11 @@
 }
 .donate-card:hover .card-cta--primary { background: var(--color-accent-warm); }
 .donate-card:hover .card-cta--secondary { background: var(--color-surface); }
+
+/* -----------------------------------------------------------------------
+   (i) Intrinsic-size attributes need height:auto, or a max-width'd image
+   renders at the literal height attribute (the logo strip was 2x tall).
+   ----------------------------------------------------------------------- */
+.trusted-by img {
+  height: auto;
+}
