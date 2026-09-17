@@ -355,14 +355,17 @@
 @media (max-width: 520px) {
   .comp-stats-grid,
   .comp-stats-grid.comp-grid-5 {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .comp-stat-card {
+    min-width: 0;
   }
   .comp-stat-num {
-    font-size: clamp(2.5rem, 12vw, 3.5rem) !important;
+    font-size: clamp(1.6rem, 8vw, 2.4rem) !important;
   }
   .comp-stats-grid > .comp-stat-card:first-child .comp-stat-num {
-    font-size: clamp(3rem, 14vw, 4rem) !important;
+    font-size: clamp(1.8rem, 9vw, 2.6rem) !important;
   }
   .hero-intro-heading {
     font-size: clamp(1.5rem, 7vw, 2.25rem);

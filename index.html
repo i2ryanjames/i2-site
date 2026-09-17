@@ -1114,6 +1114,7 @@
   <link rel="stylesheet" href="/styles/home.css">
   <link rel="stylesheet" href="/styles/theme-shadcn-blue.css">
   <link rel="stylesheet" href="/styles/polish.css">
+  <link rel="stylesheet" href="/styles/hero.css">
 </head>
 <body>
 <a href="#main" class="skip-to-main">Skip to main content</a>
@@ -1169,58 +1170,7 @@
 
 
 <!-- ═══════ HERO ═══════ -->
-<section class="hero" id="hero">
-  <!-- Animated grid + glow blobs (purely decorative, behind content) -->
-  <div class="hero-fx" aria-hidden="true">
-    <svg class="hero-grid-bg" preserveAspectRatio="none">
-      <defs>
-        <pattern id="hero-grid-bg-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#hero-grid-bg-pattern)" />
-    </svg>
-    <svg class="hero-grid-reveal" preserveAspectRatio="none">
-      <defs>
-        <pattern id="hero-grid-reveal-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#hero-grid-reveal-pattern)" />
-    </svg>
-    <div class="hero-glows">
-      <div class="hero-glow glow-orange"></div>
-      <div class="hero-glow glow-primary"></div>
-      <div class="hero-glow glow-blue"></div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-text">
-        <span class="label">Training Leaders Globally</span>
-        <h1>Finishing the <em>Great Commission</em> Among Muslims</h1>
-        <p>Uniting churches to reach every Muslim for Christ in their neighborhood, region, and nation — through world-class training, coaching, and activation.</p>
-        <div class="hero-actions">
-          <a href="/the-initiative" class="btn btn-primary">
-            Launch the Initiative
-            <span class="btn-arrow">→</span>
-          </a>
-          <a href="/get-trained" class="btn btn-outline">
-            Get Trained
-          </a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-video-card" id="heroVideoCard" onclick="playHeroVideo()">
-          <img src="https://img.youtube.com/vi/K3nqkssStVE/maxresdefault.jpg" alt="Introduction to i2 Ministries" />
-          <div class="play-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="8,5 20,12 8,19" /></svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="hero hero-v2" id="hero"><div class="hero-v2__inner"><div class="hero-v2__content"><p class="hero-v2__eyebrow">Training Leaders Globally</p><h1 class="hero-v2__title">Finishing the <em>Great Commission</em> Among <em>Muslims</em></h1><p class="hero-v2__lede">Uniting churches to reach every Muslim for Christ in their neighborhood, region, and nation — through world-class training, coaching, and activation.</p><div class="hero-v2__actions"><a class="hero-v2__btn hero-v2__btn-primary" href="/donate">Partner With Us</a><a class="hero-v2__btn hero-v2__btn-secondary" href="/get-trained">Get Trained</a></div><ul class="hero-v2__stats"><li class="hero-v2__stat"><span class="hero-v2__num">2B+</span><span class="hero-v2__cap">Muslims globally</span></li><li class="hero-v2__stat"><span class="hero-v2__num">38,000</span><span class="hero-v2__cap">die every day without the gospel</span></li><li class="hero-v2__stat"><span class="hero-v2__num">1:450K</span><span class="hero-v2__cap">Only 1 missionary per 450,000 Muslims</span></li></ul></div><div class="hero-v2__media"><div class="hero-video-card" id="heroVideoCard" onclick="playHeroVideo()"><img src="https://img.youtube.com/vi/K3nqkssStVE/maxresdefault.jpg" alt="Introduction to i2 Ministries" width="1280" height="720"><div class="play-btn"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z" fill="currentColor"></path></svg></div></div><p class="hero-v2__caption">Watch: an introduction to i2 Ministries.</p></div></div></section>
 <!-- ═══════ TRUSTED BY ═══════ -->
 <section class="trusted-by">
   <div class="container">

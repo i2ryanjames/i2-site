@@ -292,3 +292,7 @@ Respects `prefers-reduced-motion` — animation frame and reveal layer both skip
 - `/donate-form` section was redrafted with Muse Spark 1.3 (`ask-muse`), rethemed to blue and placed by hand.
 - Removed 2026-09-17 at Ryan's request: homepage story-scroll panels (01–05), donate-form amount chips and fund list.
 - Images resized in place: logo 1884→600px, `endorser-nyamedor.jpg` 4000→300px, `Muslim-icon-vector.png` 1081→400px.
+- Homepage hero v2 (`styles/hero.css`, index only): dark slate, Partner With Us dominant, proof strip; Muse Spark draft placed by hand.
+  The homepage nav now always has a solid background (the wordmark vanished over the dark hero).
+- Mission "comprehensive picture": 14 stat blocks grouped into 4 chapters with a sticky, scroll-spied sub-nav; mobile grid is
+  2-up (page height 20.7k → 17.4k px at 390). `styles/mission.css` wins the cascade over the inline block — edit it there.

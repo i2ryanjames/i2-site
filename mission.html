@@ -521,6 +521,83 @@
     justify-content: center;
     flex-wrap: wrap;
   }
+  .comp-subnav {
+    position: sticky;
+    top: 88px;
+    z-index: 5;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 10px 0;
+    margin: 0 0 40px;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--border, #e5e7eb);
+  }
+  .comp-subnav::-webkit-scrollbar { display: none; }
+  .comp-subnav-link {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border, #e5e7eb);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .comp-subnav-link span {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-accent);
+  }
+  .comp-subnav-link:hover,
+  .comp-subnav-link.is-active {
+    color: var(--color-text);
+    border-color: var(--color-accent);
+    background: var(--color-surface);
+  }
+  .comp-subnav-link:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  .comp-chapter {
+    scroll-margin-top: 182px;
+  }
+  .comp-chapter + .comp-chapter {
+    margin-top: 96px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border, #e5e7eb);
+  }
+  .comp-chapter-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .comp-chapter-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-accent);
+    line-height: 1;
+  }
+  .comp-chapter-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    line-height: 1.15;
+    margin: 0;
+  }
   .reveal-delay-4 { transition-delay: 0.4s; }
 
   /* ─── RESPONSIVE ──────────────────────────── */
@@ -699,11 +776,15 @@
     }
     .urgency-grid { grid-template-columns: 1fr 1fr; }
     .stats-grid { grid-template-columns: 1fr; }
-    .comp-stats-grid { grid-template-columns: 1fr; }
-    .comp-stats-grid.comp-grid-5 { grid-template-columns: 1fr; }
+    .comp-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .comp-stats-grid.comp-grid-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .comp-stat-num { font-size: clamp(1.6rem, 8vw, 2.4rem); }
+    .comp-stat-card { min-width: 0; }
     .comp-theme-block.comp-theme-alt { margin-left: -32px; margin-right: -32px; padding-left: 32px; padding-right: 32px; }
     .comp-cta-row { flex-direction: column; }
     .comp-cta-row .btn { width: 100%; justify-content: center; }
+    .comp-subnav { justify-content: flex-start; padding-inline: 16px; margin-inline: -16px; }
+    .comp-chapter + .comp-chapter { margin-top: 64px; padding-top: 32px; }
     .death-counter { padding: 32px 24px; flex-direction: column; text-align: center; gap: 20px; max-width: 100%; }
     .death-counter .counter-icon { width: 120px; align-self: center; }
     .death-counter .count-label { margin: 0 auto; }
@@ -948,6 +1029,19 @@
       <p style="font-size:1.1rem;color:var(--color-text-muted);max-width:680px;margin:20px auto 0;line-height:1.75;">The most important statistics every Christian should know about the Muslim world — sourced from Pew Research, Joshua Project, Gordon-Conwell, and leading missions databases.</p>
     </div>
 
+    <nav class="comp-subnav" aria-label="Sections of the comprehensive picture">
+      <a href="#ch-muslim-world" class="comp-subnav-link is-active"><span>01</span> The Muslim World</a>
+      <a href="#ch-church-response" class="comp-subnav-link"><span>02</span> The Church's Response</a>
+      <a href="#ch-shifting-map" class="comp-subnav-link"><span>03</span> The Shifting Map</a>
+      <a href="#ch-god-on-the-move" class="comp-subnav-link"><span>04</span> God on the Move</a>
+    </nav>
+
+    <div class="comp-chapter" id="ch-muslim-world">
+      <header class="comp-chapter-head reveal">
+        <span class="comp-chapter-num">01</span>
+        <h3 class="comp-chapter-title">The Muslim World</h3>
+      </header>
+
     <!-- Theme 1: The Scale -->
     <div class="comp-theme-block reveal">
       <div class="comp-theme-label">The Scale</div>
@@ -1056,6 +1150,14 @@
       </div>
     </div>
 
+    </div><!-- /.comp-chapter#ch-muslim-world -->
+
+    <div class="comp-chapter" id="ch-church-response">
+      <header class="comp-chapter-head reveal">
+        <span class="comp-chapter-num">02</span>
+        <h3 class="comp-chapter-title">The Church's Response</h3>
+      </header>
+
     <!-- Theme 5: The Missionary Gap -->
     <div class="comp-theme-block reveal">
       <div class="comp-theme-label">The Missionary Gap</div>
@@ -1155,6 +1257,14 @@
       </div>
     </div>
 
+    </div><!-- /.comp-chapter#ch-church-response -->
+
+    <div class="comp-chapter" id="ch-shifting-map">
+      <header class="comp-chapter-head reveal">
+        <span class="comp-chapter-num">03</span>
+        <h3 class="comp-chapter-title">The Shifting Map</h3>
+      </header>
+
     <!-- Theme 9: Africa: The Frontline -->
     <div class="comp-theme-block reveal">
       <div class="comp-theme-label">Africa: The Frontline</div>
@@ -1226,6 +1336,14 @@
         </div>
       </div>
     </div>
+
+    </div><!-- /.comp-chapter#ch-shifting-map -->
+
+    <div class="comp-chapter" id="ch-god-on-the-move">
+      <header class="comp-chapter-head reveal">
+        <span class="comp-chapter-num">04</span>
+        <h3 class="comp-chapter-title">God on the Move</h3>
+      </header>
 
     <!-- Theme 12: Muslims Coming to Christ -->
     <div class="comp-theme-block comp-theme-alt reveal">
@@ -1299,6 +1417,8 @@
         </div>
       </div>
     </div>
+
+    </div><!-- /.comp-chapter#ch-god-on-the-move -->
 
     <!-- Closing Pullquote -->
     <div class="pullquote reveal" style="margin-top:64px;">
@@ -1499,6 +1619,34 @@
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape' && document.getElementById('ebookOverlay').classList.contains('active')) closeEbookModal();
   });
+})();
+</script>
+
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var chapters = document.querySelectorAll('.comp-chapter');
+  if(!chapters.length) return;
+  var links = document.querySelectorAll('.comp-subnav-link');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setActive(id){
+    links.forEach(function(link){
+      var isActive = link.getAttribute('href') === '#' + id;
+      link.classList.toggle('is-active', isActive);
+      if(isActive){
+        link.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
+    });
+  }
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  chapters.forEach(function(chapter){ observer.observe(chapter); });
 })();
 </script>
 

@@ -1,0 +1,44 @@
+/* =============================================================================
+   hero.css — homepage hero v2 (2026-09-17). Drafted with Muse Spark 1.3,
+   rethemed to brand blue and placed by hand. Scoped under .hero-v2.
+   Linked after polish.css on index.html only.
+   ========================================================================== */
+.hero-v2{background:var(--urgency-900);color:var(--on-dark-fg);font-family:var(--font-body);padding:calc(70px + var(--section-pad,3rem)) var(--container-pad,1.25rem) var(--section-pad,3rem);}
+.hero-v2 .hero-v2__inner{max-width:1280px;margin:0 auto;display:grid;gap:2.5rem;align-items:start;}
+.hero-v2 .hero-v2__content{max-width:44rem;min-width:0;}
+.hero-v2 .hero-v2__eyebrow{display:flex;align-items:center;gap:.75rem;margin:0 0 1.25rem;font-size:.875rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-fg-muted);}
+.hero-v2 .hero-v2__eyebrow::before{content:"";width:2rem;height:3px;background:var(--color-accent);flex:none;}
+.hero-v2 .hero-v2__title{font-family:var(--font-display);font-weight:400;line-height:.98;letter-spacing:-.02em;color:var(--on-dark-fg);font-size:clamp(2.6rem,1.55rem + 5.2vw,5.5rem);margin:0 0 1.25rem;max-width:12ch;text-wrap:balance;}
+.hero-v2 .hero-v2__title em{font-style:italic;font-weight:400;}
+.hero-v2 .hero-v2__lede{font-size:clamp(1.0625rem,1rem + .4vw,1.25rem);line-height:1.6;color:var(--on-dark-fg-muted);margin:0 0 2rem;max-width:38rem;}
+.hero-v2 .hero-v2__actions{display:flex;flex-wrap:wrap;gap:.875rem;align-items:center;margin:0 0 2.25rem;}
+.hero-v2 .hero-v2__btn{display:inline-flex;align-items:center;justify-content:center;min-height:3.25rem;padding:.9rem 1.75rem;border-radius:10px;font-size:1.125rem;font-weight:700;line-height:1.2;text-decoration:none;transition:background-color 200ms ease-out,border-color 200ms ease-out,color 200ms ease-out,transform 200ms ease-out;}
+.hero-v2 .hero-v2__btn-primary{background:var(--color-accent-warm);border:1px solid var(--color-accent-warm);color:#fff;}
+.hero-v2 .hero-v2__btn-primary:hover{background:var(--color-accent-deep);border-color:var(--color-accent-deep);}
+.hero-v2 .hero-v2__btn-secondary{background:transparent;border:1px solid rgba(250,247,242,.4);color:var(--on-dark-fg);}
+.hero-v2 .hero-v2__btn-secondary:hover{border-color:var(--on-dark-fg);background:rgba(250,247,242,.08);}
+.hero-v2 a:focus-visible{outline:3px solid var(--color-accent);outline-offset:3px;border-radius:6px;}
+.hero-v2 .hero-v2__media{min-width:0;max-width:100%;}
+.hero-v2 .hero-video-card{position:relative;display:block;border-radius:12px;overflow:hidden;background:#000;border:1px solid rgba(250,247,242,.2);box-shadow:0 24px 60px rgba(0,0,0,.45);cursor:pointer;max-width:100%;}
+.hero-v2 .hero-video-card img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;max-width:100%;}
+.hero-v2 .play-btn{position:absolute;inset:0;margin:auto;width:4.5rem;height:4.5rem;border-radius:50%;background:var(--on-dark-fg);color:var(--urgency-900);display:flex;align-items:center;justify-content:center;transition:transform 200ms ease-out,background-color 200ms ease-out;}
+.hero-v2 .hero-video-card:hover .play-btn{transform:translateY(-4px);background:#fff;}
+.hero-v2 .hero-v2__caption{margin:.875rem 0 0;font-size:.875rem;line-height:1.5;color:var(--on-dark-fg-muted);}
+.hero-v2 .hero-v2__stats{list-style:none;margin:0;padding:1.5rem 0 0;border-top:1px solid rgba(250,247,242,.18);display:grid;gap:1.25rem;grid-template-columns:1fr;}
+.hero-v2 .hero-v2__stat{display:grid;gap:.25rem;min-width:0;}
+.hero-v2 .hero-v2__num{font-family:var(--font-display);font-size:clamp(2rem,1.6rem + 1.5vw,2.75rem);line-height:1;color:var(--on-dark-fg);}
+.hero-v2 .hero-v2__cap{font-size:.875rem;line-height:1.5;color:var(--on-dark-fg-muted);max-width:22rem;}
+@media(min-width:640px){.hero-v2 .hero-v2__stats{grid-template-columns:repeat(3,1fr);gap:2rem;}}
+@media(min-width:960px){.hero-v2{display:flex;flex-direction:column;justify-content:center;min-height:88vh;}.hero-v2 .hero-v2__inner{grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center;width:100%;}.hero-v2 .hero-v2__stats{margin-top:.5rem;}}
+
+/* Neutralise the v1 .hero decoration that still lives in index.html's inline CSS */
+.hero.hero-v2 { min-height: 0; display: block; overflow: visible; }
+.hero.hero-v2::before, .hero.hero-v2::after { content: none; animation: none; }
+.hero-v2 .hero-video-card { aspect-ratio: auto; transition: none; }
+.hero-v2 .hero-video-card:hover { transform: none; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+.hero-v2 .hero-video-card img { opacity: 1; }
+@media (min-width: 960px) { .hero.hero-v2 { display: flex; } }
+
+/* The v1 nav was transparent over a light hero; over the dark hero the logo's
+   wordmark disappears, so the homepage nav is always on its solid ground. */
+.nav#mainNav { background: var(--color-bg); border-bottom: 1px solid var(--border, #e5e7eb); }
