@@ -1,0 +1,167 @@
+/* =============================================================================
+   polish.css — design-audit fixes (deterministic pass)
+   Linked LAST on every page (after theme-shadcn-blue.css) so equal-specificity
+   rules here win by source order alone — !important is avoided except where
+   noted. Grouped by defect category; see the audit brief for full rationale.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------
+   (a) 14px text floor — nothing rendered below 14px
+   ----------------------------------------------------------------------- */
+.label,
+.footer-bottom,
+.accordion-body .scripture,
+.comp-theme-label,
+.stat-bar-item .stat-desc,
+.stat-item p,
+.stat-bar-inner .desc,
+.pillar-featured-badge,
+.pillar-link,
+.pathway-link,
+.donate-card .card-cta,
+.funding-card-cta,
+.funding-card-label,
+.funding-card-remaining,
+.roadmap-status,
+.or-divider,
+.info-item .info-label,
+.form-group label,
+.endorsement-author span,
+.footer-col h3,
+.footer-mini,
+.donate-security p {
+  font-size: 0.875rem;
+}
+
+.btn-arrow {
+  font-size: inherit;
+}
+
+/* -----------------------------------------------------------------------
+   (b) Tap targets (mobile) — minimum 44x44 touch area
+   ----------------------------------------------------------------------- */
+.footer-socials a,
+.mobile-toggle {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.funding-card-cta,
+.pillar-link,
+.pathway-link,
+.donate-card .card-cta,
+.back-link a,
+.info-item a.info-value,
+.contact-item a.contact-value {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* -----------------------------------------------------------------------
+   (c) Mission page mobile overflow — urgency-grid at narrow widths
+   ----------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .urgency-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .urgency-num {
+    font-size: clamp(1.75rem, 9vw, 2.5rem);
+  }
+  .urgency-card {
+    min-width: 0;
+    padding-inline: 12px;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   (d) Homepage Get Trained stats — even 2x2 wrap on mobile
+   ----------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .training-stats-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   (e) Funding progress bar fill — visible contrast on donate.html
+   ----------------------------------------------------------------------- */
+.funding-card-bar {
+  background: var(--color-surface);
+  border: 1px solid var(--border, #e5e7eb);
+}
+
+.funding-card-bar-fill {
+  background: var(--color-accent);
+  /* keep the inline label decorative-only; the % is already printed beside the bar */
+  font-size: 0;
+  color: transparent;
+  overflow: hidden;
+}
+
+/* -----------------------------------------------------------------------
+   (f) 14px floor — compound/higher-specificity inline rules that beat the
+   bare selectors in (a). Selector text matches each page's own rule
+   exactly (same specificity) so source order (polish.css loads last) wins.
+   ----------------------------------------------------------------------- */
+.training-stat-item p,          /* index.html — "Hours Free Training" etc. */
+.pillar-card .pillar-link,      /* index.html — home.css beats bare .pillar-link; also fixes the nested .btn-arrow via inherit */
+.bio-content .label,            /* about.html — "President & Founder" */
+.bio-credentials h3,            /* about.html — "Education" */
+.endorsement-meta span,         /* about.html — endorser affiliation line */
+.why-section .label,            /* get-trained.html — "The Need" */
+.testimonial-meta span,         /* mmwu.html — testimonial country tag */
+.impact-stat-card p,            /* mmwu.html — "Muslims Globally" stat caption */
+.roadmap-summary-item p,        /* wise-global.html — "Total Build Cost" */
+.contact-item .contact-label,   /* donate.html — "Mailing Address" */
+.trust-item p {                 /* donate-form.html — trust-strip captions */
+  font-size: 0.875rem;
+}
+
+/* -----------------------------------------------------------------------
+   (g) Tap targets — additional finds from the 390px re-audit
+   ----------------------------------------------------------------------- */
+.trust-item p a,
+.form-page__trust-item p a {
+  /* donate-form.html mailto link inside the trust strip */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.lausanne-intro a {
+  /* about.html — inline "Lausanne Covenant" link; padding-block only, so the
+     paragraph's line layout doesn't shift, just the link's hit area */
+  padding-block: 4px;
+}
+
+.ebook-cta .btn {
+  /* contact.html — components.css (which normally styles .btn) isn't linked
+     on this page, so "Get the Free Ebook" was rendering as bare inline text */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* -----------------------------------------------------------------------
+   (h) donate.html giving cards — CTA as buttons, card/check dominant.
+   Lives here (not inline) because styles/donate.css re-declares
+   .donate-card .card-cta color after the inline block.
+   ----------------------------------------------------------------------- */
+.donate-card .card-cta--primary {
+  background: var(--color-accent); color: #fff;
+  padding: 14px 22px; border-radius: 6px;
+  text-transform: none; letter-spacing: 0; font-size: 1rem;
+  min-height: 48px; width: 100%; justify-content: center;
+}
+.donate-card .card-cta--secondary {
+  border: 1.5px solid var(--color-text); color: var(--color-text);
+  padding: 14px 22px; border-radius: 6px;
+  text-transform: none; letter-spacing: 0; font-size: 1rem;
+  min-height: 48px; width: 100%; justify-content: center;
+}
+.donate-card:hover .card-cta--primary { background: var(--color-accent-warm); }
+.donate-card:hover .card-cta--secondary { background: var(--color-surface); }

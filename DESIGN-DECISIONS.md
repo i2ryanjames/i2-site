@@ -279,3 +279,16 @@ Respects `prefers-reduced-motion` — animation frame and reveal layer both skip
 - [ ] Consider whether the `theme-shadcn-blue.css` colors should become the primary palette (collapse the override into `tokens.css`) once the new look is committed long-term
 - [ ] The shadcn `.dark` class is wired in `theme-shadcn-blue.css` but there's no toggle UI yet — add a dark-mode switch in the nav if desired
 - [ ] Story-scroll content is currently in `index.html` markup; consider pulling it into a JSON file if the marketing team wants to edit it without touching HTML
+
+---
+
+## 2026-09-17 polish pass (design audit)
+
+- **Palette is blue.** `styles/theme-shadcn-blue.css` (2026-05-11) supersedes the "Field Warmth" gold section above for
+  color; confirmed with Ryan 2026-09-17. The gold notes are kept as history. Design context lives in `.impeccable.md`.
+- `styles/polish.css` is linked LAST on every page: 14px text floor, 44px tap targets, mission-page mobile overflow fix,
+  donate funding-bar contrast, donate giving-card buttons. Add audit-driven overrides there rather than in ten inline blocks.
+- Donor-first CTA hierarchy: homepage closing CTA leads with Partner With Us; donate cards are real buttons (card/check dominant).
+- `/donate-form` section was redrafted with Muse Spark 1.3 (`ask-muse`), rethemed to blue and placed by hand.
+- Removed 2026-09-17 at Ryan's request: homepage story-scroll panels (01–05), donate-form amount chips and fund list.
+- Images resized in place: logo 1884→600px, `endorser-nyamedor.jpg` 4000→300px, `Muslim-icon-vector.png` 1081→400px.
