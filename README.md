@@ -36,7 +36,7 @@ The endpoint validates form content, checks Turnstile on the server, limits repe
 - `vercel.json` enforces a Content Security Policy, framing protection, MIME sniffing protection, and a referrer policy.
 - Fonts, GSAP, and video thumbnails are served locally. YouTube and Vimeo players load only after the visitor allows videos or chooses **Play once**.
 - The footer on every page provides **Cookie policy**, **Privacy notice**, and **Cookie settings**. Consent is stored as `i2-consent-v1` in first-party local storage. Ebook dismissal uses session storage and is documented in the cookie policy.
-- Review the contact details and legal wording in `public/cookie-policy.html` and `public/privacy.html` for organizational accuracy before a production release.
+- The organization should review the contact details and legal wording in `public/cookie-policy.html` and `public/privacy.html` and update them if needed.
 
 ## Deploy and domain
 

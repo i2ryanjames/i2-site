@@ -1,6 +1,6 @@
 # i2 Site Security and Cookie Consent Plan
 
-**Status:** Code implemented on `security-cookie-hardening` and verified in a protected Vercel preview. Production release awaits contact service credentials and organization review of policy wording. Domain DNS has not changed.
+**Status:** Security and consent code is implemented and production deployment is authorized. Until contact service credentials are configured, the contact page shows a direct email link. The live form and custom-domain DNS cutover remain open tasks.
 
 **Target:** The static Vercel project served at `https://i2-site.vercel.app`. The current `i2ministries.org` WordPress site is a separate installation and is outside this plan until the domain moves to Vercel.
 

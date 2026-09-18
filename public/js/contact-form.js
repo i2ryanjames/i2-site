@@ -9,6 +9,24 @@
   var token = '';
   var widgetId = null;
   var setupPromise = null;
+  var fallback = document.getElementById('contactFallback');
+
+  function showFallback() {
+    container.style.display = 'none';
+    fallback.style.display = 'block';
+    document.getElementById('formIntro').textContent = 'Please email our team directly and we will get back to you as soon as possible.';
+  }
+
+  var configPromise = fetch('/api/contact', { cache: 'no-store' })
+    .then(function (response) {
+      if (!response.ok) throw new Error('Contact form is unavailable');
+      return response.json();
+    })
+    .then(function (config) {
+      if (!config.siteKey) throw new Error('Contact form is unavailable');
+      return config;
+    });
+  configPromise.catch(showFallback);
 
   function setStatus(message) { status.textContent = message; }
 
@@ -27,11 +45,7 @@
   function setupVerification() {
     if (setupPromise) return setupPromise;
     setStatus('Loading verification…');
-    setupPromise = fetch('/api/contact', { cache: 'no-store' })
-      .then(function (response) {
-        if (!response.ok) throw new Error('Contact form is unavailable');
-        return response.json();
-      })
+    setupPromise = configPromise
       .then(function (config) {
         if (!config.siteKey) throw new Error('Contact form is unavailable');
         return loadTurnstileScript().then(function () {
@@ -47,7 +61,7 @@
       })
       .catch(function (error) {
         setupPromise = null;
-        setStatus('Contact form is unavailable. Please email info@i2ministries.org.');
+        showFallback();
         throw error;
       });
     return setupPromise;
