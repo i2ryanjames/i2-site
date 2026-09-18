@@ -1,191 +1,47 @@
-# i2 Ministries — Complete Website
+# i2 Ministries website
 
-A fully redesigned static website for i2 Ministries, ready to deploy on Vercel.
+Static HTML, CSS, and JavaScript deployed on Vercel. Public files live in `public/`; the contact form runs in `api/contact.mjs`. Vercel must use the **Other** framework with `public` as its output directory (set in `vercel.json`). Internal notes, audits, and utility scripts stay outside `public/`.
 
-## What's Included
-
-```
-i2-site/
-├── index.html          → Homepage (/)
-├── about.html          → About / Dr. Joshua Lingel (/about, /joshua-lingel)
-├── mission.html        → The Mission (/the-mission)
-├── get-trained.html    → Get Trained (/get-trained)
-├── donate.html         → Donate (/donate)
-├── donate-form.html    → Donate Form (/donate-form) → links to GivingFuel
-├── contact.html        → Contact Us (/contact) → emails to info@i2ministries.org
-├── images/             → All images (empty until you run download-images.sh)
-├── vercel.json         → URL routing, caching headers
-├── download-images.sh  → Pulls all images from current WordPress site
-├── .gitignore
-└── README.md
-```
-
-## External Services (unchanged, separate domains)
-- resources.i2ministries.org → Shopify store
-- i2ministries-emfci.com → Every Muslim for Christ Initiative site
-- mmwu.org → Mission Muslim World University
-- thewadi.org → WADI video training platform
-- i2ministries.givingfuel.com → GivingFuel donation processing
-- PayPal donation button (existing hosted button)
-- FormSubmit.co → Contact form email delivery
-
----
-
-## DEPLOYMENT INSTRUCTIONS
-
-### Prerequisites
-- A GitHub account (free: github.com)
-- A Vercel account (free: vercel.com — sign in with GitHub)
-- Git installed on your computer
-- Terminal / command line access (Terminal on Mac, PowerShell on Windows)
-
----
-
-### STEP 1: Download & Extract This Project
-
-Extract the `i2-site.tar.gz` file you downloaded from Claude:
-
-**Mac/Linux:**
-```bash
-tar -xzf i2-site.tar.gz
-cd i2-site
-```
-
-**Windows (PowerShell):**
-```powershell
-tar -xzf i2-site.tar.gz
-cd i2-site
-```
-
----
-
-### STEP 2: Download Images from WordPress
-
-This script pulls all 29 images from the current WordPress CDN into the local `images/` folder:
+## Local checks
 
 ```bash
-bash download-images.sh
+node --test tests/*.test.mjs
+python3 -m http.server 8000 --directory public
 ```
 
-You should see a checkmark for each file. When done it will say how many files were downloaded. Verify the `images/` folder has files in it:
+Open `http://localhost:8000`. The static server does not provide the clean URL rewrites or `/api/contact`; use a Vercel preview to test those.
 
-```bash
-ls images/
-```
+## Contact form setup
 
-You should see files like `hero-video-thumb.jpg`, `joshua-lingel.jpg`, `gallery-01.jpg`, etc.
+The contact form fails closed until all required server-side variables are set in the Vercel project for the relevant environment:
 
----
+| Variable | Value |
+| --- | --- |
+| `TURNSTILE_SITE_KEY` | Cloudflare Turnstile public site key |
+| `TURNSTILE_SECRET_KEY` | Matching server secret |
+| `RESEND_API_KEY` | Resend API key with sending permission |
+| `CONTACT_FROM_EMAIL` | Sender at a verified Resend domain, e.g. `Website <website@send.i2ministries.org>` |
+| `UPSTASH_REDIS_REST_URL` | Upstash Redis REST URL |
+| `UPSTASH_REDIS_REST_TOKEN` | Upstash Redis REST token |
+| `RATE_LIMIT_SALT` | Random secret, at least 32 bytes; generate with `openssl rand -hex 32` |
 
-### STEP 3: Create a GitHub Repository
+Optional: `CONTACT_TO_EMAIL` defaults to `info@i2ministries.org`. `TURNSTILE_ALLOWED_HOSTS` is a comma-separated list of additional preview hostnames. Add the production Vercel hostname and eventual custom domain to the Turnstile widget's allowed domains. Never use Cloudflare's test keys in production.
 
-```bash
-git init
-git add .
-git commit -m "i2 Ministries website redesign"
-```
+Verify the Resend sender using a dedicated sending subdomain and add only the DNS records that Resend specifies for that subdomain. Preserve existing Google Workspace, Mailchimp, and other mail records on `i2ministries.org`. Do not commit keys or create `NEXT_PUBLIC_` versions of the server secrets.
 
-Then go to github.com, click "New Repository", name it `i2-site` (or whatever you want), and follow the instructions to push:
+The endpoint validates form content, checks Turnstile on the server, limits repeated submissions in Upstash, and sends mail to the fixed recipient. A `503` from `GET /api/contact` means the environment is incomplete. After setup, verify an ordinary message through the preview without sending repeated test mail to the organization.
 
-```bash
-git remote add origin https://github.com/YOUR-USERNAME/i2-site.git
-git branch -M main
-git push -u origin main
-```
+## Security and consent
 
----
+- `vercel.json` enforces a Content Security Policy, framing protection, MIME sniffing protection, and a referrer policy.
+- Fonts, GSAP, and video thumbnails are served locally. YouTube and Vimeo players load only after the visitor allows videos or chooses **Play once**.
+- The footer on every page provides **Cookie policy**, **Privacy notice**, and **Cookie settings**. Consent is stored as `i2-consent-v1` in first-party local storage. Ebook dismissal uses session storage and is documented in the cookie policy.
+- The organization should review the contact details and legal wording in `public/cookie-policy.html` and `public/privacy.html` and update them if needed.
 
-### STEP 4: Deploy to Vercel
+## Deploy and domain
 
-**Option A — Via Vercel Dashboard (easiest):**
-1. Go to vercel.com/new
-2. Click "Import Git Repository"
-3. Select your `i2-site` repo
-4. Click "Deploy" — no settings to change, it auto-detects static HTML
-5. Wait ~30 seconds. Done.
+Push to `main` to trigger the linked Vercel production deployment, or use `vercel deploy` for a protected preview. Check all clean URLs, headers, the contact form, and private-file 404s before promoting.
 
-**Option B — Via CLI:**
-```bash
-npx vercel
-```
-Follow the prompts. It will give you a `.vercel.app` URL.
+The custom domain is a separate DNS cutover. Add `i2ministries.org` and `www.i2ministries.org` in Vercel first, then apply the exact DNS records shown by Vercel in GoDaddy. Change only the website A/CNAME records; preserve MX, TXT, and existing subdomain records. Check both hostnames and HTTPS after DNS propagates.
 
----
-
-### STEP 5: Verify the Site
-
-Vercel will give you a URL like `i2-site-abc123.vercel.app`. Visit it and check:
-- [ ] Homepage loads with nav, hero, stats, training cards, endorsements
-- [ ] All images load (if not, re-run download-images.sh)
-- [ ] Click through every nav link — all 7 pages should work
-- [ ] Test the contact form — submit a test message
-- [ ] Test donate buttons — should open GivingFuel / PayPal in new tabs
-- [ ] Test on mobile — hamburger menu, responsive layout
-
----
-
-### STEP 6: Activate the Contact Form
-
-The first time someone submits the contact form, FormSubmit.co will send a **confirmation email** to `info@i2ministries.org`. Someone needs to click the link in that email to verify the address. After that, all future form submissions go through automatically.
-
-**To trigger this:**
-1. Go to your deployed site → /contact
-2. Fill out the form with a test message
-3. Check info@i2ministries.org inbox for the FormSubmit verification email
-4. Click the confirmation link
-5. Submit the form again — this one will actually deliver
-
----
-
-### STEP 7: Connect Your Domain (when ready)
-
-**In Vercel:**
-1. Go to your project dashboard on vercel.com
-2. Settings → Domains
-3. Add `i2ministries.org`
-4. Add `www.i2ministries.org`
-
-**At Your Domain Registrar (wherever i2ministries.org is registered):**
-
-Update DNS records to:
-```
-Type    Name    Value
-A       @       76.76.21.21
-CNAME   www     cname.vercel-dns.com
-```
-
-Vercel will auto-provision an SSL certificate. The site should be live on your domain within a few minutes.
-
-**IMPORTANT:** Only do this step when you're ready to take the WordPress site offline. While both are running on the same domain, only one can be active.
-
----
-
-## NOTES
-
-### Contact Form Bot Protection
-The contact form has 4 layers of anti-bot protection:
-1. **Honeypot fields** — hidden inputs that only bots fill (triggers silent fake success)
-2. **Time gate** — submissions under 3 seconds are blocked (bots are instant)
-3. **Math verification** — random addition problem (e.g., "What is 4 + 7?")
-4. **FormSubmit _honey parameter** — server-side bot detection by FormSubmit
-
-### Donate Form
-The /donate-form page links out to GivingFuel's hosted form at `i2ministries.givingfuel.com/partners`. This is intentional — GivingFuel blocks iframe embedding from unknown domains. The donate flow is:
-- /donate (info page) → /donate-form (choose method) → GivingFuel or PayPal (new tab)
-
-### Future Updates
-To update content, edit the HTML files, commit, and push to GitHub. Vercel auto-deploys on every push to main.
-
-```bash
-git add .
-git commit -m "Updated content"
-git push
-```
-Vercel deploys in ~10 seconds.
-
-### Adding New Pages
-1. Create a new .html file
-2. Add a rewrite rule to vercel.json
-3. Add a nav link to the new page (update the nav in all .html files)
-4. Push to GitHub
-
+Donations leave this site for GivingFuel or PayPal. Card details are not handled by this repository.
