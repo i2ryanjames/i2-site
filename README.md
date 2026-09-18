@@ -27,7 +27,7 @@ The contact form fails closed until all required server-side variables are set i
 
 Optional: `CONTACT_TO_EMAIL` defaults to `info@i2ministries.org`. `TURNSTILE_ALLOWED_HOSTS` is a comma-separated list of additional preview hostnames. Add the production Vercel hostname and eventual custom domain to the Turnstile widget's allowed domains. Never use Cloudflare's test keys in production.
 
-Verify the Resend sender using a dedicated sending subdomain and add only the DNS records that Resend specifies for that subdomain. Preserve existing Google Workspace, Mailchimp, and other mail records on `i2ministries.org`. Do not commit keys or create `NEXT_PUBLIC_` versions of the server secrets.
+Production uses the `i2 Form` Turnstile widget; `i2-site.vercel.app` was verified live. Check that `i2ministries.org` is also allowed before the custom-domain cutover. The form currently shares SOH's Resend sending key and Upstash Redis service. The verified sender is `Spirit of Health <hello@mail.spiritofhealthkc.com>`; messages still go to `info@i2ministries.org`. To use an i2-branded sender later, verify a dedicated sending subdomain in Resend and update `CONTACT_FROM_EMAIL`. Add only the DNS records Resend specifies for that subdomain, preserving existing Google Workspace, Mailchimp, and other mail records. Never commit keys or create `NEXT_PUBLIC_` versions of the server secrets. Redeploy after changing Vercel environment variables.
 
 The endpoint validates form content, checks Turnstile on the server, limits repeated submissions in Upstash, and sends mail to the fixed recipient. A `503` from `GET /api/contact` means the environment is incomplete. After setup, verify an ordinary message through the preview without sending repeated test mail to the organization.
 
@@ -42,6 +42,6 @@ The endpoint validates form content, checks Turnstile on the server, limits repe
 
 Push to `main` to trigger the linked Vercel production deployment, or use `vercel deploy` for a protected preview. Check all clean URLs, headers, the contact form, and private-file 404s before promoting.
 
-The custom domain is a separate DNS cutover. Add `i2ministries.org` and `www.i2ministries.org` in Vercel first, then apply the exact DNS records shown by Vercel in GoDaddy. Change only the website A/CNAME records; preserve MX, TXT, and existing subdomain records. Check both hostnames and HTTPS after DNS propagates.
+The custom domain is a separate DNS cutover. Add `i2ministries.org` and `www.i2ministries.org` in Vercel first, then apply the exact DNS records shown by Vercel at the authoritative DNS provider. Confirm the nameservers before editing; they were hosted by IONOS when checked in September 2026, even though the domain is managed through GoDaddy. Change only the website A/CNAME records; preserve MX, TXT, and existing subdomain records. Check both hostnames and HTTPS after DNS propagates.
 
 Donations leave this site for GivingFuel or PayPal. Card details are not handled by this repository.

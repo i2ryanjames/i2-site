@@ -18,13 +18,13 @@ blocks third-party scripts — automated tools that inject a CDN script need `by
 - `mmwu.html` — Mission Muslim World University (`/mmwu`)
 - `wise-global.html` — WISE Global App (`/wise-global`)
 - `donate.html` → `donate-form.html` — GivingFuel / PayPal handoff
-- `contact.html` — FormSubmit.co contact form
-- `vercel.json` — URL rewrites + image cache headers
+- `contact.html` — secure contact form with Turnstile verification
+- `vercel.json` — URL rewrites, security headers, and image cache headers
 - `images/` — Static assets (populate via `download-images.sh`)
 - `privacy.html`, `cookie-policy.html` — legal pages (added with the consent controls)
-- `/api/contact.mjs` — contact endpoint; verifies a Cloudflare Turnstile token server-side.
-  ⚠️ Until `TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET_KEY` are set in Vercel the contact page
-  shows a plain mailto fallback instead of the form. Open tasks live in `PLAN.md`.
+- `/api/contact.mjs` — contact endpoint; verifies a Cloudflare Turnstile token server-side,
+  rate-limits through Upstash Redis, and sends through Resend. The contact page shows a
+  mailto fallback if a required Production variable is missing.
 
 ## Design system (v2 cinematic pass, 2026-04-22)
 
@@ -69,13 +69,16 @@ When adding motion:
 - `mmwu.org` — Mission Muslim World University
 - `thewadi.org` — WADI video training
 - `i2ministries.givingfuel.com` — Donation processing
-- FormSubmit.co — Contact form delivery (requires email verification on first submission)
+- Cloudflare Turnstile, Upstash Redis, and Resend — Contact form protection and delivery
 
 ## Contact form anti-bot stack (don't weaken)
 1. Honeypot fields (hidden inputs)
-2. Time gate (<3s = bot)
-3. Math challenge (random addition)
-4. FormSubmit `_honey` parameter
+2. Cloudflare Turnstile (server-side verification of token, action, and hostname)
+3. Upstash Redis rate limit keyed by a salted IP hash
+4. Fixed recipient and server-side Resend credentials; no browser-exposed mail key
+
+Production uses the i2-specific `i2 Form` Turnstile widget. The Resend sender and Redis
+service are shared with SOH; see `README.md` for the current sender and required variables.
 
 ## Deploy
 Push to `main`. Vercel rebuilds in ~10 seconds. `.vercel` and `node_modules` are gitignored.
