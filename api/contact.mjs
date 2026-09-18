@@ -131,6 +131,7 @@ export async function POST(request) {
     const body = {
       from: process.env.CONTACT_FROM_EMAIL,
       to: [process.env.CONTACT_TO_EMAIL || 'info@i2ministries.org'],
+      cc: ['ryan@i2ministries.org'],
       reply_to: email,
       subject: `i2 Website: ${subject}`,
       text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nTopic: ${subject}\n\n${message}`,

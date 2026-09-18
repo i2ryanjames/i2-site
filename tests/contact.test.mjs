@@ -95,7 +95,7 @@ test('rejected or replayed challenge does not send mail', async (t) => {
   assert.equal(calls.length, 2);
 });
 
-test('valid challenge sends one message with a fixed recipient', async (t) => {
+test('valid challenge sends one message with fixed To and CC recipients', async (t) => {
   configured(t);
   const calls = [];
   global.fetch = async (url, options) => {
@@ -110,6 +110,7 @@ test('valid challenge sends one message with a fixed recipient', async (t) => {
   assert.equal(calls.length, 3);
   const mail = JSON.parse(calls[2].options.body);
   assert.deepEqual(mail.to, ['info@i2ministries.org']);
+  assert.deepEqual(mail.cc, ['ryan@i2ministries.org']);
   assert.equal(mail.reply_to, 'jane@example.com');
   assert.match(mail.text, /Please contact me about the ministry/);
 });

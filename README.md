@@ -25,7 +25,7 @@ The contact form fails closed until all required server-side variables are set i
 | `UPSTASH_REDIS_REST_TOKEN` | Upstash Redis REST token |
 | `RATE_LIMIT_SALT` | Random secret, at least 32 bytes; generate with `openssl rand -hex 32` |
 
-Optional: `CONTACT_TO_EMAIL` defaults to `info@i2ministries.org`. `TURNSTILE_ALLOWED_HOSTS` is a comma-separated list of additional preview hostnames. Add the production Vercel hostname and eventual custom domain to the Turnstile widget's allowed domains. Never use Cloudflare's test keys in production.
+Optional: `CONTACT_TO_EMAIL` defaults to `info@i2ministries.org`. Every successful form email also CCs `ryan@i2ministries.org`. `TURNSTILE_ALLOWED_HOSTS` is a comma-separated list of additional preview hostnames. Add the production Vercel hostname and eventual custom domain to the Turnstile widget's allowed domains. Never use Cloudflare's test keys in production.
 
 Production uses the `i2 Form` Turnstile widget; `i2-site.vercel.app` was verified live. Check that `i2ministries.org` is also allowed before the custom-domain cutover. The form currently shares SOH's Resend sending key and Upstash Redis service. The verified sender is `Spirit of Health <hello@mail.spiritofhealthkc.com>`; messages still go to `info@i2ministries.org`. To use an i2-branded sender later, verify a dedicated sending subdomain in Resend and update `CONTACT_FROM_EMAIL`. Add only the DNS records Resend specifies for that subdomain, preserving existing Google Workspace, Mailchimp, and other mail records. Never commit keys or create `NEXT_PUBLIC_` versions of the server secrets. Redeploy after changing Vercel environment variables.
 
