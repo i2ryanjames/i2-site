@@ -211,3 +211,61 @@
 .death-counter .count-label { color: rgba(250, 247, 242, 0.92); }
 .mission-counter .counter-label { color: rgba(255, 255, 255, 0.92); }
 .pullquote cite { color: rgba(255, 255, 255, 0.85); }
+
+/* -----------------------------------------------------------------------
+   (k) Accessible text accent.
+
+   --color-accent (#3b82f6) is too light to carry NORMAL-SIZE text in either
+   direction: as text on white it measures 3.67:1, and as a button fill under
+   white text it also measures 3.67:1. WCAG 2.1 AA wants 4.5:1 for normal
+   text. An axe-core pass over all 10 pages found 55 contrast violations and
+   every one of them traced back to this single token.
+
+   #3b82f6 is kept everywhere it is decorative -- glows, borders, rules,
+   large display type, the hero -- because large text only needs 3:1 and the
+   brand identity lives there. This darker sibling is applied ONLY where the
+   accent carries small text or sits beneath white button text. #1d4ed8 is
+   blue-700, the same family, and measures 6.70:1 both ways.
+   ----------------------------------------------------------------------- */
+:root {
+  --color-accent-text: #1d4ed8;
+}
+
+/* accent used as small text on a light background */
+.label,
+.footer-col h3,
+.nav-ebook,
+.comp-subnav-link span,
+.form-page__eyebrow,
+.verify-question {
+  color: var(--color-accent-text);
+}
+
+/* accent used as a button fill beneath white text */
+.nav-cta {
+  background: var(--color-accent-text) !important;
+}
+.btn-primary,
+#submitBtn,
+.form-page__btn--primary {
+  background: var(--color-accent-text);
+  border-color: var(--color-accent-text);
+}
+
+/* Two places need !important to reach, and it is earned, not lazy:
+   - .nav-ebook sets `color: var(--color-accent) !important` in every page's
+     inline <style>, so an ordinary rule cannot beat it.
+   - donate-form.html carries a <style> block at line ~397, AFTER its
+     polish.css <link> at line ~345 -- it breaks this project's documented
+     load order, so source order favours it. */
+.nav-ebook {
+  color: var(--color-accent-text) !important;
+  border-color: var(--color-accent-text) !important;
+}
+.form-page__eyebrow { color: var(--color-accent-text) !important; }
+.form-page__eyebrow::before { background: var(--color-accent-text) !important; }
+.form-page__btn--primary {
+  background: var(--color-accent-text) !important;
+  border-color: var(--color-accent-text) !important;
+}
+.form-page a[href^="mailto:"] { color: var(--color-accent-text) !important; }
