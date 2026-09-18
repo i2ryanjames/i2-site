@@ -252,20 +252,46 @@
   border-color: var(--color-accent-text);
 }
 
-/* Two places need !important to reach, and it is earned, not lazy:
-   - .nav-ebook sets `color: var(--color-accent) !important` in every page's
-     inline <style>, so an ordinary rule cannot beat it.
-   - donate-form.html carries a <style> block at line ~397, AFTER its
-     polish.css <link> at line ~345 -- it breaks this project's documented
-     load order, so source order favours it. */
+/* .nav-ebook needs !important and it is earned, not lazy: every page's inline
+   <style> sets `color: var(--color-accent) !important`, so an ordinary rule
+   cannot reach it. Nothing else here needs it -- donate-form.html used to
+   carry a <style> block AFTER its polish.css <link>, which inverted the
+   documented load order; that link has since been moved to load last, so
+   these rules win on source order like everywhere else. */
 .nav-ebook {
   color: var(--color-accent-text) !important;
   border-color: var(--color-accent-text) !important;
 }
-.form-page__eyebrow { color: var(--color-accent-text) !important; }
-.form-page__eyebrow::before { background: var(--color-accent-text) !important; }
+.form-page__eyebrow { color: var(--color-accent-text); }
+.form-page__eyebrow::before { background: var(--color-accent-text); }
 .form-page__btn--primary {
-  background: var(--color-accent-text) !important;
-  border-color: var(--color-accent-text) !important;
+  background: var(--color-accent-text);
+  border-color: var(--color-accent-text);
 }
-.form-page a[href^="mailto:"] { color: var(--color-accent-text) !important; }
+.form-page a[href^="mailto:"] { color: var(--color-accent-text); }
+
+/* -----------------------------------------------------------------------
+   (l) Tap targets — the remaining sub-44px hits from a 390px sweep of all
+   ten pages. These clear WCAG 2.2 AA (2.5.8 wants 24x24) but sit under this
+   project's own 44px rule, which follows Apple's HIG and WCAG 2.5.5 AAA.
+
+   Scoped to the mobile breakpoint on purpose: on a pointer device a 24px
+   footer link is comfortable, and forcing 44px there would stretch the
+   footer columns for no benefit.
+   ----------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* footer links are block-level and stacked -- inline-flex would collapse the
+     whole column onto one line, so these stay block-level flex */
+  .footer-col a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  /* these two are genuinely inline, so inline-flex is correct for them */
+  .nav-logo,
+  .form-page__back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
