@@ -173,3 +173,41 @@
 .trusted-by img {
   height: auto;
 }
+
+/* -----------------------------------------------------------------------
+   (j) Urgency cards — death-counter (mission), mission-counter (home) and
+   pullquote (mission).
+
+   Contrast: the gradient's light stop was var(--color-accent) #3b82f6, on
+   which the label text measured 2.8:1 (home) and 2.8:1 (mission) — below
+   the 4.5:1 WCAG AA minimum for normal-size text, and the big numeral sat
+   at 3.4:1. Deepening that stop to #1d4ed8 (blue-700, same brand family)
+   takes the labels to ~5.5:1 and the numeral to 6.3:1. The pullquote's
+   <cite> was the worst at 2.3:1 and needed an opacity bump as well.
+
+   Size: the community icon is capped by mission.css at clamp(56px,5vw,84px),
+   which renders it as a 72px smudge inside a 200px box. Sized here instead.
+
+   These live in polish.css, not the pages' inline <style>, because inline
+   styles load FIRST in this project and mission.css/home.css override them.
+   ----------------------------------------------------------------------- */
+.death-counter,
+.mission-counter,
+.pullquote {
+  background: linear-gradient(135deg, #1d4ed8, var(--color-accent-deep));
+}
+.death-counter .counter-icon,
+.mission-counter .counter-icon {
+  width: clamp(140px, 13vw, 200px);
+  flex-shrink: 0;
+  align-self: center;
+}
+.death-counter .counter-icon img,
+.mission-counter .counter-icon img {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+}
+.death-counter .count-label { color: rgba(250, 247, 242, 0.92); }
+.mission-counter .counter-label { color: rgba(255, 255, 255, 0.92); }
+.pullquote cite { color: rgba(255, 255, 255, 0.85); }
