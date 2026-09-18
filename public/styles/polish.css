@@ -247,6 +247,7 @@
 }
 .btn-primary,
 #submitBtn,
+.form-submit,
 .form-page__btn--primary {
   background: var(--color-accent-text);
   border-color: var(--color-accent-text);
