@@ -1,0 +1,90 @@
+[
+  {
+    "viewport": 320,
+    "pageWidth": 320,
+    "panelWidth": 256,
+    "captionWidth": 208,
+    "captionLines": 2,
+    "stacked": true,
+    "aligned": true,
+    "textContained": true,
+    "columns": "208px"
+  },
+  {
+    "viewport": 390,
+    "pageWidth": 390,
+    "panelWidth": 326,
+    "captionWidth": 278,
+    "captionLines": 2,
+    "stacked": true,
+    "aligned": true,
+    "textContained": true,
+    "columns": "278px"
+  },
+  {
+    "viewport": 480,
+    "pageWidth": 480,
+    "panelWidth": 416,
+    "captionWidth": 302.34375,
+    "captionLines": 2,
+    "stacked": true,
+    "aligned": true,
+    "textContained": true,
+    "columns": "368px"
+  },
+  {
+    "viewport": 481,
+    "pageWidth": 481,
+    "panelWidth": 417,
+    "captionWidth": 302.34375,
+    "captionLines": 2,
+    "stacked": true,
+    "aligned": true,
+    "textContained": true,
+    "columns": "369px"
+  },
+  {
+    "viewport": 484,
+    "pageWidth": 484,
+    "panelWidth": 420,
+    "captionWidth": 302.34375,
+    "captionLines": 2,
+    "stacked": true,
+    "aligned": true,
+    "textContained": true,
+    "columns": "372px"
+  },
+  {
+    "viewport": 664,
+    "pageWidth": 664,
+    "panelWidth": 600,
+    "captionWidth": 302.34375,
+    "captionLines": 2,
+    "stacked": true,
+    "aligned": true,
+    "textContained": true,
+    "columns": "552px"
+  },
+  {
+    "viewport": 665,
+    "pageWidth": 665,
+    "panelWidth": 601,
+    "captionWidth": 294.28125,
+    "captionLines": 2,
+    "stacked": false,
+    "aligned": false,
+    "textContained": true,
+    "columns": "196.484px 300.516px"
+  },
+  {
+    "viewport": 1440,
+    "pageWidth": 1440,
+    "panelWidth": 800,
+    "captionWidth": 294.28125,
+    "captionLines": 2,
+    "stacked": false,
+    "aligned": false,
+    "textContained": true,
+    "columns": "320.719px 375.281px"
+  }
+]

@@ -229,6 +229,7 @@
   height: auto;
 }
 .mission-crowd--hero {
+  container: mission-counter / inline-size;
   position: relative;
   isolation: isolate;
   display: grid;
@@ -327,9 +328,17 @@
   font-size: 1.125rem;
   color: #fff;
 }
-@media (max-width: 480px) {
+@container mission-counter (max-width: 600px) {
   .mission-crowd--hero .mission-counter--crowd { padding: 24px; }
-  .mission-crowd--hero .counter-label { font-size: 1rem; }
+  .mission-crowd--hero .counter-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .mission-crowd--hero .counter-label {
+    max-width: 30ch;
+    font-size: 1rem;
+    text-wrap: pretty;
+  }
 }
 
 /* -----------------------------------------------------------------------
