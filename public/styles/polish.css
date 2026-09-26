@@ -212,37 +212,32 @@
 .mission-counter .counter-label { color: rgba(255, 255, 255, 0.92); }
 .pullquote cite { color: rgba(255, 255, 255, 0.85); }
 
-/* Homepage mission portrait: transparent photography with a quiet statistic
-   band. Scoped so the separate mission page keeps its existing treatment. */
-.mission:has(.mission-visual--portrait) .mission-grid {
+/* Shared anonymous crowd image and statistic band on home and mission. */
+.mission:has(.mission-visual--crowd) .mission-grid {
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: clamp(48px, 6vw, 88px);
 }
-.mission-visual--portrait {
+.mission-visual--crowd {
   width: 100%;
   max-width: 600px;
   justify-self: center;
 }
-.mission-portrait {
-  position: relative;
-  isolation: isolate;
-  padding: 0 12px;
-}
-.mission-portrait::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: 16% 0 0;
-  border-radius: 50% 50% 0 0;
-  background: #edf2f8;
-}
-.mission-portrait picture,
-.mission-portrait img {
+.mission-crowd-image picture,
+.mission-crowd-image img {
   display: block;
   width: 100%;
   height: auto;
 }
-.mission-counter--portrait {
+.mission-crowd--hero {
+  max-width: 800px;
+  margin-inline: auto;
+}
+.mission-crowd--hero .mission-crowd-image img {
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  object-position: center 58%;
+}
+.mission-counter--crowd {
   display: block;
   padding: 28px 32px;
   border-radius: 0;
@@ -250,20 +245,24 @@
   box-shadow: none;
   text-align: left;
 }
-.mission-counter--portrait::before { content: none; }
-.mission-counter--portrait .counter-content {
+.mission-counter--crowd::before { content: none; }
+.mission-counter--crowd .counter-content {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   gap: 24px;
 }
-.mission-counter--portrait .counter-number {
+.mission-counter--crowd .counter-number {
   margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  color: #eff6ff;
   font-size: clamp(3.5rem, 5.6vw, 5.5rem);
   line-height: 1;
   white-space: nowrap;
 }
-.mission-counter--portrait .counter-label {
+.mission-counter--crowd .counter-label {
   margin: 0;
   max-width: 23ch;
   color: #eff6ff;
@@ -271,20 +270,20 @@
   line-height: 1.5;
 }
 @media (max-width: 1024px) {
-  .mission:has(.mission-visual--portrait) .mission-grid {
+  .mission:has(.mission-visual--crowd) .mission-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 48px;
   }
 }
 @media (max-width: 480px) {
-  .mission-portrait { padding-inline: 8px; }
-  .mission-counter--portrait { padding: 20px; }
-  .mission-counter--portrait .counter-content {
+  .mission-crowd--hero .mission-crowd-image img { aspect-ratio: 3 / 2; }
+  .mission-counter--crowd { padding: 20px; }
+  .mission-counter--crowd .counter-content {
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
   }
-  .mission-counter--portrait .counter-number { font-size: 4rem; }
-  .mission-counter--portrait .counter-label { max-width: 27ch; }
+  .mission-counter--crowd .counter-number { font-size: 4rem; }
+  .mission-counter--crowd .counter-label { max-width: 27ch; }
 }
 
 /* -----------------------------------------------------------------------

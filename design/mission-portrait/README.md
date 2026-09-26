@@ -1,5 +1,7 @@
 # Mission portrait — 2026-09-26
 
+**Superseded:** Ryan rejected the use of individual faces beside the death counter. The active design is documented in `../mission-crowd/README.md`; the family assets have been removed from the public site. Files here retain the earlier design history only.
+
 Generated with the built-in image generation tool. Fictional subjects, not a photograph of ministry participants. Original PNG has an alpha channel; WebP is a compressed derivative preserving transparency. Applied to the homepage mission section only. Existing copy, counter timing, links, and fonts are preserved.
 
 ## Review and verification

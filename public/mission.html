@@ -895,21 +895,23 @@
 
 
 <!-- ═══════ HERO + COUNTER ═══════ -->
-<section class="mission-hero">
+<section class="mission-hero" aria-labelledby="mission-hero-heading">
   <div class="container">
     <div class="hero-counter-section">
       <span class="label">The Urgency</span>
-      <h1 class="hero-intro-heading">Every Muslim needs to know the <strong>love of God</strong>, the <strong>power of God</strong>, and the <strong>truth of the Gospel</strong></h1>
-      <div class="death-counter reveal">
-        <div class="counter-icon">
+      <h1 class="hero-intro-heading" id="mission-hero-heading">Every Muslim needs to know the <strong>love of God</strong>, the <strong>power of God</strong>, and the <strong>truth of the Gospel</strong></h1>
+      <div class="mission-visual--crowd mission-crowd--hero reveal">
+        <div class="mission-crowd-image">
           <picture>
-            <source srcset="/images/muslim-community-icon-v2.webp" type="image/webp" />
-            <img src="/images/muslim-community-icon-v2.png" alt="" width="640" height="640" />
+            <source srcset="/images/mission-crowd.webp" type="image/webp" />
+            <img src="/images/mission-crowd.png" alt="AI-generated illustration of a vast crowd viewed from behind in a city with mosques; no identifiable faces" width="1536" height="1024" decoding="async" />
           </picture>
         </div>
-        <div class="counter-text">
-          <div class="count" id="deathCounter">0</div>
-          <div class="count-label">Muslims have died today without knowing Jesus</div>
+        <div class="mission-counter mission-counter--crowd">
+          <div class="counter-content">
+            <div class="counter-number" id="deathCounter">0</div>
+            <div class="counter-label">Muslims have died today without knowing Jesus</div>
+          </div>
         </div>
       </div>
     </div>
