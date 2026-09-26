@@ -1,5 +1,7 @@
 # Anonymous crowd replacement — 2026-09-26
 
+**Follow-up:** The homepage retains this treatment. Ryan subsequently requested a distinct background image with overlaid text on the Mission page; see `../mission-overlay/README.md` for that revision.
+
 Ryan requested a vast crowd in a Muslim-majority country with no personal faces, because the counter describes daily deaths. The earlier family portrait was rejected. This replacement also applies to /the-mission, where the old clip-art icon remained.
 
 Generated using the built-in image generator. The crowd and city are fictional, not documentary evidence of a particular event. People are shown from behind at a distance, without identifiable faces. No deaths or injuries are depicted. Both pages use the same full-bleed image and a separate live text counter below it.

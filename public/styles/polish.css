@@ -212,7 +212,7 @@
 .mission-counter .counter-label { color: rgba(255, 255, 255, 0.92); }
 .pullquote cite { color: rgba(255, 255, 255, 0.85); }
 
-/* Shared anonymous crowd image and statistic band on home and mission. */
+/* Anonymous crowd imagery: homepage band and Mission page overlay. */
 .mission:has(.mission-visual--crowd) .mission-grid {
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: clamp(48px, 6vw, 88px);
@@ -229,13 +229,39 @@
   height: auto;
 }
 .mission-crowd--hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
   max-width: 800px;
+  height: clamp(340px, 50vw, 460px);
   margin-inline: auto;
+  background: #081322;
+}
+.mission-crowd--hero .mission-crowd-image {
+  position: absolute;
+  inset: 0;
+}
+.mission-crowd--hero .mission-crowd-image picture,
+.mission-crowd--hero .mission-crowd-image img {
+  height: 100%;
 }
 .mission-crowd--hero .mission-crowd-image img {
-  aspect-ratio: 16 / 7;
   object-fit: cover;
-  object-position: center 58%;
+  object-position: center;
+}
+.mission-crowd--hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(8, 19, 34, 0.02) 18%,
+    rgba(8, 19, 34, 0.64) 48%,
+    rgba(8, 19, 34, 0.84) 65%,
+    rgba(8, 19, 34, 0.96) 100%);
 }
 .mission-counter--crowd {
   display: block;
@@ -276,7 +302,6 @@
   }
 }
 @media (max-width: 480px) {
-  .mission-crowd--hero .mission-crowd-image img { aspect-ratio: 3 / 2; }
   .mission-counter--crowd { padding: 20px; }
   .mission-counter--crowd .counter-content {
     grid-template-columns: minmax(0, 1fr);
@@ -284,6 +309,27 @@
   }
   .mission-counter--crowd .counter-number { font-size: 4rem; }
   .mission-counter--crowd .counter-label { max-width: 27ch; }
+}
+
+/* Keep the live text in HTML and place it over the dark lower image area. */
+.mission-crowd--hero .mission-counter--crowd {
+  position: relative;
+  z-index: 2;
+  padding: 32px 40px;
+  background: transparent;
+}
+.mission-crowd--hero .counter-number {
+  font-size: clamp(4.25rem, 8vw, 7rem);
+  color: #fff;
+}
+.mission-crowd--hero .counter-label {
+  max-width: 26ch;
+  font-size: 1.125rem;
+  color: #fff;
+}
+@media (max-width: 480px) {
+  .mission-crowd--hero .mission-counter--crowd { padding: 24px; }
+  .mission-crowd--hero .counter-label { font-size: 1rem; }
 }
 
 /* -----------------------------------------------------------------------
