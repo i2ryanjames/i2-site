@@ -20,17 +20,18 @@
   banner.innerHTML =
     '<div class="i2-consent__inner">' +
       '<div class="i2-consent__copy">' +
-        '<h2 id="i2-consent-title">Your choice, clearly.</h2>' +
-        '<p>We use a small amount of first-party storage to remember your choice. Videos from YouTube and Vimeo load only if you allow them or choose to play one. <a href="/cookie-policy">Read our cookie policy</a>.</p>' +
+        '<h2 id="i2-consent-title">Cookies &amp; privacy</h2>' +
+        '<p>We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data when played. Choose whether to allow them. <a href="/cookie-policy">Cookie policy</a>.</p>' +
       '</div>' +
       '<div class="i2-consent__actions">' +
         '<button type="button" class="i2-consent__button i2-consent__button--quiet" data-consent="reject">Reject optional</button>' +
-        '<button type="button" class="i2-consent__button" data-consent="allow">Allow videos</button>' +
-        '<button type="button" class="i2-consent__manage" data-consent="manage" aria-expanded="false">Manage settings</button>' +
+        '<button type="button" class="i2-consent__button i2-consent__button--quiet" data-consent="allow">Accept optional</button>' +
+        '<button type="button" class="i2-consent__manage" data-consent="manage" aria-expanded="false" aria-controls="i2-consent-settings">Manage cookies</button>' +
       '</div>' +
       '<div class="i2-consent__settings" id="i2-consent-settings" hidden>' +
-        '<div class="i2-consent__setting-copy"><strong>Embedded videos</strong><span>Enabling this lets YouTube or Vimeo receive data when you play their videos. The rest of the site works without it.</span></div>' +
-        '<div class="i2-consent__settings-actions"><label class="i2-consent__toggle"><input type="checkbox" id="i2-consent-media"> Allow videos</label><button type="button" class="i2-consent__button" data-consent="save">Save choice</button></div>' +
+        '<div class="i2-consent__necessary i2-consent__setting-copy"><strong>Essential storage · Always on</strong><span>Remembers your privacy choices and keeps the ebook invitation closed after you dismiss it.</span></div>' +
+        '<div class="i2-consent__setting-copy" id="i2-consent-media-description"><strong>Optional video cookies</strong><span>YouTube and Vimeo players stay blocked until you allow them. These providers may use cookies and receive device data when you play a video. Change your choice anytime using Cookie settings in the footer.</span></div>' +
+        '<div class="i2-consent__settings-actions"><label class="i2-consent__toggle"><input type="checkbox" id="i2-consent-media" aria-describedby="i2-consent-media-description"> Allow videos</label><button type="button" class="i2-consent__button" data-consent="save">Save choice</button></div>' +
       '</div>' +
     '</div>';
   document.body.appendChild(banner);
