@@ -8,7 +8,7 @@ const publicDir = join(root, 'public');
 const pages = readdirSync(publicDir).filter((name) => name.endsWith('.html'));
 
 test('all public pages avoid inline executable handlers and remote passive assets', () => {
-  assert.equal(pages.length, 12);
+  assert.equal(pages.length, 13);
   for (const page of pages) {
     const html = readFileSync(join(publicDir, page), 'utf8');
     assert.doesNotMatch(html, /\s(?:onclick|onload|onerror|onsubmit)=/i, page);

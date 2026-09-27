@@ -12,7 +12,9 @@
     { "source": "/mmwu", "destination": "/mmwu.html" },
     { "source": "/the-initiative", "destination": "/the-initiative.html" },
     { "source": "/cookie-policy", "destination": "/cookie-policy.html" },
-    { "source": "/privacy", "destination": "/privacy.html" }
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/the-borrowed-christ", "destination": "/the-borrowed-christ.html" },
+    { "source": "/borrowed-christ", "destination": "/the-borrowed-christ.html" }
   ],
   "headers": [
     {
