@@ -90,7 +90,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-accent, #8A5A24);
+  color: var(--color-accent-text, #1d4ed8);
   margin: 0 0 10px;
 }
 
