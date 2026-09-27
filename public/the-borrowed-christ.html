@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Borrowed Christ — Joshua Lingel | i2 Ministries</title>
+<meta name="description" content="Where did the Qur'an's Jesus come from? Joshua Lingel traces it to Syriac-Aramaic legends and sets it beside the first-century witnesses. Get notified." />
+<meta property="og:title" content="The Borrowed Christ — Joshua Lingel | i2 Ministries" />
+<meta property="og:description" content="Where did the Qur'an's Jesus come from? Joshua Lingel traces it to Syriac-Aramaic legends and sets it beside the first-century witnesses. Get notified." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://i2ministries.org/the-borrowed-christ" />
+<meta property="og:image" content="https://i2ministries.org/images/borrowed-christ/og-borrowed-christ-v2.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="i2 Ministries" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Borrowed Christ — Joshua Lingel | i2 Ministries" />
+<meta name="twitter:description" content="Where did the Qur'an's Jesus come from? Joshua Lingel traces it to Syriac-Aramaic legends and sets it beside the first-century witnesses." />
+<meta name="twitter:image" content="https://i2ministries.org/images/borrowed-christ/og-borrowed-christ-v2.jpg" />
+<link rel="canonical" href="https://i2ministries.org/the-borrowed-christ" />
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/images/favicon.png" type="image/png" />
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/images/favicon.png" />
+<link rel="stylesheet" href="/styles/fonts.css" />
+<style>
+  /* Reset + variables copied verbatim from about.html so the shared nav/footer
+     render identically across pages. Everything specific to this page lives
+     in /styles/borrowed-christ.css, loaded after polish.css below. */
+  :root {
+    --color-bg: #FAFAF7;
+    --color-surface: #F0EFEB;
+    --color-surface-raised: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-text-muted: #5C5A55;
+    --color-accent: #8A5A24;
+    --color-accent-warm: #C7753A;
+    --color-accent-deep: #8B3A2A;
+    --color-white: #FFFFFF;
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --max-width: 1280px;
+    --section-pad: 80px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+
+  .skip-to-main{position:absolute;left:-9999px;top:0;z-index:9999;padding:12px 20px;background:#13110E;color:#FAF7F2;font-weight:600;border-radius:6px;text-decoration:none;font-family:inherit;font-size:16px;}
+  .skip-to-main:focus-visible{left:16px;top:16px;}
+
+  /* ─── NAV ─────────────────────────────────── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: background 0.4s, backdrop-filter 0.4s, padding 0.4s;
+  }
+  .nav.scrolled {
+    background: rgba(250,250,247,0.95);
+    backdrop-filter: blur(20px);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(184,134,45,0.15);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 32px;
+  }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo img { height: 40px; width: auto; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 16px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--color-text-muted); transition: color 0.3s; font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--color-accent); }
+  .nav-cta {
+    background: var(--color-accent) !important;
+    color: #FFFFFF !important;
+    padding: 10px 24px; border-radius: 4px;
+    font-weight: 600 !important;
+    transition: transform 0.3s, box-shadow 0.3s !important;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(184,134,45,0.3); }
+  .nav-ebook {
+    padding: 9px 22px !important;
+    border: 1.5px solid var(--color-accent) !important;
+    border-radius: 4px;
+    color: var(--color-accent) !important;
+    font-weight: 600 !important;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s !important;
+    white-space: nowrap;
+  }
+  .nav-ebook:hover {
+    background: var(--color-accent) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(184,134,45,0.3);
+  }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); margin: 5px 0; transition: 0.3s; }
+
+  /* ─── NAV DROPDOWN ─── */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-trigger { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+  .nav-dropdown-trigger .chevron { transition: transform 0.3s; margin-top: 1px; }
+  .nav-dropdown:hover .nav-dropdown-trigger .chevron,
+  .nav-dropdown.open .nav-dropdown-trigger .chevron { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%);
+    display: flex; gap: 4px;
+    background: var(--color-surface-raised);
+    border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 12px 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.04);
+    opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(8px);
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+    white-space: nowrap; z-index: 100;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown-item {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    padding: 20px 24px; border-radius: 8px; text-align: center;
+    transition: background 0.2s, transform 0.2s; min-width: 150px;
+  }
+  .nav-dropdown-item:hover { background: rgba(184,134,45,0.06); transform: translateY(-2px); }
+  .nav-dropdown-icon {
+    width: 44px; height: 44px; background: rgba(184,134,45,0.1); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+  }
+  .nav-dropdown-item:hover .nav-dropdown-icon { background: rgba(184,134,45,0.18); }
+  .nav-dropdown-icon svg { color: var(--color-accent); }
+  .nav-dropdown-label { font-size: 14px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--color-text); transition: color 0.2s; }
+  .nav-dropdown-item:hover .nav-dropdown-label { color: var(--color-accent); }
+  .nav-dropdown-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.4; max-width: 200px; white-space: normal; font-weight: 400; }
+
+  /* ─── FOOTER ──────────────────────────────── */
+  .footer { padding: 64px 0 40px; border-top: 1px solid rgba(0,0,0,0.06); }
+  .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
+  .footer-brand .nav-logo { margin-bottom: 16px; }
+  .footer-brand p { font-size: 1.025rem; color: var(--color-text-muted); max-width: 320px; line-height: 1.7; }
+  .footer-links { display: flex; gap: 64px; }
+  .footer-col h3 { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--color-accent); margin-bottom: 20px; }
+  .footer-col a { display: block; font-size: 1.075rem; color: var(--color-text-muted); margin-bottom: 12px; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--color-accent); }
+  .footer-socials { display: flex; gap: 16px; margin-top: 20px; }
+  .footer-socials a { width: 40px; height: 40px; border: 1px solid rgba(0,0,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+  .footer-socials a:hover { background: var(--color-accent); border-color: var(--color-accent); }
+  .footer-socials a:hover svg { color: #FFFFFF; }
+  .footer-socials svg { color: var(--color-text-muted); width: 16px; height: 16px; }
+  .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.06); text-align: center; font-size: 0.95rem; color: rgba(60,58,54,0.85); }
+
+  @media (max-width: 1024px) {
+    .footer-links { gap: 40px; }
+  }
+  @media (max-width: 768px) {
+    .nav-dropdown-menu {
+      position: static; display: none; flex-direction: column; gap: 0; transform: none;
+      opacity: 1; visibility: visible; background: transparent; border: none; border-radius: 0;
+      padding: 8px 0 0 16px; box-shadow: none; white-space: normal;
+    }
+    .nav-dropdown-menu::before { display: none; }
+    .nav-dropdown.open .nav-dropdown-menu { display: flex; }
+    .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown.open .nav-dropdown-menu { transform: none; }
+    .nav-dropdown-item { display: grid; grid-template-columns: 32px 1fr; grid-template-rows: auto auto; gap: 2px 10px; padding: 10px 12px; min-width: 0; text-align: left; align-items: start; }
+    .nav-dropdown-icon { width: 32px; height: 32px; flex-shrink: 0; grid-row: 1 / -1; }
+    .nav-dropdown-icon svg { width: 16px; height: 16px; }
+    .nav-dropdown-desc { max-width: none; }
+    .nav-dropdown-trigger .chevron { width: 10px; height: 6px; }
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+    .nav-links.open {
+      display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(250,250,247,0.97); backdrop-filter: blur(20px); padding: 24px 32px; gap: 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06); box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .nav-ebook, .nav-cta { text-align: center; width: 100%; display: block; padding: 12px 22px !important; }
+    .footer-inner { flex-direction: column; }
+    .footer-links { flex-wrap: wrap; gap: 32px; }
+  }
+</style>
+<link rel="stylesheet" href="/styles/polish.css" />
+<link rel="stylesheet" href="/styles/borrowed-christ.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "The Borrowed Christ",
+  "alternativeHeadline": "Biblical Prophets in the Qur'an and Their Syriac-Aramaic Legendary Substrates",
+  "author": { "@type": "Person", "name": "Joshua B. Lingel" },
+  "publisher": { "@type": "Organization", "name": "i2 Ministries Press" },
+  "inLanguage": "en",
+  "numberOfPages": 310,
+  "genre": "Religion / Islam & Christianity",
+  "image": "https://i2ministries.org/images/borrowed-christ/og-borrowed-christ-v2.jpg",
+  "url": "https://i2ministries.org/the-borrowed-christ"
+}
+</script>
+<link rel="stylesheet" href="/styles/consent.css" />
+<link rel="stylesheet" href="/styles/guide-popup.css" />
+</head>
+<body class="page-book">
+<a href="#main" class="skip-to-main">Skip to main content</a>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="/images/i2-ministries-logo-2026.png" alt="i2 Ministries" width="600" height="184"></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/" class="nav-home">Home</a>
+      <a href="/about">About</a>
+      <a href="/the-mission">The Mission</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <a href="/get-trained" class="nav-dropdown-trigger">Get Trained <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <a href="/get-trained" class="nav-dropdown-item">
+            <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+            <div class="nav-dropdown-label">Overview</div>
+            <div class="nav-dropdown-desc">Start here to learn about all the training options we offer.</div>
+          </a>
+          <a href="/the-initiative" class="nav-dropdown-item">
+            <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            <div class="nav-dropdown-label">The Initiative</div>
+            <div class="nav-dropdown-desc">Learn about the Every Muslim for Christ Initiative (EMFCI)</div>
+          </a>
+          <a href="/mmwu" class="nav-dropdown-item">
+            <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="nav-dropdown-label">MMWU</div>
+            <div class="nav-dropdown-desc">Mission Muslims World University — 1000 MA-Level Scholarships per country</div>
+          </a>
+          <a href="/the-borrowed-christ" class="nav-dropdown-item">
+            <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="nav-dropdown-label">The Borrowed Christ</div>
+            <div class="nav-dropdown-desc">Dr. Lingel's new book · coming 2027</div>
+          </a>
+          <a href="/wise-global" class="nav-dropdown-item">
+            <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <div class="nav-dropdown-label">WISE Global App</div>
+            <div class="nav-dropdown-desc">The Ministry Management phone app supporting the EMFCI</div>
+          </a>
+          <a href="https://resources.i2ministries.org" class="nav-dropdown-item">
+            <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+            <div class="nav-dropdown-label">Resources</div>
+            <div class="nav-dropdown-desc">Browse our books, video courses, MP3s, and more</div>
+          </a>
+        </div>
+      </div>
+      <a href="/contact">Contact</a>
+      <a href="/donate" class="nav-cta">Donate</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ═══════ 1. HERO ═══════ -->
+  <section id="top" class="bk-hero">
+    <div class="bk-container bk-hero-grid">
+      <div class="bk-hero-copy">
+        <div class="bk-eyebrow">Forthcoming 2027 · i2 Ministries Press</div>
+        <h1 class="bk-h1">The Jesus of the Qur'an has a <em>paper trail.</em></h1>
+
+        <div class="bk-hero-book bk-hero-book--mobile reveal">
+          <picture>
+            <source srcset="/images/borrowed-christ/book-jacket-paper-520.webp" media="(max-width: 520px)">
+            <img src="/images/borrowed-christ/book-jacket-paper-900.webp" width="900" height="1171" alt="The Borrowed Christ — book jacket, by Joshua B. Lingel" fetchpriority="high" decoding="async">
+          </picture>
+        </div>
+
+        <p class="bk-hero-sub">Twenty-five biblical prophets appear in the Qur'an. Joshua Lingel follows their stories — the clay birds, the speaking cradle, the palm tree that bends to Mary — back to the Syriac-Aramaic legends of the second through seventh centuries, and sets them beside the Christ of the first-century eyewitnesses.</p>
+
+        <form class="bk-notify" id="bk-form-hero" data-bk-notify data-source="book-page-hero" novalidate>
+          <div class="bk-notify-row">
+            <div class="bk-field">
+              <label for="bk-email-hero">Email address</label>
+              <input type="email" id="bk-email-hero" name="email" autocomplete="email" placeholder="you@church.org" required>
+            </div>
+            <div class="bk-field bk-field--role">
+              <label for="bk-role-hero">I am a…</label>
+              <select id="bk-role-hero" name="role">
+                <option value="">Choose one (optional)</option>
+                <option>Pastor or church leader</option>
+                <option>Missionary or mission leader</option>
+                <option>Professor or seminary student</option>
+                <option>Apologist or scholar</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="bk-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button type="submit" class="bk-btn bk-btn--primary bk-notify-submit">Notify me when it's available</button>
+          <p class="bk-notify-micro">Plus the Introduction, free, the moment you sign up. One email list, only about this book. Unsubscribe anytime.</p>
+          <div class="bk-form-msg" aria-live="polite"></div>
+        </form>
+
+        <p class="bk-credibility">Foreword by Darrell L. Bock · Endorsed by Gary R. Habermas, J. P. Moreland, David B. Capes and Gerd-R. Puin</p>
+      </div>
+
+      <div class="bk-hero-book bk-hero-book--desktop reveal" aria-hidden="false">
+        <div class="bk-hero-glow"></div>
+        <picture>
+          <source srcset="/images/borrowed-christ/book-jacket-paper-520.webp" media="(max-width: 900px)">
+          <img src="/images/borrowed-christ/book-jacket-paper-900.webp" width="900" height="1171" alt="The Borrowed Christ — book jacket, by Joshua B. Lingel" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ 2. PROOF STRIP ═══════ -->
+  <section class="bk-proof" aria-labelledby="bk-proof-heading">
+    <div class="bk-container bk-proof-head">
+      <h2 class="bk-eyebrow" id="bk-proof-heading">Early praise</h2>
+    </div>
+    <div class="bk-container bk-proof-grid">
+      <figure class="bk-proof-card reveal">
+        <blockquote>By comparing the earliest available sources concerning Jesus with much later traditions, <cite>The Borrowed Christ</cite> challenges readers to consider carefully what the historical evidence can actually support.</blockquote>
+        <figcaption><span class="bk-proof-name">Dr. Gary R. Habermas</span><span class="bk-proof-title">Distinguished Research Professor, Liberty University</span></figcaption>
+      </figure>
+      <figure class="bk-proof-card reveal">
+        <blockquote>Lingel's collection of sources and his both empathetic and clear argumentation are an indispensable theological companion through the difficult field of Islam's emergence.</blockquote>
+        <figcaption><span class="bk-proof-name">Dr. Gerd-R. Puin</span><span class="bk-proof-title">Scholar of Early Qur'ānic Manuscripts and the Ṣan'ā' Manuscripts, Germany</span></figcaption>
+      </figure>
+      <figure class="bk-proof-card reveal">
+        <blockquote>My test when writing about Islam has always been, Would I share this with a Muslim? This book passes that test with flying colors.</blockquote>
+        <figcaption><span class="bk-proof-name">Dr. David Garrison</span><span class="bk-proof-title">Author, <cite>A Wind in the House of Islam</cite></span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══════ 3. THE QUESTION ═══════ -->
+  <section id="question" class="bk-question">
+    <div class="bk-container bk-question-grid">
+      <div class="bk-question-copy reveal">
+        <div class="bk-eyebrow">The question</div>
+        <h2 class="bk-h2">Which Jesus is grounded in the <em>earliest</em> evidence?</h2>
+        <p>Two billion people have been taught a Jesus who was never crucified, never called the Son of God, and never rose from the dead. Most of the Christians around them have never been shown where that portrait came from.</p>
+        <p>The Borrowed Christ is a historical investigation, not a polemic. It works from dates, manuscripts and the ordinary tools of source criticism — and it grades its own evidence, lowering its confidence where the manuscripts require it.</p>
+        <blockquote class="bk-pullquote">
+          <p>"The Jesus of the Qur'ān is borrowed and His Christology is cut out, drawn not from the first-century witnesses to Jesus of Nazareth, but from the Syriac-Aramaic apocryphal traditions of the second through seventh centuries."</p>
+          <cite>The thesis, p. 15</cite>
+        </blockquote>
+      </div>
+      <figure class="bk-question-figure reveal">
+        <picture>
+          <source srcset="/images/borrowed-christ/manuscripts-640.webp" media="(max-width: 640px)">
+          <img src="/images/borrowed-christ/manuscripts.webp" width="1024" height="688" alt="A Syriac Christian codex beside an early Ḥijāzī-script Qur'anic fragment" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>Illustration: a Syriac Christian codex beside an early Ḥijāzī-script fragment.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══════ 4. NUMBERS BAND ═══════ -->
+  <section class="bk-numbers">
+    <div class="bk-container">
+      <div class="bk-numbers-grid">
+        <div class="bk-number reveal">
+          <span class="bk-number-value" data-bk-counter="27">27</span>
+          <span class="bk-number-label">Chapters in five parts</span>
+        </div>
+        <div class="bk-number reveal">
+          <span class="bk-number-value" data-bk-counter="49">49</span>
+          <span class="bk-number-label">Side-by-side comparative tables</span>
+        </div>
+        <div class="bk-number reveal">
+          <span class="bk-number-value" data-bk-counter="14">14</span>
+          <span class="bk-number-label">Appendices of primary evidence</span>
+        </div>
+        <div class="bk-number reveal">
+          <span class="bk-number-value" data-bk-counter="25">25</span>
+          <span class="bk-number-label">Prophets traced to their sources</span>
+        </div>
+      </div>
+      <p class="bk-numbers-line">Some ninety verses across fifteen sūrahs concern ʿĪsā — the largest dossier of any prophet in the Qur'an. Every one is examined.</p>
+    </div>
+  </section>
+
+  <!-- ═══════ 5. INSIDE THE BOOK ═══════ -->
+  <section id="contents" class="bk-contents">
+    <div class="bk-container">
+      <div class="bk-eyebrow">Inside the book</div>
+      <h2 class="bk-h2">Five parts, <em>twenty-seven chapters.</em></h2>
+
+      <div class="bk-parts">
+        <article class="bk-part bk-part--media bk-part--media-right reveal">
+          <div class="bk-part-media">
+            <figure class="bk-source-card" aria-labelledby="bk-source-title">
+              <figcaption class="bk-source-head">
+                <span class="bk-source-eyebrow">From Chapter 6 · Tables 2–4</span>
+                <span class="bk-source-title" id="bk-source-title">The clay birds</span>
+              </figcaption>
+              <div class="bk-source-cols">
+                <div class="bk-source-col">
+                  <p class="bk-source-meta">The Qur’ān, Q 3:49 · <span>7th century AD</span></p>
+                  <p class="bk-source-orig" lang="ar" dir="rtl">أَنِّي أَخْلُقُ لَكُم مِّنَ الطِّينِ كَهَيْئَةِ الطَّيْرِ فَأَنفُخُ فِيهِ فَيَكُونُ طَيْرًا بِإِذْنِ اللَّهِ</p>
+                  <p class="bk-source-en">“That I fashion for you out of clay the likeness of a bird, and I breathe into it, and it becomes a bird by God's leave.”</p>
+                </div>
+                <div class="bk-source-col">
+                  <p class="bk-source-meta">Infancy Gospel of Thomas 2 · <span>2nd century AD</span></p>
+                  <p class="bk-source-orig" lang="grc">λαβὼν πηλὸν ἁπαλὸν ἔπλασεν ἐξ αὐτοῦ στρουθία δώδεκα</p>
+                  <p class="bk-source-en">“Taking soft clay, he fashioned from it twelve sparrows ... he clapped his hands and cried to the sparrows and said to them: Off with you.”</p>
+                </div>
+              </div>
+              <p class="bk-source-foot">Clay. Bird-form. A child. Animation by command. Same elements, same order. The storybook is the elder by four to five centuries.</p>
+            </figure>
+          </div>
+          <div class="bk-part-body">
+            <span class="bk-part-num">I</span>
+            <h3>A Different Jesus</h3>
+            <p class="bk-part-desc">How the Qur'an's portrait of Jesus was assembled from stories told by ear along the caravan roads — and how a borrowing is proved.</p>
+            <div class="bk-chapters">
+              <p class="bk-chapters-label">Chapters</p>
+              <ol>
+                <li>The Animator's Hand</li>
+                <li>Two Footprints</li>
+                <li>How It Travelled</li>
+                <li>How a Borrowing Is Proved</li>
+                <li>The Catalogue</li>
+                <li>The Three Borrowed Miracles</li>
+                <li>Maryam</li>
+                <li>Where the Commonalities Came From</li>
+                <li>Finishing the Character</li>
+                <li>The Gospel of Barnabas</li>
+                <li>The Other Twenty-Four</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <article class="bk-part bk-part--text reveal">
+          <div class="bk-part-body">
+            <span class="bk-part-num">II</span>
+            <h3>A Different Gospel</h3>
+            <p class="bk-part-desc">What the Qur'an denies — the cross, the Sonship, the Trinity, the Word made flesh — and why each denial removes something load-bearing from the gospel.</p>
+            <div class="bk-chapters">
+              <p class="bk-chapters-label">Chapters</p>
+              <ol start="12">
+                <li>The Cross and the Atonement</li>
+                <li>The Sonship Denied</li>
+                <li>The Trinity Denied</li>
+                <li>The Word Became Flesh</li>
+                <li>The Claims Made for the Text</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <article class="bk-part bk-part--media bk-part--media-left reveal">
+          <div class="bk-part-media">
+            <picture>
+              <source srcset="/images/borrowed-christ/tomb-720.webp" media="(max-width: 720px)">
+              <img src="/images/borrowed-christ/tomb.webp" width="1344" height="752" alt="A rock-cut tomb entrance in the Judean hills at dawn, its stone rolled away" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="bk-part-body">
+            <span class="bk-part-num">III</span>
+            <h3>The Case for Christ</h3>
+            <p class="bk-part-desc">How early, how fast and how well-attested the highest claims about Jesus actually are — from the YHWH texts to the empty tomb.</p>
+            <div class="bk-chapters">
+              <p class="bk-chapters-label">Chapters</p>
+              <ol start="17">
+                <li>The Explosion</li>
+                <li>Divine Identity and the YHWH Texts</li>
+                <li>Jesus on Jesus</li>
+                <li>The Eyewitnesses</li>
+                <li>The Gospel in the Gospels</li>
+                <li>The Resurrection</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <article class="bk-part bk-part--text reveal">
+          <div class="bk-part-body">
+            <span class="bk-part-num">IV</span>
+            <h3>A Different Spirit</h3>
+            <p class="bk-part-desc">The Spirit of the Qur'an is an angel, not the third Person of the Trinity — and the verdict of the whole investigation.</p>
+            <div class="bk-chapters">
+              <p class="bk-chapters-label">Chapters</p>
+              <ol start="23">
+                <li>The Spirit Who Is an Angel</li>
+                <li>The Verdict</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <article class="bk-part bk-part--media bk-part--media-right reveal">
+          <div class="bk-part-media">
+            <picture>
+              <source srcset="/images/borrowed-christ/study-640.webp" media="(max-width: 640px)">
+              <img src="/images/borrowed-christ/study.webp" width="1024" height="688" alt="Global church leaders gathered around a table in discussion" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="bk-part-body">
+            <span class="bk-part-num">V</span>
+            <h3>The Bride Prepared</h3>
+            <p class="bk-part-desc">From argument to mission: the gospel stated plainly, and a strategy for 5.5 million churches to reach their Muslim neighbours.</p>
+            <div class="bk-chapters">
+              <p class="bk-chapters-label">Chapters</p>
+              <ol start="25">
+                <li>The Bride and the Bridegroom</li>
+                <li>Come to Christ</li>
+                <li>The Great Commission and the Global Harvest</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="bk-contents-footer">Plus 14 appendices — from a comparative chronology to non-Christian attestation of Jesus's death — a glossary, select bibliography and index.</p>
+    </div>
+  </section>
+
+  <!-- ═══════ 6. LOOK INSIDE ═══════ -->
+  <section id="look-inside" class="bk-look-inside">
+    <div class="bk-container bk-look-grid">
+      <div class="bk-look-copy reveal">
+        <div class="bk-eyebrow">Look inside</div>
+        <h2 class="bk-h2">Begin on the road to <em>Bethlehem.</em></h2>
+        <p>The Introduction opens on a road outside Bethlehem around the year 450, and follows one story from a pilgrim church into the text of the Qur'an. Read the opening now. The full Introduction is yours free when you join the list.</p>
+        <button type="button" class="bk-btn bk-btn--outline" data-bk-scroll-notify>Get the full Introduction free</button>
+      </div>
+
+      <div class="bk-look-page reveal">
+        <p class="bk-look-runninghead">Introduction: The Investigation</p>
+        <p class="bk-look-dropcap"><span class="bk-dropcap">B</span>egin here, because everything that follows runs through this place.</p>
+        <p>Three miles south of Jerusalem, on the road to Bethlehem, there stands an octagonal church built around a rock. Pilgrims call it the Kathisma — the Seat — because tradition says Mary rested on that stone when the journey became too much for her. On her feast day the church fills. Lamps are lit. A deacon reads, and then a cantor sings the story the pilgrims came to hear: how the mother of God, exhausted and in pain, was refreshed when a palm tree bent its branches down to her, and how water broke from the ground at its roots.</p>
+        <p>Nobody in that building thinks they are hearing Scripture. The story is not in Matthew. It is not in Luke. It is a beloved embellishment, four centuries young, and the bishops who permit it know precisely what it is.</p>
+        <p>The pilgrims go home. Some of them go a long way home — down the incense roads, through Ghassānid country, into the tent camps and market towns of Arabia, where the story is told again in Syriac, and then in Arabic, to people who have never seen a Gospel in their own language and never will.</p>
+        <p>Two hundred years later a voice recites, in an Arabic that no one has yet written a grammar for: <em>And the pangs of childbirth drove her to the trunk of a palm tree ... your Lord has placed a rivulet beneath you. And shake toward yourself the trunk of the palm tree; it will drop upon you ripe dates.</em></p>
+        <p>And it is no longer an embellishment. It is the word of God, and to doubt it is unbelief.</p>
+        <p class="bk-look-folio">6</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ 7. WHO IT'S FOR ═══════ -->
+  <section id="for" class="bk-for">
+    <div class="bk-container">
+      <h2 class="bk-h2 bk-h2--center">Written for the Church that will <em>answer</em> the question.</h2>
+      <div class="bk-for-grid">
+        <div class="bk-for-tile reveal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 21V10L12 4l8 6v11"/><path d="M9 21v-6h6v6"/><path d="M4 10h16"/></svg>
+          <h3>Pastors &amp; church leaders</h3>
+          <p>Confidence to answer your people — and the Muslim families who live within five miles of your church.</p>
+        </div>
+        <div class="bk-for-tile reveal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          <h3>Missionaries &amp; mission leaders</h3>
+          <p>A source-by-source case you can carry into conversation with conviction and respect.</p>
+        </div>
+        <div class="bk-for-tile reveal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8l10-4 10 4-10 4-10-4z"/><path d="M6 10v6c0 1.5 3 3 6 3s6-1.5 6-3v-6"/></svg>
+          <h3>Professors &amp; seminary students</h3>
+          <p>Forty-nine comparative tables, fourteen appendices and a select bibliography — built for the classroom.</p>
+        </div>
+        <div class="bk-for-tile reveal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><line x1="14.8" y1="14.8" x2="21" y2="21"/></svg>
+          <h3>Apologists &amp; scholars</h3>
+          <p>Qur'anic narratives read against the Greek, Syriac and Aramaic literature of Late Antiquity.</p>
+        </div>
+      </div>
+      <p class="bk-for-note">Written with "an abundance of love for Muslims." — Dr. David Cook, Rice University</p>
+    </div>
+  </section>
+
+  <!-- ═══════ 8. FOUNDING READER LIST ═══════ -->
+  <section id="notify" class="bk-notify-section">
+    <div class="bk-container bk-notify-grid">
+      <div class="bk-notify-stack reveal">
+        <div class="bk-eyebrow">The Founding Reader list</div>
+        <h2 class="bk-h2">Be among the first to <em>read it.</em></h2>
+        <p class="bk-notify-lead">Join the list today and you receive:</p>
+        <ul class="bk-stack">
+          <li class="bk-stack-item">
+            <svg class="bk-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            <div><strong>The Introduction, free — today.</strong><span>"The Investigation," delivered the moment you sign up.</span></div>
+          </li>
+          <li class="bk-stack-item">
+            <svg class="bk-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            <div><strong>First notice on release day.</strong><span>Before the public announcement, with any launch offer for Founding Readers.</span></div>
+          </li>
+          <li class="bk-stack-item">
+            <svg class="bk-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            <div><strong>Bulk pricing for churches, ministries and seminaries.</strong><span>Tell us you're ordering for a team or a class and we'll follow up personally.</span></div>
+          </li>
+          <li class="bk-stack-item">
+            <svg class="bk-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            <div><strong>Exam copies for professors.</strong><span>Considering it for a course? Choose "Professor" and we'll be in touch.</span></div>
+          </li>
+          <li class="bk-stack-item">
+            <svg class="bk-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            <div><strong>Translation alerts.</strong><span>Spanish and other editions are planned — we'll tell you when yours is ready.</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bk-notify-card reveal">
+        <div class="bk-notify-card-book">
+          <img src="/images/borrowed-christ/book-jacket-paper-520.webp" width="520" height="677" alt="" loading="lazy" decoding="async">
+        </div>
+        <h3>Notify me when it's available</h3>
+        <form class="bk-notify" id="bk-form-offer" data-bk-notify data-source="book-page-offer" novalidate>
+          <div class="bk-field">
+            <label for="bk-email-offer">Email address</label>
+            <input type="email" id="bk-email-offer" name="email" autocomplete="email" placeholder="you@church.org" required>
+          </div>
+          <div class="bk-field">
+            <label for="bk-role-offer">I am a…</label>
+            <select id="bk-role-offer" name="role">
+              <option value="">Choose one (optional)</option>
+              <option>Pastor or church leader</option>
+              <option>Missionary or mission leader</option>
+              <option>Professor or seminary student</option>
+              <option>Apologist or scholar</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <label class="bk-checkbox">
+            <input type="checkbox" id="bk-bulk-offer" name="wantsBulk">
+            <span>I may order copies for my church, team or class</span>
+          </label>
+          <div class="bk-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button type="submit" class="bk-btn bk-btn--primary bk-notify-submit">Notify me when it's available</button>
+          <p class="bk-notify-micro">We respect your inbox. Unsubscribe anytime.</p>
+          <div class="bk-form-msg" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ 9. ENDORSEMENT WALL ═══════ -->
+  <section id="endorsements" class="bk-endorsements">
+    <div class="bk-container">
+      <h2 class="bk-h2 bk-h2--center">What scholars and church leaders are saying</h2>
+
+      <figure class="bk-endorsement bk-endorsement--foreword reveal">
+        <blockquote>"This book shows how that portrait of Jesus is a distortion, a myth developed after the fact, that hides the real Jesus and why he matters."</blockquote>
+        <figcaption><span class="bk-proof-name">Dr. Darrell L. Bock, from the Foreword</span><span class="bk-proof-title">Senior Research Professor of New Testament Studies, Dallas Theological Seminary</span></figcaption>
+      </figure>
+
+      <h3 class="bk-endorsements-group-title">Scholars</h3>
+      <div class="bk-endorsement-columns">
+        <figure class="bk-endorsement reveal">
+          <blockquote>Hard-hitting, carefully argued, and distinctive in its approach, this is a one-of-a-kind contribution to Christian engagement with Islam.</blockquote>
+          <figcaption><span class="bk-proof-name">Dr. J. P. Moreland</span><span class="bk-proof-title">Distinguished Professor of Philosophy, Talbot School of Theology, Biola University</span></figcaption>
+        </figure>
+        <figure class="bk-endorsement reveal">
+          <blockquote>Joshua brings more than three decades of advanced study of both the Bible and Islam to the task. I know of no one alive better equipped to have written it. If the identity of Jesus is the question of ultimate consequence, and it is, then this is one of the most important books available to us today.</blockquote>
+          <figcaption><span class="bk-proof-name">Dr. Daniel A. Brubaker</span><span class="bk-proof-title">Publisher and President, Think and Tell, LLC; Quranic Manuscript Scholar</span></figcaption>
+        </figure>
+        <figure class="bk-endorsement reveal">
+          <blockquote>Readers will find here a serious argument, a clear love for Christ, and a desire to help Christians engage their Muslim neighbors with conviction and respect.</blockquote>
+          <figcaption><span class="bk-proof-name">David B. Capes</span><span class="bk-proof-title">Director, Lanier Theological Library</span></figcaption>
+        </figure>
+        <figure class="bk-endorsement reveal">
+          <blockquote>With an abundance of love for Muslims, yet a burning need to further the gospel message to all the world in accord with the Jesus of reality this will inform, convince and goad all who read. No one can remain apathetic in the face of such evidence.</blockquote>
+          <figcaption><span class="bk-proof-name">Dr. David Cook</span><span class="bk-proof-title">Professor of Religion, Rice University</span></figcaption>
+        </figure>
+        <details class="bk-more">
+          <summary>Read all endorsements</summary>
+          <div class="bk-endorsement-columns bk-endorsement-columns--nested">
+            <figure class="bk-endorsement">
+              <blockquote>This book is essential reading for both students and pastors alike who seek to engage and evangelize Muslims. I highly recommend it.</blockquote>
+              <figcaption><span class="bk-proof-name">Dr. Tony Costa</span><span class="bk-proof-title">Instructor, University of Toronto; Pastor, Park Lawn Baptist Church</span></figcaption>
+            </figure>
+            <figure class="bk-endorsement">
+              <blockquote>Joshua is not against Islam. He is for truth. He loves Muslims and is truly giving his life so that they might know the only One who can satisfy their deepest spiritual appetites and save them from the sins which burden them.</blockquote>
+              <figcaption><span class="bk-proof-name">Dr. David Talley</span><span class="bk-proof-title">Chair, Biblical Studies Department, Biola University and Talbot School of Theology</span></figcaption>
+            </figure>
+            <figure class="bk-endorsement">
+              <blockquote>Lingel's honest quest offers rich material for both Christians and Muslims to better understand Jesus and each other.</blockquote>
+              <figcaption><span class="bk-proof-name">Dr. Todd M. Johnson</span><span class="bk-proof-title">Eva B. and Paul E. Toms Distinguished Professor of Mission and Global Christianity, Gordon-Conwell Theological Seminary</span></figcaption>
+            </figure>
+          </div>
+        </details>
+      </div>
+
+      <h3 class="bk-endorsements-group-title">Global church leaders</h3>
+      <div class="bk-endorsement-columns">
+        <figure class="bk-endorsement reveal">
+          <blockquote>This message is particularly important for Africa. ... May this book strengthen the Church's confidence in the biblical Christ and help mobilize a new generation to take the Gospel to Muslims everywhere.</blockquote>
+          <figcaption><span class="bk-proof-name">Archbishop Dr. Barnabas Mtokambali</span><span class="bk-proof-title">Assemblies of God, Tanzania; Continental Leadership, Assemblies of God Africa</span></figcaption>
+        </figure>
+        <figure class="bk-endorsement reveal">
+          <blockquote>Africa stands at one of the most important frontiers of Christian mission in the world, and the Church must be prepared to proclaim Jesus Christ clearly and confidently to our Muslim neighbours, who number around five hundred million.</blockquote>
+          <figcaption><span class="bk-proof-name">Apostle Dr. Eric Nyamekye</span><span class="bk-proof-title">Chairman, The Church of Pentecost, Ghana</span></figcaption>
+        </figure>
+        <figure class="bk-endorsement reveal">
+          <blockquote>Its publication in Spanish will provide pastors, leaders, missionaries, and churches throughout Latin America with a valuable resource for understanding Islam, strengthening confidence in the biblical Jesus, and communicating the Gospel faithfully to our Muslim neighbours.</blockquote>
+          <figcaption><span class="bk-proof-name">Pr. Ricardo Castillo</span><span class="bk-proof-title">Continental Superintendent, Latin America, Assembly of God, Costa Rica</span></figcaption>
+        </figure>
+        <figure class="bk-endorsement reveal">
+          <blockquote>As the book demonstrates, the question is ultimately not merely about comparing religions, but about answering the most important question: Who is Jesus Christ?</blockquote>
+          <figcaption><span class="bk-proof-name">Apostle Yohannes Girma</span><span class="bk-proof-title">Former Vice President, Ethiopian Council of Gospel Believers' Churches</span></figcaption>
+        </figure>
+        <details class="bk-more">
+          <summary>Read all endorsements</summary>
+          <div class="bk-endorsement-columns bk-endorsement-columns--nested">
+            <figure class="bk-endorsement">
+              <blockquote>Over 40 years ago I prayed that the Lord would bring apologetics training available to the Global Church and i2 Ministries and Dr. Joshua Lingel has been an answer to us and the MENA region for that prayer.</blockquote>
+              <figcaption><span class="bk-proof-name">Pr. Dr. Sameh Maurice</span><span class="bk-proof-title">Senior Pastor, Kasr El Dobara Evangelical Church, Cairo, Egypt</span></figcaption>
+            </figure>
+            <figure class="bk-endorsement">
+              <blockquote>The Borrowed Christ is exactly the kind of material that makes MMWU different. As a radical Muslim I studied the Islamic traditions deeply. MMWU matches that same rigour in English, with hard-hitting material from the best apologists and theologians alive today.</blockquote>
+              <figcaption><span class="bk-proof-name">Tomas Samuel</span><span class="bk-proof-title">Director, MENA Training Programme, Mission Muslim World University, i2 Ministries</span></figcaption>
+            </figure>
+            <figure class="bk-endorsement">
+              <blockquote>It gives pastors and mission leaders something rare: a rigorous, historically grounded case for why the Jesus of the Qur'an cannot be the Jesus of the Gospels, built not on rhetoric but on the earliest sources themselves.</blockquote>
+              <figcaption><span class="bk-proof-name">Ricardo Luna</span><span class="bk-proof-title">Global Servant, Transform World</span></figcaption>
+            </figure>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ 10. ABOUT THE AUTHOR ═══════ -->
+  <section id="author" class="bk-author">
+    <div class="bk-container bk-author-grid">
+      <figure class="bk-author-photo reveal">
+        <img src="/images/new-joshua-lingel.jpeg" width="1024" height="1024" alt="Dr. Joshua B. Lingel, founder and president of i2 Ministries" loading="lazy" decoding="async">
+      </figure>
+      <div class="bk-author-copy reveal">
+        <div class="bk-eyebrow">About the author</div>
+        <h2 class="bk-h2">Joshua B. Lingel</h2>
+        <p>Joshua Lingel is the founder and president of i2 Ministries and dean of Mission Muslim World University, which trains more than 1,700 students across seventy nations. For three decades he has studied the Qur'an and its origins — in 2005 at the School of Oriental and African Studies in London, and alongside scholars of the earliest Qur'anic manuscripts — and has given his life to equipping the Church to reach Muslims with the gospel.</p>
+        <blockquote class="bk-author-quote">"Joshua is not against Islam. He is for truth. He loves Muslims and is truly giving his life so that they might know the only One who can satisfy their deepest spiritual appetites." <cite>— Dr. David Talley, Biola University</cite></blockquote>
+        <a href="/about" class="bk-more-link">More about Dr. Lingel <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ 11. FAQ ═══════ -->
+  <section id="faq" class="bk-faq">
+    <div class="bk-container">
+      <div class="bk-eyebrow">Questions</div>
+      <h2 class="bk-h2">Frequently asked questions</h2>
+      <div class="bk-faq-list">
+        <details class="bk-faq-item">
+          <summary><span>When will <cite>The Borrowed Christ</cite> be released?</span></summary>
+          <p>It is forthcoming from i2 Ministries Press in 2027. Founding Readers hear first — before the public announcement.</p>
+        </details>
+        <details class="bk-faq-item">
+          <summary><span>What will it cost, and in what formats?</span></summary>
+          <p>Pricing and formats will be announced at release. Join the list and we'll send the details the day they're final.</p>
+        </details>
+        <details class="bk-faq-item">
+          <summary><span>Is the book respectful toward Muslims?</span></summary>
+          <p>Yes. It addresses Muslim readers directly and warmly, and its argument concerns texts, dates and sources — never people. Dr. David Garrison's test was "Would I share this with a Muslim?" He says it passes "with flying colors."</p>
+        </details>
+        <details class="bk-faq-item">
+          <summary><span>Is it written for scholars or for pastors?</span></summary>
+          <p>Both. The argument is fully documented — 49 tables, 14 appendices, a select bibliography — but it is written to equip pastors, missionaries and church members for real conversations.</p>
+        </details>
+        <details class="bk-faq-item">
+          <summary><span>Can my church, ministry or seminary order in bulk?</span></summary>
+          <p>Yes. Tick "I may order copies" when you join, or write to <a href="mailto:info@i2ministries.org">info@i2ministries.org</a>, and we'll follow up personally with bulk pricing.</p>
+        </details>
+        <details class="bk-faq-item">
+          <summary><span>Will it be translated?</span></summary>
+          <p>A Spanish edition is planned, with other languages to follow. Tell us your role when you join and we'll alert you.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ 12. FINAL CTA ═══════ -->
+  <section class="bk-final-cta">
+    <div class="bk-container bk-final-cta-inner reveal">
+      <h2 class="bk-h2">The tomb is empty. <em>The case is documented.</em></h2>
+      <p>Be the first to read <cite>The Borrowed Christ</cite> — and get the Introduction free today.</p>
+      <a href="#notify" class="bk-btn bk-btn--primary" data-bk-scroll-notify>Join the Founding Reader list</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo"><img src="/images/i2-ministries-logo-2026.png" alt="i2 Ministries" width="600" height="184"></div>
+        <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg>
+          </a>
+          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h3>Ministry</h3>
+          <a href="/about">About</a>
+          <a href="/the-mission">The Mission</a>
+          <a href="/contact">Contact</a>
+          <a href="/donate">Donate</a>
+        </div>
+        <div class="footer-col">
+          <h3>Training</h3>
+          <a href="/the-initiative">The Initiative</a>
+          <a href="/mmwu">MMWU</a>
+          <a href="https://thewadi.org">WADI</a>
+          <a href="https://resources.i2ministries.org">Resources</a>
+        </div>
+        <div class="footer-col">
+          <h3>Tools</h3>
+          <a href="/wise-global">WISE Global App</a>
+          <a href="https://www.gommwu.org/ebook?utm_source=i2-site&amp;utm_medium=referral&amp;utm_content=the-borrowed-christ-footer">Free Starter Guide</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2003–2026 i2 Ministries Inc. All Rights Reserved. PO Box 3403, La Habra, CA 90632 USA. Tax-exempt 501(c)(3).
+    </div>
+  </div>
+  <div class="i2-legal-links"><a href="/cookie-policy">Cookie policy</a><a href="/privacy">Privacy notice</a><button type="button" data-i2-action="cookie-settings">Cookie settings</button></div>
+</footer>
+
+<!-- ═══════ STICKY MOBILE CTA ═══════ -->
+
+<dialog class="guide-popup" id="guidePopup" aria-labelledby="guidePopupTitle" data-autoopen="false">
+  <div class="guide-popup__layout">
+    <button type="button" class="guide-popup__close" data-guide-close aria-label="Close">&times;</button>
+    <div class="guide-popup__media">
+      <img srcset="/images/starter-guide/starter-guide-mockup-420.webp 420w, /images/starter-guide/starter-guide-mockup-720.webp 720w" sizes="(max-width: 640px) 60vw, 240px" src="/images/starter-guide/starter-guide-mockup-420.webp" width="420" height="585" alt="Every Muslim for Christ Starter Guide, one-day conference edition, shown as a printed guide and on a tablet" loading="lazy" decoding="async">
+    </div>
+    <div class="guide-popup__body">
+      <p class="guide-popup__eyebrow">Free for pastors, leaders &amp; church networks</p>
+      <h2 class="guide-popup__title" id="guidePopupTitle">Host a one-day training for your church</h2>
+      <p class="guide-popup__desc">Three teaching sessions, an Any-3 gospel workshop, and a WISE Global lab, with the full agenda, discussion guides, and next steps. 28 pages, PDF.</p>
+
+      <form class="guide-popup__form" data-guide-form novalidate>
+        <div class="guide-popup__field">
+          <label for="guidePopupFirstName">First name</label>
+          <input type="text" id="guidePopupFirstName" name="firstName" autocomplete="given-name" required>
+        </div>
+        <div class="guide-popup__field">
+          <label for="guidePopupEmail">Email</label>
+          <input type="email" id="guidePopupEmail" name="email" autocomplete="email" required>
+        </div>
+        <div class="guide-popup__field">
+          <label for="guidePopupPhone">Mobile phone (optional)</label>
+          <div class="guide-popup__phone-row">
+            <select id="guideCountry" name="country" aria-label="Country code" autocomplete="tel-country-code"></select>
+            <input type="tel" id="guidePopupPhone" name="phone" autocomplete="tel-national" inputmode="tel" placeholder="Phone number">
+          </div>
+        </div>
+        <label class="guide-popup__consent" data-guide-consent-wrap data-disabled="true">
+          <input type="checkbox" id="guidePopupSmsEvents" name="smsEvents" disabled>
+          <span>I agree to receive SMS messages regarding Mission Muslim World University's free training events (carrier fees apply). Reply STOP to unsubscribe.</span>
+        </label>
+        <label class="guide-popup__consent" data-guide-consent-wrap data-disabled="true">
+          <input type="checkbox" id="guidePopupSmsOffers" name="smsOffers" disabled>
+          <span>I agree to get SMS messages regarding i2 Ministries &amp; Mission Muslim World University's unique offers (carrier fees apply). Reply STOP to unsubscribe.</span>
+        </label>
+        <div class="guide-popup__hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button type="submit" class="guide-popup__submit" data-guide-submit>Yes, send it to me</button>
+      </form>
+      <div class="guide-popup__status" role="status" data-guide-status></div>
+      <p class="guide-popup__micro" data-guide-micro>Your data is safe with us. We will never share your information. <a href="/privacy">Privacy Policy</a>.</p>
+      <div class="sr-only" role="status" data-guide-announce></div>
+
+      <div class="guide-popup__success" data-guide-success hidden>
+        <svg class="guide-popup__success-icon" aria-hidden="true" width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="2"/>
+          <path d="M14 25l7 7 13-15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 tabindex="-1" data-guide-success-heading>Success! Check your inbox.</h3>
+        <p data-guide-success-message></p>
+        <div class="guide-popup__success-actions">
+          <button type="button" class="guide-popup__btn-primary" data-guide-close>Close and keep browsing</button>
+          <a class="guide-popup__link-download" data-guide-download href="/downloads/emfci-one-day-starter-guide.pdf" download>Or download it now (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+<div class="bk-sticky" id="bkSticky" hidden>
+  <a href="#notify" class="bk-btn bk-btn--primary" data-bk-scroll-notify>Notify me — get the Introduction free</a>
+</div>
+
+<script src="/js/pages/borrowed-christ.js"></script>
+<script src="/js/consent.js"></script>
+<script src="/js/guide-popup.js" defer></script>
+<script src="/js/actions.js"></script>
+</body>
+</html>

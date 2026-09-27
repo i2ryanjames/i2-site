@@ -53,7 +53,7 @@ test('every complete audience path produces a reachable, existing main-site dest
   }
 });
 
-test('only the homepage loads the quiz and its ebook invitation is inline after the impact section', () => {
+test('only the homepage loads the quiz and its ebook invitation is inline between the pillars and endorsements sections', () => {
   const files = readdirSync(new URL('public/', root)).filter(name => name.endsWith('.html'));
   for (const file of files) {
     const html = readFileSync(new URL('public/' + file, root), 'utf8');
@@ -62,7 +62,8 @@ test('only the homepage loads the quiz and its ebook invitation is inline after 
       assert.match(html, /\/js\/pathfinder\.js/);
       assert.doesNotMatch(html, /id="ebookOverlay"/);
       assert.ok(html.indexOf('class="emfci-stats"') < html.indexOf('id="free-ebook"'));
-      assert.ok(html.indexOf('id="free-ebook"') < html.indexOf('id="mission"'));
+      assert.ok(html.indexOf('id="trained"') < html.indexOf('id="free-ebook"'));
+      assert.ok(html.indexOf('id="free-ebook"') < html.indexOf('id="endorsements"'));
     } else {
       assert.doesNotMatch(html, /id="i2-pathfinder"|\/js\/pathfinder(?:-data)?\.js/, file);
     }

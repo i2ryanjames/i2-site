@@ -63,7 +63,7 @@
   margin-bottom: 8px;
 }
 .death-counter .count-label {
-  font-size: clamp(0.9375rem, 0.85rem + 0.3vw, 1.0625rem);
+  font-size: clamp(1.0625rem, 0.975rem + 0.3vw, 1.1562rem);
   line-height: 1.4;
   color: rgba(250, 247, 242, 0.82);
   max-width: 22ch;
@@ -97,7 +97,7 @@
 }
 .urgency-item p,
 .urgency-grid > div > p {
-  font-size: 0.875rem;
+  font-size: 1rem;
   letter-spacing: 0.04em;
   color: var(--color-text-muted);
   line-height: 1.5;
@@ -128,7 +128,7 @@
   color: var(--color-accent);
 }
 .content-section p {
-  font-size: 1.0625rem;
+  font-size: 1.1562rem;
   line-height: 1.8;
   color: var(--color-text);
   max-width: 62ch;
@@ -170,7 +170,7 @@
   letter-spacing: -0.02em;
 }
 .fear-item p {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--color-text);
   margin: 0;
@@ -226,7 +226,7 @@
 /* Theme label as proper eyebrow */
 .comp-theme-label {
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -292,7 +292,7 @@
 
 .comp-stat-desc {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.55;
   color: var(--color-text-muted);
   max-width: 32ch;
@@ -308,7 +308,7 @@
 }
 .comp-quote-box blockquote {
   font-family: var(--font-display);
-  font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
+  font-size: clamp(1.1562rem, 1.0437rem + 0.4vw, 1.3438rem);
   font-style: italic;
   line-height: 1.55;
   color: var(--color-text);

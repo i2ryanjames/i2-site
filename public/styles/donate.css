@@ -44,7 +44,7 @@
   color: var(--color-accent);
 }
 .donate-hero .subtitle {
-  font-size: clamp(1.125rem, 1rem + 0.4vw, 1.3125rem);
+  font-size: clamp(1.2188rem, 1.0938rem + 0.4vw, 1.4062rem);
   line-height: 1.65;
   max-width: 58ch;
   margin-inline: auto;
@@ -95,27 +95,27 @@
 .donate-card-icon svg { color: var(--color-accent); }
 .donate-card h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.375rem, 1.15rem + 0.8vw, 1.625rem);
+  font-size: clamp(1.4688rem, 1.2438rem + 0.8vw, 1.625rem);
   line-height: 1.2;
   letter-spacing: -0.015em;
   font-weight: 400;
   color: var(--color-text);
 }
 .donate-card p {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--color-text-muted);
   max-width: 28ch;
 }
 .donate-card .card-cta {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent);
   font-weight: 600;
 }
 .tax-note {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
   margin-top: clamp(1.5rem, 1rem + 1vw, 2rem);
   letter-spacing: 0.01em;
@@ -142,7 +142,7 @@
   margin-bottom: 16px;
 }
 .funding-dashboard-header p {
-  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  font-size: clamp(1.125rem, 1.075rem + 0.3vw, 1.2188rem);
   line-height: 1.7;
   max-width: 58ch;
   margin-inline: auto;
@@ -178,7 +178,7 @@
 
 .funding-card-label {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -187,7 +187,7 @@
 }
 .funding-card-title {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.5rem);
+  font-size: clamp(1.3438rem, 1.1438rem + 0.8vw, 1.5rem);
   line-height: 1.2;
   letter-spacing: -0.01em;
   font-weight: 400;
@@ -212,7 +212,7 @@
   font-variant-numeric: tabular-nums;
 }
 .funding-card-remaining {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--color-text-muted);
@@ -242,7 +242,7 @@
   display: none;          /* Was showing "80 waiting" etc. overlapping the bar */
 }
 .funding-card-caption {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--color-text);
   margin-bottom: 24px;
@@ -251,7 +251,7 @@
   padding-top: 4px;
 }
 .funding-card-cta {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -289,7 +289,7 @@
   color: var(--color-accent);
 }
 .stewardship-text p {
-  font-size: 1.0625rem;
+  font-size: 1.1562rem;
   line-height: 1.75;
   color: var(--color-text);
   margin-bottom: 18px;
@@ -381,7 +381,7 @@
   color: var(--color-accent);
 }
 .form-page .subtitle {
-  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  font-size: clamp(1.125rem, 1.075rem + 0.3vw, 1.2188rem);
   line-height: 1.7;
   max-width: 50ch;
   margin-inline: auto;
@@ -401,7 +401,7 @@
 }
 .form-card h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.5rem);
+  font-size: clamp(1.3438rem, 1.1438rem + 0.8vw, 1.5rem);
   line-height: 1.2;
   letter-spacing: -0.015em;
   font-weight: 400;
@@ -409,7 +409,7 @@
   text-align: center;
 }
 .form-card > p {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--color-text-muted);
   text-align: center;
@@ -420,7 +420,7 @@
 
 /* Trust indicator under buttons */
 .secure-note {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
   margin-top: clamp(1rem, 0.75rem + 0.5vw, 1.5rem);
 }
@@ -437,14 +437,14 @@
 }
 .fund-info-header h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 1.05rem + 0.7vw, 1.5rem);
+  font-size: clamp(1.3438rem, 1.1438rem + 0.7vw, 1.5rem);
   line-height: 1.2;
   letter-spacing: -0.01em;
   font-weight: 400;
   margin-bottom: 8px;
 }
 .fund-info-header p {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   color: var(--color-text-muted);
   line-height: 1.5;
 }
@@ -471,12 +471,12 @@
 }
 .trust-item h4 {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   margin-bottom: 4px;
 }
 .trust-item p {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
   line-height: 1.5;
 }
@@ -486,7 +486,7 @@
   align-items: center;
   gap: 8px;
   margin: clamp(2rem, 1.5rem + 1vw, 3rem) auto 0;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;

@@ -299,12 +299,11 @@
   });
   function tryOpen() {
     if ((!previewPending && dismissed) || dialog.open || document.hidden) return;
-    var consent = document.querySelector('.i2-consent');
     var active = document.activeElement;
-    // Wait for a privacy decision or a form/modal interaction to finish, then retry.
-    // Scrolling, anchor links, and a focused navigation button must not lose the invitation.
-    if ((!previewPending && (!window.I2Consent || !window.I2Consent.hasDecision() || (consent && !consent.hidden))) ||
-        document.querySelector('dialog[open], [data-media-loaded]') ||
+    // Opens 5s after load without waiting for the cookie banner (Ryan, 2026-09-27:
+    // waiting for a privacy choice meant many visitors never saw it). Still waits
+    // for another dialog, a playing video, or a focused form field, then retries.
+    if (document.querySelector('dialog[open], [data-media-loaded]') ||
         (!previewPending && active && active.getClientRects().length && active.matches('input, textarea, select, [contenteditable="true"]'))) {
       timer = setTimeout(tryOpen, 1000);
       return;
@@ -314,9 +313,8 @@
   function schedule() {
     clearTimeout(timer);
     if ((!previewPending && dismissed) || dialog.open || document.hidden) return;
-    timer = setTimeout(tryOpen, previewPending ? 0 : 6000);
+    timer = setTimeout(tryOpen, previewPending ? 0 : 5000);
   }
-  document.addEventListener('i2:consent-changed', schedule);
   document.addEventListener('visibilitychange', schedule);
   window.addEventListener('pageshow', schedule);
   schedule();

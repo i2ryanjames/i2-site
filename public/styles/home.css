@@ -30,7 +30,7 @@
 }
 
 .hero-text p {
-  font-size: clamp(1.125rem, 0.95rem + 0.55vw, 1.3125rem);
+  font-size: clamp(1.2188rem, 1.0438rem + 0.55vw, 1.4062rem);
   line-height: 1.7;
   color: var(--color-text-muted);
   max-width: 54ch;
@@ -69,7 +69,7 @@
    ------------------------------------------------------------------------- */
 .label {
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -137,7 +137,7 @@
 }
 .emfci-stat-card:hover { transform: none; background: transparent; box-shadow: none; }
 .emfci-desc {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   letter-spacing: 0.01em;
   color: var(--color-text-muted);
   line-height: 1.5;
@@ -161,7 +161,7 @@
   margin-bottom: 16px;
 }
 .mission-counter .counter-label {
-  font-size: clamp(1rem, 0.9rem + 0.3vw, 1.1875rem);
+  font-size: clamp(1.125rem, 1.025rem + 0.3vw, 1.2812rem);
   line-height: 1.45;
   max-width: 22ch;
   color: rgba(255,255,255,0.82);
@@ -200,7 +200,7 @@
   margin-bottom: 12px;
 }
 .stat-item p {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   letter-spacing: 0.14em;
   color: rgba(250, 247, 242, 0.65);
   line-height: 1.45;
@@ -243,21 +243,21 @@
 }
 .pillar-card h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.5rem);
+  font-size: clamp(1.3438rem, 1.1438rem + 0.8vw, 1.5rem);
   line-height: 1.2;
   letter-spacing: -0.01em;
   margin-bottom: 12px;
   color: var(--color-text);
 }
 .pillar-card p {
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--color-text-muted);
   margin-bottom: 20px;
 }
 .pillar-card .pillar-link {
   color: var(--color-accent);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -337,7 +337,7 @@
 }
 .endorsement-card blockquote {
   font-family: var(--font-display);
-  font-size: clamp(1.0625rem, 0.95rem + 0.45vw, 1.25rem);
+  font-size: clamp(1.1562rem, 1.0437rem + 0.45vw, 1.3438rem);
   line-height: 1.5;
   font-style: italic;
   font-weight: 400;
@@ -359,13 +359,13 @@
 }
 .endorsement-author strong {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   letter-spacing: -0.005em;
   color: var(--color-text);
 }
 .endorsement-author span {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
   letter-spacing: 0.01em;
   display: block;
@@ -474,7 +474,7 @@
 }
 
 .flow-eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -500,7 +500,7 @@
 
 .flow-lede {
   max-width: 50ch;
-  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-size: clamp(1.125rem, 2.5vw, 2rem);
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
@@ -521,7 +521,7 @@
 }
 
 .flow-stat-label {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -529,7 +529,7 @@
 }
 
 .flow-stat-body {
-  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
   line-height: 1.55;
   opacity: 0.8;
   margin: 0;

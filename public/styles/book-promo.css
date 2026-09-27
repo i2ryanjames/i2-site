@@ -1,0 +1,203 @@
+/* ═══════ BOOK PROMO — "The Borrowed Christ" feature container ═══════
+   Scoped component. Deliberately warm/archival, contrasting with the
+   site's blue theme. Fonts reuse the site's existing families
+   ('Instrument Serif' display/italic, 'DM Sans' body) — no new font load.
+   Linked AFTER polish.css on each page that uses it. */
+
+.book-promo {
+  --bp-bg: #F7F3EA;
+  --bp-hairline: #E5DEC9;
+  --bp-ink: #141414;
+  --bp-slate: #4A463F;
+  --bp-eyebrow: #7A4E1D;
+  --bp-gold: #B07A3B;
+  --bp-btn: #1d4ed8;
+  --bp-btn-hover: #1e40af;
+
+  background: var(--bp-bg);
+  border-top: 1px solid var(--bp-hairline);
+  border-bottom: 1px solid var(--bp-hairline);
+  padding: clamp(48px, 7vw, 96px) 0;
+  color: var(--bp-ink);
+}
+
+.book-promo .container {
+  max-width: var(--max-width, 1280px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.book-promo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 32px;
+}
+
+.book-promo-media {
+  display: flex;
+  justify-content: center;
+}
+
+.book-promo-media img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  /* Supplied jacket render with its white ground baked to #F7F3EA — keep the panel that colour. */
+  transition: transform 0.4s ease;
+}
+
+@media (hover: hover) {
+  .book-promo-media:hover img {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-promo-media img {
+    transition: none;
+  }
+  .book-promo-media:hover img {
+    transform: none;
+  }
+}
+
+.book-promo-copy {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.book-promo-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bp-eyebrow);
+  margin: 0 0 16px;
+}
+
+.book-promo-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--bp-gold);
+  flex: 0 0 auto;
+}
+
+.book-promo-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.15;
+  color: var(--bp-ink);
+  margin: 0 0 18px;
+}
+
+.book-promo-title em {
+  font-style: italic;
+}
+
+.book-promo-copy p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18.5px;
+  line-height: 1.65;
+  color: var(--bp-slate);
+  margin: 0 0 18px;
+  max-width: 56ch;
+}
+
+.book-promo-endorsement {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 18.5px;
+  line-height: 1.5;
+  color: var(--bp-slate);
+  margin: 0 0 26px;
+  padding-left: 16px;
+  border-left: 2px solid var(--bp-hairline);
+  max-width: 52ch;
+}
+
+.book-promo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-bottom: 14px;
+}
+
+.book-promo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 24px;
+  background: var(--bp-btn);
+  color: #FFFFFF;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.book-promo-btn:hover,
+.book-promo-btn:focus-visible {
+  background: var(--bp-btn-hover);
+}
+
+.book-promo-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--bp-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--bp-hairline);
+}
+
+.book-promo-link:hover,
+.book-promo-link:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.book-promo-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--bp-slate);
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .book-promo-grid {
+    grid-template-columns: 40% 1fr;
+    gap: 64px;
+  }
+
+  .book-promo-media {
+    justify-content: center;
+    order: 0;
+  }
+
+  .book-promo-media img {
+    max-width: 380px;
+  }
+
+  .book-promo-copy {
+    order: 1;
+  }
+}
+
+/* Eyebrow wraps on phones at the larger type scale: tighten its leading and tracking there. */
+.book-promo-eyebrow { line-height: 1.35; }
+@media (max-width: 600px) {
+  .book-promo-eyebrow { letter-spacing: 0.1em; }
+}

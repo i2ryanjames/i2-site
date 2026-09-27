@@ -28,7 +28,7 @@ body.page-initiative .page-hero {
   color: var(--color-accent);
 }
 .page-hero .subtitle {
-  font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
+  font-size: clamp(1.1562rem, 1.0437rem + 0.4vw, 1.3438rem);
   line-height: 1.7;
   max-width: 58ch;
   margin-inline: auto;
@@ -67,7 +67,7 @@ body.page-initiative .page-hero {
 .stat-item p,
 .stat-bar-item .stat-desc,
 .stat-bar-inner .desc {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -96,7 +96,7 @@ body.page-initiative .page-hero {
 }
 .accordion-intro,
 .accordion-header p {
-  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  font-size: clamp(1.125rem, 1.075rem + 0.3vw, 1.2188rem);
   line-height: 1.7;
   max-width: 62ch;
   color: var(--color-text-muted);
@@ -115,7 +115,7 @@ body.page-initiative .page-hero {
 .accordion-btn {
   padding: clamp(1.125rem, 1rem + 0.5vw, 1.5rem) 0;
   font-family: var(--font-display);
-  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.4375rem);
+  font-size: clamp(1.2188rem, 1.0938rem + 0.6vw, 1.4844rem);
   line-height: 1.25;
   letter-spacing: -0.01em;
   font-weight: 400;
@@ -127,7 +127,7 @@ body.page-initiative .page-hero {
 }
 .accordion-body p {
   font-family: var(--font-display);
-  font-size: 1.0625rem;
+  font-size: 1.1562rem;
   line-height: 1.8;
   color: var(--color-text);
   max-width: 62ch;
@@ -141,7 +141,7 @@ body.page-initiative .page-hero {
 .accordion-body ol li,
 .accordion-body ul li {
   font-family: var(--font-display);
-  font-size: 1.0625rem;
+  font-size: 1.1562rem;
   line-height: 1.75;
   color: var(--color-text);
   margin-bottom: 10px;
@@ -197,7 +197,7 @@ body.page-initiative .page-hero {
 }
 .endorsement-card blockquote {
   font-family: var(--font-display);
-  font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.1875rem);
+  font-size: clamp(1.1562rem, 1.0437rem + 0.4vw, 1.2812rem);
   font-style: italic;
   font-weight: 400;
   line-height: 1.55;
@@ -221,13 +221,13 @@ body.page-initiative .page-hero {
 .endorsement-meta strong,
 .endorsement-author strong {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   color: var(--color-text);
 }
 .endorsement-meta span,
 .endorsement-author span {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
   display: block;
   margin-top: 2px;
