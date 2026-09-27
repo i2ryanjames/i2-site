@@ -1,0 +1,36 @@
+Correct the A — Mobilize the Church design. Its current invented text is unacceptable. Keep its light editorial layout and navy story section but REPLACE ALL TEXT with the exact brief below. No added sentences, sections, claims, badges, quotes, labels or links. Use Instrument Serif headings and DM Sans. All small text14pxminimum. Remove client portal, ECFA in all forms, synod ratification, resolution language, accreditation references, documentary archive, dioceses and 31regions. Remove the fabricated testimonial/quotation: the Tanzania fact below is ordinary prose, not a quote. Remove the unverified conference photograph. Replace with the provided imageURL https://www.i2ministries.org/images/mission-crowd.webp showing anonymous distant crowd; label only "Illustrative image". Use the actual i2 logoURL https://www.i2ministries.org/images/i2-ministries-logo-2026.png rather than a fabricated wordmark.
+
+EXACT allowed content:
+NAV: Our mission / Church leaders / Training / About / Donate.
+HERO eyebrow: TRAINING. COACHING. ACTIVATION.
+Heading: One equipped leader. Thousands of churches in motion.
+Description: We partner with denominations and church networks to equip the Church to reach Muslims for Christ.
+Buttons: Mobilize your network / Help fund the mission
+Small link: Find your next step →
+PHOTO caption: Illustrative image
+NEXT heading: A ministry designed to multiply.
+Three sequential plain columns (not boxed cards):
+01 Partner with national leaders
+We work with senior denominational leadership to plan an initiative across their churches.
+02 Equip local trainers
+Launch conferences, translated training, and MMWU prepare leaders to train others.
+03 Activate local churches
+Coaching and WISE support churches in prayer, evangelism, and discipleship.
+Supporting line: MMWU develops leaders. WADI offers free video training. WISE supports ministry coordination.
+DARK NAVY section:
+label: THE INITIATIVE IN TANZANIA
+16,000
+churches mobilized
+All 71 bishops of the Tanzania Assemblies of God agreed to run regional Every Muslim for Christ conferences.
+Source: i2 Ministries’ published initiative report.
+Link: Explore the initiative →
+NEXT two editorial columns:
+Lead a network? Let's equip your churches.
+Explore how training, coaching, and activation could serve your denomination or network.
+Button: Explore a partnership
+Give the next country a beginning.
+Help fund national launches, scholarships, translated training, and ministry technology.
+Link: See what your gift makes possible →
+FOOTER: i2 Ministries Inc. · 501(c)(3) · EIN 76-0800576
+Links: About / The mission / The initiative / Training / Donate / Contact / Cookie policy / Privacy
+END. No further copy. Keep typography beautiful, reduce excessive vertical length; target pageheight2600at1440width. No invented trust signals, library labels or governance jargon.

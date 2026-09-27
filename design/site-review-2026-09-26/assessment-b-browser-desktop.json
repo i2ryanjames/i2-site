@@ -1,0 +1,2294 @@
+[
+  {
+    "url": "https://www.i2ministries.org/",
+    "viewport": 1440,
+    "scrollWidth": 1440,
+    "height": 7357,
+    "smallText": [],
+    "smallBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.",
+        "font": "14.4px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data wh",
+        "font": "15px"
+      }
+    ],
+    "uppercaseBody": [],
+    "lowContrast": [],
+    "smallTargets": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-logo",
+        "text": "",
+        "rect": {
+          "w": 130.4,
+          "h": 40
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "About",
+        "rect": {
+          "w": 53.6,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Mission",
+        "rect": {
+          "w": 101.2,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-dropdown-trigger",
+        "text": "Get Trained",
+        "rect": {
+          "w": 117.4,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Contact",
+        "rect": {
+          "w": 73.4,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-ebook",
+        "text": "Free Ebook",
+        "rect": {
+          "w": 142.9,
+          "h": 42.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-cta",
+        "text": "Donate",
+        "rect": {
+          "w": 111.6,
+          "h": 42.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "About",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Mission",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Contact",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Donate",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Initiative",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "MMWU",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "WADI",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Resources",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "WISE Global App",
+        "rect": {
+          "w": 116.9,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Free Ebook",
+        "rect": {
+          "w": 116.9,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 89.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Privacy notice",
+        "rect": {
+          "w": 93.6,
+          "h": 37
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "class": "",
+        "text": "Cookie settings",
+        "rect": {
+          "w": 102.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 93.3,
+          "h": 20
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-mcdowell.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-licona.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-craig.png",
+        "loaded": false,
+        "visible": false
+      }
+    ],
+    "horizontalOverflow": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "skip-to-main",
+        "text": "Skip to main content",
+        "left": -9999,
+        "right": -9820.34375
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "class": "hero-glow glow-orange",
+        "text": "",
+        "left": 1152,
+        "right": 1728
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "class": "hero-glow glow-blue",
+        "text": "",
+        "left": -144,
+        "right": 432
+      }
+    ]
+  },
+  {
+    "url": "https://www.i2ministries.org/the-initiative",
+    "viewport": 1440,
+    "scrollWidth": 1440,
+    "height": 8232,
+    "smallText": [],
+    "smallBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.",
+        "font": "14.4px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data wh",
+        "font": "15px"
+      }
+    ],
+    "uppercaseBody": [],
+    "lowContrast": [],
+    "smallTargets": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-logo",
+        "text": "",
+        "rect": {
+          "w": 130.4,
+          "h": 40
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "About",
+        "rect": {
+          "w": 53.6,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Mission",
+        "rect": {
+          "w": 101.2,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-dropdown-trigger",
+        "text": "Get Trained",
+        "rect": {
+          "w": 117.4,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Contact",
+        "rect": {
+          "w": 73.4,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-cta",
+        "text": "Donate",
+        "rect": {
+          "w": 111.6,
+          "h": 42.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "About",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Mission",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Contact",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Donate",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Initiative",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "MMWU",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "WADI",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Resources",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "WISE Global App",
+        "rect": {
+          "w": 116.9,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Free Ebook",
+        "rect": {
+          "w": 116.9,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 89.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Privacy notice",
+        "rect": {
+          "w": 93.6,
+          "h": 37
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "class": "",
+        "text": "Cookie settings",
+        "rect": {
+          "w": 102.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 93.3,
+          "h": 20
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/gallery-01.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/gallery-02.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/gallery-03.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/gallery-04.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/gallery-05.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/gallery-06.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/gallery-07.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/gallery-08.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/new-training-1.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/new-training-2.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/new-training-3.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/new-training-4.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/new-training-5.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/new-training-6.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/new-training-7.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/new-training-8.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "lightboxImg",
+        "class": "lightbox-img",
+        "text": "",
+        "src": "",
+        "loaded": false,
+        "visible": false
+      }
+    ],
+    "horizontalOverflow": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "skip-to-main",
+        "text": "Skip to main content",
+        "left": -9999,
+        "right": -9820.34375
+      }
+    ]
+  },
+  {
+    "url": "https://www.i2ministries.org/donate",
+    "viewport": 1440,
+    "scrollWidth": 1440,
+    "height": 4848,
+    "smallText": [
+      {
+        "tag": "DIV",
+        "id": "emfciBar",
+        "class": "funding-card-bar-fill animated-38",
+        "text": "50",
+        "font": "0px"
+      },
+      {
+        "tag": "DIV",
+        "id": "wiseBar",
+        "class": "funding-card-bar-fill animated-20",
+        "text": "Funded",
+        "font": "0px"
+      },
+      {
+        "tag": "DIV",
+        "id": "mmwuBar",
+        "class": "funding-card-bar-fill animated-30",
+        "text": "450",
+        "font": "0px"
+      }
+    ],
+    "smallBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Secure online payment via credit card, debit card, or check",
+        "font": "15px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Fast and secure donation through your PayPal account",
+        "font": "15px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "tax-note",
+        "text": "i2 Ministries Inc is a registered 501(c)(3) non-profit. All donations are tax-deductible.",
+        "font": "14px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "funding-card-caption",
+        "text": "50 of 130 countries launched. Each country launch costs $100,000 and mobilizes entire denominations to reach e",
+        "font": "15px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "funding-card-caption",
+        "text": "$657,650 remaining to complete the app that allows denominations and churches to launch and track prayer, trai",
+        "font": "15px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "funding-card-caption",
+        "text": "450 of 1,500 students have received a full scholarship at $7,920 each. 1,050 leaders across 70+ countries are ",
+        "font": "15px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Every dollar goes directly to training, curriculum production, and field operations.",
+        "font": "14.88px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "No staff salaries come from ministry gifts. Each team member raises personal support.",
+        "font": "14.88px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Registered 501(c)(3) non-profit with both state and federal authorities.",
+        "font": "14.88px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training pastors congresses of 1\u201320,000 leaders in 50+ countries worldwide.",
+        "font": "14.88px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.",
+        "font": "14.4px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data wh",
+        "font": "15px"
+      }
+    ],
+    "uppercaseBody": [],
+    "lowContrast": [
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "card-cta card-cta--primary",
+        "text": "Give by Card or Check \u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(255, 255, 255)",
+        "background": [
+          59,
+          130,
+          246
+        ],
+        "font": "16px"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "btn-arrow",
+        "text": "\u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(255, 255, 255)",
+        "background": [
+          59,
+          130,
+          246
+        ],
+        "font": "16px"
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "class": "funding-card-label",
+        "text": "EMFCI",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "funding-card-cta",
+        "text": "Learn More \u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "btn-arrow",
+        "text": "\u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "class": "funding-card-label",
+        "text": "WISE Global",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "funding-card-cta",
+        "text": "Learn More \u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "btn-arrow",
+        "text": "\u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "class": "funding-card-label",
+        "text": "MMWU",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "funding-card-cta",
+        "text": "Learn More \u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "btn-arrow",
+        "text": "\u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      }
+    ],
+    "smallTargets": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-logo",
+        "text": "",
+        "rect": {
+          "w": 130.4,
+          "h": 40
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "About",
+        "rect": {
+          "w": 53.6,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Mission",
+        "rect": {
+          "w": 101.2,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-dropdown-trigger",
+        "text": "Get Trained",
+        "rect": {
+          "w": 117.4,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Contact",
+        "rect": {
+          "w": 73.4,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-ebook",
+        "text": "Free Ebook",
+        "rect": {
+          "w": 142.9,
+          "h": 42.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-cta",
+        "text": "Donate",
+        "rect": {
+          "w": 111.6,
+          "h": 42.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "About",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Mission",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Contact",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Donate",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Initiative",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "MMWU",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "WADI",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Resources",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "WISE Global App",
+        "rect": {
+          "w": 116.9,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Free Ebook",
+        "rect": {
+          "w": 116.9,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 89.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Privacy notice",
+        "rect": {
+          "w": 93.6,
+          "h": 37
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "class": "",
+        "text": "Cookie settings",
+        "rect": {
+          "w": 102.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 93.3,
+          "h": 20
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "tag": "IMG",
+        "id": "lightboxImg",
+        "class": "lightbox-img",
+        "text": "",
+        "src": "",
+        "loaded": false,
+        "visible": false
+      }
+    ],
+    "horizontalOverflow": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "skip-to-main",
+        "text": "Skip to main content",
+        "left": -9999,
+        "right": -9820.34375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1198.671875,
+        "right": 1507.796875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1519.796875,
+        "right": 1911.484375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1923.484375,
+        "right": 2216.8125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2228.8125,
+        "right": 2522.140625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2534.140625,
+        "right": 2827.46875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2839.46875,
+        "right": 3230.578125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3242.578125,
+        "right": 3633.6875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3645.6875,
+        "right": 4036.796875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4048.796875,
+        "right": 4439.90625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4451.90625,
+        "right": 4843.015625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4855.015625,
+        "right": 5185.015625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 5197.015625,
+        "right": 5583.46875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 5595.46875,
+        "right": 5888.796875
+      }
+    ]
+  },
+  {
+    "url": "https://www.i2ministries.org/get-trained",
+    "viewport": 1440,
+    "scrollWidth": 1440,
+    "height": 7097,
+    "smallText": [],
+    "smallBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.",
+        "font": "14.4px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data wh",
+        "font": "15px"
+      }
+    ],
+    "uppercaseBody": [],
+    "lowContrast": [],
+    "smallTargets": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-logo",
+        "text": "",
+        "rect": {
+          "w": 130.4,
+          "h": 40
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "About",
+        "rect": {
+          "w": 53.6,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Mission",
+        "rect": {
+          "w": 101.2,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-dropdown-trigger",
+        "text": "Get Trained",
+        "rect": {
+          "w": 117.4,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Contact",
+        "rect": {
+          "w": 73.4,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-ebook",
+        "text": "Free Ebook",
+        "rect": {
+          "w": 142.9,
+          "h": 42.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-cta",
+        "text": "Donate",
+        "rect": {
+          "w": 111.6,
+          "h": 42.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "About",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Mission",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Contact",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Donate",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Initiative",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "MMWU",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "WADI",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Resources",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "WISE Global App",
+        "rect": {
+          "w": 116.9,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Free Ebook",
+        "rect": {
+          "w": 116.9,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 89.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Privacy notice",
+        "rect": {
+          "w": 93.6,
+          "h": 37
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "class": "",
+        "text": "Cookie settings",
+        "rect": {
+          "w": 102.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 93.3,
+          "h": 20
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/vid-gc-muslims.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "lightboxImg",
+        "class": "lightbox-img",
+        "text": "",
+        "src": "",
+        "loaded": false,
+        "visible": false
+      }
+    ],
+    "horizontalOverflow": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "skip-to-main",
+        "text": "Skip to main content",
+        "left": -9999,
+        "right": -9820.34375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1198.671875,
+        "right": 1507.796875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1519.796875,
+        "right": 1911.484375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1923.484375,
+        "right": 2216.8125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2228.8125,
+        "right": 2522.140625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2534.140625,
+        "right": 2827.46875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2839.46875,
+        "right": 3230.578125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3242.578125,
+        "right": 3633.6875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3645.6875,
+        "right": 4036.796875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4048.796875,
+        "right": 4439.90625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4451.90625,
+        "right": 4843.015625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4855.015625,
+        "right": 5185.015625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 5197.015625,
+        "right": 5583.46875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 5595.46875,
+        "right": 5888.796875
+      }
+    ]
+  },
+  {
+    "url": "https://www.i2ministries.org/about",
+    "viewport": 1440,
+    "scrollWidth": 1440,
+    "height": 12257,
+    "smallText": [],
+    "smallBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "\u2014 A calling received at age 18 from the Holy Spirit",
+        "font": "15.2px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "M.A. Islamic Studies/Islamic Societies & Cultures \u2014 School of Oriental and African Studies (SOAS), University ",
+        "font": "15px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "Isaiah 40:28; Matthew 28:19; Ephesians 1:11; Acts 15:14; John 17:6,18; Ephesians 4:12",
+        "font": "14px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "1 Corinthians 15:3,4; Acts 2:32-39; John 20:21; Luke 14:25-33; Mark 8:34",
+        "font": "14px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.",
+        "font": "14.4px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data wh",
+        "font": "15px"
+      }
+    ],
+    "uppercaseBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "Isaiah 40:28; Matthew 28:19; Ephesians 1:11; Acts 15:14; John 17:6,18; Ephesians 4:12"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "1 Corinthians 15:3,4; Acts 2:32-39; John 20:21; Luke 14:25-33; Mark 8:34"
+      }
+    ],
+    "lowContrast": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "strategy-link",
+        "text": "View Our Mega Strategy \u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "btn-arrow",
+        "text": "\u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "bio-whatsapp",
+        "text": "Invite Joshua to Train Your Group",
+        "ratio": 1.98,
+        "min": 4.5,
+        "color": "rgb(255, 255, 255)",
+        "background": [
+          37,
+          211,
+          102
+        ],
+        "font": "15px"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "label",
+        "text": "President & Founder",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "H3",
+        "id": "",
+        "class": "",
+        "text": "Education",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "Isaiah 40:28; Matthew 28:19; Ephesians 1:11; Acts 15:14; John 17:6,18; Ephesians 4:12",
+        "ratio": 4.21,
+        "min": 4.5,
+        "color": "rgb(107, 114, 128)",
+        "background": [
+          244,
+          239,
+          227
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "1 Corinthians 15:3,4; Acts 2:32-39; John 20:21; Luke 14:25-33; Mark 8:34",
+        "ratio": 4.21,
+        "min": 4.5,
+        "color": "rgb(107, 114, 128)",
+        "background": [
+          244,
+          239,
+          227
+        ],
+        "font": "14px"
+      }
+    ],
+    "smallTargets": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-logo",
+        "text": "",
+        "rect": {
+          "w": 130.4,
+          "h": 40
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "About",
+        "rect": {
+          "w": 53.6,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Mission",
+        "rect": {
+          "w": 101.2,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-dropdown-trigger",
+        "text": "Get Trained",
+        "rect": {
+          "w": 117.4,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Contact",
+        "rect": {
+          "w": 73.4,
+          "h": 22.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-ebook",
+        "text": "Free Ebook",
+        "rect": {
+          "w": 142.9,
+          "h": 42.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "nav-cta",
+        "text": "Donate",
+        "rect": {
+          "w": 111.6,
+          "h": 42.4
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "About",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Mission",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Contact",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Donate",
+        "rect": {
+          "w": 85.2,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "The Initiative",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "MMWU",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "WADI",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Resources",
+        "rect": {
+          "w": 88.3,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "WISE Global App",
+        "rect": {
+          "w": 116.9,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Free Ebook",
+        "rect": {
+          "w": 116.9,
+          "h": 24.3
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 89.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Privacy notice",
+        "rect": {
+          "w": 93.6,
+          "h": 37
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "class": "",
+        "text": "Cookie settings",
+        "rect": {
+          "w": 102.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 93.3,
+          "h": 20
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "tag": "IMG",
+        "id": "lightboxImg",
+        "class": "lightbox-img",
+        "text": "",
+        "src": "",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-nyamedor.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-bansah.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-nyamekye.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-mtokambali.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-mcdowell.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-licona.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-craig.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-moreland.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-botelho.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-anfuso.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-coleman.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-mcallister.png",
+        "loaded": false,
+        "visible": false
+      }
+    ],
+    "horizontalOverflow": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "skip-to-main",
+        "text": "Skip to main content",
+        "left": -9999,
+        "right": -9820.34375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1198.671875,
+        "right": 1507.796875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1519.796875,
+        "right": 1911.484375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1923.484375,
+        "right": 2216.8125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2228.8125,
+        "right": 2522.140625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2534.140625,
+        "right": 2827.46875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2839.46875,
+        "right": 3230.578125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3242.578125,
+        "right": 3633.6875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3645.6875,
+        "right": 4036.796875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4048.796875,
+        "right": 4439.90625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4451.90625,
+        "right": 4843.015625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4855.015625,
+        "right": 5185.015625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 5197.015625,
+        "right": 5583.46875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 5595.46875,
+        "right": 5888.796875
+      }
+    ]
+  }
+]

@@ -1,0 +1,4 @@
+Script ran on page and returned:
+```json
+{"width":390,"scrollWidth":390,"height":8937,"headings":[{"text":"Get Trained","y":154},{"text":"Why Every Christian Must Be Trained","y":421},{"text":"Trusted by some of the largest Christian Organizations","y":867},{"text":"Launching the Every Muslim for Christ Initiative","y":1258},{"text":"Four ways to get equipped","y":1950},{"text":"World-class scholarship, accessible anywhere","y":4029},{"text":"Why Muslims?","y":5285},{"text":"Training initiatives worldwide","y":6483},{"text":"Equip yourself with the full picture","y":6942},{"text":"Ready to get equipped?","y":7418},{"text":"When Muslims Confront the Faith","y":0},{"text":"Cookies & privacy","y":0}],"actions":[{"text":"Explore MMWU →","y":5040},{"text":"Learn About the Mission →","y":5792},{"text":"Get the Free Ebook →","y":7191},{"text":"Join the Initiative →","y":7667},{"text":"Explore MMWU","y":7739}]}
+```

@@ -1,0 +1,4 @@
+Script ran on page and returned:
+```json
+{"width":390,"scrollWidth":390,"height":17737,"headings":[{"text":"Every Muslim needs to know the love of God, the power of God, and the truth of the Gospel","y":154},{"text":"Why people don't reach Muslims","y":1345},{"text":"Why the Church must be trained","y":3253},{"text":"Why Muslims?","y":5112},{"text":"The comprehensive picture","y":6275},{"text":"Equip yourself with the full picture","y":15844},{"text":"Join the initiative","y":16287},{"text":"When Muslims Confront the Faith","y":0},{"text":"Cookies & privacy","y":0}],"actions":[{"text":"Get Trained →","y":15574},{"text":"Partner With Us","y":15644},{"text":"Get the Free Ebook →","y":16093},{"text":"Join the Initiative →","y":16499},{"text":"Get Trained","y":16571}]}
+```

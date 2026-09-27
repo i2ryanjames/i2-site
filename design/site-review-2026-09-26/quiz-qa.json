@@ -1,0 +1,160 @@
+{
+  "privacy_before_automatic_quiz": {
+    "quizClosed": true,
+    "privacyVisible": true
+  },
+  "reject_optional_still_opens_guide": {
+    "quizOpen": true,
+    "videosAllowed": false,
+    "focus": "i2-quiz-title"
+  },
+  "escape_focus_and_persistence": {
+    "closed": true,
+    "remembered": "true",
+    "focusReturned": true,
+    "bodyUnlocked": true
+  },
+  "no_repeat_after_reload": true,
+  "all_fourteen_routes_and_back_navigation": [
+    {
+      "role": "network",
+      "index": 0,
+      "title": "Mobilize your church network.",
+      "actual": "/contact?topic=initiative#contact-form",
+      "passed": true
+    },
+    {
+      "role": "network",
+      "index": 1,
+      "title": "See how the initiative multiplies.",
+      "actual": "/the-initiative",
+      "passed": true
+    },
+    {
+      "role": "network",
+      "index": 2,
+      "title": "Take the next step toward a launch.",
+      "actual": "https://www.i2ministries-emfci.com/",
+      "passed": true
+    },
+    {
+      "role": "network",
+      "index": 3,
+      "title": "Support the work across your network.",
+      "actual": "/wise-global",
+      "passed": true
+    },
+    {
+      "role": "donor",
+      "index": 0,
+      "title": "Fund the work that equips the Church.",
+      "actual": "/donate",
+      "passed": true
+    },
+    {
+      "role": "donor",
+      "index": 1,
+      "title": "Explore a strategic giving partnership.",
+      "actual": "/contact?topic=giving#contact-form",
+      "passed": true
+    },
+    {
+      "role": "donor",
+      "index": 2,
+      "title": "Help equip a leader who can train others.",
+      "actual": "/mmwu",
+      "passed": true
+    },
+    {
+      "role": "donor",
+      "index": 3,
+      "title": "Partner with the mission.",
+      "actual": "/donate-form",
+      "passed": true
+    },
+    {
+      "role": "church",
+      "index": 0,
+      "title": "Equip your church for ministry.",
+      "actual": "/get-trained",
+      "passed": true
+    },
+    {
+      "role": "church",
+      "index": 1,
+      "title": "Turn training into church-wide action.",
+      "actual": "/the-initiative",
+      "passed": true
+    },
+    {
+      "role": "church",
+      "index": 2,
+      "title": "Coordinate your team with WISE.",
+      "actual": "/wise-global",
+      "passed": true
+    },
+    {
+      "role": "learner",
+      "index": 0,
+      "title": "Start with free training on WADI.",
+      "actual": "https://thewadi.org",
+      "passed": true
+    },
+    {
+      "role": "learner",
+      "index": 1,
+      "title": "Take your training further with MMWU.",
+      "actual": "/mmwu",
+      "passed": true
+    },
+    {
+      "role": "learner",
+      "index": 2,
+      "title": "Find a training path that fits.",
+      "actual": "/get-trained",
+      "passed": true
+    }
+  ],
+  "viewport_320": {
+    "entryFits": true,
+    "targets": true,
+    "resultFits": true,
+    "width": 332,
+    "height": 664,
+    "focusInside": true
+  },
+  "viewport_390": {
+    "entryFits": true,
+    "targets": true,
+    "resultFits": true,
+    "width": 390,
+    "height": 844,
+    "focusInside": true
+  },
+  "viewport_484": {
+    "entryFits": true,
+    "targets": true,
+    "resultFits": true,
+    "width": 484,
+    "height": 820,
+    "focusInside": true
+  },
+  "viewport_720": {
+    "entryFits": true,
+    "targets": true,
+    "resultFits": true,
+    "width": 720,
+    "height": 390,
+    "focusInside": true
+  },
+  "viewport_1440": {
+    "entryFits": true,
+    "targets": true,
+    "resultFits": true,
+    "width": 1440,
+    "height": 1000,
+    "focusInside": true
+  },
+  "keyboard_focus_stays_inside": true,
+  "third_party_resources": []
+}

@@ -1,0 +1,1347 @@
+[
+  {
+    "url": "https://www.i2ministries.org/",
+    "viewport": 390,
+    "scrollWidth": 390,
+    "height": 10010,
+    "smallText": [],
+    "smallBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.",
+        "font": "14.4px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data wh",
+        "font": "15px"
+      }
+    ],
+    "uppercaseBody": [],
+    "lowContrast": [],
+    "smallTargets": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 89.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Privacy notice",
+        "rect": {
+          "w": 93.6,
+          "h": 37
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "class": "",
+        "text": "Cookie settings",
+        "rect": {
+          "w": 102.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 93.3,
+          "h": 20
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-mcdowell.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-licona.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-craig.png",
+        "loaded": false,
+        "visible": false
+      }
+    ],
+    "horizontalOverflow": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "skip-to-main",
+        "text": "Skip to main content",
+        "left": -9999,
+        "right": -9820.34375
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "class": "hero-glow glow-orange",
+        "text": "",
+        "left": 312,
+        "right": 468
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "class": "hero-glow glow-blue",
+        "text": "",
+        "left": -39,
+        "right": 117
+      }
+    ]
+  },
+  {
+    "url": "https://www.i2ministries.org/the-initiative",
+    "viewport": 390,
+    "scrollWidth": 390,
+    "height": 10910,
+    "smallText": [],
+    "smallBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.",
+        "font": "14.4px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data wh",
+        "font": "15px"
+      }
+    ],
+    "uppercaseBody": [],
+    "lowContrast": [],
+    "smallTargets": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 89.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Privacy notice",
+        "rect": {
+          "w": 93.6,
+          "h": 37
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "class": "",
+        "text": "Cookie settings",
+        "rect": {
+          "w": 102.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 93.3,
+          "h": 20
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "tag": "IMG",
+        "id": "lightboxImg",
+        "class": "lightbox-img",
+        "text": "",
+        "src": "",
+        "loaded": false,
+        "visible": false
+      }
+    ],
+    "horizontalOverflow": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "skip-to-main",
+        "text": "Skip to main content",
+        "left": -9999,
+        "right": -9820.34375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 332.46875,
+        "right": 642.8125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 654.8125,
+        "right": 975.28125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 987.28125,
+        "right": 1240.203125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1252.203125,
+        "right": 1572.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1584.671875,
+        "right": 1824.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1836.671875,
+        "right": 2076.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2088.671875,
+        "right": 2328.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2340.671875,
+        "right": 2660.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2672.671875,
+        "right": 2992.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3004.671875,
+        "right": 3324.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3336.671875,
+        "right": 3656.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3668.671875,
+        "right": 3988.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4000.671875,
+        "right": 4270.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4282.671875,
+        "right": 4598.859375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4610.859375,
+        "right": 4850.859375
+      }
+    ]
+  },
+  {
+    "url": "https://www.i2ministries.org/donate",
+    "viewport": 390,
+    "scrollWidth": 390,
+    "height": 7312,
+    "smallText": [
+      {
+        "tag": "DIV",
+        "id": "emfciBar",
+        "class": "funding-card-bar-fill animated-38",
+        "text": "50",
+        "font": "0px"
+      }
+    ],
+    "smallBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Secure online payment via credit card, debit card, or check",
+        "font": "15px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Fast and secure donation through your PayPal account",
+        "font": "15px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "tax-note",
+        "text": "i2 Ministries Inc is a registered 501(c)(3) non-profit. All donations are tax-deductible.",
+        "font": "14px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "funding-card-caption",
+        "text": "50 of 130 countries launched. Each country launch costs $100,000 and mobilizes entire denominations to reach e",
+        "font": "15px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.",
+        "font": "14.4px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data wh",
+        "font": "15px"
+      }
+    ],
+    "uppercaseBody": [],
+    "lowContrast": [
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "card-cta card-cta--primary",
+        "text": "Give by Card or Check \u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(255, 255, 255)",
+        "background": [
+          59,
+          130,
+          246
+        ],
+        "font": "16px"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "btn-arrow",
+        "text": "\u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(255, 255, 255)",
+        "background": [
+          59,
+          130,
+          246
+        ],
+        "font": "16px"
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "class": "funding-card-label",
+        "text": "EMFCI",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "funding-card-cta",
+        "text": "Learn More \u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "btn-arrow",
+        "text": "\u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      }
+    ],
+    "smallTargets": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 89.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Privacy notice",
+        "rect": {
+          "w": 93.6,
+          "h": 37
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "class": "",
+        "text": "Cookie settings",
+        "rect": {
+          "w": 102.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 93.3,
+          "h": 20
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "tag": "IMG",
+        "id": "lightboxImg",
+        "class": "lightbox-img",
+        "text": "",
+        "src": "",
+        "loaded": false,
+        "visible": false
+      }
+    ],
+    "horizontalOverflow": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "skip-to-main",
+        "text": "Skip to main content",
+        "left": -9999,
+        "right": -9820.34375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 296.859375,
+        "right": 572.71875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 584.71875,
+        "right": 869.578125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 881.578125,
+        "right": 1106.390625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1118.390625,
+        "right": 1403.25
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1415.25,
+        "right": 1628.578125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1640.578125,
+        "right": 1853.90625
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1865.90625,
+        "right": 2079.234375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2091.234375,
+        "right": 2375.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2387.671875,
+        "right": 2672.109375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2684.109375,
+        "right": 2968.546875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2980.546875,
+        "right": 3264.984375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3276.984375,
+        "right": 3561.421875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3573.421875,
+        "right": 3813.421875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3825.421875,
+        "right": 4106.46875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4118.46875,
+        "right": 4331.796875
+      }
+    ]
+  },
+  {
+    "url": "https://www.i2ministries.org/get-trained",
+    "viewport": 390,
+    "scrollWidth": 390,
+    "height": 8937,
+    "smallText": [],
+    "smallBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.",
+        "font": "14.4px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data wh",
+        "font": "15px"
+      }
+    ],
+    "uppercaseBody": [],
+    "lowContrast": [],
+    "smallTargets": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 89.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Privacy notice",
+        "rect": {
+          "w": 93.6,
+          "h": 37
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "class": "",
+        "text": "Cookie settings",
+        "rect": {
+          "w": 102.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 93.3,
+          "h": 20
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/vid-gc-muslims.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "lightboxImg",
+        "class": "lightbox-img",
+        "text": "",
+        "src": "",
+        "loaded": false,
+        "visible": false
+      }
+    ],
+    "horizontalOverflow": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "skip-to-main",
+        "text": "Skip to main content",
+        "left": -9999,
+        "right": -9820.34375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 332.46875,
+        "right": 642.8125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 654.8125,
+        "right": 975.28125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 987.28125,
+        "right": 1240.203125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1252.203125,
+        "right": 1572.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1584.671875,
+        "right": 1824.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1836.671875,
+        "right": 2076.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2088.671875,
+        "right": 2328.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2340.671875,
+        "right": 2660.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2672.671875,
+        "right": 2992.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3004.671875,
+        "right": 3324.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3336.671875,
+        "right": 3656.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3668.671875,
+        "right": 3988.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4000.671875,
+        "right": 4270.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4282.671875,
+        "right": 4598.859375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4610.859375,
+        "right": 4850.859375
+      }
+    ]
+  },
+  {
+    "url": "https://www.i2ministries.org/about",
+    "viewport": 390,
+    "scrollWidth": 390,
+    "height": 17411,
+    "smallText": [],
+    "smallBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "\u2014 A calling received at age 18 from the Holy Spirit",
+        "font": "15.2px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "M.A. Islamic Studies/Islamic Societies & Cultures \u2014 School of Oriental and African Studies (SOAS), University ",
+        "font": "15px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "Isaiah 40:28; Matthew 28:19; Ephesians 1:11; Acts 15:14; John 17:6,18; Ephesians 4:12",
+        "font": "14px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "1 Corinthians 15:3,4; Acts 2:32-39; John 20:21; Luke 14:25-33; Mark 8:34",
+        "font": "14px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.",
+        "font": "14.4px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "",
+        "text": "We remember your privacy choices. Optional YouTube and Vimeo videos may use cookies and receive device data wh",
+        "font": "15px"
+      }
+    ],
+    "uppercaseBody": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "Isaiah 40:28; Matthew 28:19; Ephesians 1:11; Acts 15:14; John 17:6,18; Ephesians 4:12"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "1 Corinthians 15:3,4; Acts 2:32-39; John 20:21; Luke 14:25-33; Mark 8:34"
+      }
+    ],
+    "lowContrast": [
+      {
+        "tag": "P",
+        "id": "",
+        "class": "vision",
+        "text": "Our vision is to see a global movement of people equipped to love and reach Muslims for Jesus Christ.",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "19.51px"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "strategy-link",
+        "text": "View Our Mega Strategy \u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "btn-arrow",
+        "text": "\u2192",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "bio-whatsapp",
+        "text": "Invite Joshua to Train Your Group",
+        "ratio": 1.98,
+        "min": 4.5,
+        "color": "rgb(255, 255, 255)",
+        "background": [
+          37,
+          211,
+          102
+        ],
+        "font": "15px"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "class": "label",
+        "text": "President & Founder",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "H3",
+        "id": "",
+        "class": "",
+        "text": "Education",
+        "ratio": 3.68,
+        "min": 4.5,
+        "color": "rgb(59, 130, 246)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "Isaiah 40:28; Matthew 28:19; Ephesians 1:11; Acts 15:14; John 17:6,18; Ephesians 4:12",
+        "ratio": 4.21,
+        "min": 4.5,
+        "color": "rgb(107, 114, 128)",
+        "background": [
+          244,
+          239,
+          227
+        ],
+        "font": "14px"
+      },
+      {
+        "tag": "P",
+        "id": "",
+        "class": "scripture",
+        "text": "1 Corinthians 15:3,4; Acts 2:32-39; John 20:21; Luke 14:25-33; Mark 8:34",
+        "ratio": 4.21,
+        "min": 4.5,
+        "color": "rgb(107, 114, 128)",
+        "background": [
+          244,
+          239,
+          227
+        ],
+        "font": "14px"
+      }
+    ],
+    "smallTargets": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 89.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Privacy notice",
+        "rect": {
+          "w": 93.6,
+          "h": 37
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "class": "",
+        "text": "Cookie settings",
+        "rect": {
+          "w": 102.7,
+          "h": 37
+        }
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "class": "",
+        "text": "Cookie policy",
+        "rect": {
+          "w": 93.3,
+          "h": 20
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "tag": "IMG",
+        "id": "lightboxImg",
+        "class": "lightbox-img",
+        "text": "",
+        "src": "",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-nyamedor.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-bansah.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-nyamekye.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-mtokambali.jpg",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-mcdowell.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-licona.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-craig.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-moreland.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-botelho.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-anfuso.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-coleman.png",
+        "loaded": false,
+        "visible": false
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "src": "/images/endorser-mcallister.png",
+        "loaded": false,
+        "visible": false
+      }
+    ],
+    "horizontalOverflow": [
+      {
+        "tag": "A",
+        "id": "",
+        "class": "skip-to-main",
+        "text": "Skip to main content",
+        "left": -9999,
+        "right": -9820.34375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 332.46875,
+        "right": 642.8125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 654.8125,
+        "right": 975.28125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 987.28125,
+        "right": 1240.203125
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1252.203125,
+        "right": 1572.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1584.671875,
+        "right": 1824.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 1836.671875,
+        "right": 2076.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2088.671875,
+        "right": 2328.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2340.671875,
+        "right": 2660.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 2672.671875,
+        "right": 2992.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3004.671875,
+        "right": 3324.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3336.671875,
+        "right": 3656.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 3668.671875,
+        "right": 3988.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4000.671875,
+        "right": 4270.671875
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4282.671875,
+        "right": 4598.859375
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "class": "",
+        "text": "",
+        "left": 4610.859375,
+        "right": 4850.859375
+      }
+    ]
+  }
+]

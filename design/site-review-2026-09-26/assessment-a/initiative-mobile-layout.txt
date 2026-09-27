@@ -1,0 +1,4 @@
+Script ran on page and returned:
+```json
+{"width":390,"scrollWidth":390,"height":10910,"headings":[{"text":"Every Muslim for Christ Initiative","y":154},{"text":"The largest unreached people on the planet","y":1395},{"text":"How we reach every Muslim for Christ","y":2612},{"text":"Where the Initiative is already working","y":3523},{"text":"What leaders are saying","y":5224},{"text":"80 countries are waiting","y":6229},{"text":"What your gift funds","y":7891},{"text":"The Initiative in action","y":8851},{"text":"Help us reach every Muslim for Christ","y":9291},{"text":"Cookies & privacy","y":0}],"actions":[{"text":"Donate to Fund the Initiative →","y":425},{"text":"Launch EMFCI in Your Country →","y":521},{"text":"Fund a Country Launch →","y":7598},{"text":"Contact Us About Major Gifts →","y":7670},{"text":"Donate Now →","y":9615}]}
+```
