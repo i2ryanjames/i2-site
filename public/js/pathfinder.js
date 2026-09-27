@@ -1,182 +1,323 @@
 (function () {
   'use strict';
   var dialog = document.getElementById('i2-pathfinder');
-  var paths = window.I2Pathfinder;
-  if (!dialog || !paths || typeof dialog.showModal !== 'function') return;
+  var data = window.I2Pathfinder;
+  if (!dialog || !data || typeof dialog.showModal !== 'function') return;
+
   var content = dialog.querySelector('[data-quiz-content]');
   var progress = dialog.querySelector('[data-quiz-progress]');
+  var progressLine = dialog.querySelector('[data-quiz-progress-line]');
+  var category = dialog.querySelector('[data-quiz-category]');
   var back = dialog.querySelector('[data-quiz-back]');
-  var role = null;
-  var resultIndex = null;
+  var next = dialog.querySelector('[data-quiz-next]');
+  var skip = dialog.querySelector('[data-quiz-skip]');
+  var browse = dialog.querySelector('[data-quiz-browse]');
+  var answers = {};
+  var history = [];
+  var current = 'welcome';
+  var currentResult = null;
   var returnFocus = null;
   var timer = null;
   var dismissed = false;
+  // An explicit preview link works even after a previous dismissal, like the manual trigger.
+  var previewPending = new URLSearchParams(location.search).get('quiz') === '1';
   var storageKey = 'i2_pathfinder_dismissed';
-
   try { dismissed = sessionStorage.getItem(storageKey) === 'true'; } catch (_) { /* Memory fallback. */ }
 
   function remember() {
     dismissed = true;
     clearTimeout(timer);
-    try {
-      sessionStorage.setItem(storageKey, 'true');
-      // Avoid a second invitation on a destination page during the same visit.
-      sessionStorage.setItem('i2_ebook_dismissed', 'true');
-    } catch (_) { /* The current visit still remembers dismissal in memory. */ }
+    try { sessionStorage.setItem(storageKey, 'true'); } catch (_) { /* Memory fallback. */ }
   }
-
   function element(tag, className, text) {
     var node = document.createElement(tag);
     if (className) node.className = className;
     if (text) node.textContent = text;
     return node;
   }
-
-  function heading(text, description) {
-    var h = element('h2', 'i2-quiz__title', text);
-    h.id = 'i2-quiz-title';
-    h.tabIndex = -1;
-    content.appendChild(h);
+  function heading(title, description) {
+    var node = element('h2', 'i2-quiz__title', title);
+    node.id = 'i2-quiz-title';
+    node.tabIndex = -1;
+    content.appendChild(node);
     if (description) content.appendChild(element('p', 'i2-quiz__description', description));
-    return h;
+    return node;
   }
-
-  function option(title, description, key, value) {
-    var button = element('button', 'i2-quiz__option');
-    button.type = 'button';
-    button.setAttribute(key, value);
-    var copy = element('span', 'i2-quiz__option-copy');
-    copy.appendChild(element('strong', '', title));
-    copy.appendChild(element('span', '', description));
-    button.appendChild(copy);
-    var arrow = element('span', 'i2-quiz__arrow', '→');
-    arrow.setAttribute('aria-hidden', 'true');
-    button.appendChild(arrow);
-    return button;
+  function button(text, action, className) {
+    var node = element('button', className || 'i2-quiz__quiet', text);
+    node.type = 'button';
+    node.setAttribute('data-quiz-' + action, '');
+    return node;
   }
-
+  function link(info, primary) {
+    var node = element('a', primary ? 'btn btn-primary i2-quiz__primary' : 'i2-quiz__secondary', info.label);
+    // Only reviewed, same-site destinations are present in the static data.
+    node.href = info.url;
+    node.setAttribute('data-quiz-destination', '');
+    if (primary) {
+      var arrow = element('span', 'btn-arrow', '→');
+      arrow.setAttribute('aria-hidden', 'true');
+      node.appendChild(arrow);
+    }
+    return node;
+  }
+  function answerLabel(id) {
+    var question = data.questions[id];
+    if (!question || !answers[id]) return '';
+    if (question.kind === 'text') return answers[id];
+    var option = question.options.find(function (item) { return item.value === answers[id]; });
+    return option ? option.label : '';
+  }
+  function summaryEntries() {
+    var branch = data.branches[answers.goal];
+    if (!branch) return [];
+    var ids = branch.questions.slice();
+    if (answers.goal === 'network' && answers['network-next'] === 'talk') ids.push('network-region', 'network-language');
+    return ids.filter(function (id) { return answerLabel(id); }).map(function (id) {
+      return [data.questions[id].title, answerLabel(id)];
+    });
+  }
+  function summaryText() {
+    return summaryEntries().map(function (entry) { return entry[0] + '\n' + entry[1]; }).join('\n\n');
+  }
+  function saveDetail() {
+    var field = content.querySelector('[data-quiz-detail]');
+    if (field) answers[current] = field.value.trim().slice(0, 120);
+  }
+  function updateNextLabel() {
+    var selected = content.querySelector('input[type="radio"]:checked');
+    var value = selected ? selected.value : answers[current];
+    var last = ['network-next', 'donor-stage', 'church-next', 'learner-next', 'network-language'].includes(current);
+    var label = current === 'welcome' ? 'Tell us about your ministry' : 'Continue';
+    if (last && !(current === 'network-next' && value === 'talk')) label = 'View recommendation';
+    if (current === 'donor-help' && value === 'give') label = 'See giving options';
+    next.querySelector('[data-quiz-next-label]').textContent = label;
+  }
   function render(moveFocus) {
     content.replaceChildren();
-    back.hidden = role === null;
+    dialog.dataset.quizScreen = current;
+    var question = data.questions[current];
+    var result = data.results[current];
+    var branch = data.branches[answers.goal];
+    var isSummary = current === 'summary';
+    var isWelcome = current === 'welcome';
     var title;
-    if (role === null) {
-      progress.textContent = 'Question 1 of 2';
-      title = heading('How would you like to take part?', 'Two quick questions to find the right place to begin.');
-      var roles = element('div', 'i2-quiz__options');
-      Object.keys(paths).forEach(function (key) {
-        roles.appendChild(option(paths[key].title, paths[key].description, 'data-quiz-role', key));
-      });
-      content.appendChild(roles);
-    } else if (resultIndex === null) {
-      progress.textContent = 'Question 2 of 2';
-      back.textContent = '← Back';
-      title = heading(paths[role].question);
-      var choices = element('div', 'i2-quiz__options');
-      paths[role].options.forEach(function (item, index) {
-        choices.appendChild(option(item.title, item.description, 'data-quiz-choice', index));
-      });
-      content.appendChild(choices);
-    } else {
-      progress.textContent = 'Your next step';
-      back.textContent = '← Change my answers';
-      var result = paths[role].options[resultIndex].result;
+    back.hidden = isWelcome;
+    back.textContent = result ? '← Change my answers' : '← Back';
+    next.hidden = !!result || isSummary;
+    browse.hidden = !isWelcome;
+    skip.hidden = !question || question.kind !== 'text';
+    category.textContent = result ? 'Our recommendation' : isSummary ? 'Your message to i2' :
+      isWelcome || current === 'goal' ? 'Serving the global Church' : branch.label;
+    progress.textContent = '';
+    progressLine.parentElement.hidden = isWelcome || isSummary || !!result;
+    progressLine.style.width = '0%';
+
+    if (isWelcome) {
+      title = heading('The Gospel for every Muslim.', 'We serve denominational leaders, pastors, and scholars who are equipping the Church to reach Muslims for Christ.');
+      content.appendChild(element('p', 'i2-quiz__intro-note', 'Tell us about your ministry, your studies, or the work you want to support.'));
+    } else if (question) {
+      if (question.kind === 'text') {
+        progress.textContent = 'Optional detail ' + (current === 'network-region' ? '1' : '2') + ' of 2';
+        progressLine.style.width = '100%';
+      } else if (current === 'goal') {
+        progress.textContent = 'Your ministry interests';
+        progressLine.style.width = '8%';
+      } else {
+        var position = branch.questions.indexOf(current) + 1;
+        progress.textContent = 'Question ' + position + ' of ' + branch.questions.length;
+        progressLine.style.width = ((position - 1) / branch.questions.length * 100) + '%';
+      }
+      title = heading(question.title, question.description);
+      if (question.kind === 'text') {
+        var field = element('label', 'i2-quiz__field', question.label);
+        var input = element('input', 'i2-quiz__input');
+        input.type = 'text'; input.name = current; input.maxLength = 120;
+        input.value = answers[current] || ''; input.placeholder = question.placeholder;
+        input.setAttribute('data-quiz-detail', '');
+        field.appendChild(input); content.appendChild(field);
+      } else {
+        var options = element('fieldset', 'i2-quiz__options');
+        options.setAttribute('aria-labelledby', 'i2-quiz-title');
+        question.options.forEach(function (option) {
+          var row = element('label', 'i2-quiz__option');
+          var radio = element('input', 'i2-quiz__radio');
+          radio.type = 'radio'; radio.name = current; radio.value = option.value;
+          radio.checked = answers[current] === option.value;
+          var indicator = element('span', 'i2-quiz__radio-mark');
+          indicator.setAttribute('aria-hidden', 'true');
+          row.append(radio, indicator, element('span', 'i2-quiz__option-copy', option.label));
+          options.appendChild(row);
+        });
+        content.appendChild(options);
+      }
+      if (question.note) content.appendChild(element('p', 'i2-quiz__note', question.note));
+    } else if (result) {
       title = heading(result.title, result.description);
-      if (result.points) {
-        var points = element('ul', 'i2-quiz__points');
-        result.points.forEach(function (point) { points.appendChild(element('li', '', point)); });
-        content.appendChild(points);
+      var priorities = {
+        network: ['network-role', 'network-reach', 'network-stage'],
+        donor: ['donor-interest', 'donor-partner', 'donor-stage'],
+        church: ['church-role', 'church-stage'],
+        learner: ['learner-goal', 'learner-experience']
+      }[answers.goal] || [];
+      var labels = priorities.map(answerLabel).filter(Boolean);
+      if (labels.length) {
+        var context = element('div', 'i2-quiz__context');
+        context.append(element('strong', '', 'Your ministry interests'), element('p', '', labels.join(' · ')));
+        content.appendChild(context);
       }
       var actions = element('div', 'i2-quiz__result-actions');
-      ['primary', 'secondary'].forEach(function (kind) {
-        var link = element('a', 'i2-quiz__link i2-quiz__link--' + kind, result[kind][0]);
-        link.href = result[kind][1];
-        link.setAttribute('data-quiz-destination', '');
-        actions.appendChild(link);
-      });
+      actions.append(link(result.primary, true), link(result.secondary, false));
       content.appendChild(actions);
+      if (result.primary.url.indexOf('/contact?') === 0) {
+        content.appendChild(button('Include these details when I contact i2', 'summary', 'i2-quiz__quiet i2-quiz__handoff'));
+      }
+    } else if (isSummary) {
+      title = heading('Share these details with i2.', 'You can copy these answers into your message to i2. Please review them before sending.');
+      var textLabel = element('label', 'i2-quiz__field', 'Your answers');
+      var text = element('textarea', 'i2-quiz__summary-text');
+      text.id = 'i2-quiz-summary'; text.readOnly = true; text.rows = 8; text.value = summaryText();
+      textLabel.appendChild(text); content.appendChild(textLabel);
+      var summaryActions = element('div', 'i2-quiz__result-actions');
+      summaryActions.append(button('Copy my answers', 'copy', 'btn btn-primary i2-quiz__primary'),
+        link({ label: 'Go to the Contact page', url: data.results[currentResult].primary.url }, false));
+      content.appendChild(summaryActions);
+      var status = element('p', 'i2-quiz__note');
+      status.id = 'i2-quiz-copy-status'; status.setAttribute('role', 'status'); content.appendChild(status);
     }
-    dialog.scrollTop = 0;
-    if (moveFocus) title.focus({ preventScroll: true });
+    updateNextLabel();
+    content.scrollTop = 0;
+    if (moveFocus && title) title.focus({ preventScroll: true });
   }
-
+  function go(id) { history.push(current); current = id; render(true); }
+  function showResult() {
+    remember(); currentResult = data.recommend(answers); go(currentResult);
+  }
+  function advance(skipDetail) {
+    if (current === 'welcome') { go('goal'); return; }
+    var question = data.questions[current];
+    if (!question) return;
+    if (question.kind === 'question') {
+      var selected = content.querySelector('input[type="radio"]:checked');
+      if (!selected) {
+        if (!content.querySelector('#i2-quiz-error')) {
+          var error = element('p', 'i2-quiz__error', 'Choose one option to continue.');
+          error.id = 'i2-quiz-error'; error.setAttribute('role', 'alert');
+          content.querySelector('fieldset').after(error);
+          content.querySelector('fieldset').setAttribute('aria-describedby', error.id);
+        }
+        content.querySelector('input').focus(); return;
+      }
+      if (current === 'goal') {
+        if (answers.goal !== selected.value) { answers = {}; history = ['welcome']; }
+        answers.goal = selected.value; go(data.branches[answers.goal].questions[1]); return;
+      }
+      answers[current] = selected.value;
+    } else if (skipDetail) answers[current] = '';
+    else saveDetail();
+    if (current === 'network-next') {
+      if (answers[current] === 'talk') { go('network-region'); return; }
+      delete answers['network-region']; delete answers['network-language'];
+    }
+    if (current === 'network-region') { go('network-language'); return; }
+    if (current === 'network-language') { showResult(); return; }
+    if (current === 'donor-help' && answers[current] === 'give') {
+      delete answers['donor-stage']; showResult(); return;
+    }
+    var ids = data.branches[answers.goal].questions;
+    var position = ids.indexOf(current);
+    if (position === ids.length - 1) showResult();
+    else go(ids[position + 1]);
+  }
   function open(trigger) {
     if (dialog.open) return;
-    clearTimeout(timer);
-    returnFocus = trigger || document.querySelector('[data-quiz-open]');
-    role = null;
-    resultIndex = null;
-    render(false);
-    dialog.showModal();
-    document.body.classList.add('i2-quiz-open');
+    clearTimeout(timer); previewPending = false; returnFocus = trigger || document.activeElement;
+    render(false); dialog.showModal(); document.body.classList.add('i2-quiz-open');
     content.querySelector('h2').focus({ preventScroll: true });
   }
-
-  function close() { if (dialog.open) dialog.close(); }
-
+  function close() { saveDetail(); if (dialog.open) dialog.close(); }
   dialog.addEventListener('close', function () {
-    remember();
-    document.body.classList.remove('i2-quiz-open');
+    remember(); document.body.classList.remove('i2-quiz-open');
     if (returnFocus && returnFocus.isConnected) returnFocus.focus({ preventScroll: true });
   });
   dialog.addEventListener('cancel', function (event) { event.preventDefault(); close(); });
   dialog.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' && event.target.matches('[data-quiz-detail]')) { event.preventDefault(); advance(); return; }
     if (event.key !== 'Tab') return;
-    var controls = Array.from(dialog.querySelectorAll('button:not([disabled]), a[href]')).filter(function (node) {
-      return node.getClientRects().length > 0;
+    // Radio groups contribute one tab stop, matching native keyboard behavior.
+    var controls = Array.from(dialog.querySelectorAll('button:not([disabled]), a[href], input, textarea')).filter(function (node) {
+      if (!node.getClientRects().length) return false;
+      if (node.type !== 'radio') return true;
+      var checked = content.querySelector('input[type="radio"]:checked');
+      return node === (checked || content.querySelector('input[type="radio"]'));
     });
-    if (!controls.length) return;
     var index = controls.indexOf(document.activeElement);
-    if (event.shiftKey && index <= 0) {
-      event.preventDefault();
-      controls[controls.length - 1].focus();
-    } else if (!event.shiftKey && index === controls.length - 1) {
-      event.preventDefault();
-      controls[0].focus();
-    }
+    if (event.shiftKey && index <= 0) { event.preventDefault(); controls[controls.length - 1].focus(); }
+    else if (!event.shiftKey && index === controls.length - 1) { event.preventDefault(); controls[0].focus(); }
   });
+  var backdropDown = false;
+  function outside(event) {
+    var bounds = dialog.getBoundingClientRect();
+    return event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom);
+  }
+  dialog.addEventListener('pointerdown', function (event) { backdropDown = outside(event); });
   dialog.addEventListener('click', function (event) {
-    var button = event.target.closest('button, a');
-    if (!button) return;
-    if (button.hasAttribute('data-quiz-close')) close();
-    else if (button.hasAttribute('data-quiz-back')) {
-      if (resultIndex !== null) resultIndex = null;
-      else role = null;
+    if (backdropDown && outside(event)) { backdropDown = false; close(); return; }
+    backdropDown = false;
+    var control = event.target.closest('button, a');
+    if (!control) return;
+    if (control.hasAttribute('data-quiz-close')) close();
+    else if (control.hasAttribute('data-quiz-next')) advance();
+    else if (control.hasAttribute('data-quiz-skip')) advance(true);
+    else if (control.hasAttribute('data-quiz-back')) {
+      saveDetail();
+      if (data.results[current]) { history = ['welcome']; current = 'goal'; }
+      else current = history.pop() || 'welcome';
       render(true);
-    } else if (button.hasAttribute('data-quiz-role')) {
-      var key = button.getAttribute('data-quiz-role');
-      if (!Object.prototype.hasOwnProperty.call(paths, key)) return;
-      role = key;
-      render(true);
-    } else if (button.hasAttribute('data-quiz-choice') && role !== null) {
-      var index = Number(button.getAttribute('data-quiz-choice'));
-      if (!Number.isInteger(index) || !paths[role].options[index]) return;
-      resultIndex = index;
-      render(true);
-    } else if (button.hasAttribute('data-quiz-destination')) {
-      remember();
-      close();
+    } else if (control.hasAttribute('data-quiz-summary')) go('summary');
+    else if (control.hasAttribute('data-quiz-copy')) {
+      var status = document.getElementById('i2-quiz-copy-status');
+      function manualCopy() {
+        var text = document.getElementById('i2-quiz-summary'); text.focus(); text.select();
+        status.textContent = 'Your answers are selected. Copy them, then go to the Contact page.';
+      }
+      if (!navigator.clipboard || !navigator.clipboard.writeText) manualCopy();
+      else navigator.clipboard.writeText(summaryText()).then(function () {
+        if (status.isConnected) status.textContent = 'Copied. Paste these details into your message to i2.';
+      }).catch(function () { if (status.isConnected) manualCopy(); });
+    } else if (control.hasAttribute('data-quiz-destination')) { remember(); close(); }
+  });
+  content.addEventListener('change', function (event) {
+    if (event.target.type !== 'radio') return;
+    if (current !== 'goal') answers[current] = event.target.value;
+    var error = content.querySelector('#i2-quiz-error'); if (error) error.remove();
+    var group = content.querySelector('fieldset'); if (group) group.removeAttribute('aria-describedby');
+    updateNextLabel();
+  });
+  document.querySelectorAll('[data-quiz-open]').forEach(function (trigger) {
+    trigger.hidden = false; trigger.addEventListener('click', function () { open(trigger); });
+  });
+  function tryOpen() {
+    if ((!previewPending && dismissed) || dialog.open || document.hidden) return;
+    var consent = document.querySelector('.i2-consent');
+    var active = document.activeElement;
+    // Wait for a privacy decision or a form/modal interaction to finish, then retry.
+    // Scrolling, anchor links, and a focused navigation button must not lose the invitation.
+    if ((!previewPending && (!window.I2Consent || !window.I2Consent.hasDecision() || (consent && !consent.hidden))) ||
+        document.querySelector('dialog[open], [data-media-loaded]') ||
+        (!previewPending && active && active.getClientRects().length && active.matches('input, textarea, select, [contenteditable="true"]'))) {
+      timer = setTimeout(tryOpen, 1000);
+      return;
     }
-  });
-
-  document.querySelectorAll('[data-quiz-open]').forEach(function (button) {
-    button.hidden = false;
-    button.addEventListener('click', function () { open(button); });
-  });
-
+    open();
+  }
   function schedule() {
     clearTimeout(timer);
-    if (dismissed || dialog.open || location.hash || !window.I2Consent || !window.I2Consent.hasDecision()) return;
-    timer = setTimeout(function () {
-      var banner = document.querySelector('.i2-consent');
-      var active = document.activeElement;
-      // Do not interrupt a control, another modal, privacy choices, or a reader further down the page.
-      if (dismissed || document.hidden || dialog.open || (banner && !banner.hidden) ||
-          window.scrollY > window.innerHeight * 0.6 || document.querySelector('dialog[open], .ebook-overlay.active') ||
-          (active && active.matches('input, textarea, select, button, a, [contenteditable="true"]'))) return;
-      open();
-    }, 6000);
+    if ((!previewPending && dismissed) || dialog.open || document.hidden) return;
+    timer = setTimeout(tryOpen, previewPending ? 0 : 6000);
   }
   document.addEventListener('i2:consent-changed', schedule);
+  document.addEventListener('visibilitychange', schedule);
   window.addEventListener('pageshow', schedule);
   schedule();
 })();

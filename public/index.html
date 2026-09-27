@@ -1009,42 +1009,6 @@
     .emfci-stats-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* ─── EBOOK LIGHTBOX ─── */
-  .ebook-overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 10000;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    justify-content: center; align-items: center;
-    opacity: 0; transition: opacity 0.4s ease;
-  }
-  .ebook-overlay.active {
-    display: flex; opacity: 1;
-  }
-  .ebook-modal {
-    background: #FFFFFF;
-    border-radius: 20px;
-    padding: 48px 44px;
-    max-width: 520px; width: 90%;
-    position: relative;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.18);
-    transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
-  }
-  .ebook-overlay.active .ebook-modal {
-    transform: scale(1);
-  }
-  .ebook-close {
-    position: absolute; top: 16px; right: 16px;
-    width: 32px; height: 32px;
-    background: none; border: none; cursor: pointer;
-    font-size: 24px; color: var(--color-text-muted);
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%; transition: all 0.3s;
-  }
-  .ebook-close:hover { background: var(--color-surface); color: var(--color-text); }
-  body.modal-open { overflow: hidden; }
-
   /* ─── HERO — infinite grid + mouse reveal + glow blobs ─────────────── */
   /* Override warm pseudo-elements so they don't fight the blue theme */
   .hero::before, .hero::after { display: none; }
@@ -1152,6 +1116,7 @@
 </script>
 <link rel="stylesheet" href="/styles/consent.css" />
 <link rel="stylesheet" href="/styles/pathfinder.css" />
+<link rel="stylesheet" href="/styles/ebook.css" />
 </head>
 <body>
 <a href="#main" class="skip-to-main">Skip to main content</a>
@@ -1247,7 +1212,7 @@
             Get Trained
           </a>
         </div>
-        <button type="button" class="i2-quiz-launch" data-quiz-open aria-haspopup="dialog" aria-controls="i2-pathfinder" hidden>Find your next step →</button>
+        <button type="button" class="i2-quiz-launch" data-quiz-open aria-haspopup="dialog" aria-controls="i2-pathfinder" hidden>How can i2 serve your ministry? →</button>
       </div>
       <div class="hero-visual">
         <div class="hero-video-card" id="heroVideoCard" data-yt-id="K3nqkssStVE" data-i2-action="media" role="button" tabindex="0" aria-label="Play video">
@@ -1296,6 +1261,22 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════ FREE EBOOK — INLINE HOMEPAGE INVITATION ═══════ -->
+<section class="ebook-strip" id="free-ebook" aria-labelledby="ebook-strip-title">
+  <div class="container ebook-strip__inner">
+    <svg class="ebook-strip__icon" width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M24 12C18 8 10 8 5 10v28c6-2 13-2 19 2 6-4 13-4 19-2V10c-5-2-13-2-19 2v28" />
+      <path d="M11 17c3-.5 5 0 8 1m-8 6c3-.5 5 0 8 1m10-7c3-1 5-1.5 8-1m-8 8c3-1 5-1.5 8-1" />
+    </svg>
+    <div class="ebook-strip__copy">
+      <span class="ebook-strip__label">A free resource for you</span>
+      <h2 id="ebook-strip-title">When Muslims <em>Confront the Faith</em></h2>
+      <p>Understand the challenge. Discover how the Church can respond.</p>
+    </div>
+    <a href="https://www.gommwu.org/ebook" target="_blank" rel="noopener" class="btn ebook-strip__button">Get the Free Ebook <span class="btn-arrow" aria-hidden="true">→</span></a>
   </div>
 </section>
 
@@ -1353,18 +1334,6 @@
     </div>
   </div>
 </div>
-
-<!-- ═══════ FREE EBOOK CTA ═══════ -->
-<section class="ebook-cta" style="padding:var(--section-pad) 0;background:linear-gradient(135deg,var(--color-surface) 0%,rgba(184,134,45,0.06) 100%);border-top:3px solid var(--color-accent);">
-  <div class="container">
-    <div class="reveal" style="text-align:center;max-width:800px;margin:0 auto;">
-      <span class="label">Free Resource</span>
-      <h2 style="font-family:var(--font-display);font-size:clamp(1.4rem,3vw,1.65rem);font-weight:400;line-height:1.3;margin-bottom:16px;color:var(--color-text);">Equip yourself with the <em style="font-style:italic;color:var(--color-accent);">full picture</em></h2>
-      <p style="font-size:1.05rem;color:var(--color-text-muted);line-height:1.7;margin-bottom:32px;max-width:600px;margin-left:auto;margin-right:auto;">Download our free ebook exploring the scope of the Muslim world — the statistics, the stories, and how the Church is responding to the greatest missional challenge of our time.</p>
-      <a href="https://www.gommwu.org/ebook" target="_blank" rel="noopener" class="btn btn-primary">Get the Free Ebook <span class="btn-arrow">→</span></a>
-    </div>
-  </div>
-</section>
 
 <!-- ═══════ PILLARS / GET TRAINED ═══════ -->
 <section class="pillars" id="trained">
@@ -1564,17 +1533,27 @@
 
 <script src="/js/pages/index-1.js"></script>
 
-<!-- The audience guide replaces the automatic homepage ebook invitation. -->
+<!-- Homepage audience guide. -->
 <dialog class="i2-quiz" id="i2-pathfinder" aria-labelledby="i2-quiz-title">
-  <div class="i2-quiz__top">
-    <span class="i2-quiz__eyebrow">Find your next step</span>
-    <button type="button" class="i2-quiz__close" data-quiz-close aria-label="Close guide">×</button>
+  <div class="i2-quiz__header">
+    <div class="i2-quiz__top">
+      <img class="i2-quiz__logo" src="/images/i2-ministries-logo-2026.png" alt="i2 Ministries" width="600" height="184" />
+      <button type="button" class="i2-quiz__close" data-quiz-close aria-label="Close ministry guide">×</button>
+    </div>
+    <div class="i2-quiz__meta">
+      <span class="i2-quiz__eyebrow" data-quiz-category>Serving the global Church</span>
+      <p class="i2-quiz__progress" data-quiz-progress></p>
+    </div>
+    <div class="i2-quiz__track" aria-hidden="true" hidden><span data-quiz-progress-line></span></div>
   </div>
-  <p class="i2-quiz__progress" data-quiz-progress></p>
-  <div data-quiz-content></div>
+  <div class="i2-quiz__content" data-quiz-content></div>
   <div class="i2-quiz__footer">
-    <button type="button" class="i2-quiz__quiet" data-quiz-back hidden>← Back</button>
-    <button type="button" class="i2-quiz__quiet" data-quiz-close>I'll explore on my own</button>
+    <div class="i2-quiz__footer-row">
+      <button type="button" class="i2-quiz__quiet" data-quiz-back hidden>← Back</button>
+      <button type="button" class="i2-quiz__quiet" data-quiz-close data-quiz-browse>Continue browsing</button>
+      <button type="button" class="btn btn-primary" data-quiz-next><span data-quiz-next-label>Tell us about your ministry</span><span class="btn-arrow" aria-hidden="true">→</span></button>
+    </div>
+    <button type="button" class="i2-quiz__quiet i2-quiz__skip" data-quiz-skip hidden>Skip this detail</button>
   </div>
   <p class="i2-quiz__privacy">No email required. Answers stay on this page.</p>
 </dialog>

@@ -1,0 +1,25 @@
+/* Shared inline ebook invitation. No timers, popups, or browser storage. */
+.ebook-strip {
+  padding: 28px 0;
+  background: var(--color-accent-deep, #1e3a8a);
+  color: #fff;
+  scroll-margin-top: 100px;
+}
+.ebook-strip__inner { display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; align-items: center; gap: 28px; }
+.ebook-strip__icon { color: #bfdbfe; }
+.ebook-strip__label { display: block; margin-bottom: 7px; font-size: 14px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: #dbeafe; }
+.ebook-strip h2 { margin: 0; color: #fff; font: 400 clamp(26px, 2.2vw, 34px)/1.15 var(--font-display); letter-spacing: -.01em; }
+.ebook-strip h2 em { color: #fff; font-weight: 400; }
+.ebook-strip p { margin: 7px 0 0; color: #dbeafe; font-size: 16px; line-height: 1.5; }
+.ebook-strip .ebook-strip__button { display: inline-flex; align-items: center; gap: 10px; border-radius: 4px; font-family: var(--font-body); font-weight: 600; letter-spacing: .5px; text-transform: uppercase; text-decoration: none; min-height: 52px; padding: 16px 24px; background: #fff; color: #1e3a8a; border: 1px solid #fff; white-space: nowrap; font-size: 14px; line-height: 1.4; }
+.ebook-strip .ebook-strip__button:hover { background: #dbeafe; border-color: #dbeafe; color: #1e3a8a; }
+.ebook-strip__button:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+@media (max-width: 900px) {
+  .ebook-strip__inner { grid-template-columns: minmax(0, 1fr) auto; gap: 24px; }
+  .ebook-strip__icon { display: none; }
+}
+@media (max-width: 600px) {
+  .ebook-strip { padding: 24px 0; }
+  .ebook-strip__inner { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .ebook-strip .ebook-strip__button { justify-self: start; }
+}

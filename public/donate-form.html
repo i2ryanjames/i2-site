@@ -297,41 +297,6 @@
     .trust-strip { grid-template-columns: 1fr; gap: 8px; }
   }
 
-  /* ─── EBOOK LIGHTBOX ─── */
-  .ebook-overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 10000;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    justify-content: center; align-items: center;
-    opacity: 0; transition: opacity 0.4s ease;
-  }
-  .ebook-overlay.active {
-    display: flex; opacity: 1;
-  }
-  .ebook-modal {
-    background: #FFFFFF;
-    border-radius: 20px;
-    padding: 48px 44px;
-    max-width: 520px; width: 90%;
-    position: relative;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.18);
-    transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
-  }
-  .ebook-overlay.active .ebook-modal {
-    transform: scale(1);
-  }
-  .ebook-close {
-    position: absolute; top: 16px; right: 16px;
-    width: 32px; height: 32px;
-    background: none; border: none; cursor: pointer;
-    font-size: 24px; color: var(--color-text-muted);
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%; transition: all 0.3s;
-  }
-  .ebook-close:hover { background: var(--color-surface); color: var(--color-text); }
-  body.modal-open { overflow: hidden; }
 </style>
   <link rel="stylesheet" href="/styles/tokens.css">
   <style>
@@ -472,19 +437,7 @@
 
 <script src="/js/pages/donate-form-1.js"></script>
 
-<!-- ═══════ EBOOK LIGHTBOX ═══════ -->
-<div class="ebook-overlay" id="ebookOverlay">
-  <div class="ebook-modal" id="ebookModal">
-    <button class="ebook-close" id="ebookClose" aria-label="Close">&times;</button>
-    <span class="label" style="margin-bottom:12px;">Free Resource</span>
-    <h2 style="font-family:var(--font-display);font-size:1.8rem;font-weight:400;line-height:1.25;margin-bottom:16px;color:var(--color-text);">When Muslims <em style="font-style:italic;color:var(--color-accent);">Confront the Faith</em></h2>
-    <p style="font-size:1.05rem;color:var(--color-text-muted);line-height:1.7;margin-bottom:28px;">Nearly 2 billion Muslims have never met a Christian. Download this free ebook to discover the scope of the missional challenge — and how the Church is responding.</p>
-    <a href="https://www.gommwu.org/ebook" target="_blank" rel="noopener" class="btn btn-primary" data-i2-action="ebook-close" style="width:100%;justify-content:center;">Get the Free Ebook <span class="btn-arrow">→</span></a>
-    <p style="font-size:0.85rem;color:var(--color-text-muted);font-style:italic;margin-top:14px;text-align:center;">Free. No signup required.</p>
-  </div>
-</div>
 
-<script src="/js/pages/donate-form-2.js"></script>
 
 
 <!-- phase5-motion -->

@@ -138,14 +138,6 @@
   padding-block: 4px;
 }
 
-.ebook-cta .btn {
-  /* contact.html — components.css (which normally styles .btn) isn't linked
-     on this page, so "Get the Free Ebook" was rendering as bare inline text */
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-}
-
 /* -----------------------------------------------------------------------
    (h) donate.html giving cards — CTA as buttons, card/check dominant.
    Lives here (not inline) because styles/donate.css re-declares

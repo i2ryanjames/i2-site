@@ -7,7 +7,6 @@
     var action = target.getAttribute('data-i2-action');
     if (action === 'media') window.I2Consent.requestMedia(target);
     else if (action === 'accordion' && typeof window.toggleAccordion === 'function') window.toggleAccordion(target);
-    else if (action === 'ebook-close' && typeof window.closeEbookModal === 'function') window.closeEbookModal();
     else if (action === 'contact-submit' && typeof window.sendForm === 'function') window.sendForm();
     else if (action === 'cookie-settings') window.I2Consent.openSettings(target);
   });
