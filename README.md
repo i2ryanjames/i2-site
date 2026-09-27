@@ -13,7 +13,7 @@ Open `http://localhost:8000`. The static server does not provide the clean URL r
 
 For the homepage quiz and ebook preview, run `python3 scripts/serve-preview.py` and open `http://127.0.0.1:8789`. This local server supports the site's clean page URLs and security headers. It serves only `public/` and does not send contact messages; the Contact page uses its existing email fallback locally.
 
-To open the quiz immediately for review, use `http://127.0.0.1:8789/?quiz=1`. This explicit invitation works even after you dismissed it earlier and does not change your cookie choice. On the ordinary homepage, the quiz appears after six seconds following a cookie choice; it retries after temporary interactions and stays dismissed for the session when closed.
+To open the quiz immediately for review, use `http://127.0.0.1:8789/?quiz=1`. This explicit invitation works even after you dismissed it earlier and does not change your cookie choice. On the ordinary homepage, the quiz appears five seconds after the page loads (it does not wait for a cookie choice); it retries after temporary interactions and stays dismissed for the session when closed.
 
 The homepage guide has four audience paths (five or six core questions, with two optional planning details for network conversations), a ready-to-give shortcut, and 14 recommendations to existing pages. It can be closed, reopened, or navigated backward. Answers stay in page memory; visitors can optionally copy them before opening Contact. The automatic invitation waits until after a privacy choice and stays closed for the session after dismissal or completion.
 

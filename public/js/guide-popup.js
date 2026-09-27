@@ -391,7 +391,6 @@
 
   function attemptOpen() {
     if (opened || !triggerReady) return;
-    if (!(window.I2Consent && window.I2Consent.hasDecision())) return;
     if (anotherDialogOpen() || isFormFieldFocused()) return;
     resetToForm();
     openPopup();
@@ -401,7 +400,7 @@
   window.setTimeout(function () {
     triggerReady = true;
     attemptOpen();
-  }, 20000);
+  }, 5000);
 
   function onScroll() {
     var doc = document.documentElement;
