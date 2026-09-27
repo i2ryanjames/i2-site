@@ -879,6 +879,7 @@
 </script>
 <link rel="stylesheet" href="/styles/consent.css" />
 <link rel="stylesheet" href="/styles/ebook.css" />
+<link rel="stylesheet" href="/styles/guide-popup.css" />
 </head>
 <body>
 <a href="#main" class="skip-to-main">Skip to main content</a>
@@ -888,6 +889,7 @@
   <div class="nav-inner">
     <a href="/" class="nav-logo"><img src="/images/i2-ministries-logo-2026.png" alt="i2 Ministries" width="600" height="184"></a>
     <div class="nav-links" id="navLinks">
+      <a href="/" class="nav-home">Home</a>
       <a href="/about">About</a>
       <a href="/the-mission">The Mission</a>
       <div class="nav-dropdown" id="navDropdown">
@@ -1488,6 +1490,64 @@
   <div class="i2-legal-links"><a href="/cookie-policy">Cookie policy</a><a href="/privacy">Privacy notice</a><button type="button" data-i2-action="cookie-settings">Cookie settings</button></div>
 </footer>
 
+<dialog class="guide-popup" id="guidePopup" aria-labelledby="guidePopupTitle" data-autoopen="true">
+  <div class="guide-popup__layout">
+    <button type="button" class="guide-popup__close" data-guide-close aria-label="Close">&times;</button>
+    <div class="guide-popup__media">
+      <img srcset="/images/starter-guide/starter-guide-mockup-420.webp 420w, /images/starter-guide/starter-guide-mockup-720.webp 720w" sizes="(max-width: 640px) 60vw, 240px" src="/images/starter-guide/starter-guide-mockup-420.webp" width="420" height="585" alt="Every Muslim for Christ Starter Guide, one-day conference edition, shown as a printed guide and on a tablet" loading="lazy" decoding="async">
+    </div>
+    <div class="guide-popup__body">
+      <p class="guide-popup__eyebrow">Free for pastors, leaders &amp; church networks</p>
+      <h2 class="guide-popup__title" id="guidePopupTitle">Host a one-day training for your church</h2>
+      <p class="guide-popup__desc">Three teaching sessions, an Any-3 gospel workshop, and a WISE Global lab, with the full agenda, discussion guides, and next steps. 28 pages, PDF.</p>
+
+      <form class="guide-popup__form" data-guide-form novalidate>
+        <div class="guide-popup__field">
+          <label for="guidePopupFirstName">First name</label>
+          <input type="text" id="guidePopupFirstName" name="firstName" autocomplete="given-name" required>
+        </div>
+        <div class="guide-popup__field">
+          <label for="guidePopupEmail">Email</label>
+          <input type="email" id="guidePopupEmail" name="email" autocomplete="email" required>
+        </div>
+        <div class="guide-popup__field">
+          <label for="guidePopupPhone">Mobile phone (optional)</label>
+          <div class="guide-popup__phone-row">
+            <select id="guideCountry" name="country" aria-label="Country code" autocomplete="tel-country-code"></select>
+            <input type="tel" id="guidePopupPhone" name="phone" autocomplete="tel-national" inputmode="tel" placeholder="Phone number">
+          </div>
+        </div>
+        <label class="guide-popup__consent" data-guide-consent-wrap data-disabled="true">
+          <input type="checkbox" id="guidePopupSmsEvents" name="smsEvents" disabled>
+          <span>I agree to receive SMS messages regarding Mission Muslim World University's free training events (carrier fees apply). Reply STOP to unsubscribe.</span>
+        </label>
+        <label class="guide-popup__consent" data-guide-consent-wrap data-disabled="true">
+          <input type="checkbox" id="guidePopupSmsOffers" name="smsOffers" disabled>
+          <span>I agree to get SMS messages regarding i2 Ministries &amp; Mission Muslim World University's unique offers (carrier fees apply). Reply STOP to unsubscribe.</span>
+        </label>
+        <div class="guide-popup__hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button type="submit" class="guide-popup__submit" data-guide-submit>Yes, send it to me</button>
+      </form>
+      <div class="guide-popup__status" role="status" data-guide-status></div>
+      <p class="guide-popup__micro" data-guide-micro>Your data is safe with us. We will never share your information. <a href="/privacy">Privacy Policy</a>.</p>
+      <div class="sr-only" role="status" data-guide-announce></div>
+
+      <div class="guide-popup__success" data-guide-success hidden>
+        <svg class="guide-popup__success-icon" aria-hidden="true" width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="2"/>
+          <path d="M14 25l7 7 13-15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 tabindex="-1" data-guide-success-heading>Success! Check your inbox.</h3>
+        <p data-guide-success-message></p>
+        <div class="guide-popup__success-actions">
+          <button type="button" class="guide-popup__btn-primary" data-guide-close>Close and keep browsing</button>
+          <a class="guide-popup__link-download" data-guide-download href="/downloads/emfci-one-day-starter-guide.pdf" download>Or download it now (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
 <script src="/js/pages/about-1.js"></script>
 
 
@@ -1499,6 +1559,7 @@
 <script src="/js/animations.js" defer></script>
 
 <script src="/js/consent.js"></script>
+<script src="/js/guide-popup.js" defer></script>
 <script src="/js/actions.js"></script>
 </body>
 </html>

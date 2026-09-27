@@ -425,3 +425,10 @@
 .info-card, .connect-card { min-width: 0; overflow-wrap: anywhere; }
 .contact-grid > * { min-width: 0; }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* (n) Mobile-only "Home" link inside the opened mobile nav menu (2026-09-27).
+   Hidden by default; the mobile menu markup (.nav-links) is display:none on
+   desktop anyway, but this keeps the link out of the desktop flow entirely
+   and out of any hover/focus flow when the mobile menu is closed. */
+.nav-home { display: none; }
+.nav-links.open .nav-home { display: block; }

@@ -1,0 +1,383 @@
+/* ═══════ Starter Guide pop-up (guide-popup.js) ═══════
+   Scoped component. Reuses each page's own --color-* / --font-* tokens
+   (set inline per page, see about.html etc.) so it matches whichever
+   palette the current page is on. No new tokens introduced. */
+
+.guide-popup {
+  /* base.css resets `* { margin: 0 }`, which defeats the native dialog:modal
+     auto-centering (it relies on `margin: auto` against `inset: 0`). Restore
+     both explicitly here so a fixed-size box centers itself in the viewport. */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: var(--r-lg, 16px);
+  max-width: 780px;
+  width: min(780px, calc(100vw - 32px));
+  max-height: 90dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #fff;
+  color: var(--color-text, #1A1A1A);
+  font-family: var(--font-body, sans-serif);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.guide-popup::backdrop {
+  background: rgba(10, 10, 8, 0.55);
+}
+
+.guide-popup[open] {
+  display: block;
+}
+
+.guide-popup__layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-popup__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  color: var(--color-text, #1A1A1A);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.guide-popup__close:hover,
+.guide-popup__close:focus-visible {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Product image ── */
+.guide-popup__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 32px 32px 8px;
+}
+
+.guide-popup__media img {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+/* ── Copy + form ── */
+.guide-popup__body {
+  padding: 8px 28px 28px;
+}
+
+.guide-popup__eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent, #8A5A24);
+  margin: 0 0 10px;
+}
+
+.guide-popup__title {
+  font-family: var(--font-display, serif);
+  font-size: clamp(22px, 3vw, 28px);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: var(--color-text, #1A1A1A);
+}
+
+.guide-popup__desc {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--color-text-muted, #5C5A55);
+  margin: 0 0 20px;
+}
+
+.guide-popup__field {
+  margin-bottom: 16px;
+}
+
+.guide-popup__field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-text, #1A1A1A);
+}
+
+.guide-popup__field input[type="text"],
+.guide-popup__field input[type="email"],
+.guide-popup__field input[type="tel"] {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1.5px solid var(--color-text-muted, #5C5A55);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--color-text, #1A1A1A);
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.guide-popup__field input:focus-visible,
+.guide-popup__field select:focus-visible {
+  outline: 3px solid var(--color-accent, #8A5A24);
+  outline-offset: 1px;
+}
+
+/* Country code select + national number, side by side */
+.guide-popup__phone-row {
+  display: flex;
+  gap: 8px;
+}
+
+.guide-popup__phone-row select {
+  flex: 0 0 auto;
+  width: 116px;
+  min-height: 48px;
+  padding: 12px 8px;
+  font-size: 16px;
+  border: 1.5px solid var(--color-text-muted, #5C5A55);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--color-text, #1A1A1A);
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.guide-popup__phone-row input[type="tel"] {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.guide-popup__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-text-muted, #5C5A55);
+  cursor: pointer;
+}
+
+.guide-popup__consent:last-of-type {
+  margin-bottom: 20px;
+}
+
+.guide-popup__consent input {
+  margin-top: 3px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.guide-popup__consent[data-disabled="true"] {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.guide-popup__hp {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.guide-popup__status {
+  min-height: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 4px 0 12px;
+  color: var(--color-text, #1A1A1A);
+}
+
+.guide-popup__status[data-state="error"] {
+  color: #b42318;
+}
+
+.guide-popup__submit {
+  width: 100%;
+  min-height: 48px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-accent-deep, #1e3a8a);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.guide-popup__submit:hover,
+.guide-popup__submit:focus-visible {
+  background: var(--color-accent-warm, #2563eb);
+}
+
+.guide-popup__submit[disabled] {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.guide-popup__micro {
+  font-size: 13px;
+  color: var(--color-text-muted, #5C5A55);
+  margin: 14px 0 0;
+  text-align: center;
+}
+
+.guide-popup__micro a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.guide-popup__success {
+  text-align: center;
+}
+
+.guide-popup__success-icon {
+  color: var(--color-accent-deep, #1e3a8a);
+  margin: 0 auto 16px;
+  display: block;
+}
+
+.guide-popup__success h3 {
+  font-family: var(--font-display, serif);
+  font-size: 24px;
+  margin: 0 0 10px;
+  color: var(--color-text, #1A1A1A);
+}
+
+.guide-popup__success p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-muted, #5C5A55);
+  margin: 0 0 20px;
+}
+
+.guide-popup__success-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.guide-popup__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  width: 100%;
+  padding: 0 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: inherit;
+  background: var(--color-accent-deep, #1e3a8a);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.guide-popup__btn-primary:hover,
+.guide-popup__btn-primary:focus-visible {
+  background: var(--color-accent-warm, #2563eb);
+}
+
+.guide-popup__link-download {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text, #1A1A1A);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.guide-popup__link-download:hover,
+.guide-popup__link-download:focus-visible {
+  color: var(--color-accent-deep, #1e3a8a);
+}
+
+/* ── Desktop: image left, copy right ── */
+@media (min-width: 720px) {
+  .guide-popup__layout {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .guide-popup__media {
+    flex: 0 0 40%;
+    align-items: center;
+    padding: 40px 24px;
+  }
+  .guide-popup__media img {
+    max-width: 240px;
+    max-height: none;
+  }
+  .guide-popup__body {
+    flex: 1 1 auto;
+    padding: 40px 60px 32px 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .guide-popup {
+    position: fixed;
+    inset: auto 0 0 0;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    border-radius: 16px 16px 0 0;
+  }
+  .guide-popup__media {
+    padding: 24px 16px 4px;
+  }
+  .guide-popup__body {
+    padding: 8px 16px 24px;
+  }
+  .guide-popup__phone-row select {
+    width: 108px;
+    padding: 12px 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide-popup {
+    transition: none;
+  }
+}
+
+/* Success state: the confirmation replaces the pitch, so it is the first thing seen. */
+.guide-popup.is-success .guide-popup__eyebrow,
+.guide-popup.is-success .guide-popup__title,
+.guide-popup.is-success .guide-popup__desc,
+.guide-popup.is-success .guide-popup__micro,
+.guide-popup.is-success .guide-popup__status:empty {
+  display: none;
+}
+.guide-popup [data-guide-success-heading]:focus {
+  outline: none;
+}
+@media (max-width: 719px) {
+  .guide-popup.is-success .guide-popup__media img {
+    max-height: 140px;
+  }
+}
