@@ -72,7 +72,7 @@ body.page-book .bk-eyebrow {
   display: flex;
   align-items: center;
   gap: 12px;
-  font: 600 13px/1 var(--bk-font-body);
+  font: 600 14px/1 var(--bk-font-body);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--bk-gold-text);
@@ -116,7 +116,7 @@ body.page-book .bk-btn {
   padding: 13px 28px;
   border: 1.5px solid transparent;
   border-radius: 2px;
-  font: 600 14px/1 var(--bk-font-body);
+  font: 600 16px/1 var(--bk-font-body);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
@@ -149,7 +149,7 @@ body.page-book .bk-notify-row { display: flex; flex-wrap: wrap; gap: 14px; margi
 body.page-book .bk-field { flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
 body.page-book .bk-notify-row .bk-field { margin-bottom: 0; }
 body.page-book .bk-field label {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--bk-slate);
 }
@@ -161,7 +161,7 @@ body.page-book .bk-field select {
   border-radius: 2px;
   background: var(--bk-card);
   color: var(--bk-ink);
-  font: 15px/1.4 var(--bk-font-body);
+  font: 17px/1.4 var(--bk-font-body);
 }
 body.page-book .bk-field input[type="email"]:focus-visible,
 body.page-book .bk-field select:focus-visible {
@@ -174,7 +174,7 @@ body.page-book .bk-checkbox {
   align-items: flex-start;
   gap: 10px;
   margin-bottom: 16px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--bk-slate);
   min-height: 44px;
   cursor: pointer;
@@ -184,13 +184,13 @@ body.page-book .bk-checkbox input { width: 18px; height: 18px; margin-top: 2px; 
 body.page-book .bk-notify-submit { width: 100%; margin-top: 4px; }
 body.page-book .bk-notify-micro {
   margin-top: 14px;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   color: var(--bk-slate);
   line-height: 1.6;
 }
 body.page-book .bk-form-msg {
   margin-top: 10px;
-  font-size: 0.875rem;
+  font-size: 1rem;
   min-height: 1em;
 }
 body.page-book .bk-form-msg[data-state="error"] { color: #9a2323; }
@@ -233,12 +233,12 @@ body.page-book .bk-hero-grid {
   gap: 40px;
   align-items: center;
 }
-body.page-book .bk-hero-sub { max-width: var(--bk-measure); font-size: 1.0625rem; margin-bottom: 28px; }
+body.page-book .bk-hero-sub { max-width: var(--bk-measure); font-size: 1.1562rem; margin-bottom: 28px; }
 body.page-book .bk-credibility {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid var(--bk-rule);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   color: var(--bk-slate);
   max-width: var(--bk-measure);
 }
@@ -275,7 +275,7 @@ body.page-book .bk-proof-card {
 body.page-book .bk-proof-card blockquote {
   font-family: var(--bk-font-display);
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1.2437rem;
   line-height: 1.5;
   color: var(--bk-ink);
   margin-bottom: 16px;
@@ -283,12 +283,12 @@ body.page-book .bk-proof-card blockquote {
 body.page-book .bk-proof-card cite { font-style: italic; }
 body.page-book .bk-proof-name {
   display: block;
-  font: 700 0.8rem/1.4 var(--bk-font-body);
+  font: 700 0.875rem/1.4 var(--bk-font-body);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--bk-ink);
 }
-body.page-book .bk-proof-title { display: block; font-size: 0.8rem; color: var(--bk-slate); margin-top: 4px; }
+body.page-book .bk-proof-title { display: block; font-size: 0.875rem; color: var(--bk-slate); margin-top: 4px; }
 
 @media (min-width: 860px) {
   body.page-book .bk-proof-grid { grid-template-columns: repeat(3, 1fr); }
@@ -307,14 +307,14 @@ body.page-book .bk-pullquote {
 body.page-book .bk-pullquote p {
   font-family: var(--bk-font-display);
   font-style: italic;
-  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-size: clamp(1.3438rem, 2.2vw, 1.6rem);
   color: var(--bk-ink);
   line-height: 1.45;
   margin-bottom: 10px;
 }
 body.page-book .bk-pullquote cite {
   display: block;
-  font: 600 0.8rem/1 var(--bk-font-body);
+  font: 600 0.875rem/1 var(--bk-font-body);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--bk-gold-text);
@@ -329,7 +329,7 @@ body.page-book .bk-question-figure picture,
 body.page-book .bk-question-figure img { width: 100%; height: auto; display: block; }
 body.page-book .bk-question-figure figcaption {
   margin-top: 12px;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-style: italic;
   color: var(--bk-slate);
 }
@@ -360,11 +360,11 @@ body.page-book .bk-number-value {
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
-body.page-book .bk-number-label { font-size: 0.875rem; color: rgba(244,240,231,0.85); max-width: 22ch; margin-inline: auto; }
+body.page-book .bk-number-label { font-size: 1rem; color: rgba(244,240,231,0.85); max-width: 22ch; margin-inline: auto; }
 body.page-book .bk-numbers-line {
   margin-top: 48px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--bk-ivory);
   max-width: 760px;
   margin-inline: auto;
@@ -401,7 +401,7 @@ body.page-book .bk-part-media img { width: 100%; height: auto; display: block; }
 
 body.page-book .bk-chapters summary {
   cursor: pointer;
-  font: 600 0.8rem/1 var(--bk-font-body);
+  font: 600 0.875rem/1 var(--bk-font-body);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--bk-gold-text);
@@ -414,13 +414,13 @@ body.page-book .bk-chapters ol {
   margin-top: 12px;
   padding-left: 1.4em;
   color: var(--bk-slate);
-  font-size: 0.9rem;
+  font-size: 1.025rem;
   line-height: 1.9;
 }
 
 body.page-book .bk-contents-footer {
   margin-top: 32px;
-  font-size: 0.9rem;
+  font-size: 1.025rem;
   color: var(--bk-slate);
   max-width: 70ch;
 }
@@ -451,7 +451,7 @@ body.page-book .bk-look-page {
   padding: clamp(28px, 5vw, 48px);
 }
 body.page-book .bk-look-runninghead {
-  font: 600 0.7rem/1 var(--bk-font-body);
+  font: 600 0.825rem/1 var(--bk-font-body);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--bk-gold-text);
@@ -459,7 +459,7 @@ body.page-book .bk-look-runninghead {
 }
 body.page-book .bk-look-page p {
   font-family: var(--bk-font-display);
-  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.3438rem);
   line-height: 1.65;
   color: var(--bk-ink);
   margin-bottom: 20px;
@@ -477,7 +477,7 @@ body.page-book .bk-dropcap {
 body.page-book .bk-look-dropcap::after { content: ''; display: table; clear: both; }
 body.page-book .bk-look-folio {
   text-align: center;
-  font: 400 0.8rem/1 var(--bk-font-body);
+  font: 400 0.875rem/1 var(--bk-font-body);
   color: var(--bk-slate);
   margin-top: 32px;
 }
@@ -496,9 +496,9 @@ body.page-book .bk-for-tile {
   background: var(--bk-card);
 }
 body.page-book .bk-for-tile svg { color: var(--bk-gold); margin-bottom: 16px; }
-body.page-book .bk-for-tile h3 { font-size: 1.15rem; margin-bottom: 10px; }
-body.page-book .bk-for-tile p { font-size: 0.9375rem; }
-body.page-book .bk-for-note { text-align: center; margin-top: 40px; font-size: 0.875rem; max-width: 60ch; margin-inline: auto; }
+body.page-book .bk-for-tile h3 { font-size: 1.2437rem; margin-bottom: 10px; }
+body.page-book .bk-for-tile p { font-size: 1.0625rem; }
+body.page-book .bk-for-note { text-align: center; margin-top: 40px; font-size: 1rem; max-width: 60ch; margin-inline: auto; }
 
 @media (min-width: 700px) {
   body.page-book .bk-for-grid { grid-template-columns: repeat(2, 1fr); }
@@ -517,7 +517,7 @@ body.page-book .bk-stack { list-style: none; display: flex; flex-direction: colu
 body.page-book .bk-stack-item { display: flex; align-items: flex-start; gap: 14px; }
 body.page-book .bk-check { color: var(--bk-gold); flex-shrink: 0; margin-top: 3px; }
 body.page-book .bk-stack-item strong { display: block; color: var(--bk-ink); font-weight: 700; margin-bottom: 2px; }
-body.page-book .bk-stack-item span { display: block; font-size: 0.9375rem; color: var(--bk-slate); }
+body.page-book .bk-stack-item span { display: block; font-size: 1.0625rem; color: var(--bk-slate); }
 
 body.page-book .bk-notify-card {
   background: var(--bk-paper);
@@ -526,7 +526,7 @@ body.page-book .bk-notify-card {
 }
 body.page-book .bk-notify-card-book { max-width: 170px; margin: 0 auto 24px; }
 body.page-book .bk-notify-card-book img { width: 100%; height: auto; }
-body.page-book .bk-notify-card h3 { font-size: 1.4rem; text-align: center; margin-bottom: 24px; }
+body.page-book .bk-notify-card h3 { font-size: 1.475rem; text-align: center; margin-bottom: 24px; }
 
 @media (min-width: 900px) {
   body.page-book .bk-notify-grid { grid-template-columns: 1.1fr 0.9fr; }
@@ -544,7 +544,7 @@ body.page-book .bk-endorsement {
 body.page-book .bk-endorsement blockquote {
   font-family: var(--bk-font-display);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.55;
   color: var(--bk-ink);
   margin-bottom: 14px;
@@ -556,10 +556,10 @@ body.page-book .bk-endorsement--foreword {
   padding: clamp(28px, 4vw, 40px);
   margin-bottom: 48px;
 }
-body.page-book .bk-endorsement--foreword blockquote { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
+body.page-book .bk-endorsement--foreword blockquote { font-size: clamp(1.3438rem, 2.4vw, 1.6rem); }
 
 body.page-book .bk-endorsements-group-title {
-  font-size: 1.1rem;
+  font-size: 1.1938rem;
   letter-spacing: 0.04em;
   color: var(--bk-gold-text);
   margin: 40px 0 20px;
@@ -574,7 +574,7 @@ body.page-book .bk-more summary {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
-  font: 600 0.85rem/1 var(--bk-font-body);
+  font: 600 0.95rem/1 var(--bk-font-body);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--bk-gold-text);
@@ -604,9 +604,9 @@ body.page-book .bk-author-quote {
   color: var(--bk-ink);
   margin-bottom: 24px;
 }
-body.page-book .bk-author-quote cite { display: block; margin-top: 8px; font-size: 0.85rem; font-style: normal; color: var(--bk-slate); }
+body.page-book .bk-author-quote cite { display: block; margin-top: 8px; font-size: 0.95rem; font-style: normal; color: var(--bk-slate); }
 body.page-book .bk-more-link {
-  font: 600 0.875rem/1 var(--bk-font-body);
+  font: 600 1rem/1 var(--bk-font-body);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--bk-blue);
@@ -644,7 +644,7 @@ body.page-book .bk-faq-item summary::after {
   position: absolute;
   right: 0;
   font-family: var(--bk-font-display);
-  font-size: 1.4rem;
+  font-size: 1.475rem;
   color: var(--bk-gold);
 }
 body.page-book .bk-faq-item[open] summary::after { content: '\2212'; }
@@ -700,14 +700,14 @@ body.page-book .bk-sticky .bk-btn { width: 100%; }
    --------------------------------------------------------------------- */
 body.page-book .bk-chapters { margin-top: 18px; }
 body.page-book .bk-chapters-label {
-  font: 600 0.75rem/1 var(--bk-font-body);
+  font: 600 0.875rem/1 var(--bk-font-body);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--bk-gold-text);
   margin: 0 0 10px;
 }
 body.page-book .bk-chapters ol { margin-top: 0; }
-body.page-book .bk-chapters li { font-size: 0.95rem; line-height: 1.7; color: var(--bk-slate); }
+body.page-book .bk-chapters li { font-size: 1.075rem; line-height: 1.7; color: var(--bk-slate); }
 
 /* ---------------------------------------------------------------------
    Source card — the book's own Table 2–4 comparison, in place of an image
@@ -721,7 +721,7 @@ body.page-book .bk-source-card {
   padding: clamp(20px, 3vw, 32px);
 }
 body.page-book .bk-source-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--bk-gold); }
-body.page-book .bk-source-eyebrow { font: 600 0.72rem/1 var(--bk-font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--bk-gold-text); }
+body.page-book .bk-source-eyebrow { font: 600 0.845rem/1 var(--bk-font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--bk-gold-text); }
 body.page-book .bk-source-title { font-family: var(--bk-font-display); font-size: 1.6rem; line-height: 1.1; color: var(--bk-ink); }
 body.page-book .bk-source-cols { display: grid; grid-template-columns: 1fr; gap: 20px; }
 body.page-book .bk-source-col + .bk-source-col { border-top: 1px solid var(--bk-rule); padding-top: 18px; }
@@ -729,9 +729,27 @@ body.page-book .bk-source-col + .bk-source-col { border-top: 1px solid var(--bk-
   body.page-book .bk-source-cols { grid-template-columns: 1fr 1fr; gap: 24px; }
   body.page-book .bk-source-col + .bk-source-col { border-top: 0; padding-top: 0; border-left: 1px solid var(--bk-rule); padding-left: 24px; }
 }
-body.page-book .bk-source-meta { font: 600 0.78rem/1.4 var(--bk-font-body); color: var(--bk-ink); margin: 0 0 10px; }
+body.page-book .bk-source-meta { font: 600 0.875rem/1.4 var(--bk-font-body); color: var(--bk-ink); margin: 0 0 10px; }
 body.page-book .bk-source-meta span { font-weight: 400; color: var(--bk-slate); }
-body.page-book .bk-source-orig { font-size: 1.15rem; line-height: 1.9; color: var(--bk-ink); margin: 0 0 10px; }
-body.page-book .bk-source-orig[lang="grc"] { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1.05rem; line-height: 1.6; }
-body.page-book .bk-source-en { font-family: var(--bk-font-display); font-style: italic; font-size: 1.05rem; line-height: 1.5; color: var(--bk-slate); margin: 0; }
-body.page-book .bk-source-foot { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--bk-rule); font-size: 0.9rem; line-height: 1.6; color: var(--bk-ink); }
+body.page-book .bk-source-orig { font-size: 1.2437rem; line-height: 1.9; color: var(--bk-ink); margin: 0 0 10px; }
+body.page-book .bk-source-orig[lang="grc"] { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1.15rem; line-height: 1.6; }
+body.page-book .bk-source-en { font-family: var(--bk-font-display); font-style: italic; font-size: 1.15rem; line-height: 1.5; color: var(--bk-slate); margin: 0; }
+body.page-book .bk-source-foot { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--bk-rule); font-size: 1.025rem; line-height: 1.6; color: var(--bk-ink); }
+
+/* ---------------------------------------------------------------------
+   Reading sizes (Ryan, 2026-09-27: "font size is too small").
+   Long-form body 18px on phones rising to 19px on desktop; supporting
+   text 15–16px; small-caps labels 14px. Declared last so it wins.
+   --------------------------------------------------------------------- */
+body.page-book p,
+body.page-book li { font-size: clamp(1.125rem, 1.05rem + 0.3vw, 1.1875rem); line-height: 1.65; }
+body.page-book .bk-part-desc { font-size: clamp(1.125rem, 1.05rem + 0.3vw, 1.1875rem); }
+body.page-book .bk-chapters li { font-size: 1.0625rem; }
+body.page-book .bk-proof-name { font-size: 0.9375rem; }
+body.page-book .bk-proof-title { font-size: 0.9375rem; line-height: 1.5; }
+body.page-book .bk-notify-micro,
+body.page-book .bk-credibility { font-size: 0.9375rem; line-height: 1.55; }
+body.page-book .bk-author-quote { font-size: 1.1875rem; }
+body.page-book .bk-author-quote cite { font-size: 1rem; }
+body.page-book figcaption { font-size: 0.9375rem; }
+body.page-book .bk-eyebrow { font-size: 0.875rem; }

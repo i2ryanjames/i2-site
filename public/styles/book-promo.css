@@ -71,7 +71,7 @@
   align-items: center;
   gap: 12px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -103,7 +103,7 @@
 
 .book-promo-copy p {
   font-family: 'DM Sans', sans-serif;
-  font-size: 17px;
+  font-size: 18.5px;
   line-height: 1.65;
   color: var(--bp-slate);
   margin: 0 0 18px;
@@ -113,7 +113,7 @@
 .book-promo-endorsement {
   font-family: 'Instrument Serif', Georgia, serif;
   font-style: italic;
-  font-size: 17px;
+  font-size: 18.5px;
   line-height: 1.5;
   color: var(--bp-slate);
   margin: 0 0 26px;
@@ -140,7 +140,7 @@
   color: #FFFFFF;
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 17px;
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.2s ease;
@@ -157,7 +157,7 @@
   min-height: 44px;
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 17px;
   color: var(--bp-ink);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -171,7 +171,7 @@
 
 .book-promo-note {
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--bp-slate);
   margin: 0;
 }
@@ -194,4 +194,10 @@
   .book-promo-copy {
     order: 1;
   }
+}
+
+/* Eyebrow wraps on phones at the larger type scale: tighten its leading and tracking there. */
+.book-promo-eyebrow { line-height: 1.35; }
+@media (max-width: 600px) {
+  .book-promo-eyebrow { letter-spacing: 0.1em; }
 }

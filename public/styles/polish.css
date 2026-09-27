@@ -30,7 +30,7 @@
 .footer-col h3,
 .footer-mini,
 .donate-security p {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .btn-arrow {
@@ -118,7 +118,7 @@
 .roadmap-summary-item p,        /* wise-global.html — "Total Build Cost" */
 .contact-item .contact-label,   /* donate.html — "Mailing Address" */
 .trust-item p {                 /* donate-form.html — trust-strip captions */
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 /* -----------------------------------------------------------------------
@@ -146,13 +146,13 @@
 .donate-card .card-cta--primary {
   background: var(--color-accent); color: #fff;
   padding: 14px 22px; border-radius: 6px;
-  text-transform: none; letter-spacing: 0; font-size: 1rem;
+  text-transform: none; letter-spacing: 0; font-size: 1.125rem;
   min-height: 48px; width: 100%; justify-content: center;
 }
 .donate-card .card-cta--secondary {
   border: 1.5px solid var(--color-text); color: var(--color-text);
   padding: 14px 22px; border-radius: 6px;
-  text-transform: none; letter-spacing: 0; font-size: 1rem;
+  text-transform: none; letter-spacing: 0; font-size: 1.125rem;
   min-height: 48px; width: 100%; justify-content: center;
 }
 .donate-card:hover .card-cta--primary { background: var(--color-accent-warm); }
@@ -285,7 +285,7 @@
   margin: 0;
   max-width: 23ch;
   color: #eff6ff;
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.5;
 }
 @media (max-width: 1024px) {
@@ -317,7 +317,7 @@
 }
 .mission-crowd--hero .counter-label {
   max-width: 26ch;
-  font-size: 1.125rem;
+  font-size: 1.2188rem;
   color: #fff;
 }
 @container mission-counter (max-width: 600px) {
@@ -328,7 +328,7 @@
   }
   .mission-crowd--hero .counter-label {
     max-width: 30ch;
-    font-size: 1rem;
+    font-size: 1.125rem;
     text-wrap: pretty;
   }
 }
@@ -417,3 +417,11 @@
     min-height: 44px;
   }
 }
+
+/* (m) Readability floor (2026-09-27): the mobile menu's item descriptions were 13px. */
+.nav-dropdown-desc { font-size: 14px; }
+/* Contact cards must shrink on narrow phones: at the larger type, an unbreakable
+   email address set their min-content width past a 360px viewport. */
+.info-card, .connect-card { min-width: 0; overflow-wrap: anywhere; }
+.contact-grid > * { min-width: 0; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
