@@ -127,12 +127,16 @@ export async function resolveContact(email, fields = []) {
   }
 
   if (createResponse.status === 409 || createResponse.status === 422) {
-    // systeme answers 422 both for "already exists" and for an address it
-    // refuses (e.g. a mistyped domain with no MX record). Only the second names
-    // the email in its violations, and looking that one up would find nothing.
+    // systeme answers 422 with an `email` violation both for an existing contact
+    // ("This value is already used.") and for an address it refuses ("This email
+    // address is invalid ... lacks a valid MX or A DNS record."). Only the
+    // refusal is the visitor's typo; anything else falls through to the lookup.
     const createJson = await createResponse.json().catch(() => ({}));
     const violations = Array.isArray(createJson?.violations) ? createJson.violations : [];
-    if (violations.some((v) => v?.propertyPath === 'email')) throw new InvalidEmailError();
+    const refused = violations.some((v) => v?.propertyPath === 'email'
+      && /invalid|\bMX\b|DNS/i.test(String(v?.message || ''))
+      && !/already used/i.test(String(v?.message || '')));
+    if (refused) throw new InvalidEmailError();
     const lookupResponse = await fetchWithTimeout(`${SYSTEME_BASE}/contacts?email=${encodeURIComponent(email)}&limit=10`, {
       method: 'GET',
       headers: {

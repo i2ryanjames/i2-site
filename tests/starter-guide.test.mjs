@@ -388,7 +388,7 @@ test('an existing contact gets the new name, phone and country written with PATC
   global.fetch = async (url, options) => {
     url = String(url);
     calls.push({ url, options });
-    if (url.endsWith('/contacts') && options.method === 'POST') return Response.json({}, { status: 422 });
+    if (url.endsWith('/contacts') && options.method === 'POST') return Response.json({ violations: [{ propertyPath: 'email', message: 'This value is already used.' }] }, { status: 422 });
     if (url.includes('/contacts?email=')) return Response.json({ items: [{ id: 77 }] });
     if (url.endsWith('/contacts/77') && options.method === 'PATCH') return Response.json({ id: 77 });
     if (url.includes('/contacts/77/tags')) return new Response(null, { status: 204 });
@@ -415,7 +415,7 @@ test('an address systeme refuses (no MX) is a 400 asking the visitor to check it
   global.fetch = async (url, options) => {
     calls.push(String(url));
     if (String(url).endsWith('/contacts') && options.method === 'POST') {
-      return Response.json({ violations: [{ propertyPath: 'email', message: 'lacks a valid MX' }] }, { status: 422 });
+      return Response.json({ violations: [{ propertyPath: 'email', message: 'This email address is invalid and can’t receive emails because its domain lacks a valid MX or A DNS record.' }] }, { status: 422 });
     }
     throw new Error(`Unexpected request: ${url}`);
   };

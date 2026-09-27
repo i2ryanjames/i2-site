@@ -190,7 +190,7 @@ test('notify: an address systeme refuses (no MX) is a 400, not a 503', async () 
   process.env.SYSTEME_TAG_ID = '1';
   global.fetch = async (url, options) => {
     if (String(url).endsWith('/contacts') && options.method === 'POST') {
-      return Response.json({ violations: [{ propertyPath: 'email', message: 'lacks a valid MX' }] }, { status: 422 });
+      return Response.json({ violations: [{ propertyPath: 'email', message: 'This email address is invalid and can’t receive emails because its domain lacks a valid MX or A DNS record.' }] }, { status: 422 });
     }
     throw new Error(`Unexpected request: ${url}`);
   };
