@@ -11,6 +11,21 @@
   var setupPromise = null;
   var fallback = document.getElementById('contactFallback');
 
+  // A known quiz destination can select a topic; visitors write their own message.
+  var topics = {
+    initiative: ['EMFC Initiative', 'Tell us about your denomination or church network and where you would like to explore the initiative.'],
+    partnership: ['Partnership Opportunities', 'Tell us about your ministry and the partnership or coordination support you are exploring.'],
+    giving: ['Donations & Giving', 'Tell us about the ministry work you would like to support and any questions about giving.'],
+    training: ['Training & Events', 'Tell us about your church or team and the training you are looking for.'],
+    mmwu: ['MMWU Enrollment', 'Tell us what you would like to know about MMWU enrollment or training.']
+  };
+  var requestedTopic = new URLSearchParams(window.location.search).get('topic');
+  if (Object.prototype.hasOwnProperty.call(topics, requestedTopic)) {
+    document.getElementById('subject').value = topics[requestedTopic][0];
+    document.getElementById('message').placeholder = topics[requestedTopic][1];
+    document.getElementById('formIntro').textContent = topics[requestedTopic][1];
+  }
+
   function showFallback() {
     container.style.display = 'none';
     fallback.style.display = 'block';

@@ -29,7 +29,7 @@
         '<button type="button" class="i2-consent__manage" data-consent="manage" aria-expanded="false" aria-controls="i2-consent-settings">Manage cookies</button>' +
       '</div>' +
       '<div class="i2-consent__settings" id="i2-consent-settings" hidden>' +
-        '<div class="i2-consent__necessary i2-consent__setting-copy"><strong>Essential storage · Always on</strong><span>Remembers your privacy choices and keeps the ebook invitation closed after you dismiss it.</span></div>' +
+        '<div class="i2-consent__necessary i2-consent__setting-copy"><strong>Essential storage · Always on</strong><span>Remembers your privacy choices and keeps the audience guide and ebook invitation closed after you dismiss them.</span></div>' +
         '<div class="i2-consent__setting-copy" id="i2-consent-media-description"><strong>Optional video cookies</strong><span>YouTube and Vimeo players stay blocked until you allow them. These providers may use cookies and receive device data when you play a video. Change your choice anytime using Cookie settings in the footer.</span></div>' +
         '<div class="i2-consent__settings-actions"><label class="i2-consent__toggle"><input type="checkbox" id="i2-consent-media" aria-describedby="i2-consent-media-description"> Allow videos</label><button type="button" class="i2-consent__button" data-consent="save">Save choice</button></div>' +
       '</div>' +

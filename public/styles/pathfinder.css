@@ -1,0 +1,85 @@
+/* A small, optional guide to the ministry's existing pathways. */
+.i2-quiz-launch {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 18px;
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  color: #1d4ed8;
+  font: 500 16px/1.5 'DM Sans', sans-serif;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  cursor: pointer;
+}
+.i2-quiz-launch[hidden] { display: none; }
+body.i2-quiz-open { overflow: hidden; }
+.i2-quiz {
+  box-sizing: border-box;
+  width: min(640px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 38px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #d7dfeb;
+  border-radius: 12px;
+  background: #fff;
+  color: #0f172a;
+  box-shadow: 0 20px 80px rgb(15 23 42 / 20%);
+  font: 400 16px/1.55 'DM Sans', sans-serif;
+}
+.i2-quiz::backdrop { background: rgb(15 23 42 / 62%); }
+.i2-quiz *, .i2-quiz *::before, .i2-quiz *::after { box-sizing: border-box; }
+.i2-quiz [hidden] { display: none !important; }
+.i2-quiz__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.i2-quiz__eyebrow { color: #1d4ed8; font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.i2-quiz__close {
+  flex-shrink: 0; width: 44px; height: 44px; border: 0; border-radius: 4px;
+  background: #f1f5f9; color: #334155; font: 400 30px/1 'DM Sans', sans-serif; cursor: pointer;
+}
+.i2-quiz__progress { margin: 0 0 16px; font-size: 14px; color: #475569; }
+.i2-quiz__title {
+  margin: 0 0 14px; max-width: 100%; color: #0f172a;
+  font: 400 clamp(32px, 5vw, 42px)/1.1 'Instrument Serif', Georgia, serif;
+  letter-spacing: -.02em; text-wrap: balance;
+}
+.i2-quiz__title:focus { outline: none; }
+.i2-quiz__description { margin: 0 0 24px; color: #475569; font-size: 17px; line-height: 1.6; }
+.i2-quiz__options { display: grid; gap: 10px; margin-top: 22px; }
+.i2-quiz__option {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 78px; padding: 15px 18px; text-align: left; border: 1px solid #cbd5e1;
+  border-radius: 5px; background: #fff; color: #0f172a; font: inherit; cursor: pointer;
+}
+.i2-quiz__option[data-quiz-role="network"], .i2-quiz__option[data-quiz-role="donor"] { border-left: 3px solid #1d4ed8; }
+.i2-quiz__option:hover { border-color: #1d4ed8; background: #eff6ff; }
+.i2-quiz__option-copy { display: grid; gap: 4px; }
+.i2-quiz__option strong { font-size: 17px; font-weight: 600; line-height: 1.4; }
+.i2-quiz__option-copy > span { color: #475569; font-size: 14px; line-height: 1.45; }
+.i2-quiz__arrow { flex-shrink: 0; color: #1d4ed8; font-size: 22px; }
+.i2-quiz__footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 20px; }
+.i2-quiz__quiet {
+  min-height: 44px; padding: 8px 0; background: none; border: 0; color: #334155;
+  text-decoration: underline; text-underline-offset: 4px; font: 500 14px/1.5 'DM Sans', sans-serif; cursor: pointer;
+}
+.i2-quiz__privacy { margin: 8px 0 0; font-size: 14px; color: #475569; }
+.i2-quiz__points { padding: 0; list-style: none; margin: 22px 0 26px; }
+.i2-quiz__points li { border-top: 1px solid #e2e8f0; padding: 12px 0; font-size: 16px; line-height: 1.5; }
+.i2-quiz__points li:last-child { border-bottom: 1px solid #e2e8f0; }
+.i2-quiz__result-actions { display: grid; gap: 8px; margin-top: 26px; }
+.i2-quiz__link { display: flex; align-items: center; justify-content: center; min-height: 50px; padding: 12px 18px; font-size: 16px; font-weight: 600; text-align: center; line-height: 1.5; border-radius: 4px; text-decoration: none; }
+.i2-quiz__link--primary { color: #fff; background: #1d4ed8; }
+.i2-quiz__link--primary:hover { color: #fff; background: #1e3a8a; }
+.i2-quiz__link--secondary { color: #1d4ed8; text-decoration: underline; text-underline-offset: 4px; }
+.i2-quiz button:focus-visible, .i2-quiz a:focus-visible, .i2-quiz-launch:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 4px; }
+@media (max-width: 480px) {
+  .i2-quiz { width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 20px; border-radius: 8px; }
+  .i2-quiz__progress { margin-bottom: 14px; }
+  .i2-quiz__option { min-height: 78px; padding: 13px 14px; }
+  .i2-quiz__option strong { font-size: 16px; }
+  .i2-quiz__description { font-size: 16px; margin-bottom: 20px; }
+  .i2-quiz__options { gap: 9px; margin-top: 18px; }
+}

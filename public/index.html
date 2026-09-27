@@ -1151,6 +1151,7 @@
 }
 </script>
 <link rel="stylesheet" href="/styles/consent.css" />
+<link rel="stylesheet" href="/styles/pathfinder.css" />
 </head>
 <body>
 <a href="#main" class="skip-to-main">Skip to main content</a>
@@ -1246,6 +1247,7 @@
             Get Trained
           </a>
         </div>
+        <button type="button" class="i2-quiz-launch" data-quiz-open aria-haspopup="dialog" aria-controls="i2-pathfinder" hidden>Find your next step →</button>
       </div>
       <div class="hero-visual">
         <div class="hero-video-card" id="heroVideoCard" data-yt-id="K3nqkssStVE" data-i2-action="media" role="button" tabindex="0" aria-label="Play video">
@@ -1562,19 +1564,20 @@
 
 <script src="/js/pages/index-1.js"></script>
 
-<!-- ═══════ EBOOK LIGHTBOX ═══════ -->
-<div class="ebook-overlay" id="ebookOverlay">
-  <div class="ebook-modal" id="ebookModal">
-    <button class="ebook-close" id="ebookClose" aria-label="Close">&times;</button>
-    <span class="label" style="margin-bottom:12px;">Free Resource</span>
-    <h2 style="font-family:var(--font-display);font-size:1.8rem;font-weight:400;line-height:1.25;margin-bottom:16px;color:var(--color-text);">When Muslims <em style="font-style:italic;color:var(--color-accent);">Confront the Faith</em></h2>
-    <p style="font-size:1.05rem;color:var(--color-text-muted);line-height:1.7;margin-bottom:28px;">1.7 billion Muslims don't personally know a Christian. Download this free ebook to discover the scope of the missional challenge — and how the Church is responding.</p>
-    <a href="https://www.gommwu.org/ebook" target="_blank" rel="noopener" class="btn btn-primary" data-i2-action="ebook-close" style="width:100%;justify-content:center;">Get the Free Ebook <span class="btn-arrow">→</span></a>
-    <p style="font-size:0.85rem;color:var(--color-text-muted);font-style:italic;margin-top:14px;text-align:center;">Free. No membership required.</p>
+<!-- The audience guide replaces the automatic homepage ebook invitation. -->
+<dialog class="i2-quiz" id="i2-pathfinder" aria-labelledby="i2-quiz-title">
+  <div class="i2-quiz__top">
+    <span class="i2-quiz__eyebrow">Find your next step</span>
+    <button type="button" class="i2-quiz__close" data-quiz-close aria-label="Close guide">×</button>
   </div>
-</div>
-
-<script src="/js/pages/index-2.js"></script>
+  <p class="i2-quiz__progress" data-quiz-progress></p>
+  <div data-quiz-content></div>
+  <div class="i2-quiz__footer">
+    <button type="button" class="i2-quiz__quiet" data-quiz-back hidden>← Back</button>
+    <button type="button" class="i2-quiz__quiet" data-quiz-close>I'll explore on my own</button>
+  </div>
+  <p class="i2-quiz__privacy">No email required. Answers stay on this page.</p>
+</dialog>
 
 
 <!-- phase5-motion -->
@@ -1586,6 +1589,8 @@
 <script src="/js/pages/index-3.js"></script>
 
 <script src="/js/consent.js"></script>
+<script src="/js/pathfinder-data.js"></script>
+<script src="/js/pathfinder.js"></script>
 <script src="/js/actions.js"></script>
 </body>
 </html>
