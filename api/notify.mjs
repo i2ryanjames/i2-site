@@ -2,6 +2,7 @@ import {
   reply,
   clean,
   SystemeError,
+  InvalidEmailError,
   upstashConfigured,
   withinRateLimit,
   backupSignup,
@@ -94,6 +95,9 @@ export async function POST(request) {
     await syncToSysteme({ email, firstName, role, wantsBulk });
     return reply(200, "You're on the list.");
   } catch (error) {
+    if (error instanceof InvalidEmailError) {
+      return reply(400, "We couldn't send to that email address. Please check it for typos.");
+    }
     console.error('systeme sync failed', error instanceof SystemeError ? error.status : (error instanceof Error ? error.message : 'Unknown error'));
     if (backedUp) return reply(200, "You're on the list.", { queued: true });
     return reply(503, 'Sign-up is temporarily unavailable. Please email info@i2ministries.org.');

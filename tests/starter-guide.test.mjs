@@ -407,3 +407,20 @@ test('an existing contact gets the new name, phone and country written with PATC
     { slug: 'country', value: 'NG' },
   ]);
 });
+
+test('an address systeme refuses (no MX) is a 400 asking the visitor to check it, not a 503', async () => {
+  process.env.SYSTEME_API_KEY = 'k';
+  process.env.SYSTEME_GUIDE_TAG_ID = '1';
+  const calls = [];
+  global.fetch = async (url, options) => {
+    calls.push(String(url));
+    if (String(url).endsWith('/contacts') && options.method === 'POST') {
+      return Response.json({ violations: [{ propertyPath: 'email', message: 'lacks a valid MX' }] }, { status: 422 });
+    }
+    throw new Error(`Unexpected request: ${url}`);
+  };
+  const response = await POST(request({ email: 'jane@gmial.con', elapsedMs: 5000 }));
+  assert.equal(response.status, 400);
+  assert.match((await response.json()).message, /check it for typos/);
+  assert.equal(calls.length, 1, 'must not look up or tag a refused address');
+});

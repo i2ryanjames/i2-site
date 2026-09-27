@@ -184,3 +184,20 @@ test('role tag is applied when SYSTEME_ROLE_TAGS maps the role', async () => {
   const bodies = tagCalls.map((call) => JSON.parse(call.options.body));
   assert.deepEqual(bodies, [{ tagId: 77 }, { tagId: 88 }]);
 });
+
+test('notify: an address systeme refuses (no MX) is a 400, not a 503', async () => {
+  process.env.SYSTEME_API_KEY = 'k';
+  process.env.SYSTEME_TAG_ID = '1';
+  global.fetch = async (url, options) => {
+    if (String(url).endsWith('/contacts') && options.method === 'POST') {
+      return Response.json({ violations: [{ propertyPath: 'email', message: 'lacks a valid MX' }] }, { status: 422 });
+    }
+    throw new Error(`Unexpected request: ${url}`);
+  };
+  const response = await POST(new Request('https://i2ministries.org/api/notify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: 'jane@gmial.con', elapsedMs: 5000 }),
+  }));
+  assert.equal(response.status, 400);
+});

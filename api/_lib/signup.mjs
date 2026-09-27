@@ -40,6 +40,12 @@ export class SystemeError extends Error {
   }
 }
 
+export class InvalidEmailError extends SystemeError {
+  constructor() {
+    super('systeme rejected the email address', 422);
+  }
+}
+
 export function upstashConfigured() {
   return !!(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN && process.env.RATE_LIMIT_SALT);
 }
@@ -121,6 +127,12 @@ export async function resolveContact(email, fields = []) {
   }
 
   if (createResponse.status === 409 || createResponse.status === 422) {
+    // systeme answers 422 both for "already exists" and for an address it
+    // refuses (e.g. a mistyped domain with no MX record). Only the second names
+    // the email in its violations, and looking that one up would find nothing.
+    const createJson = await createResponse.json().catch(() => ({}));
+    const violations = Array.isArray(createJson?.violations) ? createJson.violations : [];
+    if (violations.some((v) => v?.propertyPath === 'email')) throw new InvalidEmailError();
     const lookupResponse = await fetchWithTimeout(`${SYSTEME_BASE}/contacts?email=${encodeURIComponent(email)}&limit=10`, {
       method: 'GET',
       headers: {

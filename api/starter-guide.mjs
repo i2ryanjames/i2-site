@@ -3,6 +3,7 @@ import {
   clean,
   fetchWithTimeout,
   SystemeError,
+  InvalidEmailError,
   upstashConfigured,
   withinRateLimit,
   backupSignup,
@@ -191,6 +192,9 @@ export async function POST(request) {
 
     return reply(200, SUCCESS_MESSAGE, { download: DOWNLOAD_PATH });
   } catch (error) {
+    if (error instanceof InvalidEmailError) {
+      return reply(400, "We couldn't send to that email address. Please check it for typos.");
+    }
     console.error('systeme sync failed', error instanceof SystemeError ? error.status : (error instanceof Error ? error.message : 'Unknown error'));
     if (backedUp) return reply(200, SUCCESS_MESSAGE, { queued: true, download: DOWNLOAD_PATH });
     return reply(503, 'Sign-up is temporarily unavailable. Please email info@i2ministries.org.');
