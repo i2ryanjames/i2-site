@@ -71,3 +71,11 @@ test('every page with the MMWU nav-dropdown-item also links The Borrowed Christ 
     }
   }
 });
+
+test('every starter guide strip describes the EMFCI one-day starter guide, not the retired ebook', () => {
+  for (const file of readdirSync(publicDir).filter(n => n.endsWith('.html'))) {
+    const html = readFileSync(join(publicDir, file), 'utf8');
+    assert.doesNotMatch(html, /Confront the Faith|Attack the Faith/, file);
+    if (html.includes('id="free-ebook"')) assert.match(html, /Every Muslim for Christ <em>Starter Guide<\/em>/, file);
+  }
+});
