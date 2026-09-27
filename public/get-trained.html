@@ -1114,22 +1114,23 @@
           <input type="email" id="guidePopupEmail" name="email" autocomplete="email" required>
         </div>
         <div class="guide-popup__field">
-          <label for="guidePopupPhone">Mobile phone (optional)</label>
+          <label for="guidePopupPhone">Mobile phone</label>
           <div class="guide-popup__phone-row">
             <select id="guideCountry" name="country" aria-label="Country code" autocomplete="tel-country-code"></select>
-            <input type="tel" id="guidePopupPhone" name="phone" autocomplete="tel-national" inputmode="tel" placeholder="Phone number">
+            <input type="tel" id="guidePopupPhone" name="phone" autocomplete="tel-national" inputmode="tel" placeholder="Phone number" required>
           </div>
         </div>
-        <label class="guide-popup__consent" data-guide-consent-wrap data-disabled="true">
-          <input type="checkbox" id="guidePopupSmsEvents" name="smsEvents" disabled>
+        <label class="guide-popup__consent" data-guide-consent-wrap>
+          <input type="checkbox" id="guidePopupSmsEvents" name="smsEvents" required>
           <span>I agree to receive SMS messages regarding Mission Muslim World University's free training events (carrier fees apply). Reply STOP to unsubscribe.</span>
         </label>
-        <label class="guide-popup__consent" data-guide-consent-wrap data-disabled="true">
-          <input type="checkbox" id="guidePopupSmsOffers" name="smsOffers" disabled>
+        <label class="guide-popup__consent" data-guide-consent-wrap>
+          <input type="checkbox" id="guidePopupSmsOffers" name="smsOffers" required>
           <span>I agree to get SMS messages regarding i2 Ministries &amp; Mission Muslim World University's unique offers (carrier fees apply). Reply STOP to unsubscribe.</span>
         </label>
         <div class="guide-popup__hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-        <button type="submit" class="guide-popup__submit" data-guide-submit>Yes, send it to me</button>
+        <button type="submit" class="guide-popup__submit" data-guide-submit aria-describedby="guidePopupHint">Yes, send it to me</button>
+        <p class="guide-popup__hint" id="guidePopupHint" data-guide-hint>Fill in every field and tick both boxes to continue.</p>
       </form>
       <div class="guide-popup__status" role="status" data-guide-status></div>
       <p class="guide-popup__micro" data-guide-micro>Your data is safe with us. We will never share your information. <a href="/privacy">Privacy Policy</a>.</p>

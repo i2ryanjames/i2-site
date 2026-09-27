@@ -129,7 +129,6 @@
   var countrySelect = dialog.querySelector('#guideCountry');
   var smsEventsCheckbox = dialog.querySelector('#guidePopupSmsEvents');
   var smsOffersCheckbox = dialog.querySelector('#guidePopupSmsOffers');
-  var consentWraps = dialog.querySelectorAll('[data-guide-consent-wrap]');
   var statusEl = dialog.querySelector('[data-guide-status]');
   var announceEl = dialog.querySelector('[data-guide-announce]');
   var submitBtn = dialog.querySelector('[data-guide-submit]');
@@ -154,20 +153,33 @@
     return slug || 'home';
   }
 
-  function updateConsentAvailability() {
-    var hasPhone = phoneInput.value.trim().length > 0;
-    smsEventsCheckbox.disabled = !hasPhone;
-    smsOffersCheckbox.disabled = !hasPhone;
-    if (!hasPhone) {
-      smsEventsCheckbox.checked = false;
-      smsOffersCheckbox.checked = false;
-    }
-    consentWraps.forEach(function (wrap) {
-      wrap.setAttribute('data-disabled', hasPhone ? 'false' : 'true');
-    });
+  var hintEl = dialog.querySelector('[data-guide-hint]');
+  var sending = false;
+
+  function selectedDial() {
+    var option = countrySelect.options[countrySelect.selectedIndex];
+    return option ? option.getAttribute('data-dial') : '';
   }
-  phoneInput.addEventListener('input', updateConsentAvailability);
-  updateConsentAvailability();
+
+  // Ryan, 2026-09-27: the button stays disabled until name, email, phone and
+  // both SMS boxes are filled in. api/starter-guide.mjs enforces the same rule.
+  function formComplete() {
+    return firstNameInput.value.trim().length > 0 &&
+      emailPattern.test(emailInput.value.trim()) &&
+      isValidPhoneForDial(phoneInput.value, selectedDial()) &&
+      smsEventsCheckbox.checked &&
+      smsOffersCheckbox.checked;
+  }
+
+  function updateSubmitState() {
+    if (sending) return;
+    var complete = formComplete();
+    submitBtn.disabled = !complete;
+    if (hintEl) hintEl.hidden = complete;
+  }
+  form.addEventListener('input', updateSubmitState);
+  form.addEventListener('change', updateSubmitState);
+  updateSubmitState();
 
   function setStatus(message, state) {
     if (!statusEl) return;
@@ -215,6 +227,7 @@
   });
 
   function resetToForm() {
+    updateSubmitState();
     if (form) form.hidden = false;
     if (successPanel) successPanel.hidden = true;
     dialog.classList.remove('is-success');
@@ -277,12 +290,19 @@
     return value.replace(/\D/g, '');
   }
 
+  // Mirrors buildE164 in api/starter-guide.mjs, so the browser never accepts a
+  // number the server would refuse.
   function isValidPhoneForDial(phone, dial) {
     if (!dial) return false;
-    var digits = stripPhoneFormatting(phone);
+    var typed = String(phone || '').trim();
+    var digits = stripPhoneFormatting(typed);
     if (!digits) return false;
     var full;
-    if (digits.indexOf(dial) === 0) {
+    if (typed.charAt(0) === '+') {
+      full = digits;
+    } else if (digits.indexOf('00') === 0) {
+      full = digits.slice(2);
+    } else if (dial === '1' && digits.length === 11 && digits.charAt(0) === '1') {
       full = digits;
     } else if (digits.charAt(0) === '0') {
       full = dial + digits.slice(1);
@@ -312,14 +332,16 @@
 
     var phone = phoneInput.value.trim();
     var country = countrySelect.value;
-    if (phone) {
-      var selectedOption = countrySelect.options[countrySelect.selectedIndex];
-      var dial = selectedOption ? selectedOption.getAttribute('data-dial') : '';
-      if (!isValidPhoneForDial(phone, dial)) {
-        setStatus('Please enter a valid phone number, or leave it blank.', 'error');
-        phoneInput.focus();
-        return;
-      }
+    if (!isValidPhoneForDial(phone, selectedDial())) {
+      setStatus('Please enter a valid phone number.', 'error');
+      phoneInput.focus();
+      return;
+    }
+
+    if (!smsEventsCheckbox.checked || !smsOffersCheckbox.checked) {
+      setStatus('Please tick both boxes to continue.', 'error');
+      (smsEventsCheckbox.checked ? smsOffersCheckbox : smsEventsCheckbox).focus();
+      return;
     }
 
     var payload = {
@@ -327,13 +349,14 @@
       email: email,
       country: country,
       phone: phone,
-      smsEvents: !!(smsEventsCheckbox.checked && phone),
-      smsOffers: !!(smsOffersCheckbox.checked && phone),
+      smsEvents: smsEventsCheckbox.checked,
+      smsOffers: smsOffersCheckbox.checked,
       source: 'popup-' + pageSlug(),
       elapsedMs: openedAt ? Date.now() - openedAt : 0,
       website: hpInput ? hpInput.value : ''
     };
 
+    sending = true;
     submitBtn.disabled = true;
     submitBtn.setAttribute('aria-busy', 'true');
     var originalLabel = submitBtn.textContent;
@@ -361,9 +384,10 @@
         }
         var message = (result.data && result.data.message) || 'Something went wrong. Please try again.';
         setStatus(message, 'error');
-        submitBtn.disabled = false;
+        sending = false;
         submitBtn.removeAttribute('aria-busy');
         submitBtn.textContent = originalLabel;
+        updateSubmitState();
       })
       .catch(function () {
         setStatus('Something went wrong. You can still download the guide below.', 'error');
