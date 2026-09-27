@@ -49,7 +49,8 @@ body.page-book em { font-style: italic; }
 
 body.page-book p { line-height: 1.7; color: var(--bk-slate); }
 
-body.page-book section { padding-block: var(--bk-section-pad); }
+/* :not(.i2-consent) — the site-wide cookie banner is also a <section>; it must keep its own compact padding. */
+body.page-book section:not(.i2-consent) { padding-block: var(--bk-section-pad); }
 
 /* -----------------------------------------------------------------------
    Reveal-on-scroll (page-local; see borrowed-christ.js)
