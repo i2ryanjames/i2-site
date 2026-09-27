@@ -33,6 +33,10 @@ function request(overrides = {}) {
     body: JSON.stringify({
       firstName: 'Jane',
       email: 'jane@example.com',
+      country: 'GB',
+      phone: '07700 900123',
+      smsEvents: true,
+      smsOffers: true,
       source: 'popup-about',
       ...overrides,
     }),
@@ -160,15 +164,11 @@ test('a phone already carrying the dial code is not double-prefixed', async () =
   assert.equal(phoneField.value, '+18165550100');
 });
 
-test('no phone_number or country field is sent when no phone is given', async () => {
-  process.env.SYSTEME_API_KEY = 'test-systeme-key';
-  process.env.SYSTEME_GUIDE_TAG_ID = '77';
-  const calls = [];
-  global.fetch = contactAndTagFetch(calls);
-  const response = await POST(request());
-  assert.equal(response.status, 200);
-  const contactBody = JSON.parse(calls[0].options.body);
-  assert.deepEqual(contactBody.fields, [{ slug: 'first_name', value: 'Jane' }]);
+test('a missing phone number is rejected before any network call', async () => {
+  global.fetch = () => { throw new Error('fetch should not be called'); };
+  const response = await POST(request({ phone: '' }));
+  assert.equal(response.status, 400);
+  assert.match((await response.json()).message, /phone number/i);
 });
 
 test('guide tag and new-lead tag are both applied', async () => {
@@ -184,32 +184,32 @@ test('guide tag and new-lead tag are both applied', async () => {
   assert.deepEqual(bodies, [{ tagId: 77 }, { tagId: 10 }]);
 });
 
-test('SMS-events and SMS-offers tags apply only for the box that was checked, and only with a phone', async () => {
+test('both SMS consent tags are applied, since both boxes are required', async () => {
   process.env.SYSTEME_API_KEY = 'test-systeme-key';
   process.env.SYSTEME_GUIDE_TAG_ID = '77';
   process.env.SYSTEME_SMS_EVENTS_TAG_ID = '20';
   process.env.SYSTEME_SMS_OFFERS_TAG_ID = '21';
   const calls = [];
   global.fetch = contactAndTagFetch(calls);
-  const response = await POST(request({ country: 'US', phone: '8165550100', smsEvents: true, smsOffers: false }));
+  const response = await POST(request({ country: 'US', phone: '8165550100' }));
   assert.equal(response.status, 200);
-  const tagCalls = calls.filter((c) => c.url.includes('/contacts/123/tags'));
-  const bodies = tagCalls.map((c) => JSON.parse(c.options.body));
-  assert.deepEqual(bodies, [{ tagId: 77 }, { tagId: 20 }]);
+  const bodies = calls.filter((c) => c.url.includes('/contacts/123/tags')).map((c) => JSON.parse(c.options.body));
+  assert.deepEqual(bodies, [{ tagId: 77 }, { tagId: 20 }, { tagId: 21 }]);
 });
 
-test('SMS tags are not applied when consent is true but no phone was given', async () => {
-  process.env.SYSTEME_API_KEY = 'test-systeme-key';
-  process.env.SYSTEME_GUIDE_TAG_ID = '77';
-  process.env.SYSTEME_SMS_EVENTS_TAG_ID = '20';
-  process.env.SYSTEME_SMS_OFFERS_TAG_ID = '21';
-  const calls = [];
-  global.fetch = contactAndTagFetch(calls);
-  const response = await POST(request({ smsEvents: true, smsOffers: true }));
-  assert.equal(response.status, 200);
-  const tagCalls = calls.filter((c) => c.url.includes('/contacts/123/tags'));
-  assert.equal(tagCalls.length, 1);
-});
+for (const [label, overrides] of [
+  ['the events box', { smsEvents: false }],
+  ['the offers box', { smsOffers: false }],
+  ['both boxes', { smsEvents: false, smsOffers: false }],
+  ['a truthy non-boolean', { smsEvents: 'yes' }],
+]) {
+  test(`leaving ${label} unticked is rejected before any network call`, async () => {
+    global.fetch = () => { throw new Error('fetch should not be called'); };
+    const response = await POST(request(overrides));
+    assert.equal(response.status, 400);
+    assert.match((await response.json()).message, /tick both boxes/i);
+  });
+}
 
 test('missing SYSTEME_API_KEY queues the signup when Upstash backup succeeds', async () => {
   process.env.UPSTASH_REDIS_REST_URL = 'https://test.upstash.io';
@@ -279,19 +279,6 @@ test('a +1 number with SMS consent calls the MMWU opt-in webhook with the exact 
   });
 });
 
-test('a +1 number without SMS consent does not call the MMWU opt-in webhook', async () => {
-  process.env.SYSTEME_API_KEY = 'test-systeme-key';
-  process.env.SYSTEME_GUIDE_TAG_ID = '77';
-  process.env.MMWU_OPTIN_URL = 'https://mmwu.example/optin';
-  process.env.MMWU_WEBHOOK_KEY = 'super-secret-key';
-  const calls = [];
-  global.fetch = contactAndTagFetch(calls, {
-    'mmwu.example/optin': () => { throw new Error('opt-in should not be called'); },
-  });
-  const response = await POST(request({ country: 'US', phone: '8165550100', smsEvents: false, smsOffers: false }));
-  assert.equal(response.status, 200);
-  assert.ok(!calls.some((c) => c.url.includes('mmwu.example/optin')));
-});
 
 test('a +44 number with SMS consent does not call the MMWU opt-in webhook', async () => {
   process.env.SYSTEME_API_KEY = 'test-systeme-key';

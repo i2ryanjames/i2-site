@@ -109,17 +109,19 @@ export async function POST(request) {
   const phoneRaw = clean(data.phone, 40);
   const countryRaw = clean(data.country, 2).toUpperCase();
 
-  let e164 = '';
-  let country = '';
-  if (phoneRaw) {
-    const built = buildE164(countryRaw, phoneRaw);
-    if (!built) return reply(400, 'Please enter a valid phone number, or leave it blank.');
-    e164 = built.e164;
-    country = countryRaw;
-  }
+  // Ryan, 2026-09-27: name, email, phone and both SMS boxes are all required.
+  // The popup disables its button until they are; this is the server-side guard.
+  if (!phoneRaw) return reply(400, 'Please enter your phone number.');
+  const built = buildE164(countryRaw, phoneRaw);
+  if (!built) return reply(400, 'Please enter a valid phone number.');
+  const e164 = built.e164;
+  const country = countryRaw;
 
-  const smsEvents = data.smsEvents === true && !!e164;
-  const smsOffers = data.smsOffers === true && !!e164;
+  if (data.smsEvents !== true || data.smsOffers !== true) {
+    return reply(400, 'Please tick both boxes to continue.');
+  }
+  const smsEvents = true;
+  const smsOffers = true;
   const source = clean(data.source, 60) || 'popup';
 
   const upstash = upstashConfigured();
