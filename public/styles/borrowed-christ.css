@@ -692,3 +692,44 @@ body.page-book .bk-sticky .bk-btn { width: 100%; }
   /* In a column, flex-basis is height — reset it or each field grows to 220px tall. */
   body.page-book .bk-notify-row .bk-field { flex-basis: auto; }
 }
+
+/* ---------------------------------------------------------------------
+   Chapters: always visible (Ryan, 2026-09-27 — no click to reveal)
+   --------------------------------------------------------------------- */
+body.page-book .bk-chapters { margin-top: 18px; }
+body.page-book .bk-chapters-label {
+  font: 600 0.75rem/1 var(--bk-font-body);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bk-gold-text);
+  margin: 0 0 10px;
+}
+body.page-book .bk-chapters ol { margin-top: 0; }
+body.page-book .bk-chapters li { font-size: 0.95rem; line-height: 1.7; color: var(--bk-slate); }
+
+/* ---------------------------------------------------------------------
+   Source card — the book's own Table 2–4 comparison, in place of an image
+   --------------------------------------------------------------------- */
+body.page-book .bk-source-card {
+  margin: 0;
+  background: var(--bk-card);
+  border: 1px solid var(--bk-rule);
+  outline: 1px solid var(--bk-rule);
+  outline-offset: 5px;
+  padding: clamp(20px, 3vw, 32px);
+}
+body.page-book .bk-source-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--bk-gold); }
+body.page-book .bk-source-eyebrow { font: 600 0.72rem/1 var(--bk-font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--bk-gold-text); }
+body.page-book .bk-source-title { font-family: var(--bk-font-display); font-size: 1.6rem; line-height: 1.1; color: var(--bk-ink); }
+body.page-book .bk-source-cols { display: grid; grid-template-columns: 1fr; gap: 20px; }
+body.page-book .bk-source-col + .bk-source-col { border-top: 1px solid var(--bk-rule); padding-top: 18px; }
+@media (min-width: 560px) {
+  body.page-book .bk-source-cols { grid-template-columns: 1fr 1fr; gap: 24px; }
+  body.page-book .bk-source-col + .bk-source-col { border-top: 0; padding-top: 0; border-left: 1px solid var(--bk-rule); padding-left: 24px; }
+}
+body.page-book .bk-source-meta { font: 600 0.78rem/1.4 var(--bk-font-body); color: var(--bk-ink); margin: 0 0 10px; }
+body.page-book .bk-source-meta span { font-weight: 400; color: var(--bk-slate); }
+body.page-book .bk-source-orig { font-size: 1.15rem; line-height: 1.9; color: var(--bk-ink); margin: 0 0 10px; }
+body.page-book .bk-source-orig[lang="grc"] { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1.05rem; line-height: 1.6; }
+body.page-book .bk-source-en { font-family: var(--bk-font-display); font-style: italic; font-size: 1.05rem; line-height: 1.5; color: var(--bk-slate); margin: 0; }
+body.page-book .bk-source-foot { margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--bk-rule); font-size: 0.9rem; line-height: 1.6; color: var(--bk-ink); }
