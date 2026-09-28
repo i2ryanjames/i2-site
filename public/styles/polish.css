@@ -155,7 +155,11 @@
   text-transform: none; letter-spacing: 0; font-size: 1.125rem;
   min-height: 48px; width: 100%; justify-content: center;
 }
-.donate-card:hover .card-cta--primary { background: var(--color-accent-warm); }
+.donate-card:hover .card-cta--primary,
+.form-page__btn--primary:hover {
+  background: var(--color-accent-text);
+  border-color: var(--color-accent-text);
+}
 .donate-card:hover .card-cta--secondary { background: var(--color-surface); }
 
 /* -----------------------------------------------------------------------
@@ -432,3 +436,20 @@
    and out of any hover/focus flow when the mobile menu is closed. */
 .nav-home { display: none; }
 .nav-links.open .nav-home { display: block; }
+
+/* Keyboard focus, and a screen-reader note on links that leave the site. */
+:focus-visible {
+  outline: 3px solid var(--color-accent-text);
+  outline-offset: 3px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

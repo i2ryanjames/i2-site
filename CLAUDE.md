@@ -1,7 +1,8 @@
 # i2 Ministries — Static Site
 
 ## What this is
-Static HTML site for i2 Ministries. **Twelve pages**, deployed to Vercel via git push (no build step).
+Static HTML site for i2 Ministries. **Thirteen pages**, deployed to Vercel via git push (no build step).
+The production host is `https://www.i2ministries.org`. The bare domain 308s there, so canonical URLs, the sitemap, and share images use `www`.
 
 ⚠️ **Since PR #45 (2026-09-18) every served file lives under `public/`** — `public/index.html`,
 `public/styles/`, `public/js/`, `public/images/`. `vercel.json` sets `outputDirectory: public`.
@@ -11,12 +12,13 @@ Per-page inline `<script>` has been extracted to `public/js/pages/*.js`, GSAP is
 blocks third-party scripts — automated tools that inject a CDN script need `bypassCSP`.
 
 - `index.html` — Homepage (`/`)
-- `about.html` — About / Dr. Joshua Lingel (`/about`, `/joshua-lingel`)
+- `about.html` — About / Dr. Joshua Lingel (`/about`; `/joshua-lingel` permanently redirects here)
 - `mission.html` — The Mission (`/the-mission`)
 - `get-trained.html` — Get Trained (`/get-trained`)
 - `the-initiative.html` — Every Muslim for Christ Initiative (`/the-initiative`)
 - `mmwu.html` — Mission Muslim World University (`/mmwu`)
 - `wise-global.html` — WISE Global App (`/wise-global`)
+- `the-borrowed-christ.html` — The Borrowed Christ (`/the-borrowed-christ`; `/borrowed-christ` permanently redirects here)
 - `donate.html` → `donate-form.html` — GivingFuel / PayPal handoff
 - `contact.html` — secure contact form with Turnstile verification
 - `vercel.json` — URL rewrites, security headers, and image cache headers

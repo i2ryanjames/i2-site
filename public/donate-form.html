@@ -10,16 +10,19 @@
 <meta property="og:title" content="Give Now — i2 Ministries" />
 <meta property="og:description" content="Give securely to i2 Ministries. Your tax-deductible donation funds training to reach Muslims for Christ worldwide." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://i2ministries.org/donate-form" />
-<meta property="og:image" content="https://i2ministries.org/images/preview-image-og.jpg" />
+<meta property="og:url" content="https://www.i2ministries.org/donate-form" />
+<meta property="og:image" content="https://www.i2ministries.org/images/og/give.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Give securely to i2 Ministries" />
+<meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="i2 Ministries" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Give Now — i2 Ministries" />
 <meta name="twitter:description" content="Give securely via GivingFuel or PayPal. Tax-deductible 501(c)(3)." />
-<meta name="twitter:image" content="https://i2ministries.org/images/preview-image-og.jpg" />
-<link rel="canonical" href="https://i2ministries.org/donate-form" />
+<meta name="twitter:image" content="https://www.i2ministries.org/images/og/give.jpg" />
+<meta name="twitter:image:alt" content="Give securely to i2 Ministries" />
+<link rel="canonical" href="https://www.i2ministries.org/donate-form" />
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/png" />
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -148,6 +151,7 @@
     margin-top: 1px;
   }
   .nav-dropdown:hover .nav-dropdown-trigger .chevron,
+  .nav-dropdown:focus-within .nav-dropdown-trigger .chevron,
   .nav-dropdown.open .nav-dropdown-trigger .chevron {
     transform: rotate(180deg);
   }
@@ -178,7 +182,8 @@
     right: 0;
     height: 12px;
   }
-  .nav-dropdown:hover .nav-dropdown-menu {
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -256,6 +261,7 @@
       display: flex;
     }
     .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu,
     .nav-dropdown.open .nav-dropdown-menu {
       transform: none;
     }
@@ -319,8 +325,8 @@
       <a href="/about">About</a>
       <a href="/the-mission">The Mission</a>
       <div class="nav-dropdown" id="navDropdown">
-        <a href="/get-trained" class="nav-dropdown-trigger">Get Trained <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a>
-        <div class="nav-dropdown-menu">
+        <a href="/get-trained" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="navDropdownMenu">Get Trained <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
           <a href="/get-trained" class="nav-dropdown-item">
             <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
             <div class="nav-dropdown-label">Overview</div>
@@ -354,10 +360,10 @@
         </div>
       </div>
       <a href="/contact">Contact</a>
-      <a href="https://www.gommwu.org/ebook?utm_source=i2-site&amp;utm_medium=referral&amp;utm_content=donate-form-nav" class="nav-ebook" target="_blank" rel="noopener">Free Guide</a>
+      <a href="https://www.gommwu.org/ebook?utm_source=i2-site&amp;utm_medium=referral&amp;utm_content=donate-form-nav" class="nav-ebook" target="_blank" rel="noopener">Free Guide<span class="sr-only"> (opens in a new tab)</span></a>
       <a href="/donate" class="nav-cta">Donate</a>
     </div>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -416,8 +422,8 @@
 <h2>Choose a secure way to give</h2>
 <p class="form-page__helper">Select a suggested amount or enter a custom amount on the secure donation page. You can also choose a specific fund and set up recurring giving.</p>
 <div class="form-page__actions">
-<a class="form-page__btn form-page__btn--primary" href="https://i2ministries.givingfuel.com/partners" target="_blank" rel="noopener"><span>Donate with Credit Card or Check</span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h9M10 5.5 13.5 9 10 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-<a class="form-page__btn form-page__btn--secondary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=K5VSUMTKAMXP2&amp;source=url" target="_blank" rel="noopener"><span>Donate via PayPal</span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h9M10 5.5 13.5 9 10 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="form-page__btn form-page__btn--primary" href="https://i2ministries.givingfuel.com/partners" target="_blank" rel="noopener"><span>Donate with Credit Card or Check</span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h9M10 5.5 13.5 9 10 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+<a class="form-page__btn form-page__btn--secondary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=K5VSUMTKAMXP2&amp;source=url" target="_blank" rel="noopener"><span>Donate via PayPal</span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h9M10 5.5 13.5 9 10 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
 </div>
 <p class="form-page__note"><svg width="14" height="16" viewBox="0 0 14 16" fill="none" aria-hidden="true"><rect x="1.5" y="7" width="11" height="7.5" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5"/></svg><span>Secured by 256-bit encryption on a PCI-compliant network via GivingFuel</span></p>
 </div>

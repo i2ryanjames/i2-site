@@ -5,20 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Every Muslim for Christ Initiative | i2 Ministries</title>
 <meta name="description" content="The Every Muslim for Christ Initiative partners with the largest denominations in each country to launch national outreach initiatives among Muslims." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="keywords" content="Every Muslim for Christ Initiative, EMFCI, Muslim missions, church mobilization, denomination partnership, i2 Ministries, Muslim outreach, country launch" />
 <meta property="og:title" content="The Initiative — Every Muslim for Christ | i2 Ministries" />
 <meta property="og:description" content="A proven framework for mobilizing entire denominations and church networks to reach every Muslim for Christ — nation by nation, church by church." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://i2ministries.org/the-initiative" />
-<meta property="og:image" content="https://i2ministries.org/images/preview-image-og.jpg" />
+<meta property="og:url" content="https://www.i2ministries.org/the-initiative" />
+<meta property="og:image" content="https://www.i2ministries.org/images/og/initiative.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Every Muslim for Christ Initiative — i2 Ministries" />
+<meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="i2 Ministries" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="The Initiative — Every Muslim for Christ | i2 Ministries" />
 <meta name="twitter:description" content="A proven framework for mobilizing entire denominations and church networks to reach every Muslim for Christ — nation by nation, church by church." />
-<meta name="twitter:image" content="https://i2ministries.org/images/preview-image-og.jpg" />
-<link rel="canonical" href="https://i2ministries.org/the-initiative" />
+<meta name="twitter:image" content="https://www.i2ministries.org/images/og/initiative.jpg" />
+<meta name="twitter:image:alt" content="Every Muslim for Christ Initiative — i2 Ministries" />
+<link rel="canonical" href="https://www.i2ministries.org/the-initiative" />
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/png" />
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -365,6 +369,7 @@
   .nav-dropdown-trigger { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
   .nav-dropdown-trigger .chevron { transition: transform 0.3s; margin-top: 1px; }
   .nav-dropdown:hover .nav-dropdown-trigger .chevron,
+  .nav-dropdown:focus-within .nav-dropdown-trigger .chevron,
   .nav-dropdown.open .nav-dropdown-trigger .chevron { transform: rotate(180deg); }
   .nav-dropdown-menu {
     position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%);
@@ -376,7 +381,8 @@
     white-space: nowrap; z-index: 100;
   }
   .nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
-  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
   .nav-dropdown-item {
     display: flex; flex-direction: column; align-items: center; gap: 10px;
     padding: 20px 24px; border-radius: 8px; text-align: center;
@@ -475,6 +481,7 @@
     .nav-dropdown-menu::before { display: none; }
     .nav-dropdown.open .nav-dropdown-menu { display: flex; }
     .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu,
     .nav-dropdown.open .nav-dropdown-menu { transform: none; }
     .nav-dropdown-item {
       display: grid; grid-template-columns: 32px 1fr;
@@ -529,6 +536,55 @@
 <link rel="stylesheet" href="/styles/consent.css" />
 <link rel="stylesheet" href="/styles/ebook.css" />
 <link rel="stylesheet" href="/styles/guide-popup.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Every Muslim for Christ Initiative | i2 Ministries",
+  "description": "The Every Muslim for Christ Initiative partners with the largest denominations in each country to launch national outreach initiatives among Muslims.",
+  "url": "https://www.i2ministries.org/the-initiative",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "i2 Ministries",
+    "url": "https://www.i2ministries.org/"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://www.i2ministries.org/images/og/initiative.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "publisher": {
+    "@type": "NGO",
+    "name": "i2 Ministries",
+    "url": "https://www.i2ministries.org/"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.i2ministries.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Get Trained",
+        "item": "https://www.i2ministries.org/get-trained"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "The Initiative",
+        "item": "https://www.i2ministries.org/the-initiative"
+      }
+    ]
+  }
+}
+</script>
 </head>
 <body>
 <a href="#main" class="skip-to-main">Skip to main content</a>
@@ -542,8 +598,8 @@
       <a href="/about">About</a>
       <a href="/the-mission">The Mission</a>
       <div class="nav-dropdown" id="navDropdown">
-        <a href="/get-trained" class="nav-dropdown-trigger">Get Trained <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a>
-        <div class="nav-dropdown-menu">
+        <a href="/get-trained" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="navDropdownMenu">Get Trained <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
           <a href="/get-trained" class="nav-dropdown-item">
             <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
             <div class="nav-dropdown-label">Overview</div>
@@ -579,7 +635,7 @@
       <a href="/contact">Contact</a>
       <a href="/donate" class="nav-cta">Donate</a>
     </div>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -739,7 +795,7 @@
       <h2 id="ebook-strip-title">The Every Muslim for Christ <em>Starter Guide</em></h2>
       <p>The free blueprint mobilizing some of the world&rsquo;s largest denominations to reach Muslims.</p>
     </div>
-    <a href="https://www.gommwu.org/ebook?utm_source=i2-site&amp;utm_medium=referral&amp;utm_content=the-initiative-strip" target="_blank" rel="noopener" class="btn ebook-strip__button">Get the Starter Guide <span class="btn-arrow" aria-hidden="true">→</span></a>
+    <a href="https://www.gommwu.org/ebook?utm_source=i2-site&amp;utm_medium=referral&amp;utm_content=the-initiative-strip" target="_blank" rel="noopener" class="btn ebook-strip__button">Get the Starter Guide <span class="btn-arrow" aria-hidden="true">→</span><span class="sr-only"> (opens in a new tab)</span></a>
   </div>
 </section>
 
@@ -961,10 +1017,10 @@
         <div class="nav-logo"><img src="/images/i2-ministries-logo-2026.png" alt="i2 Ministries" width="600" height="184"></div>
         <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
         <div class="footer-socials">
-          <a href="https://www.facebook.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://www.instagram.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg></a>
-          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+          <a href="https://www.facebook.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" rel="noopener noreferrer" aria-label="YouTube (opens in a new tab)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg></a>
+          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" rel="noopener noreferrer" aria-label="Spotify (opens in a new tab)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
         </div>
       </div>
       <div class="footer-links">

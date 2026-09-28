@@ -15,10 +15,14 @@
   var navLinks = document.getElementById('navLinks');
   if (mobileToggle && navLinks) {
     mobileToggle.addEventListener('click', function () {
-      navLinks.classList.toggle('open');
+      var menuOpen = navLinks.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', menuOpen ? 'true' : 'false');
+      mobileToggle.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Menu');
     });
     window.addEventListener('scroll', function () {
       navLinks.classList.remove('open');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileToggle.setAttribute('aria-label', 'Menu');
     }, { passive: true });
   }
   var dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
@@ -28,6 +32,7 @@
       if (window.innerWidth <= 768) {
         e.preventDefault();
         navDropdown.classList.toggle('open');
+        dropdownTrigger.setAttribute('aria-expanded', navDropdown.classList.contains('open') ? 'true' : 'false');
       }
     });
   }

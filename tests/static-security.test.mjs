@@ -24,6 +24,33 @@ test('all public pages avoid inline executable handlers and remote passive asset
   }
 });
 
+test('every public page has a www canonical, description, and its own share image', () => {
+  const host = 'https://www.i2ministries.org';
+  const images = new Set();
+  for (const page of pages) {
+    const html = readFileSync(join(publicDir, page), 'utf8');
+    assert.match(html, new RegExp(`<link rel="canonical" href="${host}[^"]*"`), page);
+    assert.match(html, /<meta name="description" content="[^"]{50,}"/i, page);
+    assert.match(html, new RegExp(`property="og:image" content="${host}/images/[^"]+\\.(?:jpg|jpeg|png|webp)"`), page);
+    assert.match(html, /property="og:image:alt" content="[^"]+"/, page);
+    assert.match(html, /property="og:locale" content="en_US"/, page);
+    assert.match(html, /name="twitter:card" content="summary_large_image"/, page);
+    assert.match(html, /name="twitter:image:alt" content="[^"]+"/, page);
+    assert.doesNotMatch(html, /https:\/\/i2ministries\.org(?![.\w])/, page);
+    const image = html.match(/property="og:image" content="https:\/\/www\.i2ministries\.org(\/images\/[^"]+)"/);
+    assert.ok(image, page);
+    assert.ok(existsSync(join(publicDir, image[1])), `${page}: missing ${image[1]}`);
+    images.add(image[1]);
+    if (page === 'donate-form.html') assert.match(html, /noindex/, page);
+    else assert.match(html, /"@type": "WebPage"/, page);
+  }
+  assert.equal(images.size, pages.length);
+  const config = JSON.parse(readFileSync(join(root, 'vercel.json'), 'utf8'));
+  assert.ok(config.redirects.some((rule) => rule.source === '/joshua-lingel' && rule.destination === '/about' && rule.permanent));
+  assert.ok(config.redirects.some((rule) => rule.source === '/borrowed-christ' && rule.destination === '/the-borrowed-christ'));
+  assert.ok(!config.rewrites.some((rule) => rule.source === '/joshua-lingel' || rule.source === '/borrowed-christ'));
+});
+
 test('Vercel serves only the public output and configures security headers', () => {
   const config = JSON.parse(readFileSync(join(root, 'vercel.json'), 'utf8'));
   assert.equal(config.outputDirectory, 'public');

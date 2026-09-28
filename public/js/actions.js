@@ -16,4 +16,18 @@
     event.preventDefault();
     event.target.click();
   });
+
+  var navDrop = document.getElementById('navDropdown');
+  var navDropTrigger = navDrop && navDrop.querySelector('.nav-dropdown-trigger');
+  if (navDrop && navDropTrigger) {
+    var syncDrop = function () {
+      var wide = window.matchMedia('(min-width: 769px)').matches;
+      var open = navDrop.classList.contains('open') || (wide && (navDrop.matches(':hover') || navDrop.matches(':focus-within')));
+      navDropTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    navDrop.addEventListener('mouseenter', syncDrop);
+    navDrop.addEventListener('mouseleave', syncDrop);
+    navDrop.addEventListener('focusin', syncDrop);
+    navDrop.addEventListener('focusout', function () { setTimeout(syncDrop, 0); });
+  }
 })();

@@ -6,11 +6,17 @@ window.addEventListener('scroll', () => {
 
 // ─── Mobile Menu ───
 document.getElementById('mobileToggle').addEventListener('click', () => {
-  document.getElementById('navLinks').classList.toggle('open');
+  const navLinksEl = document.getElementById('navLinks');
+    const menuOpen = navLinksEl.classList.toggle('open');
+    const menuToggle = document.getElementById('mobileToggle');
+    menuToggle.setAttribute('aria-expanded', menuOpen ? 'true' : 'false');
+    menuToggle.setAttribute('aria-label', menuOpen ? 'Close menu' : 'Menu');
 });
 // ─── Close Mobile Menu on Scroll ───
 window.addEventListener('scroll', () => {
   document.getElementById('navLinks').classList.remove('open');
+    const menuToggleClosed = document.getElementById('mobileToggle');
+    if (menuToggleClosed) { menuToggleClosed.setAttribute('aria-expanded', 'false'); menuToggleClosed.setAttribute('aria-label', 'Menu'); }
 }, { passive: true });
   // ─── Mobile Dropdown Toggle ───
   const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
@@ -20,6 +26,7 @@ window.addEventListener('scroll', () => {
       if (window.innerWidth <= 768) {
         e.preventDefault();
         navDropdown.classList.toggle('open');
+        dropdownTrigger.setAttribute('aria-expanded', navDropdown.classList.contains('open') ? 'true' : 'false');
       }
     });
   }

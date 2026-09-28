@@ -5,19 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mission Muslim World University | i2 Ministries</title>
 <meta name="description" content="Mission Muslim World University offers graduate-level, video-based training in Islam and Muslim outreach from 40+ world-class professors. Enroll free." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
 <meta property="og:title" content="Mission Muslim World University — i2 Ministries" />
 <meta property="og:description" content="Graduate-level, video-based training in Islam and Muslim outreach, taught by 40+ world-class professors. Free to the global church." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://i2ministries.org/mmwu" />
-<meta property="og:image" content="https://i2ministries.org/images/preview-image-og.jpg" />
+<meta property="og:url" content="https://www.i2ministries.org/mmwu" />
+<meta property="og:image" content="https://www.i2ministries.org/images/og/mmwu.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Mission Muslim World University — i2 Ministries" />
+<meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="i2 Ministries" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Mission Muslim World University — i2 Ministries" />
 <meta name="twitter:description" content="Graduate-level, video-based training in Islam and Muslim outreach, taught by 40+ world-class professors. Free to the global church." />
-<meta name="twitter:image" content="https://i2ministries.org/images/preview-image-og.jpg" />
-<link rel="canonical" href="https://i2ministries.org/mmwu" />
+<meta name="twitter:image" content="https://www.i2ministries.org/images/og/mmwu.jpg" />
+<meta name="twitter:image:alt" content="Mission Muslim World University — i2 Ministries" />
+<link rel="canonical" href="https://www.i2ministries.org/mmwu" />
 <link rel="icon" type="image/png" href="/images/favicon.png" />
 <link rel="stylesheet" href="/styles/fonts.css" />
 <style>
@@ -688,6 +692,7 @@
     margin-top: 1px;
   }
   .nav-dropdown:hover .nav-dropdown-trigger .chevron,
+  .nav-dropdown:focus-within .nav-dropdown-trigger .chevron,
   .nav-dropdown.open .nav-dropdown-trigger .chevron {
     transform: rotate(180deg);
   }
@@ -718,7 +723,8 @@
     right: 0;
     height: 12px;
   }
-  .nav-dropdown:hover .nav-dropdown-menu {
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -802,6 +808,7 @@
       display: flex;
     }
     .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu,
     .nav-dropdown.open .nav-dropdown-menu {
       transform: none;
     }
@@ -877,6 +884,55 @@
 <link rel="stylesheet" href="/styles/consent.css" />
 <link rel="stylesheet" href="/styles/ebook.css" />
 <link rel="stylesheet" href="/styles/guide-popup.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Mission Muslim World University | i2 Ministries",
+  "description": "Mission Muslim World University offers graduate-level, video-based training in Islam and Muslim outreach from 40+ world-class professors. Enroll free.",
+  "url": "https://www.i2ministries.org/mmwu",
+  "inLanguage": "en-US",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "i2 Ministries",
+    "url": "https://www.i2ministries.org/"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://www.i2ministries.org/images/og/mmwu.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "publisher": {
+    "@type": "NGO",
+    "name": "i2 Ministries",
+    "url": "https://www.i2ministries.org/"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.i2ministries.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Get Trained",
+        "item": "https://www.i2ministries.org/get-trained"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "MMWU",
+        "item": "https://www.i2ministries.org/mmwu"
+      }
+    ]
+  }
+}
+</script>
 </head>
 <body>
 <a href="#main" class="skip-to-main">Skip to main content</a>
@@ -890,8 +946,8 @@
       <a href="/about">About</a>
       <a href="/the-mission">The Mission</a>
       <div class="nav-dropdown" id="navDropdown">
-        <a href="/get-trained" class="nav-dropdown-trigger">Get Trained <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a>
-        <div class="nav-dropdown-menu">
+        <a href="/get-trained" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="navDropdownMenu">Get Trained <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
           <a href="/get-trained" class="nav-dropdown-item">
             <div class="nav-dropdown-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
             <div class="nav-dropdown-label">Overview</div>
@@ -927,7 +983,7 @@
       <a href="/contact">Contact</a>
       <a href="/donate" class="nav-cta">Donate</a>
     </div>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -952,7 +1008,7 @@
         <p>Mission Muslim World University equips the global church with graduate-level, video-based training from 40+ world-class professors — offering a pathway to a fully accredited Master's degree in Ministry with an Islamic Studies concentration.</p>
         <div class="hero-actions">
           <a href="/donate" class="btn btn-primary">Give a Scholarship <span class="btn-arrow">→</span></a>
-          <a href="https://www.gommwu.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Enroll at MMWU</a>
+          <a href="https://www.gommwu.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Enroll at MMWU<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
       </div>
     </div>
@@ -1115,7 +1171,7 @@
       <h2 id="ebook-strip-title">The Every Muslim for Christ <em>Starter Guide</em></h2>
       <p>The free blueprint mobilizing some of the world&rsquo;s largest denominations to reach Muslims.</p>
     </div>
-    <a href="https://www.gommwu.org/ebook?utm_source=i2-site&amp;utm_medium=referral&amp;utm_content=mmwu-strip" target="_blank" rel="noopener" class="btn ebook-strip__button">Get the Starter Guide <span class="btn-arrow" aria-hidden="true">→</span></a>
+    <a href="https://www.gommwu.org/ebook?utm_source=i2-site&amp;utm_medium=referral&amp;utm_content=mmwu-strip" target="_blank" rel="noopener" class="btn ebook-strip__button">Get the Starter Guide <span class="btn-arrow" aria-hidden="true">→</span><span class="sr-only"> (opens in a new tab)</span></a>
   </div>
 </section>
 
@@ -1281,7 +1337,7 @@
       <p>Every scholarship you fund trains a national leader who will multiply the gospel across their country. Join the donors who are making MMWU's vision of 1,000 scholarships per country a reality.</p>
       <div class="cta-actions">
         <a href="/donate" class="btn btn-primary">Fund a Scholarship <span class="btn-arrow">→</span></a>
-        <a href="https://www.gommwu.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Enroll at MMWU</a>
+        <a href="https://www.gommwu.org" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Enroll at MMWU<span class="sr-only"> (opens in a new tab)</span></a>
         <a href="/contact" class="btn btn-outline">Contact Us</a>
       </div>
     </div>
@@ -1299,16 +1355,16 @@
         <div class="nav-logo"><img src="/images/i2-ministries-logo-2026.png" alt="i2 Ministries" width="600" height="184"></div>
         <p>Training leaders to finish the Great Commission among Muslims. A registered 501(c)(3) non-profit corporation.</p>
         <div class="footer-socials">
-          <a href="https://www.facebook.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <a href="https://www.facebook.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in a new tab)">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
-          <a href="https://www.instagram.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/thewadi.english/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <a href="https://www.youtube.com/channel/UCbbj3cbbyEzp29Z82YmNMVg" target="_blank" rel="noopener noreferrer" aria-label="YouTube (opens in a new tab)">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"/></svg>
           </a>
-          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+          <a href="https://open.spotify.com/show/1cKyztEclIgfqaqivtaVyl" target="_blank" rel="noopener noreferrer" aria-label="Spotify (opens in a new tab)">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
           </a>
         </div>
@@ -1325,13 +1381,13 @@
           <h3>Training</h3>
           <a href="/the-initiative">The Initiative</a>
           <a href="/mmwu">MMWU</a>
-          <a href="https://thewadi.org" target="_blank" rel="noopener noreferrer">WADI</a>
-          <a href="https://resources.i2ministries.org" target="_blank" rel="noopener noreferrer">Resources</a>
+          <a href="https://thewadi.org" target="_blank" rel="noopener noreferrer">WADI<span class="sr-only"> (opens in a new tab)</span></a>
+          <a href="https://resources.i2ministries.org" target="_blank" rel="noopener noreferrer">Resources<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
         <div class="footer-col">
           <h3>Tools</h3>
           <a href="/wise-global">WISE Global App</a>
-          <a href="https://www.gommwu.org/ebook?utm_source=i2-site&amp;utm_medium=referral&amp;utm_content=mmwu-footer" target="_blank" rel="noopener noreferrer">Free Starter Guide</a>
+          <a href="https://www.gommwu.org/ebook?utm_source=i2-site&amp;utm_medium=referral&amp;utm_content=mmwu-footer" target="_blank" rel="noopener noreferrer">Free Starter Guide<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
       </div>
     </div>
