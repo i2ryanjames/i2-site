@@ -47,10 +47,45 @@ test('every complete audience path produces a reachable, existing main-site dest
   assert.equal(reached.size, Object.keys(data.results).length);
   for (const result of Object.values(data.results)) {
     for (const action of [result.primary, result.secondary]) {
+      if (action.external) {
+        assert.equal(action.url, 'https://www.gommwu.org');
+        continue;
+      }
+      assert.equal(action.external, undefined);
       assert.match(action.url, /^\/(?!\/)/);
       assert.ok(known.has(new URL(action.url, 'https://www.i2ministries.org').pathname));
     }
   }
+});
+
+test('an MMWU qualification opens gommwu.org in a new window', () => {
+  const qualified = [
+    { goal: 'learner', 'learner-format': 'degree', 'learner-next': 'browse' },
+    { goal: 'learner', 'learner-format': 'advanced', 'learner-next': 'browse' },
+    { goal: 'church', 'church-goal': 'trainers', 'church-next': 'recommend' },
+    { goal: 'network', 'network-support': 'trainers', 'network-next': 'training' },
+    { goal: 'network', 'network-support': 'trainers', 'network-next': 'recommend' },
+  ];
+  for (const answers of qualified) {
+    const result = data.results[data.recommend(answers)];
+    assert.equal(data.recommend(answers), 'result-mmwu');
+    assert.equal(result.primary.url, 'https://www.gommwu.org');
+    assert.equal(result.primary.external, true);
+    assert.equal(result.secondary.url, '/contact?topic=mmwu#contact-form');
+  }
+  const stays = [
+    [{ goal: 'learner', 'learner-format': 'degree', 'learner-next': 'talk' }, '/contact?topic=mmwu#contact-form'],
+    [{ goal: 'learner', 'learner-format': 'free', 'learner-next': 'browse' }, '/get-trained'],
+    [{ goal: 'donor', 'donor-help': 'program', 'donor-interest': 'scholarships' }, '/mmwu'],
+  ];
+  for (const [answers, destination] of stays) {
+    const result = data.results[data.recommend(answers)];
+    assert.equal(result.primary.url, destination);
+    assert.equal(result.primary.external, undefined);
+  }
+  const js = readFileSync(new URL('public/js/pathfinder.js', root), 'utf8');
+  assert.match(js, /node\.target = '_blank'/);
+  assert.match(js, /window\.open\(result\.primary\.url, '_blank'\)/);
 });
 
 test('only the homepage loads the quiz and its ebook invitation is inline between the pillars and endorsements sections', () => {

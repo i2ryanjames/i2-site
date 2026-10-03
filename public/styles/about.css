@@ -163,6 +163,54 @@
   line-height: 1.75;
   max-width: 62ch;
 }
+.bio-credentials .edu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 68ch;
+}
+.bio-credentials .edu-school {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.2rem + 0.4vw, 1.55rem);
+  line-height: 1.25;
+  color: var(--color-text);
+  margin: 0 0 6px;
+}
+.bio-credentials .edu-credential {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin: 0;
+}
+.bio-credentials .edu-focus,
+.bio-credentials .edu-focus-label {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 10px 0 0;
+}
+.bio-credentials .edu-focus-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+.bio-credentials .edu-topics {
+  list-style: disc;
+  margin: 8px 0 0;
+  padding: 0 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bio-credentials .edu-topics li {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  padding-left: 0.25rem;
+}
 
 .bio-whatsapp {
   margin-top: 24px;

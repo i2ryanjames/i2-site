@@ -51,9 +51,13 @@
   }
   function link(info, primary) {
     var node = element('a', primary ? 'btn btn-primary i2-quiz__primary' : 'i2-quiz__secondary', info.label);
-    // Only reviewed, same-site destinations are present in the static data.
     node.href = info.url;
     node.setAttribute('data-quiz-destination', '');
+    if (info.external) {
+      node.target = '_blank';
+      node.rel = 'noopener noreferrer';
+      node.appendChild(element('span', 'sr-only', ' (opens in a new tab)'));
+    }
     if (primary) {
       var arrow = element('span', 'btn-arrow', '→');
       arrow.setAttribute('aria-hidden', 'true');
@@ -191,7 +195,16 @@
   }
   function go(id) { history.push(current); current = id; render(true); }
   function showResult() {
-    remember(); currentResult = data.recommend(answers); go(currentResult);
+    remember();
+    currentResult = data.recommend(answers);
+    var result = data.results[currentResult];
+    // Same click that asks for the recommendation. A qualifying MMWU result
+    // leaves for gommwu.org immediately; the button remains if the browser blocks it.
+    if (result && result.primary && result.primary.external) {
+      var opened = window.open(result.primary.url, '_blank');
+      if (opened) opened.opener = null;
+    }
+    go(currentResult);
   }
   function advance(skipDetail) {
     if (current === 'welcome') { go('goal'); return; }

@@ -551,10 +551,11 @@
     },
     "result-mmwu": {
       "title": "Study Christian missions, Islam, and apologetics.",
-      "description": "Mission Muslim World University prepares pastors, teachers, and missionaries through sustained study of Christian missions to Muslims and Islamic studies. Read about the curriculum, training of trainers, and master’s degree pathway.",
+      "description": "Mission Muslim World University prepares pastors, teachers, and missionaries through sustained study of Christian missions to Muslims and Islamic studies. Continue to MMWU for the curriculum, training of trainers, and enrollment. It opens in a new window.",
       "primary": {
-        "label": "View MMWU’s curriculum",
-        "url": "/mmwu"
+        "label": "Continue to MMWU",
+        "url": "https://www.gommwu.org",
+        "external": true
       },
       "secondary": {
         "label": "Ask about MMWU enrollment",
