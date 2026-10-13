@@ -39,6 +39,16 @@
   justify-content: center;
 }
 
+.book-promo-cover {
+  display: block;
+  border-radius: 4px;
+}
+
+.book-promo-cover:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+}
+
 .book-promo-media img {
   width: 100%;
   max-width: 240px;
