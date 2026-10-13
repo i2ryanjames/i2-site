@@ -453,3 +453,8 @@
   white-space: nowrap;
   border: 0;
 }
+
+/* /joshua-lingel redirects to /about#joshuablingel — clear the fixed nav so the photo is in view. */
+#joshuablingel {
+  scroll-margin-top: 100px;
+}

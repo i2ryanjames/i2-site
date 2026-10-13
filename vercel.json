@@ -15,8 +15,8 @@
     { "source": "/the-borrowed-christ", "destination": "/the-borrowed-christ.html" }
   ],
   "redirects": [
-    { "source": "/joshua-lingel", "destination": "/about", "permanent": true },
-    { "source": "/joshua-lingel/", "destination": "/about", "permanent": true },
+    { "source": "/joshua-lingel", "destination": "/about#joshuablingel", "permanent": true },
+    { "source": "/joshua-lingel/", "destination": "/about#joshuablingel", "permanent": true },
     { "source": "/borrowed-christ", "destination": "/the-borrowed-christ", "permanent": true }
   ],
   "headers": [
