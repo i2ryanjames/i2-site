@@ -46,7 +46,10 @@ test('every public page has a www canonical, description, and its own share imag
   }
   assert.equal(images.size, pages.length);
   const config = JSON.parse(readFileSync(join(root, 'vercel.json'), 'utf8'));
-  assert.ok(config.redirects.some((rule) => rule.source === '/joshua-lingel' && rule.destination === '/about' && rule.permanent));
+  for (const source of ['/joshua-lingel', '/joshua-lingel/']) {
+    assert.ok(config.redirects.some((rule) => rule.source === source && rule.destination === '/about#joshuablingel' && rule.permanent), source);
+  }
+  assert.match(readFileSync(new URL('../public/about.html', import.meta.url), 'utf8'), /<div class="bio-photo" id="joshuablingel">/);
   assert.ok(config.redirects.some((rule) => rule.source === '/borrowed-christ' && rule.destination === '/the-borrowed-christ'));
   assert.ok(!config.rewrites.some((rule) => rule.source === '/joshua-lingel' || rule.source === '/borrowed-christ'));
 });
